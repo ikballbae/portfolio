@@ -94,12 +94,15 @@ export default function CommentSection({ slug }: { slug: string }) {
             </div>
 
             {/* Comment Form */}
-            <div className="lab-card rounded-xl p-5 sm:p-6 mb-10 border border-text/5">
-                <form ref={formRef} action={formAction} className="flex flex-col gap-4">
+            <div className="lab-card rounded-2xl p-6 sm:p-8 mb-12 border border-text/5 relative overflow-hidden group">
+                {/* Subtle background glow effect on focus within form */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-focus-within:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                
+                <form ref={formRef} action={formAction} className="flex flex-col gap-5 relative z-10">
                     <input type="hidden" name="article_slug" value={slug} />
                     
-                    <div className="flex flex-col gap-1.5">
-                        <label htmlFor="author_name" className="text-sm font-mono text-text-muted">Nama Anda <span className="text-accent">*</span></label>
+                    <div className="flex flex-col gap-2">
+                        <label htmlFor="author_name" className="text-xs sm:text-sm font-mono text-text-muted uppercase tracking-wider">Nama Anda <span className="text-accent">*</span></label>
                         <input
                             type="text"
                             id="author_name"
@@ -108,21 +111,21 @@ export default function CommentSection({ slug }: { slug: string }) {
                             minLength={2}
                             maxLength={50}
                             placeholder="John Doe"
-                            className="bg-bg/50 border border-text/10 rounded-lg px-4 py-2.5 text-sm sm:text-base text-text focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all"
+                            className="w-full bg-surface-light hover:bg-surface border border-text/10 rounded-xl px-4 py-3 text-sm sm:text-base text-text placeholder:text-text-muted/60 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all duration-300"
                         />
                     </div>
 
-                    <div className="flex flex-col gap-1.5">
-                        <label htmlFor="content" className="text-sm font-mono text-text-muted">Komentar <span className="text-accent">*</span></label>
+                    <div className="flex flex-col gap-2">
+                        <label htmlFor="content" className="text-xs sm:text-sm font-mono text-text-muted uppercase tracking-wider">Komentar <span className="text-accent">*</span></label>
                         <textarea
                             id="content"
                             name="content"
                             required
                             minLength={5}
                             maxLength={1000}
-                            rows={3}
-                            placeholder="Bagikan pendapat Anda tentang artikel ini..."
-                            className="bg-bg/50 border border-text/10 rounded-lg px-4 py-3 text-sm sm:text-base text-text focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all resize-y"
+                            rows={4}
+                            placeholder="Bagikan pendapat atau pertanyaan Anda..."
+                            className="w-full bg-surface-light hover:bg-surface border border-text/10 rounded-xl px-4 py-3 text-sm sm:text-base text-text placeholder:text-text-muted/60 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all duration-300 resize-y"
                         />
                     </div>
 
@@ -138,17 +141,20 @@ export default function CommentSection({ slug }: { slug: string }) {
                         </div>
                     )}
 
-                    <div className="flex justify-end mt-2">
+                    <div className="flex justify-end mt-4">
                         <button
                             type="submit"
                             disabled={isPending}
-                            className="px-6 py-2.5 bg-text text-bg hover:bg-accent font-grotesk font-semibold text-sm rounded-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                            className="px-8 py-3 bg-text text-bg hover:bg-accent hover:text-bg font-grotesk font-bold text-sm rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transform active:scale-95"
                         >
                             {isPending ? 'Mengirim...' : 'Kirim Komentar'}
                         </button>
                     </div>
-                    <p className="text-[10px] text-text-muted/50 mt-1 text-center font-mono">
-                        * Komentar akan dimoderasi secara otomatis. Dilarang spam atau bahasa kasar.
+                    <p className="text-[10px] text-text-muted/40 mt-3 text-center font-mono flex items-center justify-center gap-1.5">
+                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        Otomatis dimoderasi oleh sistem. Dilarang spam atau bahasa kasar.
                     </p>
                 </form>
             </div>

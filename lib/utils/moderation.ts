@@ -29,11 +29,44 @@ const BLOCK_PATTERNS = [
   /(\+62|62|08)[0-9]{8,12}/i,
 ];
 
-const TOXIC_WORDS = [
-  'anjing', 'babi', 'monyet', 'bangsat', 'kontol', 'memek', 'ngentot', 
-  'tolol', 'bego', 'goblok', 'idiot', 'bajingan', 'kampret', 'asu',
-  'jancok', 'pantek', 'lonte', 'pelacur', 'perek', 'jablay'
+export const TOXIC_WORDS = [
+  // Indonesian - Makian Hewan & Umum
+  'anjing', 'babi', 'monyet', 'bangsat', 'bajingan', 'kampret', 'asu',
+  'jancok', 'dancok', 'pantek', 'brengsek', 'keparat', 'taik', 'tai',
+  
+  // Indonesian - Umpatan Seksual & Kasar
+  'kontol', 'memek', 'ngentot', 'jembut', 'peler', 'pepek', 'pukimak',
+  'lonte', 'pelacur', 'perek', 'jablay', 'binal',
+  
+  // Indonesian - Hinaan Intelektual
+  'tolol', 'bego', 'goblok', 'idiot', 'dungu', 'sinting', 'sarap',
+
+  // English - General Profanity
+  'fuck', 'fck', 'fcking', 'motherfucker', 'shit', 'bullshit', 'crap',
+  'bitch', 'asshole', 'bastard', 'douchebag', 'jackass', 'wanker',
+  
+  // English - Sexual & Anatomical Insults
+  'cunt', 'dick', 'pussy', 'cock', 'twat', 'prick', 'slut', 'whore',
+  
+  // English - Intellectual Insults
+  'dumbass', 'moron', 'idiot', 'stupid', 'dipshit'
 ];
+
+// Opsional: Fungsi bantuan untuk mengecek teks
+export function containsToxicWords(text: string): boolean {
+  if (!text) return false;
+  
+  // Ubah teks ke lowercase untuk pengecekan yang lebih akurat
+  const normalizedText = text.toLowerCase();
+  
+  // Cek apakah ada kata toxic yang muncul di dalam teks
+  return TOXIC_WORDS.some(word => {
+    // Menggunakan regex word boundary (\b) agar tidak salah deteksi kata yang mirip
+    // Contoh: mencegah "analisis" terdeteksi hanya karena mengandung kata tertentu
+    const regex = new RegExp(`\\b${word}\\b`, 'i');
+    return regex.test(normalizedText);
+  });
+}
 
 export type ModerationResult = {
   status: 'approved' | 'pending' | 'rejected';

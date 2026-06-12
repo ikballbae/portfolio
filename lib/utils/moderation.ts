@@ -34,12 +34,29 @@ export const TOXIC_WORDS = [
   'anjing', 'babi', 'monyet', 'bangsat', 'bajingan', 'kampret', 'asu',
   'jancok', 'dancok', 'pantek', 'brengsek', 'keparat', 'taik', 'tai',
   
-  // Indonesian - Umpatan Seksual & Kasar
+  // Indonesian - Umpatan Seksual, Kasar & Konteks X (Twitter)
   'kontol', 'memek', 'ngentot', 'jembut', 'peler', 'pepek', 'pukimak',
-  'lonte', 'pelacur', 'perek', 'jablay', 'binal',
+  'lonte', 'pelacur', 'perek', 'jablay', 'binal', 'open bo', 'smean',
   
-  // Indonesian - Hinaan Intelektual
-  'tolol', 'bego', 'goblok', 'idiot', 'dungu', 'sinting', 'sarap',
+  // Indonesian - Hinaan Intelektual, Fisik & Mental
+  'tolol', 'bego', 'goblok', 'idiot', 'dungu', 'sinting', 'sarap', 
+  'autis', 'skizo', 'cacat', 'bisu', 'budek', 'pincang', 'tidak berguna', 
+
+  // Kata Sifat Negatif / Nyinyir
+  'males', 'kasihan', 'nyolot', 'jelek', 'terpaksa', 
+
+  // Filter Sentimen AI, Politik & Tokoh
+  'ai', 'vibe coding', 'bias', 'jokowi', 'prabowo', 'mbg', 'fufufafa', 
+  'mulyono', 'anis', 'ganjar', 'cebong', 'kadrun', 'buzzerp',
+
+  // Internet Slang, Toxic X/Sosmed & Cyberbullying (Trending)
+  'sdm rendah', 'ndasmu', 'bocil epep', 'bocil kematian', 'anak dajjal',
+  'jamet', 'ngabers', 'cringe', 'pick me', 'caper', 'pansos', 'menyala abangkuh',
+  
+  // Tech & Coding Memes / Ejekan Programmer
+  'script kiddie', 'programmer indosiar', 'kuli ketik', 'spaghetti code',
+  'copas', 'hasil chatgpt', 'kodingan ai', 'skill issue', 'rtfm', 'noob',
+  'error 404 otak not found', 'inspect element', 'sipaling koding',
 
   // English - General Profanity
   'fuck', 'fck', 'fcking', 'motherfucker', 'shit', 'bullshit', 'crap',
@@ -49,7 +66,7 @@ export const TOXIC_WORDS = [
   'cunt', 'dick', 'pussy', 'cock', 'twat', 'prick', 'slut', 'whore',
   
   // English - Intellectual Insults
-  'dumbass', 'moron', 'idiot', 'stupid', 'dipshit'
+  'dumbass', 'moron', 'stupid', 'dipshit', 'retard'
 ];
 
 // Opsional: Fungsi bantuan untuk mengecek teks

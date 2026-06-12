@@ -22,7 +22,7 @@ export async function submitComment(prevState: any, formData: FormData) {
         const validated = CommentSchema.safeParse(rawData)
         if (!validated.success) {
             return {
-                error: validated.error.errors[0].message,
+                error: validated.error.issues[0].message,
                 success: false
             }
         }

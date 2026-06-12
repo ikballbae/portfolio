@@ -26,7 +26,7 @@ export default function BlogPostPage() {
         return (
             <>
                 <Navbar />
-                <main className="relative min-h-screen pt-24 sm:pt-28 md:pt-32 flex items-center justify-center">
+                <main className="relative min-h-screen pt-24 sm:pt-28 md:pt-32 flex items-center justify-center overflow-x-hidden w-full">
                     <div className="text-center">
                         <span className="font-mono text-accent text-6xl block mb-4">404</span>
                         <p className="text-text-muted font-mono text-sm mb-6">post_not_found</p>
@@ -42,7 +42,7 @@ export default function BlogPostPage() {
     return (
         <>
             <Navbar />
-            <main className="relative min-h-screen pt-24 sm:pt-28 md:pt-32">
+            <main className="relative min-h-screen pt-24 sm:pt-28 md:pt-32 overflow-x-hidden w-full">
                 <article className="max-w-3xl mx-auto px-4 sm:px-6 md:px-12 pb-16 sm:pb-20">
                     {/* Back link */}
                     <Link

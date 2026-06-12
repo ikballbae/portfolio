@@ -102,7 +102,7 @@ export default function BlogListPage() {
     return (
         <>
             <Navbar />
-            <main className="relative min-h-screen pt-24 sm:pt-28 md:pt-32">
+            <main className="relative min-h-screen pt-24 sm:pt-28 md:pt-32 overflow-x-hidden w-full">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 pb-16 sm:pb-20">
                     {/* Back link */}
                     <Link

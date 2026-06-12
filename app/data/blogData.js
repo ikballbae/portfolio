@@ -9,7 +9,7 @@ export const blogPosts = [
         readTime: '6 menit baca',
         tags: ['Leadership', 'Community', 'Tech Education', 'Widya Pratama'],
         category: 'LEADERSHIP',
-        reactions: { '🔥': 24, '💡': 18, '🚀': 31, '👏': 12 },
+        reactions: { '🔥': 0, '💡': 0, '🚀': 0, '👏': 0 },
         content: `
         <p>Saat pertama kali bergabung dengan UKM Pengembangan Komputer (UKM PK), saya hanyalah seorang mahasiswa yang penasaran dengan dunia teknologi. Kini, sebuah kehormatan besar bagi saya telah resmi dilantik sebagai <strong>Ketua Umum</strong> untuk periode 2025/2026—memimpin komunitas ini untuk menjadi wadah bagi talenta teknologi masa depan.</p>
 
@@ -53,7 +53,7 @@ export const blogPosts = [
         readTime: '4 menit baca',
         tags: ['Content Planning', 'Social Media', 'Jinmoo Indonesia', 'Digital Marketing'],
         category: 'EXPERIENCE',
-        reactions: { '📱': 32, '💡': 25, '🚀': 18, '❤️': 22 },
+        reactions: { '🔥': 0, '💡': 0, '🚀': 0, '👏': 0 },
         content: `
         <p>Bagi banyak orang, media sosial mungkin hanya sekadar tempat berbagi foto. Namun, di <strong>Jinmoo Indonesia</strong>, saya melihatnya sebagai kanvas strategis. Peran saya sebagai <strong>Content Planner</strong> dan pengelola media sosial adalah memastikan setiap unggahan memiliki tujuan, makna, dan dampak bagi audiens.</p>
 
@@ -86,7 +86,7 @@ export const blogPosts = [
         readTime: '5 menit baca',
         tags: ['DevFest', 'GDG Semarang', 'Google Developers', 'AI', 'Networking'],
         category: 'EXPERIENCE',
-        reactions: { '🚀': 45, '🧠': 30, '✨': 22, '👏': 18 },
+        reactions: { '🔥': 0, '💡': 0, '🚀': 0, '👏': 0 },
         content: `
         <p>Menghadiri <strong>DevFest 2025 Semarang</strong> yang diselenggarakan oleh Google Developer Groups (GDG) di BINUS University adalah pengalaman yang sangat berkesan bagi saya sebagai seorang pengembang. Event ini bukan sekadar seminar, melainkan festival teknologi di mana para pengembang berkumpul untuk bertukar ide dan mempelajari tren terbaru.</p>
 
@@ -120,7 +120,7 @@ export const blogPosts = [
         readTime: '4 menit baca',
         tags: ['Graphic Design', 'Poster', 'Creative', 'Institut Widya Pratama'],
         category: 'CREATIVE',
-        reactions: { '🎨': 36, '✨': 22, '💡': 14, '❤️': 28 },
+        reactions: { '🔥': 0, '💡': 0, '🚀': 0, '👏': 0 },
         content: `
         <p>Banyak yang mengira dunia koding dan desain adalah dua kutub yang berbeda. Namun, bagi saya, keduanya adalah satu kesatuan yang saling melengkapi. Kepercayaan ini terbukti saat saya berhasil meraih <strong>Juara 1 dalam Kompetisi Desain Grafis</strong> di <strong>Institut Widya Pratama 2024</strong>.</p>
 
@@ -158,7 +158,7 @@ export const blogPosts = [
         readTime: '12 min read',
         tags: ['LKS Provinsi', 'Laravel 11', 'React 18', 'Game Dev', 'Offline Coding'],
         category: 'ACHIEVEMENT',
-        reactions: { '🏆': 64, '🔥': 42, '🧠': 38, '🛡️': 20 },
+        reactions: { '🔥': 0, '💡': 0, '🚀': 0, '👏': 0 },
         content: `
         <p>Bertanding di LKS tingkat Provinsi Jawa Tengah adalah ujian ketahanan mental. Dengan aturan <strong>zero internet access</strong>, setiap solusi yang saya bangun harus murni berasal dari pemahaman fundamental dan logika mandiri tanpa bantuan Google atau Stack Overflow.</p>
 
@@ -209,7 +209,7 @@ export const blogPosts = [
         date: '2024-03-02',
         tags: ['LKS', 'Laravel', 'Point of Sales', 'Offline Development'],
         category: 'ACHIEVEMENT',
-        reactions: { '🏆': 42, '💻': 30, '🔥': 25, '🛡️': 15 },
+        reactions: { '🔥': 0, '💡': 0, '🚀': 0, '👏': 0 },
         content: `
         <p>Memenangkan <strong>Juara 1 LKS Web Technology tingkat Kota Pekalongan</strong> adalah pembuktian kemampuan teknis yang sesungguhnya. Tantangan utamanya bukan hanya soal koding, tapi menyelesaikan modul dalam kondisi <strong>total offline</strong>.</p>
 

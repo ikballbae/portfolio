@@ -1,13 +1,15 @@
 'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { useParams } from 'next/navigation'
 import Navbar from '../../components/Navbar'
 import ReactionBar from '../../components/ReactionBar'
 import ShareMenu from '../../components/ShareMenu'
+import ArticleMetrics from '../../components/ArticleMetrics'
 import { getBlogPost, formatDate } from '../../data/blogData'
 
-const categoryStyles = {
+const categoryStyles: Record<string, { color: string, bg: string, border: string, icon: string }> = {
     LEADERSHIP: { color: 'text-purple-400', bg: 'bg-purple-400/5', border: 'border-purple-400/20', icon: '👑' },
     ACHIEVEMENT: { color: 'text-amber-400', bg: 'bg-amber-400/5', border: 'border-amber-400/20', icon: '🏆' },
     CREATIVE: { color: 'text-pink-400', bg: 'bg-pink-400/5', border: 'border-pink-400/20', icon: '🎨' },
@@ -17,7 +19,8 @@ const categoryStyles = {
 
 export default function BlogPostPage() {
     const params = useParams()
-    const post = getBlogPost(params.slug)
+    const slug = typeof params.slug === 'string' ? params.slug : (Array.isArray(params.slug) ? params.slug[0] : '')
+    const post = getBlogPost(slug)
 
     if (!post) {
         return (
@@ -59,21 +62,20 @@ export default function BlogPostPage() {
                             <span className={`text-[8px] sm:text-[9px] font-mono tracking-wider px-2 py-0.5 rounded-sm border ${style.color} ${style.bg} ${style.border}`}>
                                 {post.category}
                             </span>
-                            <span className="text-[9px] sm:text-[10px] font-mono text-text-muted/50">
-                                {post.readTime}
-                            </span>
                         </div>
 
                         <h1 className="font-syne font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight mb-5 sm:mb-6">
                             {post.title}
                         </h1>
 
+                        <ArticleMetrics slug={post.slug} readTime={post.readTime || ''} />
+
                         <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-5">
                             <span className="text-xs sm:text-sm font-mono text-text-muted/60">
                                 {formatDate(post.date)}
                             </span>
                             <div className="flex flex-wrap gap-1.5">
-                                {post.tags.map((tag) => (
+                                {post.tags.map((tag: string) => (
                                     <span key={tag} className="text-[9px] sm:text-[10px] font-mono text-accent/50 border border-accent/10 px-2.5 py-1 rounded-md bg-accent/[0.02]">
                                         #{tag}
                                     </span>
@@ -126,7 +128,7 @@ export default function BlogPostPage() {
                     {/* Reactions + Share section */}
                     <div className="mt-10 sm:mt-14 lab-card rounded-xl p-4 sm:p-6">
                         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5">
-                            <ReactionBar slug={post.slug} initialReactions={post.reactions} size="lg" />
+                            <ReactionBar slug={post.slug} initialReactions={post.reactions as Record<string, number>} size="lg" />
                             <ShareMenu slug={post.slug} title={post.title} />
                         </div>
                     </div>

@@ -51,7 +51,7 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       className={`${grotesk.variable} ${jakarta.variable} ${inter.variable} ${mono.variable}`}
     >
-      <body className="font-inter bg-bg text-text antialiased noise-overlay">
+      <body className="font-inter bg-bg text-text antialiased noise-overlay overflow-x-hidden">
         <ThemeProvider>
           <AnimatedBackground />
           <CustomCursor />

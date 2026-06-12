@@ -7,6 +7,7 @@ import Navbar from '../../components/Navbar'
 import ReactionBar from '../../components/ReactionBar'
 import ShareMenu from '../../components/ShareMenu'
 import ArticleMetrics from '../../components/ArticleMetrics'
+import CommentSection from '../../components/CommentSection'
 import { getBlogPost, formatDate } from '../../data/blogData'
 
 const categoryStyles: Record<string, { color: string, bg: string, border: string, icon: string }> = {
@@ -132,6 +133,9 @@ export default function BlogPostPage() {
                             <ShareMenu slug={post.slug} title={post.title} />
                         </div>
                     </div>
+
+                    {/* Comments section */}
+                    <CommentSection slug={post.slug} />
 
                     {/* Post footer */}
                     <footer className="mt-8 sm:mt-10 pt-6 border-t border-accent/10">

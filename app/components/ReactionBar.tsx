@@ -40,44 +40,50 @@ export default function ReactionBar({ slug, initialReactions, size = 'sm' }: Rea
 
         // Fetch User's Reactions for this post
         const fetchUserReactions = async () => {
-            const { data, error } = await supabase
-                .from('user_interactions')
-                .select('interaction_type')
-                .eq('session_id', sessionId)
-                .eq('slug', slug)
+            try {
+                const { data, error } = await supabase
+                    .from('user_interactions')
+                    .select('interaction_type')
+                    .eq('session_id', sessionId)
+                    .eq('slug', slug)
 
-            if (error) {
-                console.error("Error fetching user reactions:", error)
-            } else if (data) {
-                console.log("Fetched user reactions:", data)
-                const reactedState: Record<string, boolean> = {}
-                data.forEach((row) => {
-                    const emoji = Object.keys(reactionTypeMap).find(key => reactionTypeMap[key] === row.interaction_type)
-                    if (emoji) reactedState[emoji] = true
-                })
-                setUserReacted(reactedState)
+                if (error && (error.message || Object.keys(error).length > 0)) {
+                    console.warn("Error fetching user reactions:", error.message || error)
+                } else if (data) {
+                    const reactedState: Record<string, boolean> = {}
+                    data.forEach((row) => {
+                        const emoji = Object.keys(reactionTypeMap).find(key => reactionTypeMap[key] === row.interaction_type)
+                        if (emoji) reactedState[emoji] = true
+                    })
+                    setUserReacted(reactedState)
+                }
+            } catch (err: any) {
+                console.warn("Error fetching user reactions:", err?.message || err)
             }
         }
 
         // Fetch Current Metrics
         const fetchMetrics = async () => {
-            const { data, error } = await supabase
-                .from('posts_metrics')
-                .select('fire_count, insightful_count, rocket_count, applause_count')
-                .eq('slug', slug)
-                .maybeSingle()
+            try {
+                const { data, error } = await supabase
+                    .from('posts_metrics')
+                    .select('fire_count, insightful_count, rocket_count, applause_count')
+                    .eq('slug', slug)
+                    .maybeSingle()
 
-            if (error) {
-                console.error("Error fetching metrics:", error)
-                // If the row doesn't exist yet, we don't setReactions
-            } else if (data) {
-                console.log("Fetched metrics:", data)
-                setReactions({
-                    '🔥': data.fire_count,
-                    '💡': data.insightful_count,
-                    '🚀': data.rocket_count,
-                    '👏': data.applause_count
-                })
+                if (error && (error.message || Object.keys(error).length > 0)) {
+                    console.warn("Error fetching metrics:", error.message || error)
+                    // If the row doesn't exist yet, we don't setReactions
+                } else if (data) {
+                    setReactions({
+                        '🔥': data.fire_count,
+                        '💡': data.insightful_count,
+                        '🚀': data.rocket_count,
+                        '👏': data.applause_count
+                    })
+                }
+            } catch (err: any) {
+                console.warn("Error fetching metrics:", err?.message || err)
             }
         }
 
@@ -85,37 +91,44 @@ export default function ReactionBar({ slug, initialReactions, size = 'sm' }: Rea
         fetchMetrics()
 
         // Listen for Realtime Updates on this post
-        const subscription = supabase
-            .channel(`public:posts_metrics:reactions:slug=eq.${slug}`)
-            .on(
-                'postgres_changes',
-                {
-                    event: 'UPDATE',
-                    schema: 'public',
-                    table: 'posts_metrics',
-                    filter: `slug=eq.${slug}`
-                },
-                (payload) => {
-                    const newRecord = payload.new as {
-                        fire_count: number
-                        insightful_count: number
-                        rocket_count: number
-                        applause_count: number
+        let subscription: any = null
+        try {
+            subscription = supabase
+                .channel(`public:posts_metrics:reactions:slug=eq.${slug}`)
+                .on(
+                    'postgres_changes',
+                    {
+                        event: 'UPDATE',
+                        schema: 'public',
+                        table: 'posts_metrics',
+                        filter: `slug=eq.${slug}`
+                    },
+                    (payload) => {
+                        const newRecord = payload.new as {
+                            fire_count: number
+                            insightful_count: number
+                            rocket_count: number
+                            applause_count: number
+                        }
+                        if (newRecord) {
+                            setReactions({
+                                '🔥': newRecord.fire_count,
+                                '💡': newRecord.insightful_count,
+                                '🚀': newRecord.rocket_count,
+                                '👏': newRecord.applause_count
+                            })
+                        }
                     }
-                    if (newRecord) {
-                        setReactions({
-                            '🔥': newRecord.fire_count,
-                            '💡': newRecord.insightful_count,
-                            '🚀': newRecord.rocket_count,
-                            '👏': newRecord.applause_count
-                        })
-                    }
-                }
-            )
-            .subscribe()
+                )
+                .subscribe()
+        } catch (err) {
+            // Realtime subscription ignored if network unavailable
+        }
 
         return () => {
-            supabase.removeChannel(subscription)
+            if (subscription) {
+                supabase.removeChannel(subscription)
+            }
         }
     }, [slug])
 
@@ -149,15 +162,18 @@ export default function ReactionBar({ slug, initialReactions, size = 'sm' }: Rea
         setUserReacted(newUserReacted)
 
         // Call Supabase RPC
-        const { error } = await supabase.rpc('toggle_reaction', {
-            post_slug: slug,
-            user_session_id: sessionId,
-            reaction_type: reactionType
-        })
+        try {
+            const { error } = await supabase.rpc('toggle_reaction', {
+                post_slug: slug,
+                user_session_id: sessionId,
+                reaction_type: reactionType
+            })
 
-        if (error) {
-            console.error('Error toggling reaction:', error)
-            // Revert on error (optional, omitted for brevity)
+            if (error) {
+                console.warn('Error toggling reaction:', error.message || error)
+            }
+        } catch (err: any) {
+            console.warn('Error toggling reaction:', err?.message || err)
         }
 
     }, [reactions, userReacted, slug])
@@ -181,9 +197,13 @@ export default function ReactionBar({ slug, initialReactions, size = 'sm' }: Rea
         <div className="flex flex-col gap-2">
             {isLarge && (
                 <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[9px] sm:text-[10px] font-mono text-text-muted/40 tracking-wider uppercase">Reactions</span>
-                    <span className="text-[9px] sm:text-[10px] font-mono text-text-muted/25">•</span>
-                    <span className="text-[9px] sm:text-[10px] font-mono text-text-muted/30">{totalReactions} total</span>
+                    <span className="text-[10px] font-mono text-text-muted/40 tracking-wider">Reaksi</span>
+                    {totalReactions > 0 && (
+                        <>
+                            <span className="text-[10px] font-mono text-text-muted/25">·</span>
+                            <span className="text-[10px] font-mono text-text-muted/30">{totalReactions}</span>
+                        </>
+                    )}
                 </div>
             )}
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
@@ -201,14 +221,14 @@ export default function ReactionBar({ slug, initialReactions, size = 'sm' }: Rea
                         <span className={`${isLarge ? 'text-base sm:text-lg' : 'text-sm'}`}>
                             {emoji}
                         </span>
-                        <span className={`${isLarge ? 'text-xs' : 'text-[10px]'} font-medium tabular-nums`}>
-                            {count || 0}
-                        </span>
+                        {(count > 0) && (
+                            <span className={`${isLarge ? 'text-xs' : 'text-[10px]'} font-medium tabular-nums`}>
+                                {count}
+                            </span>
+                        )}
                     </button>
                 ))}
-                {!isLarge && (
-                    <span className="text-[9px] font-mono text-text-muted/20 ml-1 hidden sm:inline">{totalReactions}</span>
-                )}
+
             </div>
         </div>
     )

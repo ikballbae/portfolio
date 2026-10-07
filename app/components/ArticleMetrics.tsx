@@ -24,26 +24,34 @@ export default function ArticleMetrics({ slug, readTime }: ArticleMetricsProps) 
 
         // 1. Increment View (Call RPC)
         const recordView = async () => {
-            const { error } = await supabase.rpc('increment_view', {
-                post_slug: slug,
-                user_session_id: sessionId
-            })
-            // Ignore duplicate key errors (23505) quietly since it just means the user already viewed
-            if (error && error.code !== '23505') {
-                console.error('Error incrementing view:', error)
+            try {
+                const { error } = await supabase.rpc('increment_view', {
+                    post_slug: slug,
+                    user_session_id: sessionId
+                })
+                // Ignore duplicate key errors (23505) quietly since it just means the user already viewed
+                if (error && error.code !== '23505') {
+                    console.warn('Error incrementing view:', error.message || error)
+                }
+            } catch (err: any) {
+                // Ignore network errors gracefully
             }
         }
 
         // 2. Fetch Initial Views
         const fetchViews = async () => {
-            const { data, error } = await supabase
-                .from('posts_metrics')
-                .select('views_count')
-                .eq('slug', slug)
-                .single()
+            try {
+                const { data, error } = await supabase
+                    .from('posts_metrics')
+                    .select('views_count')
+                    .eq('slug', slug)
+                    .single()
 
-            if (!error && data) {
-                setViews(data.views_count)
+                if (!error && data) {
+                    setViews(data.views_count)
+                }
+            } catch (err: any) {
+                // Ignore network errors gracefully
             }
         }
 

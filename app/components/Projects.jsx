@@ -175,7 +175,6 @@ function ProjectModal({ project, onClose }) {
                         fill
                         className="object-cover"
                         sizes="(max-width: 640px) 95vw, (max-width: 1024px) 80vw, 600px"
-                        priority
                     />
                     <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, var(--surface), transparent 60%)' }} />
                 </div>

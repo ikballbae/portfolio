@@ -51,6 +51,9 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       className={`${grotesk.variable} ${jakarta.variable} ${inter.variable} ${mono.variable}`}
     >
+      <head>
+        <link rel="preload" as="image" href="/mascots/ikbal-directions.webp" type="image/webp" />
+      </head>
       <body className="font-inter bg-bg text-text antialiased noise-overlay overflow-x-hidden">
         <ThemeProvider>
           <AnimatedBackground />

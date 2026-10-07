@@ -155,7 +155,7 @@ export const blogPosts = [
         title: 'Navigasi Full-Stack: Pengalaman LKS Web Technology Provinsi Jawa Tengah',
         excerpt: 'Bedah teknis penyelesaian 3 modul berat (Speedtest, Client, dan Server) di tingkat Provinsi menggunakan Laravel 11 dan React 18 secara offline total.',
         date: '2024-05-20',
-        readTime: '12 min read',
+        readTime: '12 menit baca',
         tags: ['LKS Provinsi', 'Laravel 11', 'React 18', 'Game Dev', 'Offline Coding'],
         category: 'ACHIEVEMENT',
         reactions: { '🔥': 0, '💡': 0, '🚀': 0, '👏': 0 },
@@ -207,6 +207,7 @@ export const blogPosts = [
         title: 'Juara 1 LKS Web Technology Kota Pekalongan: Membangun POS Offline dengan Laravel',
         excerpt: 'Kisah dibalik kemenangan juara 1 di Pekalongan: Tantangan membangun aplikasi Point of Sales menggunakan Laravel tanpa akses internet sama sekali.',
         date: '2024-03-02',
+        readTime: '5 menit baca',
         tags: ['LKS', 'Laravel', 'Point of Sales', 'Offline Development'],
         category: 'ACHIEVEMENT',
         reactions: { '🔥': 0, '💡': 0, '🚀': 0, '👏': 0 },
@@ -249,7 +250,7 @@ export function getAllSlugs() {
 }
 
 export function formatDate(dateString) {
-    return new Date(dateString).toLocaleDateString('en-US', {
+    return new Date(dateString).toLocaleDateString('id-ID', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',

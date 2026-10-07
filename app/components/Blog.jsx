@@ -1,6 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import ScrollReveal from './ScrollReveal'
 import MagneticButton from './MagneticButton'
 import ReactionBar from './ReactionBar'
@@ -9,13 +10,17 @@ import ScrambleText from './ScrambleText'
 import { blogPosts, formatDate } from '../data/blogData'
 
 const categoryStyles = {
-    LEADERSHIP: { color: 'text-purple-400', bg: 'bg-purple-400/5', border: 'border-purple-400/20', icon: '👑' },
-    ACHIEVEMENT: { color: 'text-amber-400', bg: 'bg-amber-400/5', border: 'border-amber-400/20', icon: '🏆' },
-    CREATIVE: { color: 'text-pink-400', bg: 'bg-pink-400/5', border: 'border-pink-400/20', icon: '🎨' },
-    TECHNICAL: { color: 'text-blue-400', bg: 'bg-blue-400/5', border: 'border-blue-400/20', icon: '⚙️' },
+    LEADERSHIP: { label: 'Leadership', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20', icon: '👑' },
+    ACHIEVEMENT: { label: 'Achievement', color: 'text-amber-400', bg: 'bg-amber-500/10', border: 'border-amber-500/20', icon: '🏆' },
+    CREATIVE: { label: 'Creative', color: 'text-pink-400', bg: 'bg-pink-500/10', border: 'border-pink-500/20', icon: '🎨' },
+    TECHNICAL: { label: 'Technical', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20', icon: '⚙️' },
+    EXPERIENCE: { label: 'Experience', color: 'text-orange-400', bg: 'bg-orange-500/10', border: 'border-orange-500/20', icon: '💼' },
 }
 
-function BlogCard({ post, index }) {
+/* =========================================================
+   DESKTOP BLOG CARD (Unchanged for md: and above)
+   ========================================================= */
+function DesktopBlogCard({ post, index }) {
     const router = useRouter()
     const style = categoryStyles[post.category] || categoryStyles.TECHNICAL
 
@@ -91,12 +96,194 @@ function BlogCard({ post, index }) {
     )
 }
 
-export default function Blog() {
-    const latestPosts = blogPosts.slice(0, 3)
+/* =========================================================
+   MOBILE FEATURED CARD (< 768px)
+   ========================================================= */
+function MobileFeaturedCard({ post }) {
+    const hasCover = Boolean(post.coverImage)
 
     return (
-        <section id="blog" className="section-padding relative">
-            <div className="max-w-4xl mx-auto">
+        <ScrollReveal delay={0.15} direction="up" distance={24}>
+            <Link
+                href={`/blog/${post.slug}`}
+                className="block group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-[20px] mb-6 active:scale-[0.98] transition-transform duration-200"
+            >
+                <article className="w-full rounded-[20px] overflow-hidden bg-[#101010] border border-white/8 shadow-2xl">
+                    {/* 1. BAGIAN FOTO (atas) - Rasio 4:3 */}
+                    <div className="relative w-full aspect-[4/3] overflow-hidden bg-surface">
+                        {hasCover ? (
+                            <Image
+                                src={post.coverImage}
+                                alt={post.title}
+                                fill
+                                className="object-cover object-[center_25%] transition-transform duration-700 ease-out group-hover:scale-105"
+                                sizes="(max-width: 768px) calc(100vw - 40px), 450px"
+                                priority
+                            />
+                        ) : (
+                            <div className="absolute inset-0 bg-gradient-to-br from-surface-light via-surface to-bg flex items-center justify-center">
+                                <span className="text-3xl font-syne font-bold text-white/20 uppercase tracking-wider">
+                                    {post.category}
+                                </span>
+                            </div>
+                        )}
+
+                        {/* Gradasi tipis (transparan -> hitam 25%) hanya di 25% bagian bawah foto */}
+                        <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-[#101010] to-transparent pointer-events-none" />
+
+                        {/* Top Badges: Kategori (kiri) & Terbaru (kanan) */}
+                        <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+                            <span className="px-[10px] py-[6px] rounded-full bg-black/55 backdrop-blur-md text-[11px] font-mono font-medium text-white uppercase tracking-wider border border-white/10">
+                                {post.category}
+                            </span>
+                            <span className="px-[10px] py-[6px] rounded-full bg-accent text-black text-[11px] font-mono font-bold uppercase tracking-wider shrink-0 shadow-sm">
+                                Terbaru
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* 2. PANEL TEKS (bawah) - Latar #101010 */}
+                    <div className="p-5 bg-[#101010] flex flex-col">
+                        {/* Tanggal · Waktu baca (12px monospace, putih 60%) */}
+                        <div className="text-xs font-mono text-white/60 mb-2 flex items-center gap-1.5">
+                            <time dateTime={post.date}>{formatDate(post.date)}</time>
+                            <span>·</span>
+                            <span>{post.readTime}</span>
+                        </div>
+
+                        {/* Judul Penuh (20px, font-bold, line-height 1.25, text-wrap: balance, DILARANG ellipsis) */}
+                        <h3 className="font-syne font-bold text-[20px] text-white leading-[1.25] mb-4 [text-wrap:balance] group-hover:text-accent transition-colors">
+                            {post.title}
+                        </h3>
+
+                        {/* Baris bawah: Teks "Baca artikel" + Lingkaran panah 40px */}
+                        <div className="flex items-center justify-between pt-2 border-t border-white/5">
+                            <span className="text-[14px] text-white font-medium group-hover:text-accent transition-colors">
+                                Baca artikel
+                            </span>
+                            <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white group-hover:border-accent group-hover:text-accent group-hover:bg-accent/10 transition-all">
+                                <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </Link>
+        </ScrollReveal>
+    )
+}
+
+/* =========================================================
+   MOBILE COMPACT LIST ROW (< 768px)
+   ========================================================= */
+function MobileCompactListRow({ post, index }) {
+    const hasCover = Boolean(post.coverImage)
+
+    return (
+        <ScrollReveal delay={index * 0.08} direction="up" distance={16}>
+            <Link
+                href={`/blog/${post.slug}`}
+                className="block group active:scale-[0.98] transition-transform duration-200"
+            >
+                <article className="py-4 border-b border-white/8 flex items-center gap-4 min-h-[96px]">
+                    {/* Left 88px square thumbnail */}
+                    <div className="w-[88px] h-[88px] shrink-0 rounded-[12px] overflow-hidden relative bg-surface border border-white/10">
+                        {hasCover ? (
+                            <Image
+                                src={post.coverImage}
+                                alt={post.title}
+                                fill
+                                className="object-cover object-center"
+                                sizes="88px"
+                            />
+                        ) : (
+                            <div className="w-full h-full bg-gradient-to-br from-surface-light to-bg flex items-center justify-center">
+                                <span className="text-xs font-mono font-bold text-white/30 uppercase">
+                                    {post.category.substring(0, 3)}
+                                </span>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Right details */}
+                    <div className="flex-1 min-w-0 flex flex-col justify-center">
+                        {/* Category (11px, uppercase, neutral gray) */}
+                        <span className="text-[11px] font-mono text-text-muted/60 uppercase tracking-wider mb-1">
+                            {post.category}
+                        </span>
+
+                        {/* Full Title (16px, font-semibold, NO ELLIPSIS!) */}
+                        <h4 className="font-syne font-semibold text-[16px] text-text leading-snug mb-1 text-wrap: balance group-hover:text-accent transition-colors">
+                            {post.title}
+                        </h4>
+
+                        {/* Date · Read Time (12px, gray) */}
+                        <div className="text-xs font-mono text-text-muted/50 flex items-center gap-1.5">
+                            <time dateTime={post.date}>{formatDate(post.date)}</time>
+                            <span>·</span>
+                            <span>{post.readTime}</span>
+                        </div>
+                    </div>
+                </article>
+            </Link>
+        </ScrollReveal>
+    )
+}
+
+/* =========================================================
+   MAIN BLOG SECTION
+   ========================================================= */
+export default function Blog() {
+    const latestPosts = blogPosts.slice(0, 3)
+    const featuredPost = latestPosts[0]
+    const otherPosts = latestPosts.slice(1)
+
+    return (
+        <section id="blog" className="section-padding relative overflow-x-hidden">
+            {/* ==================== MOBILE VIEW (< 768px) ==================== */}
+            <div className="block md:hidden max-w-4xl mx-auto px-5">
+                {/* Header */}
+                <ScrollReveal>
+                    <div className="text-xs font-mono text-text-muted/60 tracking-wider uppercase mb-2">
+                        04 — BLOG
+                    </div>
+                </ScrollReveal>
+
+                <ScrollReveal delay={0.1}>
+                    <div className="flex items-center justify-between mb-2">
+                        <h2 className="font-syne font-bold text-[36px] text-text leading-tight">
+                            My <span className="text-accent"><ScrambleText text="Journey" delay={0.2} /></span>
+                        </h2>
+                        <Link
+                            href="/blog"
+                            className="inline-flex items-center justify-center gap-1 text-accent font-semibold text-[14px] min-h-[44px] min-w-[44px] px-2 py-2 hover:underline shrink-0"
+                        >
+                            Semua →
+                        </Link>
+                    </div>
+                    <p className="text-text-muted/80 text-xs sm:text-sm mb-6 max-w-[340px] leading-relaxed">
+                        Cerita dari kompetisi, komunitas, dan kode.
+                    </p>
+                </ScrollReveal>
+
+                {/* 1. Featured Article */}
+                {featuredPost && (
+                    <MobileFeaturedCard post={featuredPost} />
+                )}
+
+                {/* 2. Compact List for Other Articles */}
+                {otherPosts.length > 0 && (
+                    <div className="flex flex-col mb-4">
+                        {otherPosts.map((post, i) => (
+                            <MobileCompactListRow key={post.slug} post={post} index={i} />
+                        ))}
+                    </div>
+                )}
+            </div>
+
+            {/* ==================== DESKTOP & TABLET VIEW (≥ 768px) ==================== */}
+            <div className="hidden md:block max-w-4xl mx-auto">
                 <ScrollReveal>
                     <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                         <span className="text-[10px] sm:text-xs font-mono text-accent tracking-wider">04</span>
@@ -117,7 +304,7 @@ export default function Blog() {
                 {/* Vertical stacked blog cards */}
                 <div className="space-y-5 sm:space-y-6">
                     {latestPosts.map((post, i) => (
-                        <BlogCard key={post.slug} post={post} index={i} />
+                        <DesktopBlogCard key={post.slug} post={post} index={i} />
                     ))}
                 </div>
 

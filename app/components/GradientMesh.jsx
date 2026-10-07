@@ -5,7 +5,7 @@ export default function BlueprintGrid() {
     return (
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
             {/* Blueprint grid */}
-            <div className="absolute inset-0 blueprint-grid" />
+            <div className="absolute inset-0 blueprint-grid opacity-30 md:opacity-100" />
 
             {/* Accent glow orbs — very subtle */}
             <motion.div

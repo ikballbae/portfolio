@@ -1,44 +1,109 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
+import Image from 'next/image'
+import { motion, AnimatePresence } from 'framer-motion'
 import { supabase } from '../../lib/supabase/client'
 import { getSessionId } from '../../lib/utils/session'
 import gsap from 'gsap'
 
-type ReactionCounts = {
-    fire: number
-    insightful: number
-    rocket: number
-    applause: number
+export interface ReactionItem {
+    id: string
+    dbType: string
+    dbField: string
+    label: string
+    tooltip: string
+    icon: string
+    legacyKeys: string[]
 }
 
-// Map emoji to SQL column/type name
-const reactionTypeMap: Record<string, keyof ReactionCounts> = {
-    '🔥': 'fire',
-    '💡': 'insightful',
-    '🚀': 'rocket',
-    '👏': 'applause'
-}
+// 5 Pilihan Emoji Interaktif dari Microsoft Fluent UI Emoji 3D
+export const REACTION_ITEMS: ReactionItem[] = [
+    {
+        id: 'fire',
+        dbType: 'fire',
+        dbField: 'fire_count',
+        label: 'Keren',
+        tooltip: 'Keren banget!',
+        icon: '/emojis/fire.png',
+        legacyKeys: ['🔥', 'fire'],
+    },
+    {
+        id: 'mind_blown',
+        dbType: 'insightful',
+        dbField: 'insightful_count',
+        label: 'Takjub',
+        tooltip: 'Bikin takjub!',
+        icon: '/emojis/mind_blown.png',
+        legacyKeys: ['💡', 'insightful', 'mind_blown', '🤯'],
+    },
+    {
+        id: 'rocket',
+        dbType: 'rocket',
+        dbField: 'rocket_count',
+        label: 'Gas Pol',
+        tooltip: 'Terbang tinggi!',
+        icon: '/emojis/rocket.png',
+        legacyKeys: ['🚀', 'rocket'],
+    },
+    {
+        id: 'party',
+        dbType: 'applause',
+        dbField: 'applause_count',
+        label: 'Mantap',
+        tooltip: 'Mantap!',
+        icon: '/emojis/party.png',
+        legacyKeys: ['👏', 'applause', 'party', '🎉'],
+    },
+    {
+        id: 'love',
+        dbType: 'love',
+        dbField: 'love_count',
+        label: 'Suka',
+        tooltip: 'Suka tulisannya!',
+        icon: '/emojis/love.png',
+        legacyKeys: ['❤️', 'love', 'heart'],
+    },
+]
 
 interface ReactionBarProps {
     slug: string
-    initialReactions: Record<string, number>
+    initialReactions?: Record<string, number>
     size?: 'sm' | 'lg'
 }
 
-export default function ReactionBar({ slug, initialReactions, size = 'sm' }: ReactionBarProps) {
-    const [reactions, setReactions] = useState<Record<string, number>>(initialReactions)
-    const [userReacted, setUserReacted] = useState<Record<string, boolean>>({})
-    const [mounted, setMounted] = useState(false)
-    const buttonRefs = useRef<Record<string, HTMLButtonElement | null>>({})
+export default function ReactionBar({ slug, initialReactions = {}, size = 'sm' }: ReactionBarProps) {
+    // Normalisasi counts berdasarkan id REACTION_ITEMS
+    const normalizeInitialCounts = useCallback(() => {
+        const counts: Record<string, number> = {}
+        REACTION_ITEMS.forEach(item => {
+            let val = 0
+            for (const key of [item.id, item.dbType, ...item.legacyKeys]) {
+                if (initialReactions[key] !== undefined) {
+                    val = initialReactions[key]
+                    break
+                }
+            }
+            counts[item.id] = val
+        })
+        return counts
+    }, [initialReactions])
 
+    const [reactions, setReactions] = useState<Record<string, number>>(normalizeInitialCounts)
+    const [userReacted, setUserReacted] = useState<Record<string, boolean>>({})
+    const [hoveredId, setHoveredId] = useState<string | null>(null)
+    const [mounted, setMounted] = useState(false)
+    const [popUps, setPopUps] = useState<Record<string, { id: number; text: string }[]>>({})
+
+    const buttonRefs = useRef<Record<string, HTMLButtonElement | null>>({})
+    const imgRefs = useRef<Record<string, HTMLImageElement | null>>({})
     const isLarge = size === 'lg'
 
     useEffect(() => {
         setMounted(true)
         const sessionId = getSessionId()
 
-        // Fetch User's Reactions for this post
+        // Fetch user reactions
         const fetchUserReactions = async () => {
             try {
                 const { data, error } = await supabase
@@ -48,21 +113,23 @@ export default function ReactionBar({ slug, initialReactions, size = 'sm' }: Rea
                     .eq('slug', slug)
 
                 if (error && (error.message || Object.keys(error).length > 0)) {
-                    console.warn("Error fetching user reactions:", error.message || error)
+                    console.warn('Error fetching user reactions:', error.message || error)
                 } else if (data) {
                     const reactedState: Record<string, boolean> = {}
                     data.forEach((row) => {
-                        const emoji = Object.keys(reactionTypeMap).find(key => reactionTypeMap[key] === row.interaction_type)
-                        if (emoji) reactedState[emoji] = true
+                        const matched = REACTION_ITEMS.find(
+                            item => item.dbType === row.interaction_type || item.id === row.interaction_type || item.legacyKeys.includes(row.interaction_type)
+                        )
+                        if (matched) reactedState[matched.id] = true
                     })
                     setUserReacted(reactedState)
                 }
             } catch (err: any) {
-                console.warn("Error fetching user reactions:", err?.message || err)
+                console.warn('Error fetching user reactions:', err?.message || err)
             }
         }
 
-        // Fetch Current Metrics
+        // Fetch current metrics
         const fetchMetrics = async () => {
             try {
                 const { data, error } = await supabase
@@ -72,25 +139,25 @@ export default function ReactionBar({ slug, initialReactions, size = 'sm' }: Rea
                     .maybeSingle()
 
                 if (error && (error.message || Object.keys(error).length > 0)) {
-                    console.warn("Error fetching metrics:", error.message || error)
-                    // If the row doesn't exist yet, we don't setReactions
+                    console.warn('Error fetching metrics:', error.message || error)
                 } else if (data) {
-                    setReactions({
-                        '🔥': data.fire_count,
-                        '💡': data.insightful_count,
-                        '🚀': data.rocket_count,
-                        '👏': data.applause_count
-                    })
+                    setReactions(prev => ({
+                        ...prev,
+                        fire: data.fire_count || 0,
+                        mind_blown: data.insightful_count || 0,
+                        rocket: data.rocket_count || 0,
+                        party: data.applause_count || 0,
+                    }))
                 }
             } catch (err: any) {
-                console.warn("Error fetching metrics:", err?.message || err)
+                console.warn('Error fetching metrics:', err?.message || err)
             }
         }
 
         fetchUserReactions()
         fetchMetrics()
 
-        // Listen for Realtime Updates on this post
+        // Realtime listener
         let subscription: any = null
         try {
             subscription = supabase
@@ -101,28 +168,29 @@ export default function ReactionBar({ slug, initialReactions, size = 'sm' }: Rea
                         event: 'UPDATE',
                         schema: 'public',
                         table: 'posts_metrics',
-                        filter: `slug=eq.${slug}`
+                        filter: `slug=eq.${slug}`,
                     },
                     (payload) => {
                         const newRecord = payload.new as {
-                            fire_count: number
-                            insightful_count: number
-                            rocket_count: number
-                            applause_count: number
+                            fire_count?: number
+                            insightful_count?: number
+                            rocket_count?: number
+                            applause_count?: number
                         }
                         if (newRecord) {
-                            setReactions({
-                                '🔥': newRecord.fire_count,
-                                '💡': newRecord.insightful_count,
-                                '🚀': newRecord.rocket_count,
-                                '👏': newRecord.applause_count
-                            })
+                            setReactions(prev => ({
+                                ...prev,
+                                fire: newRecord.fire_count ?? prev.fire,
+                                mind_blown: newRecord.insightful_count ?? prev.mind_blown,
+                                rocket: newRecord.rocket_count ?? prev.rocket,
+                                party: newRecord.applause_count ?? prev.party,
+                            }))
                         }
                     }
                 )
                 .subscribe()
-        } catch (err) {
-            // Realtime subscription ignored if network unavailable
+        } catch {
+            // Realtime ignored on offline
         }
 
         return () => {
@@ -132,63 +200,88 @@ export default function ReactionBar({ slug, initialReactions, size = 'sm' }: Rea
         }
     }, [slug])
 
-    const handleReaction = useCallback(async (emoji: string, e?: React.MouseEvent) => {
+    const handleReaction = useCallback(async (item: ReactionItem, e?: React.MouseEvent) => {
         if (e) {
             e.preventDefault()
             e.stopPropagation()
         }
 
         const sessionId = getSessionId()
-        const isRemoving = userReacted[emoji]
-        const reactionType = reactionTypeMap[emoji]
+        const isRemoving = !!userReacted[item.id]
 
-        // GSAP Animation
-        const btn = buttonRefs.current[emoji]
+        // GSAP Elastic Animation on image
+        const img = imgRefs.current[item.id]
+        const btn = buttonRefs.current[item.id]
+
+        if (img) {
+            gsap.timeline()
+                .fromTo(img, 
+                    { scale: 0.8, rotate: -12 }, 
+                    { scale: 1.25, rotate: 8, duration: 0.18, ease: 'power2.out' }
+                )
+                .to(img, {
+                    scale: 1,
+                    rotate: 0,
+                    duration: 0.35,
+                    ease: 'elastic.out(1.2, 0.4)',
+                })
+        }
+
         if (btn) {
-            gsap.fromTo(btn, 
-                { scale: 0.9 }, 
-                { scale: 1, duration: 0.4, ease: "back.out(2)" }
+            gsap.fromTo(btn,
+                { scale: 0.94 },
+                { scale: 1, duration: 0.3, ease: 'back.out(2)' }
             )
         }
 
-        // Optimistic UI Update
-        const newReactions = {
-            ...reactions,
-            [emoji]: Math.max(0, (reactions[emoji] || 0) + (isRemoving ? -1 : 1)),
-        }
-        const newUserReacted = { ...userReacted, [emoji]: !isRemoving }
+        // Float popup "+1" or "-1"
+        const popId = Date.now()
+        setPopUps(prev => ({
+            ...prev,
+            [item.id]: [...(prev[item.id] || []), { id: popId, text: isRemoving ? '-1' : '+1' }]
+        }))
+        setTimeout(() => {
+            setPopUps(prev => ({
+                ...prev,
+                [item.id]: (prev[item.id] || []).filter(p => p.id !== popId)
+            }))
+        }, 800)
 
-        setReactions(newReactions)
-        setUserReacted(newUserReacted)
+        // Optimistic UI Update
+        setReactions(prev => ({
+            ...prev,
+            [item.id]: Math.max(0, (prev[item.id] || 0) + (isRemoving ? -1 : 1)),
+        }))
+        setUserReacted(prev => ({
+            ...prev,
+            [item.id]: !isRemoving,
+        }))
 
         // Call Supabase RPC
         try {
             const { error } = await supabase.rpc('toggle_reaction', {
                 post_slug: slug,
                 user_session_id: sessionId,
-                reaction_type: reactionType
+                reaction_type: item.dbType,
             })
-
             if (error) {
                 console.warn('Error toggling reaction:', error.message || error)
             }
         } catch (err: any) {
             console.warn('Error toggling reaction:', err?.message || err)
         }
-
-    }, [reactions, userReacted, slug])
+    }, [userReacted, slug])
 
     const totalReactions = Object.values(reactions).reduce((sum, v) => sum + (v || 0), 0)
 
     if (!mounted) {
         return (
             <div className="flex flex-col gap-2">
-                 <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 opacity-50">
-                     {/* Placeholder while mounting */}
-                     {Object.keys(initialReactions).map((emoji) => (
-                         <div key={emoji} className="px-3 sm:px-4 py-2 sm:py-2.5 rounded-full border border-white/5 bg-white/5 h-10 w-16 animate-pulse"></div>
-                     ))}
-                 </div>
+                <div className="flex flex-wrap items-center gap-2 opacity-50">
+                    {REACTION_ITEMS.map((item) => (
+                        <div key={item.id} className="h-9 w-14 rounded-full border border-text/10 bg-text/5 animate-pulse" />
+                    ))}
+                </div>
             </div>
         )
     }
@@ -196,39 +289,111 @@ export default function ReactionBar({ slug, initialReactions, size = 'sm' }: Rea
     return (
         <div className="flex flex-col gap-2">
             {isLarge && (
-                <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-mono text-text-muted/40 tracking-wider">Reaksi</span>
+                <div className="flex items-center gap-2 mb-1.5">
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-text-muted/60">
+                        Ekspresikan Reaksi
+                    </span>
                     {totalReactions > 0 && (
-                        <>
-                            <span className="text-[10px] font-mono text-text-muted/25">·</span>
-                            <span className="text-[10px] font-mono text-text-muted/30">{totalReactions}</span>
-                        </>
+                        <span className="text-[11px] font-mono text-text-muted/40">
+                            · {totalReactions}
+                        </span>
                     )}
                 </div>
             )}
-            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-                {Object.entries(reactions).map(([emoji, count]) => (
-                    <button
-                        key={emoji}
-                        ref={el => { buttonRefs.current[emoji] = el }}
-                        onClick={(e) => handleReaction(emoji, e)}
-                        className={`inline-flex items-center gap-1.5 rounded-full font-mono transition-all duration-300 border cursor-pointer active:scale-95 ${isLarge ? 'px-3 sm:px-4 py-2 sm:py-2.5 text-sm gap-2' : 'px-2.5 py-1 text-xs gap-1.5'
-                            } ${userReacted[emoji]
-                                ? 'bg-accent/10 border-accent/30 text-accent shadow-sm shadow-accent/10'
-                                : 'bg-surface border-accent/5 text-text-muted/60 hover:border-accent/20 hover:bg-accent/5'
-                            }`}
-                    >
-                        <span className={`${isLarge ? 'text-base sm:text-lg' : 'text-sm'}`}>
-                            {emoji}
-                        </span>
-                        {(count > 0) && (
-                            <span className={`${isLarge ? 'text-xs' : 'text-[10px]'} font-medium tabular-nums`}>
-                                {count}
-                            </span>
-                        )}
-                    </button>
-                ))}
 
+            <div className="flex flex-wrap items-center gap-2">
+                {REACTION_ITEMS.map((item) => {
+                    const count = reactions[item.id] || 0
+                    const isReacted = !!userReacted[item.id]
+                    const isHovered = hoveredId === item.id
+                    const currentPopups = popUps[item.id] || []
+
+                    return (
+                        <div key={item.id} className="relative flex items-center justify-center">
+                            {/* Floating "+1" / "-1" Animation */}
+                            <AnimatePresence>
+                                {currentPopups.map(pop => (
+                                    <motion.span
+                                        key={pop.id}
+                                        initial={{ opacity: 0, y: 0, scale: 0.6 }}
+                                        animate={{ opacity: 1, y: -26, scale: 1.1 }}
+                                        exit={{ opacity: 0, y: -38, scale: 0.8 }}
+                                        transition={{ duration: 0.6, ease: 'easeOut' }}
+                                        className={`absolute -top-3 pointer-events-none z-30 text-[11px] font-mono font-bold select-none px-1.5 py-0.5 rounded-md shadow-md ${
+                                            pop.text === '+1'
+                                                ? 'bg-accent text-bg'
+                                                : 'bg-text-muted/80 text-bg'
+                                        }`}
+                                    >
+                                        {pop.text}
+                                    </motion.span>
+                                ))}
+                            </AnimatePresence>
+
+                            {/* Tooltip on Hover */}
+                            <AnimatePresence>
+                                {isHovered && isLarge && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 6, scale: 0.92 }}
+                                        animate={{ opacity: 1, y: -34, scale: 1 }}
+                                        exit={{ opacity: 0, y: 6, scale: 0.92 }}
+                                        transition={{ duration: 0.15, ease: 'easeOut' }}
+                                        className="absolute pointer-events-none z-30 whitespace-nowrap px-2.5 py-1 rounded-lg bg-surface border border-text/15 shadow-xl text-[11px] font-grotesk text-text font-medium"
+                                        style={{ transformOrigin: 'bottom center' }}
+                                    >
+                                        {item.tooltip}
+                                        <div className="absolute left-1/2 -bottom-1 -translate-x-1/2 w-2 h-2 rotate-45 bg-surface border-r border-b border-text/15" />
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+
+                            {/* Reaction Button — Clean, Monochromatic with 3D Emoji Hero */}
+                            <button
+                                ref={el => { buttonRefs.current[item.id] = el }}
+                                onClick={(e) => handleReaction(item, e)}
+                                onMouseEnter={() => setHoveredId(item.id)}
+                                onMouseLeave={() => setHoveredId(null)}
+                                type="button"
+                                aria-label={`${item.label} (${count})`}
+                                className={`group relative inline-flex items-center rounded-full font-mono transition-colors duration-200 border cursor-pointer select-none active:scale-[0.94] ${
+                                    isLarge ? 'px-3 py-1.5 text-sm gap-2' : 'px-2.5 py-1 text-xs gap-1.5'
+                                } ${
+                                    isReacted
+                                        ? 'bg-surface-light border-text/40 text-text'
+                                        : 'bg-surface border-text/10 text-text-muted hover:border-text/25 hover:bg-surface-light hover:text-text'
+                                }`}
+                            >
+                                {/* 3D Fluent Emoji Icon */}
+                                <div className={`relative shrink-0 transition-transform duration-200 ease-out group-hover:scale-125 group-hover:-translate-y-0.5 group-hover:-rotate-6 ${
+                                    isLarge ? 'w-6 h-6' : 'w-4 h-4'
+                                }`}>
+                                    <Image
+                                        ref={el => { imgRefs.current[item.id] = el }}
+                                        src={item.icon}
+                                        alt={item.label}
+                                        width={isLarge ? 32 : 24}
+                                        height={isLarge ? 32 : 24}
+                                        className="w-full h-full object-contain pointer-events-none drop-shadow-sm select-none"
+                                        priority={isLarge}
+                                    />
+                                </div>
+
+                                {/* Count Badge */}
+                                {count > 0 && (
+                                    <span
+                                        className={`font-mono tabular-nums transition-colors ${
+                                            isReacted ? 'text-text font-semibold' : 'text-text-muted/80'
+                                        } ${
+                                            isLarge ? 'text-xs' : 'text-[11px]'
+                                        }`}
+                                    >
+                                        {count}
+                                    </span>
+                                )}
+                            </button>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )

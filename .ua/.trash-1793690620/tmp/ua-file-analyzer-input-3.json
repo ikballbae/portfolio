@@ -1,0 +1,74 @@
+{
+  "projectRoot": "c:/project/portfolio",
+  "batchFiles": [
+    {
+      "path": "app/blog/page.tsx",
+      "language": "typescript",
+      "sizeLines": 251,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/components/blog/BlogEmptyState.tsx",
+      "language": "typescript",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/components/blog/BlogHeader.tsx",
+      "language": "typescript",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/components/blog/CategoryFilter.tsx",
+      "language": "typescript",
+      "sizeLines": 191,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/components/blog/FeaturedPost.tsx",
+      "language": "typescript",
+      "sizeLines": 137,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/components/blog/PostCard.tsx",
+      "language": "typescript",
+      "sizeLines": 112,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/components/blog/PostCardSkeleton.tsx",
+      "language": "typescript",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/components/blog/ShareButton.tsx",
+      "language": "typescript",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "app/blog/page.tsx": [
+      "app/components/Navbar.jsx",
+      "app/components/blog/BlogEmptyState.tsx",
+      "app/components/blog/BlogHeader.tsx",
+      "app/components/blog/CategoryFilter.tsx",
+      "app/components/blog/FeaturedPost.tsx",
+      "app/components/blog/PostCard.tsx",
+      "app/components/blog/PostCardSkeleton.tsx",
+      "app/data/blogData.js"
+    ],
+    "app/components/blog/BlogEmptyState.tsx": [],
+    "app/components/blog/BlogHeader.tsx": [],
+    "app/components/blog/CategoryFilter.tsx": [],
+    "app/components/blog/FeaturedPost.tsx": [
+      "app/components/blog/ShareButton.tsx"
+    ],
+    "app/components/blog/PostCard.tsx": [],
+    "app/components/blog/PostCardSkeleton.tsx": [],
+    "app/components/blog/ShareButton.tsx": []
+  }
+}

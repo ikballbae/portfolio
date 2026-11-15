@@ -1,0 +1,38 @@
+{
+  "issues": [],
+  "warnings": [
+    "Node 'document:.agents/skills/page-mascot/reference/characters.md' has no edges (orphan)",
+    "Node 'document:.agents/skills/page-mascot/reference/design-rules.md' has no edges (orphan)",
+    "Node 'document:.agents/skills/page-mascot/reference/prompts.md' has no edges (orphan)",
+    "Node 'config:skills-lock.json' has no edges (orphan)",
+    "Node 'document:.agents/skills/page-mascot/SKILL.md' has no edges (orphan)",
+    "Node 'document:.agents/skills/page-mascot/scripts/requirements.txt' has no edges (orphan)",
+    "Node 'config:.ua/config.json' has no edges (orphan)",
+    "Node 'file:assets/assets.js' has no edges (orphan)",
+    "Node 'config:eslint.config.mjs' has no edges (orphan)",
+    "Node 'config:next.config.mjs' has no edges (orphan)",
+    "Node 'config:postcss.config.mjs' has no edges (orphan)",
+    "Node 'file:public/mascots/ikbal-directions.webp' has no edges (orphan)",
+    "Node 'file:public/mascots/ikbal-reactions.webp' has no edges (orphan)",
+    "Node 'config:tailwind.config.mjs' has no edges (orphan)"
+  ],
+  "stats": {
+    "totalNodes": 176,
+    "totalEdges": 278,
+    "totalLayers": 6,
+    "tourSteps": 7,
+    "nodeTypes": {
+      "file": 52,
+      "function": 110,
+      "document": 6,
+      "config": 8
+    },
+    "edgeTypes": {
+      "contains": 110,
+      "exports": 101,
+      "imports": 64,
+      "documents": 1,
+      "configures": 2
+    }
+  }
+}

@@ -1,0 +1,1127 @@
+{
+  "nodes": [
+    {
+      "id": "document:.agents/skills/page-mascot/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".agents/skills/page-mascot/SKILL.md",
+      "summary": "Petunjuk alur kerja skill integrasi karakter maskot chibi pelacak kursor ke dalam halaman Next.js.",
+      "tags": [
+        "documentation",
+        "skill",
+        "instructions",
+        "workflow"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:.agents/skills/page-mascot/mascot.tsx",
+      "type": "file",
+      "name": "mascot.tsx",
+      "filePath": ".agents/skills/page-mascot/mascot.tsx",
+      "summary": "Komponen React maskot chibi yang melacak pergerakan pointer mouse dan merespons saat diklik.",
+      "tags": [
+        "component",
+        "mascot",
+        "interactive",
+        "animation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/mascot.tsx:Mascot",
+      "type": "function",
+      "name": "Mascot",
+      "filePath": ".agents/skills/page-mascot/mascot.tsx",
+      "lineRange": [
+        89,
+        231
+      ],
+      "summary": "Fungsi Mascot di dalam mascot.tsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:.agents/skills/page-mascot/scripts/build.py",
+      "type": "file",
+      "name": "build.py",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "summary": "Skrip penggabung dan penyelarasan sel sprite sheet menjadi file atlas optimal dengan perataan transparansi.",
+      "tags": [
+        "script",
+        "build",
+        "image-processing",
+        "python"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/build.py:drop_bleed",
+      "type": "function",
+      "name": "drop_bleed",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "lineRange": [
+        40,
+        66
+      ],
+      "summary": "Fungsi drop_bleed di dalam build.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/build.py:tiles",
+      "type": "function",
+      "name": "tiles",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "lineRange": [
+        69,
+        73
+      ],
+      "summary": "Fungsi tiles di dalam build.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/build.py:body_mask",
+      "type": "function",
+      "name": "body_mask",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "lineRange": [
+        76,
+        82
+      ],
+      "summary": "Fungsi body_mask di dalam build.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/build.py:anchor_box",
+      "type": "function",
+      "name": "anchor_box",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "lineRange": [
+        85,
+        129
+      ],
+      "summary": "Fungsi anchor_box di dalam build.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/build.py:blur_premultiplied",
+      "type": "function",
+      "name": "blur_premultiplied",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "lineRange": [
+        132,
+        141
+      ],
+      "summary": "Fungsi blur_premultiplied di dalam build.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/build.py:align",
+      "type": "function",
+      "name": "align",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "lineRange": [
+        174,
+        181
+      ],
+      "summary": "Fungsi align di dalam build.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/build.py:blob_bounds",
+      "type": "function",
+      "name": "blob_bounds",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "lineRange": [
+        184,
+        188
+      ],
+      "summary": "Fungsi blob_bounds di dalam build.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/build.py:head_width",
+      "type": "function",
+      "name": "head_width",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "lineRange": [
+        191,
+        203
+      ],
+      "summary": "Fungsi head_width di dalam build.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/build.py:silhouette",
+      "type": "function",
+      "name": "silhouette",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "lineRange": [
+        214,
+        234
+      ],
+      "summary": "Fungsi silhouette di dalam build.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/build.py:overlap",
+      "type": "function",
+      "name": "overlap",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "lineRange": [
+        247,
+        259
+      ],
+      "summary": "Fungsi overlap di dalam build.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/build.py:match",
+      "type": "function",
+      "name": "match",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "lineRange": [
+        270,
+        276
+      ],
+      "summary": "Fungsi match di dalam build.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/build.py:lower_band",
+      "type": "function",
+      "name": "lower_band",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "lineRange": [
+        279,
+        286
+      ],
+      "summary": "Fungsi lower_band di dalam build.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/build.py:settle",
+      "type": "function",
+      "name": "settle",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "lineRange": [
+        289,
+        312
+      ],
+      "summary": "Fungsi settle di dalam build.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/build.py:bottom_fade",
+      "type": "function",
+      "name": "bottom_fade",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "lineRange": [
+        347,
+        364
+      ],
+      "summary": "Fungsi bottom_fade di dalam build.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/build.py:dissolve",
+      "type": "function",
+      "name": "dissolve",
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "lineRange": [
+        367,
+        378
+      ],
+      "summary": "Fungsi dissolve di dalam build.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.agents/skills/page-mascot/scripts/mascot.py",
+      "type": "file",
+      "name": "mascot.py",
+      "filePath": ".agents/skills/page-mascot/scripts/mascot.py",
+      "summary": "Antarmuka baris perintah (CLI) terpadu untuk orkestrasi alur kerja pembuatan dan kalibrasi maskot.",
+      "tags": [
+        "script",
+        "cli",
+        "orchestrator",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/mascot.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": ".agents/skills/page-mascot/scripts/mascot.py",
+      "lineRange": [
+        37,
+        43
+      ],
+      "summary": "Fungsi run di dalam mascot.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/mascot.py:screen",
+      "type": "function",
+      "name": "screen",
+      "filePath": ".agents/skills/page-mascot/scripts/mascot.py",
+      "lineRange": [
+        46,
+        74
+      ],
+      "summary": "Fungsi screen di dalam mascot.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/mascot.py:measure",
+      "type": "function",
+      "name": "measure",
+      "filePath": ".agents/skills/page-mascot/scripts/mascot.py",
+      "lineRange": [
+        77,
+        86
+      ],
+      "summary": "Fungsi measure di dalam mascot.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/mascot.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": ".agents/skills/page-mascot/scripts/mascot.py",
+      "lineRange": [
+        89,
+        168
+      ],
+      "summary": "Fungsi main di dalam mascot.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:.agents/skills/page-mascot/scripts/requirements.txt",
+      "type": "document",
+      "name": "requirements.txt",
+      "filePath": ".agents/skills/page-mascot/scripts/requirements.txt",
+      "summary": "Daftar pustaka dependensi Python yang dibutuhkan untuk menjalankan skrip pengolahan gambar maskot.",
+      "tags": [
+        "configuration",
+        "dependencies",
+        "python",
+        "pip"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.agents/skills/page-mascot/scripts/verify.py",
+      "type": "file",
+      "name": "verify.py",
+      "filePath": ".agents/skills/page-mascot/scripts/verify.py",
+      "summary": "Skrip validasi konsistensi palet warna, shift pergerakan, dan batas tubuh sprite maskot.",
+      "tags": [
+        "script",
+        "validation",
+        "testing",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/verify.py:cells",
+      "type": "function",
+      "name": "cells",
+      "filePath": ".agents/skills/page-mascot/scripts/verify.py",
+      "lineRange": [
+        24,
+        28
+      ],
+      "summary": "Fungsi cells di dalam verify.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/verify.py:body",
+      "type": "function",
+      "name": "body",
+      "filePath": ".agents/skills/page-mascot/scripts/verify.py",
+      "lineRange": [
+        31,
+        36
+      ],
+      "summary": "Fungsi body di dalam verify.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/verify.py:lower_band",
+      "type": "function",
+      "name": "lower_band",
+      "filePath": ".agents/skills/page-mascot/scripts/verify.py",
+      "lineRange": [
+        42,
+        55
+      ],
+      "summary": "Fungsi lower_band di dalam verify.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/verify.py:best_shift",
+      "type": "function",
+      "name": "best_shift",
+      "filePath": ".agents/skills/page-mascot/scripts/verify.py",
+      "lineRange": [
+        58,
+        68
+      ],
+      "summary": "Fungsi best_shift di dalam verify.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/verify.py:palette",
+      "type": "function",
+      "name": "palette",
+      "filePath": ".agents/skills/page-mascot/scripts/verify.py",
+      "lineRange": [
+        71,
+        88
+      ],
+      "summary": "Fungsi palette di dalam verify.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/verify.py:shoulder_width",
+      "type": "function",
+      "name": "shoulder_width",
+      "filePath": ".agents/skills/page-mascot/scripts/verify.py",
+      "lineRange": [
+        91,
+        109
+      ],
+      "summary": "Fungsi shoulder_width di dalam verify.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/config.json",
+      "type": "config",
+      "name": "config.json",
+      "filePath": ".ua/config.json",
+      "summary": "File konfigurasi penyimpanan opsi bahasa keluaran untuk alat visualisasi arsitektur proyek.",
+      "tags": [
+        "configuration",
+        "settings",
+        "localization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:app/components/TextReveal.jsx",
+      "type": "file",
+      "name": "TextReveal.jsx",
+      "filePath": "app/components/TextReveal.jsx",
+      "summary": "Komponen utilitas animasi teks yang menampilkan karakter secara bertahap saat elemen terlihat di layar.",
+      "tags": [
+        "component",
+        "animation",
+        "text",
+        "typography"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:app/components/TextReveal.jsx:TextReveal",
+      "type": "function",
+      "name": "TextReveal",
+      "filePath": "app/components/TextReveal.jsx",
+      "lineRange": [
+        11,
+        40
+      ],
+      "summary": "Fungsi TextReveal di dalam TextReveal.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:app/components/TextReveal.jsx:LineReveal",
+      "type": "function",
+      "name": "LineReveal",
+      "filePath": "app/components/TextReveal.jsx",
+      "lineRange": [
+        42,
+        72
+      ],
+      "summary": "Fungsi LineReveal di dalam TextReveal.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:app/components/TextReveal.jsx:FadeIn",
+      "type": "function",
+      "name": "FadeIn",
+      "filePath": "app/components/TextReveal.jsx",
+      "lineRange": [
+        74,
+        110
+      ],
+      "summary": "Fungsi FadeIn di dalam TextReveal.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:app/globals.css",
+      "type": "file",
+      "name": "globals.css",
+      "filePath": "app/globals.css",
+      "summary": "Lembar gaya CSS utama aplikasi yang memuat konfigurasi Tailwind CSS, variabel tema warna, dan animasi khusus.",
+      "tags": [
+        "markup",
+        "css",
+        "styling",
+        "theme"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:assets/assets.js",
+      "type": "file",
+      "name": "assets.js",
+      "filePath": "assets/assets.js",
+      "summary": "Kumpulan data aset statis yang mencakup data proyek, profil keahlian, ikon layanan, dan riwayat karier.",
+      "tags": [
+        "data-model",
+        "assets",
+        "static-data",
+        "portfolio"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:eslint.config.mjs",
+      "type": "config",
+      "name": "eslint.config.mjs",
+      "filePath": "eslint.config.mjs",
+      "summary": "Konfigurasi linting ESLint format modular (flat config) untuk menegakkan standar kualitas kode Next.js.",
+      "tags": [
+        "configuration",
+        "linter",
+        "eslint",
+        "quality"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:next.config.mjs",
+      "type": "config",
+      "name": "next.config.mjs",
+      "filePath": "next.config.mjs",
+      "summary": "File konfigurasi framework Next.js untuk optimasi bundling, pengaturan runtime, dan dukungan remote images.",
+      "tags": [
+        "configuration",
+        "nextjs",
+        "build-system",
+        "bundler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:postcss.config.mjs",
+      "type": "config",
+      "name": "postcss.config.mjs",
+      "filePath": "postcss.config.mjs",
+      "summary": "Konfigurasi plugin pemrosesan PostCSS untuk mengintegrasikan Tailwind CSS dan Autoprefixer.",
+      "tags": [
+        "configuration",
+        "postcss",
+        "css-pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:public/mascots/ikbal-directions.webp",
+      "type": "file",
+      "name": "ikbal-directions.webp",
+      "filePath": "public/mascots/ikbal-directions.webp",
+      "summary": "File gambar WebP berisi sprite atlas maskot Ikbal dengan berbagai orientasi tatapan kursor.",
+      "tags": [
+        "asset",
+        "image",
+        "sprite-sheet",
+        "mascot"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:public/mascots/ikbal-reactions.webp",
+      "type": "file",
+      "name": "ikbal-reactions.webp",
+      "filePath": "public/mascots/ikbal-reactions.webp",
+      "summary": "File gambar WebP berisi sprite atlas maskot Ikbal dengan variasi reaksi ekspresi emosi interaktif.",
+      "tags": [
+        "asset",
+        "image",
+        "sprite-sheet",
+        "mascot"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:tailwind.config.mjs",
+      "type": "config",
+      "name": "tailwind.config.mjs",
+      "filePath": "tailwind.config.mjs",
+      "summary": "Konfigurasi desain Tailwind CSS yang memperluas palet warna tema, font, dan keyframe animasi kustom.",
+      "tags": [
+        "configuration",
+        "tailwindcss",
+        "design-system",
+        "styles"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:.agents/skills/page-mascot/mascot.tsx",
+      "target": "function:.agents/skills/page-mascot/mascot.tsx:Mascot",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/mascot.tsx",
+      "target": "function:.agents/skills/page-mascot/mascot.tsx:Mascot",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:drop_bleed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:drop_bleed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:tiles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:tiles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:body_mask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:body_mask",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:anchor_box",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:anchor_box",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:blur_premultiplied",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:blur_premultiplied",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:align",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:align",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:blob_bounds",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:blob_bounds",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:head_width",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:head_width",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:silhouette",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:silhouette",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:overlap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:overlap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:match",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:match",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:lower_band",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:lower_band",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:settle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:settle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:bottom_fade",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:bottom_fade",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:dissolve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/build.py",
+      "target": "function:.agents/skills/page-mascot/scripts/build.py:dissolve",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/mascot.py",
+      "target": "function:.agents/skills/page-mascot/scripts/mascot.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/mascot.py",
+      "target": "function:.agents/skills/page-mascot/scripts/mascot.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/mascot.py",
+      "target": "function:.agents/skills/page-mascot/scripts/mascot.py:screen",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/mascot.py",
+      "target": "function:.agents/skills/page-mascot/scripts/mascot.py:screen",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/mascot.py",
+      "target": "function:.agents/skills/page-mascot/scripts/mascot.py:measure",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/mascot.py",
+      "target": "function:.agents/skills/page-mascot/scripts/mascot.py:measure",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/mascot.py",
+      "target": "function:.agents/skills/page-mascot/scripts/mascot.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/mascot.py",
+      "target": "function:.agents/skills/page-mascot/scripts/mascot.py:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/verify.py",
+      "target": "function:.agents/skills/page-mascot/scripts/verify.py:cells",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/verify.py",
+      "target": "function:.agents/skills/page-mascot/scripts/verify.py:cells",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/verify.py",
+      "target": "function:.agents/skills/page-mascot/scripts/verify.py:body",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/verify.py",
+      "target": "function:.agents/skills/page-mascot/scripts/verify.py:body",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/verify.py",
+      "target": "function:.agents/skills/page-mascot/scripts/verify.py:lower_band",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/verify.py",
+      "target": "function:.agents/skills/page-mascot/scripts/verify.py:lower_band",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/verify.py",
+      "target": "function:.agents/skills/page-mascot/scripts/verify.py:best_shift",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/verify.py",
+      "target": "function:.agents/skills/page-mascot/scripts/verify.py:best_shift",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/verify.py",
+      "target": "function:.agents/skills/page-mascot/scripts/verify.py:palette",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/verify.py",
+      "target": "function:.agents/skills/page-mascot/scripts/verify.py:palette",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/verify.py",
+      "target": "function:.agents/skills/page-mascot/scripts/verify.py:shoulder_width",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/verify.py",
+      "target": "function:.agents/skills/page-mascot/scripts/verify.py:shoulder_width",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/TextReveal.jsx",
+      "target": "function:app/components/TextReveal.jsx:TextReveal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/TextReveal.jsx",
+      "target": "function:app/components/TextReveal.jsx:TextReveal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/TextReveal.jsx",
+      "target": "function:app/components/TextReveal.jsx:LineReveal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/TextReveal.jsx",
+      "target": "function:app/components/TextReveal.jsx:LineReveal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/TextReveal.jsx",
+      "target": "function:app/components/TextReveal.jsx:FadeIn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/TextReveal.jsx",
+      "target": "function:app/components/TextReveal.jsx:FadeIn",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

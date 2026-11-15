@@ -1,13 +1,15 @@
 'use client'
-import { useEffect, useRef, useState, useCallback } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function CustomCursor() {
+    const [enabled, setEnabled] = useState(false)
+    const [visible, setVisible] = useState(false)
+    const isVisibleRef = useRef(false)
     const canvasRef = useRef(null)
     const dotRef = useRef(null)
     const ringRef = useRef(null)
     const [hovering, setHovering] = useState(false)
     const [clicking, setClicking] = useState(false)
-    const [visible, setVisible] = useState(false)
     const mouse = useRef({ x: -100, y: -100 })
     const dotPos = useRef({ x: -100, y: -100 })
     const ringPos = useRef({ x: -100, y: -100 })
@@ -15,8 +17,16 @@ export default function CustomCursor() {
     const rafId = useRef(null)
 
     useEffect(() => {
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
-        if (isTouchDevice) return
+        // Hanya nonaktifkan pada perangkat sentuh murni (mis. mobile / tablet dengan pointer coarse dan tanpa hover)
+        // Desktop / laptop dengan mouse atau trackpad selalu aktif
+        const isTouchOnly = window.matchMedia('(hover: none) and (pointer: coarse)').matches
+        if (!isTouchOnly) {
+            setEnabled(true)
+        }
+    }, [])
+
+    useEffect(() => {
+        if (!enabled) return
 
         const canvas = canvasRef.current
         if (!canvas) return
@@ -31,7 +41,10 @@ export default function CustomCursor() {
 
         const handleMove = (e) => {
             mouse.current = { x: e.clientX, y: e.clientY }
-            if (!visible) setVisible(true)
+            if (!isVisibleRef.current) {
+                isVisibleRef.current = true
+                setVisible(true)
+            }
 
             // Add trail point
             trail.current.push({
@@ -45,8 +58,14 @@ export default function CustomCursor() {
 
         const handleDown = () => setClicking(true)
         const handleUp = () => setClicking(false)
-        const handleLeave = () => setVisible(false)
-        const handleEnter = () => setVisible(true)
+        const handleLeave = () => {
+            isVisibleRef.current = false
+            setVisible(false)
+        }
+        const handleEnter = () => {
+            isVisibleRef.current = true
+            setVisible(true)
+        }
 
         const handleOver = (e) => {
             const t = e.target
@@ -153,7 +172,9 @@ export default function CustomCursor() {
             window.removeEventListener('resize', resize)
             if (rafId.current) cancelAnimationFrame(rafId.current)
         }
-    }, [visible])
+    }, [enabled])
+
+    if (!enabled) return null
 
     const dotSize = clicking ? 4 : hovering ? 12 : 6
     const ringSize = hovering ? 48 : 36

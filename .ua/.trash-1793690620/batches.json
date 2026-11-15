@@ -1,0 +1,1041 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "louvain",
+  "totalFiles": 66,
+  "totalBatches": 9,
+  "exportsByPath": {
+    ".agents/skills/page-mascot/mascot.tsx": [
+      "Mascot"
+    ],
+    ".agents/skills/page-mascot/scripts/build.py": [
+      "drop_bleed",
+      "tiles",
+      "body_mask",
+      "anchor_box",
+      "blur_premultiplied",
+      "align",
+      "blob_bounds",
+      "head_width",
+      "silhouette",
+      "overlap",
+      "match",
+      "lower_band",
+      "settle",
+      "bottom_fade",
+      "dissolve"
+    ],
+    ".agents/skills/page-mascot/scripts/generate.py": [
+      "pick_key",
+      "rules",
+      "tail",
+      "directions_prompt",
+      "reactions_prompt",
+      "reference_prompt",
+      "draw",
+      "transparent",
+      "sheet",
+      "client",
+      "main"
+    ],
+    ".agents/skills/page-mascot/scripts/key.py": [
+      "_corr",
+      "_period_score",
+      "_region_score",
+      "checkerboard",
+      "_linear",
+      "_f",
+      "lab",
+      "keyable",
+      "background",
+      "key_out",
+      "key_file",
+      "main"
+    ],
+    ".agents/skills/page-mascot/scripts/mascot.py": [
+      "run",
+      "screen",
+      "measure",
+      "main"
+    ],
+    ".agents/skills/page-mascot/scripts/screen.py": [],
+    ".agents/skills/page-mascot/scripts/verify.py": [
+      "cells",
+      "body",
+      "lower_band",
+      "best_shift",
+      "palette",
+      "shoulder_width"
+    ],
+    "app/actions/admin.ts": [
+      "getAllComments",
+      "updateCommentStatus",
+      "deleteComment"
+    ],
+    "app/actions/comments.ts": [
+      "submitComment"
+    ],
+    "app/admin/comments/page.tsx": [
+      "AdminCommentsPage"
+    ],
+    "app/blog/[slug]/page.tsx": [
+      "BlogPostPage"
+    ],
+    "app/blog/page.tsx": [
+      "BlogListPage"
+    ],
+    "app/components/About.jsx": [
+      "About"
+    ],
+    "app/components/AnimatedBackground.jsx": [
+      "AnimatedBackground"
+    ],
+    "app/components/ArticleMetrics.tsx": [
+      "ArticleMetrics"
+    ],
+    "app/components/Blog.jsx": [
+      "Blog"
+    ],
+    "app/components/CommentItem.tsx": [
+      "CommentItem"
+    ],
+    "app/components/CommentSection.tsx": [
+      "CommentSection"
+    ],
+    "app/components/Contact.jsx": [
+      "Contact"
+    ],
+    "app/components/CustomCursor.jsx": [
+      "CustomCursor"
+    ],
+    "app/components/Experience.jsx": [
+      "Experience"
+    ],
+    "app/components/GradientMesh.jsx": [
+      "BlueprintGrid"
+    ],
+    "app/components/Hero.jsx": [
+      "Hero"
+    ],
+    "app/components/LearningJourney.jsx": [
+      "LearningJourney"
+    ],
+    "app/components/MagneticButton.jsx": [
+      "MagneticButton"
+    ],
+    "app/components/Navbar.jsx": [
+      "Navbar"
+    ],
+    "app/components/Projects.jsx": [
+      "Projects"
+    ],
+    "app/components/ReactionBar.tsx": [
+      "ReactionBar"
+    ],
+    "app/components/ScrambleText.jsx": [
+      "ScrambleText"
+    ],
+    "app/components/ScrollReveal.jsx": [
+      "ScrollReveal",
+      "StaggerReveal",
+      "CountUp",
+      "BarFill",
+      "LineGrow"
+    ],
+    "app/components/ShareMenu.jsx": [
+      "ShareMenu"
+    ],
+    "app/components/TechStack.jsx": [
+      "TechStack"
+    ],
+    "app/components/TextReveal.jsx": [
+      "TextReveal",
+      "LineReveal",
+      "FadeIn"
+    ],
+    "app/components/ThemeProvider.jsx": [
+      "useTheme",
+      "ThemeProvider"
+    ],
+    "app/components/blog/BlogEmptyState.tsx": [
+      "BlogEmptyState"
+    ],
+    "app/components/blog/BlogHeader.tsx": [
+      "BlogHeader"
+    ],
+    "app/components/blog/CategoryFilter.tsx": [
+      "CategoryFilter"
+    ],
+    "app/components/blog/FeaturedPost.tsx": [
+      "FeaturedPost"
+    ],
+    "app/components/blog/PostCard.tsx": [
+      "PostCard"
+    ],
+    "app/components/blog/PostCardSkeleton.tsx": [
+      "FeaturedSkeleton",
+      "PostCardSkeleton"
+    ],
+    "app/components/blog/ShareButton.tsx": [
+      "ShareButton"
+    ],
+    "app/data/blogData.js": [
+      "blogPosts",
+      "getBlogPost",
+      "getAllSlugs",
+      "formatDate"
+    ],
+    "app/layout.js": [
+      "metadata",
+      "RootLayout"
+    ],
+    "app/page.js": [
+      "Home"
+    ],
+    "assets/assets.js": [
+      "assets",
+      "workData",
+      "serviceData",
+      "infoList",
+      "toolsData"
+    ],
+    "eslint.config.mjs": [],
+    "lib/supabase/admin.ts": [
+      "supabaseAdmin"
+    ],
+    "lib/supabase/client.ts": [
+      "supabase"
+    ],
+    "lib/utils/moderation.ts": [
+      "CommentSchema",
+      "TOXIC_WORDS",
+      "containsToxicWords",
+      "moderateComment"
+    ],
+    "lib/utils/session.ts": [
+      "getSessionId"
+    ],
+    "next.config.mjs": [],
+    "postcss.config.mjs": [],
+    "public/mascots/ikbal-directions.webp": [],
+    "public/mascots/ikbal-reactions.webp": [],
+    "tailwind.config.mjs": []
+  },
+  "batches": [
+    {
+      "batchIndex": 1,
+      "files": [
+        {
+          "path": "app/components/About.jsx",
+          "language": "javascript",
+          "sizeLines": 93,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/Contact.jsx",
+          "language": "javascript",
+          "sizeLines": 130,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/Experience.jsx",
+          "language": "javascript",
+          "sizeLines": 119,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/GradientMesh.jsx",
+          "language": "javascript",
+          "sizeLines": 52,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/Hero.jsx",
+          "language": "javascript",
+          "sizeLines": 268,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/LearningJourney.jsx",
+          "language": "javascript",
+          "sizeLines": 125,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/MagneticButton.jsx",
+          "language": "javascript",
+          "sizeLines": 34,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/Projects.jsx",
+          "language": "javascript",
+          "sizeLines": 247,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/ScrambleText.jsx",
+          "language": "javascript",
+          "sizeLines": 73,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/ScrollReveal.jsx",
+          "language": "javascript",
+          "sizeLines": 232,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/TechStack.jsx",
+          "language": "javascript",
+          "sizeLines": 96,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/page.js",
+          "language": "javascript",
+          "sizeLines": 29,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "app/components/About.jsx": [
+          "app/components/ScrambleText.jsx",
+          "app/components/ScrollReveal.jsx"
+        ],
+        "app/components/Contact.jsx": [
+          "app/components/MagneticButton.jsx",
+          "app/components/ScrambleText.jsx",
+          "app/components/ScrollReveal.jsx"
+        ],
+        "app/components/Experience.jsx": [
+          "app/components/ScrambleText.jsx",
+          "app/components/ScrollReveal.jsx"
+        ],
+        "app/components/GradientMesh.jsx": [],
+        "app/components/Hero.jsx": [
+          "app/components/GradientMesh.jsx",
+          "app/components/MagneticButton.jsx",
+          "app/components/ScrambleText.jsx",
+          "app/components/ScrollReveal.jsx"
+        ],
+        "app/components/LearningJourney.jsx": [
+          "app/components/ScrollReveal.jsx"
+        ],
+        "app/components/MagneticButton.jsx": [],
+        "app/components/Projects.jsx": [
+          "app/components/ScrambleText.jsx",
+          "app/components/ScrollReveal.jsx"
+        ],
+        "app/components/ScrambleText.jsx": [],
+        "app/components/ScrollReveal.jsx": [],
+        "app/components/TechStack.jsx": [
+          "app/components/ScrambleText.jsx",
+          "app/components/ScrollReveal.jsx"
+        ],
+        "app/page.js": [
+          "app/components/About.jsx",
+          "app/components/Blog.jsx",
+          "app/components/Contact.jsx",
+          "app/components/Experience.jsx",
+          "app/components/Hero.jsx",
+          "app/components/Navbar.jsx",
+          "app/components/Projects.jsx",
+          "app/components/TechStack.jsx"
+        ]
+      },
+      "neighborMap": {
+        "app/components/MagneticButton.jsx": [
+          {
+            "path": "app/components/Blog.jsx",
+            "batchIndex": 2,
+            "symbols": [
+              "Blog"
+            ]
+          }
+        ],
+        "app/components/ScrambleText.jsx": [
+          {
+            "path": "app/components/Blog.jsx",
+            "batchIndex": 2,
+            "symbols": [
+              "Blog"
+            ]
+          }
+        ],
+        "app/components/ScrollReveal.jsx": [
+          {
+            "path": "app/components/Blog.jsx",
+            "batchIndex": 2,
+            "symbols": [
+              "Blog"
+            ]
+          }
+        ],
+        "app/page.js": [
+          {
+            "path": "app/components/Blog.jsx",
+            "batchIndex": 2,
+            "symbols": [
+              "Blog"
+            ]
+          },
+          {
+            "path": "app/components/Navbar.jsx",
+            "batchIndex": 5,
+            "symbols": [
+              "Navbar"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 2,
+      "files": [
+        {
+          "path": "app/blog/[slug]/page.tsx",
+          "language": "typescript",
+          "sizeLines": 162,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/ArticleMetrics.tsx",
+          "language": "typescript",
+          "sizeLines": 143,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/Blog.jsx",
+          "language": "javascript",
+          "sizeLines": 330,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/CommentItem.tsx",
+          "language": "typescript",
+          "sizeLines": 72,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/CommentSection.tsx",
+          "language": "typescript",
+          "sizeLines": 191,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/ReactionBar.tsx",
+          "language": "typescript",
+          "sizeLines": 235,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/ShareMenu.jsx",
+          "language": "javascript",
+          "sizeLines": 178,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/data/blogData.js",
+          "language": "javascript",
+          "sizeLines": 258,
+          "fileCategory": "code"
+        },
+        {
+          "path": "lib/supabase/client.ts",
+          "language": "typescript",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        },
+        {
+          "path": "lib/utils/session.ts",
+          "language": "typescript",
+          "sizeLines": 20,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "app/blog/[slug]/page.tsx": [
+          "app/components/ArticleMetrics.tsx",
+          "app/components/CommentSection.tsx",
+          "app/components/Navbar.jsx",
+          "app/components/ReactionBar.tsx",
+          "app/components/ShareMenu.jsx",
+          "app/data/blogData.js"
+        ],
+        "app/components/ArticleMetrics.tsx": [
+          "lib/supabase/client.ts",
+          "lib/utils/session.ts"
+        ],
+        "app/components/Blog.jsx": [
+          "app/components/MagneticButton.jsx",
+          "app/components/ReactionBar.tsx",
+          "app/components/ScrambleText.jsx",
+          "app/components/ScrollReveal.jsx",
+          "app/components/ShareMenu.jsx",
+          "app/data/blogData.js"
+        ],
+        "app/components/CommentItem.tsx": [],
+        "app/components/CommentSection.tsx": [
+          "app/actions/comments.ts",
+          "app/components/CommentItem.tsx",
+          "lib/supabase/client.ts"
+        ],
+        "app/components/ReactionBar.tsx": [
+          "lib/supabase/client.ts",
+          "lib/utils/session.ts"
+        ],
+        "app/components/ShareMenu.jsx": [],
+        "app/data/blogData.js": [],
+        "lib/supabase/client.ts": [],
+        "lib/utils/session.ts": []
+      },
+      "neighborMap": {
+        "app/blog/[slug]/page.tsx": [
+          {
+            "path": "app/components/Navbar.jsx",
+            "batchIndex": 5,
+            "symbols": [
+              "Navbar"
+            ]
+          }
+        ],
+        "app/components/Blog.jsx": [
+          {
+            "path": "app/components/MagneticButton.jsx",
+            "batchIndex": 1,
+            "symbols": [
+              "MagneticButton"
+            ]
+          },
+          {
+            "path": "app/components/ScrambleText.jsx",
+            "batchIndex": 1,
+            "symbols": [
+              "ScrambleText"
+            ]
+          },
+          {
+            "path": "app/components/ScrollReveal.jsx",
+            "batchIndex": 1,
+            "symbols": [
+              "ScrollReveal",
+              "StaggerReveal",
+              "CountUp",
+              "BarFill",
+              "LineGrow"
+            ]
+          },
+          {
+            "path": "app/page.js",
+            "batchIndex": 1,
+            "symbols": [
+              "Home"
+            ]
+          }
+        ],
+        "app/components/CommentSection.tsx": [
+          {
+            "path": "app/actions/comments.ts",
+            "batchIndex": 4,
+            "symbols": [
+              "submitComment"
+            ]
+          }
+        ],
+        "app/data/blogData.js": [
+          {
+            "path": "app/blog/page.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "BlogListPage"
+            ]
+          }
+        ],
+        "lib/supabase/client.ts": [
+          {
+            "path": "app/admin/comments/page.tsx",
+            "batchIndex": 4,
+            "symbols": [
+              "AdminCommentsPage"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 3,
+      "files": [
+        {
+          "path": "app/blog/page.tsx",
+          "language": "typescript",
+          "sizeLines": 251,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/blog/BlogEmptyState.tsx",
+          "language": "typescript",
+          "sizeLines": 40,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/blog/BlogHeader.tsx",
+          "language": "typescript",
+          "sizeLines": 38,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/blog/CategoryFilter.tsx",
+          "language": "typescript",
+          "sizeLines": 191,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/blog/FeaturedPost.tsx",
+          "language": "typescript",
+          "sizeLines": 137,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/blog/PostCard.tsx",
+          "language": "typescript",
+          "sizeLines": 112,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/blog/PostCardSkeleton.tsx",
+          "language": "typescript",
+          "sizeLines": 36,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/blog/ShareButton.tsx",
+          "language": "typescript",
+          "sizeLines": 92,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "app/blog/page.tsx": [
+          "app/components/Navbar.jsx",
+          "app/components/blog/BlogEmptyState.tsx",
+          "app/components/blog/BlogHeader.tsx",
+          "app/components/blog/CategoryFilter.tsx",
+          "app/components/blog/FeaturedPost.tsx",
+          "app/components/blog/PostCard.tsx",
+          "app/components/blog/PostCardSkeleton.tsx",
+          "app/data/blogData.js"
+        ],
+        "app/components/blog/BlogEmptyState.tsx": [],
+        "app/components/blog/BlogHeader.tsx": [],
+        "app/components/blog/CategoryFilter.tsx": [],
+        "app/components/blog/FeaturedPost.tsx": [
+          "app/components/blog/ShareButton.tsx"
+        ],
+        "app/components/blog/PostCard.tsx": [],
+        "app/components/blog/PostCardSkeleton.tsx": [],
+        "app/components/blog/ShareButton.tsx": []
+      },
+      "neighborMap": {
+        "app/blog/page.tsx": [
+          {
+            "path": "app/components/Navbar.jsx",
+            "batchIndex": 5,
+            "symbols": [
+              "Navbar"
+            ]
+          },
+          {
+            "path": "app/data/blogData.js",
+            "batchIndex": 2,
+            "symbols": [
+              "blogPosts",
+              "getBlogPost",
+              "getAllSlugs",
+              "formatDate"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 4,
+      "files": [
+        {
+          "path": "app/actions/admin.ts",
+          "language": "typescript",
+          "sizeLines": 65,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/actions/comments.ts",
+          "language": "typescript",
+          "sizeLines": 106,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/admin/comments/page.tsx",
+          "language": "typescript",
+          "sizeLines": 172,
+          "fileCategory": "code"
+        },
+        {
+          "path": "lib/supabase/admin.ts",
+          "language": "typescript",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        },
+        {
+          "path": "lib/utils/moderation.ts",
+          "language": "typescript",
+          "sizeLines": 133,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "app/actions/admin.ts": [
+          "lib/supabase/admin.ts"
+        ],
+        "app/actions/comments.ts": [
+          "lib/supabase/admin.ts",
+          "lib/utils/moderation.ts"
+        ],
+        "app/admin/comments/page.tsx": [
+          "app/actions/admin.ts",
+          "lib/supabase/client.ts"
+        ],
+        "lib/supabase/admin.ts": [],
+        "lib/utils/moderation.ts": []
+      },
+      "neighborMap": {
+        "app/actions/comments.ts": [
+          {
+            "path": "app/components/CommentSection.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentSection"
+            ]
+          }
+        ],
+        "app/admin/comments/page.tsx": [
+          {
+            "path": "lib/supabase/client.ts",
+            "batchIndex": 2,
+            "symbols": [
+              "supabase"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 5,
+      "files": [
+        {
+          "path": "app/components/AnimatedBackground.jsx",
+          "language": "javascript",
+          "sizeLines": 133,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/CustomCursor.jsx",
+          "language": "javascript",
+          "sizeLines": 207,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/Navbar.jsx",
+          "language": "javascript",
+          "sizeLines": 250,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/components/ThemeProvider.jsx",
+          "language": "javascript",
+          "sizeLines": 45,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/layout.js",
+          "language": "javascript",
+          "sizeLines": 66,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "app/components/AnimatedBackground.jsx": [],
+        "app/components/CustomCursor.jsx": [],
+        "app/components/Navbar.jsx": [
+          "app/components/ThemeProvider.jsx"
+        ],
+        "app/components/ThemeProvider.jsx": [],
+        "app/layout.js": [
+          "app/components/AnimatedBackground.jsx",
+          "app/components/CustomCursor.jsx",
+          "app/components/ThemeProvider.jsx",
+          "app/globals.css"
+        ]
+      },
+      "neighborMap": {
+        "app/components/Navbar.jsx": [
+          {
+            "path": "app/blog/[slug]/page.tsx",
+            "batchIndex": 2,
+            "symbols": [
+              "BlogPostPage"
+            ]
+          },
+          {
+            "path": "app/blog/page.tsx",
+            "batchIndex": 3,
+            "symbols": [
+              "BlogListPage"
+            ]
+          },
+          {
+            "path": "app/page.js",
+            "batchIndex": 1,
+            "symbols": [
+              "Home"
+            ]
+          }
+        ],
+        "app/layout.js": [
+          {
+            "path": "app/globals.css",
+            "batchIndex": 9,
+            "symbols": []
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 6,
+      "files": [
+        {
+          "path": ".agents/skills/page-mascot/scripts/generate.py",
+          "language": "python",
+          "sizeLines": 337,
+          "fileCategory": "code"
+        },
+        {
+          "path": ".agents/skills/page-mascot/scripts/key.py",
+          "language": "python",
+          "sizeLines": 218,
+          "fileCategory": "code"
+        },
+        {
+          "path": ".agents/skills/page-mascot/scripts/screen.py",
+          "language": "python",
+          "sizeLines": 74,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        ".agents/skills/page-mascot/scripts/generate.py": [
+          ".agents/skills/page-mascot/scripts/key.py"
+        ],
+        ".agents/skills/page-mascot/scripts/key.py": [],
+        ".agents/skills/page-mascot/scripts/screen.py": [
+          ".agents/skills/page-mascot/scripts/key.py"
+        ]
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 7,
+      "files": [
+        {
+          "path": ".agents/skills/page-mascot/reference/characters.md",
+          "language": "markdown",
+          "sizeLines": 25,
+          "fileCategory": "docs"
+        },
+        {
+          "path": ".agents/skills/page-mascot/reference/design-rules.md",
+          "language": "markdown",
+          "sizeLines": 267,
+          "fileCategory": "docs"
+        },
+        {
+          "path": ".agents/skills/page-mascot/reference/prompts.md",
+          "language": "markdown",
+          "sizeLines": 313,
+          "fileCategory": "docs"
+        }
+      ],
+      "batchImportData": {
+        ".agents/skills/page-mascot/reference/characters.md": [],
+        ".agents/skills/page-mascot/reference/design-rules.md": [],
+        ".agents/skills/page-mascot/reference/prompts.md": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 8,
+      "files": [
+        {
+          "path": "README.md",
+          "language": "markdown",
+          "sizeLines": 36,
+          "fileCategory": "docs"
+        },
+        {
+          "path": "package.json",
+          "language": "json",
+          "sizeLines": 35,
+          "fileCategory": "config"
+        },
+        {
+          "path": "skills-lock.json",
+          "language": "json",
+          "sizeLines": 11,
+          "fileCategory": "config"
+        },
+        {
+          "path": "tsconfig.json",
+          "language": "json",
+          "sizeLines": 41,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "README.md": [],
+        "package.json": [],
+        "skills-lock.json": [],
+        "tsconfig.json": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 9,
+      "files": [
+        {
+          "path": ".agents/skills/page-mascot/SKILL.md",
+          "language": "markdown",
+          "sizeLines": 261,
+          "fileCategory": "docs"
+        },
+        {
+          "path": ".agents/skills/page-mascot/mascot.tsx",
+          "language": "typescript",
+          "sizeLines": 231,
+          "fileCategory": "code"
+        },
+        {
+          "path": ".agents/skills/page-mascot/scripts/build.py",
+          "language": "python",
+          "sizeLines": 399,
+          "fileCategory": "code"
+        },
+        {
+          "path": ".agents/skills/page-mascot/scripts/mascot.py",
+          "language": "python",
+          "sizeLines": 172,
+          "fileCategory": "code"
+        },
+        {
+          "path": ".agents/skills/page-mascot/scripts/requirements.txt",
+          "language": "txt",
+          "sizeLines": 4,
+          "fileCategory": "docs"
+        },
+        {
+          "path": ".agents/skills/page-mascot/scripts/verify.py",
+          "language": "python",
+          "sizeLines": 135,
+          "fileCategory": "code"
+        },
+        {
+          "path": ".ua/config.json",
+          "language": "json",
+          "sizeLines": 3,
+          "fileCategory": "config"
+        },
+        {
+          "path": "app/components/TextReveal.jsx",
+          "language": "javascript",
+          "sizeLines": 110,
+          "fileCategory": "code"
+        },
+        {
+          "path": "app/globals.css",
+          "language": "css",
+          "sizeLines": 533,
+          "fileCategory": "markup"
+        },
+        {
+          "path": "assets/assets.js",
+          "language": "javascript",
+          "sizeLines": 116,
+          "fileCategory": "code"
+        },
+        {
+          "path": "eslint.config.mjs",
+          "language": "javascript",
+          "sizeLines": 14,
+          "fileCategory": "code"
+        },
+        {
+          "path": "next.config.mjs",
+          "language": "javascript",
+          "sizeLines": 4,
+          "fileCategory": "code"
+        },
+        {
+          "path": "postcss.config.mjs",
+          "language": "javascript",
+          "sizeLines": 8,
+          "fileCategory": "code"
+        },
+        {
+          "path": "public/mascots/ikbal-directions.webp",
+          "language": "webp",
+          "sizeLines": 647,
+          "fileCategory": "code"
+        },
+        {
+          "path": "public/mascots/ikbal-reactions.webp",
+          "language": "webp",
+          "sizeLines": 603,
+          "fileCategory": "code"
+        },
+        {
+          "path": "tailwind.config.mjs",
+          "language": "javascript",
+          "sizeLines": 71,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        ".agents/skills/page-mascot/SKILL.md": [],
+        ".agents/skills/page-mascot/mascot.tsx": [],
+        ".agents/skills/page-mascot/scripts/build.py": [],
+        ".agents/skills/page-mascot/scripts/mascot.py": [],
+        ".agents/skills/page-mascot/scripts/requirements.txt": [],
+        ".agents/skills/page-mascot/scripts/verify.py": [],
+        ".ua/config.json": [],
+        "app/components/TextReveal.jsx": [],
+        "app/globals.css": [],
+        "assets/assets.js": [],
+        "eslint.config.mjs": [],
+        "next.config.mjs": [],
+        "postcss.config.mjs": [],
+        "public/mascots/ikbal-directions.webp": [],
+        "public/mascots/ikbal-reactions.webp": [],
+        "tailwind.config.mjs": []
+      },
+      "neighborMap": {
+        "app/globals.css": [
+          {
+            "path": "app/layout.js",
+            "batchIndex": 5,
+            "symbols": [
+              "metadata",
+              "RootLayout"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

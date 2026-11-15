@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: ['selector', '[data-theme="dark"]'],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -21,9 +22,11 @@ export default {
         'grid-line-bright': 'var(--grid-color-bright)',
       },
       fontFamily: {
-        grotesk: ['var(--font-grotesk)', 'sans-serif'],
-        syne: ['var(--font-syne)', 'sans-serif'],
-        inter: ['var(--font-inter)', 'sans-serif'],
+        sans: ['var(--font-sans)', 'sans-serif'],
+        jakarta: ['var(--font-sans)', 'sans-serif'],
+        syne: ['var(--font-sans)', 'sans-serif'],
+        grotesk: ['var(--font-sans)', 'sans-serif'],
+        inter: ['var(--font-sans)', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
       },
       animation: {

@@ -1,0 +1,910 @@
+{
+  "nodes": [
+    {
+      "id": "file:app/components/About.jsx",
+      "type": "file",
+      "name": "About.jsx",
+      "filePath": "app/components/About.jsx",
+      "summary": "Komponen Tentang Saya yang menyajikan bio profesional, fokus keahlian, dan statistik portofolio.",
+      "tags": [
+        "component",
+        "about",
+        "portfolio",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:app/components/About.jsx:About",
+      "type": "function",
+      "name": "About",
+      "filePath": "app/components/About.jsx",
+      "lineRange": [
+        23,
+        93
+      ],
+      "summary": "Fungsi About di dalam About.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:app/components/Contact.jsx",
+      "type": "file",
+      "name": "Contact.jsx",
+      "filePath": "app/components/Contact.jsx",
+      "summary": "Komponen kontak interaktif yang memfasilitasi komunikasi pengunjung dengan formulir dan tautan media sosial.",
+      "tags": [
+        "component",
+        "contact",
+        "form",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:app/components/Contact.jsx:Contact",
+      "type": "function",
+      "name": "Contact",
+      "filePath": "app/components/Contact.jsx",
+      "lineRange": [
+        15,
+        130
+      ],
+      "summary": "Fungsi Contact di dalam Contact.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:app/components/Experience.jsx",
+      "type": "file",
+      "name": "Experience.jsx",
+      "filePath": "app/components/Experience.jsx",
+      "summary": "Komponen linimasa pengalaman kerja dan peran profesional dengan animasi transisi interaktif.",
+      "tags": [
+        "component",
+        "experience",
+        "timeline",
+        "career"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:app/components/Experience.jsx:TimelineItem",
+      "type": "function",
+      "name": "TimelineItem",
+      "filePath": "app/components/Experience.jsx",
+      "lineRange": [
+        40,
+        90
+      ],
+      "summary": "Fungsi TimelineItem di dalam Experience.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "internal"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:app/components/Experience.jsx:Experience",
+      "type": "function",
+      "name": "Experience",
+      "filePath": "app/components/Experience.jsx",
+      "lineRange": [
+        92,
+        119
+      ],
+      "summary": "Fungsi Experience di dalam Experience.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:app/components/GradientMesh.jsx",
+      "type": "file",
+      "name": "GradientMesh.jsx",
+      "filePath": "app/components/GradientMesh.jsx",
+      "summary": "Komponen visualisasi grafis latar belakang berupa jaring gradien dan blueprint grid dinamis.",
+      "tags": [
+        "component",
+        "graphics",
+        "canvas",
+        "animation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:app/components/GradientMesh.jsx:BlueprintGrid",
+      "type": "function",
+      "name": "BlueprintGrid",
+      "filePath": "app/components/GradientMesh.jsx",
+      "lineRange": [
+        4,
+        52
+      ],
+      "summary": "Fungsi BlueprintGrid di dalam GradientMesh.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:app/components/Hero.jsx",
+      "type": "file",
+      "name": "Hero.jsx",
+      "filePath": "app/components/Hero.jsx",
+      "summary": "Komponen landing banner utama yang menampilkan salam pembuka, pengantar keahlian, dan tombol panggilan aksi.",
+      "tags": [
+        "entry-point",
+        "hero",
+        "component",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:app/components/Hero.jsx:Hero",
+      "type": "function",
+      "name": "Hero",
+      "filePath": "app/components/Hero.jsx",
+      "lineRange": [
+        15,
+        268
+      ],
+      "summary": "Fungsi Hero di dalam Hero.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:app/components/LearningJourney.jsx",
+      "type": "file",
+      "name": "LearningJourney.jsx",
+      "filePath": "app/components/LearningJourney.jsx",
+      "summary": "Komponen kartu perjalanan belajar teknologi, kursus, dan sertifikasi profesional.",
+      "tags": [
+        "component",
+        "learning",
+        "education",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:app/components/LearningJourney.jsx:LearningJourney",
+      "type": "function",
+      "name": "LearningJourney",
+      "filePath": "app/components/LearningJourney.jsx",
+      "lineRange": [
+        40,
+        125
+      ],
+      "summary": "Fungsi LearningJourney di dalam LearningJourney.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:app/components/MagneticButton.jsx",
+      "type": "file",
+      "name": "MagneticButton.jsx",
+      "filePath": "app/components/MagneticButton.jsx",
+      "summary": "Komponen tombol interaktif berbasis efek magnetik yang dinamis mengikuti pergerakan kursor.",
+      "tags": [
+        "component",
+        "button",
+        "animation",
+        "interactive"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:app/components/MagneticButton.jsx:MagneticButton",
+      "type": "function",
+      "name": "MagneticButton",
+      "filePath": "app/components/MagneticButton.jsx",
+      "lineRange": [
+        5,
+        34
+      ],
+      "summary": "Fungsi MagneticButton di dalam MagneticButton.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:app/components/Projects.jsx",
+      "type": "file",
+      "name": "Projects.jsx",
+      "filePath": "app/components/Projects.jsx",
+      "summary": "Komponen galeri proyek unggulan dengan filter teknologi, pratinjau antarmuka, dan tautan demo.",
+      "tags": [
+        "component",
+        "projects",
+        "showcase",
+        "portfolio"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:app/components/Projects.jsx:ProjectCard",
+      "type": "function",
+      "name": "ProjectCard",
+      "filePath": "app/components/Projects.jsx",
+      "lineRange": [
+        35,
+        102
+      ],
+      "summary": "Fungsi ProjectCard di dalam Projects.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "internal"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:app/components/Projects.jsx:ProjectModal",
+      "type": "function",
+      "name": "ProjectModal",
+      "filePath": "app/components/Projects.jsx",
+      "lineRange": [
+        104,
+        209
+      ],
+      "summary": "Fungsi ProjectModal di dalam Projects.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "internal"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:app/components/Projects.jsx:Projects",
+      "type": "function",
+      "name": "Projects",
+      "filePath": "app/components/Projects.jsx",
+      "lineRange": [
+        211,
+        247
+      ],
+      "summary": "Fungsi Projects di dalam Projects.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:app/components/ScrambleText.jsx",
+      "type": "file",
+      "name": "ScrambleText.jsx",
+      "filePath": "app/components/ScrambleText.jsx",
+      "summary": "Komponen utilitas teks acak (scramble/decoder effect) dengan animasi karakter saat dimuat.",
+      "tags": [
+        "component",
+        "utility",
+        "animation",
+        "text"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:app/components/ScrambleText.jsx:ScrambleText",
+      "type": "function",
+      "name": "ScrambleText",
+      "filePath": "app/components/ScrambleText.jsx",
+      "lineRange": [
+        6,
+        73
+      ],
+      "summary": "Fungsi ScrambleText di dalam ScrambleText.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:app/components/ScrollReveal.jsx",
+      "type": "file",
+      "name": "ScrollReveal.jsx",
+      "filePath": "app/components/ScrollReveal.jsx",
+      "summary": "Komponen pembungkus animasi berbasis scroll viewport yang menggunakan integrasi Framer Motion.",
+      "tags": [
+        "component",
+        "animation",
+        "scroll",
+        "motion"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:app/components/ScrollReveal.jsx:ScrollReveal",
+      "type": "function",
+      "name": "ScrollReveal",
+      "filePath": "app/components/ScrollReveal.jsx",
+      "lineRange": [
+        8,
+        67
+      ],
+      "summary": "Fungsi ScrollReveal di dalam ScrollReveal.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:app/components/ScrollReveal.jsx:StaggerReveal",
+      "type": "function",
+      "name": "StaggerReveal",
+      "filePath": "app/components/ScrollReveal.jsx",
+      "lineRange": [
+        72,
+        132
+      ],
+      "summary": "Fungsi StaggerReveal di dalam ScrollReveal.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:app/components/ScrollReveal.jsx:CountUp",
+      "type": "function",
+      "name": "CountUp",
+      "filePath": "app/components/ScrollReveal.jsx",
+      "lineRange": [
+        137,
+        169
+      ],
+      "summary": "Fungsi CountUp di dalam ScrollReveal.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:app/components/ScrollReveal.jsx:BarFill",
+      "type": "function",
+      "name": "BarFill",
+      "filePath": "app/components/ScrollReveal.jsx",
+      "lineRange": [
+        174,
+        200
+      ],
+      "summary": "Fungsi BarFill di dalam ScrollReveal.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:app/components/ScrollReveal.jsx:LineGrow",
+      "type": "function",
+      "name": "LineGrow",
+      "filePath": "app/components/ScrollReveal.jsx",
+      "lineRange": [
+        205,
+        232
+      ],
+      "summary": "Fungsi LineGrow di dalam ScrollReveal.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:app/components/TechStack.jsx",
+      "type": "file",
+      "name": "TechStack.jsx",
+      "filePath": "app/components/TechStack.jsx",
+      "summary": "Komponen tampilan daftar teknologi, bahasa pemrograman, dan alat pengembangan yang dikuasai.",
+      "tags": [
+        "component",
+        "skills",
+        "tech-stack",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:app/components/TechStack.jsx:TechStack",
+      "type": "function",
+      "name": "TechStack",
+      "filePath": "app/components/TechStack.jsx",
+      "lineRange": [
+        33,
+        96
+      ],
+      "summary": "Fungsi TechStack di dalam TechStack.jsx untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:app/page.js",
+      "type": "file",
+      "name": "page.js",
+      "filePath": "app/page.js",
+      "summary": "Halaman beranda utama yang mengintegrasikan seluruh seksi konten portofolio dalam satu tampilan terpadu.",
+      "tags": [
+        "entry-point",
+        "page",
+        "portfolio",
+        "nextjs"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:app/page.js:Home",
+      "type": "function",
+      "name": "Home",
+      "filePath": "app/page.js",
+      "lineRange": [
+        10,
+        29
+      ],
+      "summary": "Fungsi Home di dalam page.js untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:app/components/About.jsx",
+      "target": "function:app/components/About.jsx:About",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/About.jsx",
+      "target": "function:app/components/About.jsx:About",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/About.jsx",
+      "target": "file:app/components/ScrambleText.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/components/About.jsx",
+      "target": "file:app/components/ScrollReveal.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/components/Contact.jsx",
+      "target": "function:app/components/Contact.jsx:Contact",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/Contact.jsx",
+      "target": "function:app/components/Contact.jsx:Contact",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/Contact.jsx",
+      "target": "file:app/components/MagneticButton.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/components/Contact.jsx",
+      "target": "file:app/components/ScrambleText.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/components/Contact.jsx",
+      "target": "file:app/components/ScrollReveal.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/components/Experience.jsx",
+      "target": "function:app/components/Experience.jsx:TimelineItem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/Experience.jsx",
+      "target": "function:app/components/Experience.jsx:Experience",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/Experience.jsx",
+      "target": "function:app/components/Experience.jsx:Experience",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/Experience.jsx",
+      "target": "file:app/components/ScrambleText.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/components/Experience.jsx",
+      "target": "file:app/components/ScrollReveal.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/components/GradientMesh.jsx",
+      "target": "function:app/components/GradientMesh.jsx:BlueprintGrid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/GradientMesh.jsx",
+      "target": "function:app/components/GradientMesh.jsx:BlueprintGrid",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/Hero.jsx",
+      "target": "function:app/components/Hero.jsx:Hero",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/Hero.jsx",
+      "target": "function:app/components/Hero.jsx:Hero",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/Hero.jsx",
+      "target": "file:app/components/GradientMesh.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/components/Hero.jsx",
+      "target": "file:app/components/MagneticButton.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/components/Hero.jsx",
+      "target": "file:app/components/ScrambleText.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/components/Hero.jsx",
+      "target": "file:app/components/ScrollReveal.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/components/LearningJourney.jsx",
+      "target": "function:app/components/LearningJourney.jsx:LearningJourney",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/LearningJourney.jsx",
+      "target": "function:app/components/LearningJourney.jsx:LearningJourney",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/LearningJourney.jsx",
+      "target": "file:app/components/ScrollReveal.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/components/MagneticButton.jsx",
+      "target": "function:app/components/MagneticButton.jsx:MagneticButton",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/MagneticButton.jsx",
+      "target": "function:app/components/MagneticButton.jsx:MagneticButton",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/Projects.jsx",
+      "target": "function:app/components/Projects.jsx:ProjectCard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/Projects.jsx",
+      "target": "function:app/components/Projects.jsx:ProjectModal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/Projects.jsx",
+      "target": "function:app/components/Projects.jsx:Projects",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/Projects.jsx",
+      "target": "function:app/components/Projects.jsx:Projects",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/Projects.jsx",
+      "target": "file:app/components/ScrambleText.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/components/Projects.jsx",
+      "target": "file:app/components/ScrollReveal.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/components/ScrambleText.jsx",
+      "target": "function:app/components/ScrambleText.jsx:ScrambleText",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/ScrambleText.jsx",
+      "target": "function:app/components/ScrambleText.jsx:ScrambleText",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/ScrollReveal.jsx",
+      "target": "function:app/components/ScrollReveal.jsx:ScrollReveal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/ScrollReveal.jsx",
+      "target": "function:app/components/ScrollReveal.jsx:ScrollReveal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/ScrollReveal.jsx",
+      "target": "function:app/components/ScrollReveal.jsx:StaggerReveal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/ScrollReveal.jsx",
+      "target": "function:app/components/ScrollReveal.jsx:StaggerReveal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/ScrollReveal.jsx",
+      "target": "function:app/components/ScrollReveal.jsx:CountUp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/ScrollReveal.jsx",
+      "target": "function:app/components/ScrollReveal.jsx:CountUp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/ScrollReveal.jsx",
+      "target": "function:app/components/ScrollReveal.jsx:BarFill",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/ScrollReveal.jsx",
+      "target": "function:app/components/ScrollReveal.jsx:BarFill",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/ScrollReveal.jsx",
+      "target": "function:app/components/ScrollReveal.jsx:LineGrow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/ScrollReveal.jsx",
+      "target": "function:app/components/ScrollReveal.jsx:LineGrow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/TechStack.jsx",
+      "target": "function:app/components/TechStack.jsx:TechStack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/components/TechStack.jsx",
+      "target": "function:app/components/TechStack.jsx:TechStack",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/components/TechStack.jsx",
+      "target": "file:app/components/ScrambleText.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/components/TechStack.jsx",
+      "target": "file:app/components/ScrollReveal.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/page.js",
+      "target": "function:app/page.js:Home",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:app/page.js",
+      "target": "function:app/page.js:Home",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:app/page.js",
+      "target": "file:app/components/About.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/page.js",
+      "target": "file:app/components/Blog.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/page.js",
+      "target": "file:app/components/Contact.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/page.js",
+      "target": "file:app/components/Experience.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/page.js",
+      "target": "file:app/components/Hero.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/page.js",
+      "target": "file:app/components/Navbar.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/page.js",
+      "target": "file:app/components/Projects.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:app/page.js",
+      "target": "file:app/components/TechStack.jsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "mobile360": {
+    "overflow": {
+      "bodyScrollWidth": 360,
+      "windowInnerWidth": 360,
+      "hasHScroll": false
+    }
+  },
+  "iphone14": {
+    "roleText": "FULL-STACK WEB DEVELOPER\n_",
+    "line1Text": "Full-Stack",
+    "line2Text": "Web Developer.",
+    "line2Width": 276.09344482421875,
+    "gapRoleHeadline": 12,
+    "gapHeadlineSubtext": 28,
+    "hasProgressBars": false,
+    "hasCustomCursor": false,
+    "hasMobileOrb": false,
+    "hasTechLeader": false,
+    "hasLeadCommunities": false,
+    "maskStyles": [
+      {
+        "overflow": "clip",
+        "paddingBottom": "3.52px",
+        "marginBottom": "-3.52px"
+      },
+      {
+        "overflow": "clip",
+        "paddingBottom": "3.52px",
+        "marginBottom": "-3.52px"
+      }
+    ],
+    "allCharsSolid": true,
+    "totalChars": 0
+  },
+  "desktop": {
+    "line1Text": "Hi, I am",
+    "line2Text": "Akhmad Ikbal.",
+    "hasLine3": false,
+    "roleText": "ROLE //\nFULL-STACK WEB DEVELOPER\n_",
+    "hasAvatar": true,
+    "hasTechLeader": false,
+    "headlineFontSize": "82.944px"
+  },
+  "checks": []
+}

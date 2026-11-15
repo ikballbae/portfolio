@@ -1,0 +1,101 @@
+{
+  "projectRoot": "c:/project/portfolio",
+  "batchFiles": [
+    {
+      "path": "app/blog/[slug]/page.tsx",
+      "language": "typescript",
+      "sizeLines": 162,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/components/ArticleMetrics.tsx",
+      "language": "typescript",
+      "sizeLines": 143,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/components/Blog.jsx",
+      "language": "javascript",
+      "sizeLines": 330,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/components/CommentItem.tsx",
+      "language": "typescript",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/components/CommentSection.tsx",
+      "language": "typescript",
+      "sizeLines": 191,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/components/ReactionBar.tsx",
+      "language": "typescript",
+      "sizeLines": 235,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/components/ShareMenu.jsx",
+      "language": "javascript",
+      "sizeLines": 178,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/data/blogData.js",
+      "language": "javascript",
+      "sizeLines": 258,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/supabase/client.ts",
+      "language": "typescript",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/utils/session.ts",
+      "language": "typescript",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "app/blog/[slug]/page.tsx": [
+      "app/components/ArticleMetrics.tsx",
+      "app/components/CommentSection.tsx",
+      "app/components/Navbar.jsx",
+      "app/components/ReactionBar.tsx",
+      "app/components/ShareMenu.jsx",
+      "app/data/blogData.js"
+    ],
+    "app/components/ArticleMetrics.tsx": [
+      "lib/supabase/client.ts",
+      "lib/utils/session.ts"
+    ],
+    "app/components/Blog.jsx": [
+      "app/components/MagneticButton.jsx",
+      "app/components/ReactionBar.tsx",
+      "app/components/ScrambleText.jsx",
+      "app/components/ScrollReveal.jsx",
+      "app/components/ShareMenu.jsx",
+      "app/data/blogData.js"
+    ],
+    "app/components/CommentItem.tsx": [],
+    "app/components/CommentSection.tsx": [
+      "app/actions/comments.ts",
+      "app/components/CommentItem.tsx",
+      "lib/supabase/client.ts"
+    ],
+    "app/components/ReactionBar.tsx": [
+      "lib/supabase/client.ts",
+      "lib/utils/session.ts"
+    ],
+    "app/components/ShareMenu.jsx": [],
+    "app/data/blogData.js": [],
+    "lib/supabase/client.ts": [],
+    "lib/utils/session.ts": []
+  }
+}

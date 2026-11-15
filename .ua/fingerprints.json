@@ -1,0 +1,3110 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "71113c7ffdef2b698538d51e2449227748ea1a5f",
+  "generatedAt": "2026-11-03T07:23:23.853Z",
+  "files": {
+    ".agents/skills/page-mascot/SKILL.md": {
+      "filePath": ".agents/skills/page-mascot/SKILL.md",
+      "contentHash": "15848dabeacc352149ec4d4d1107c2daebd589f6865a35a6f8aefbfae017ab9f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 262,
+      "hasStructuralAnalysis": false
+    },
+    ".agents/skills/page-mascot/mascot.tsx": {
+      "filePath": ".agents/skills/page-mascot/mascot.tsx",
+      "contentHash": "eed8c710a4dff2584d9592e9c57a0037bf20c7879079a3da715e90298b3e8dd2",
+      "functions": [
+        {
+          "name": "cell",
+          "params": [
+            "index"
+          ],
+          "returnType": "CSSProperties",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "wrap",
+          "params": [
+            "angle"
+          ],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "Mascot",
+          "params": [
+            "props"
+          ],
+          "exported": true,
+          "lineCount": 143
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef",
+            "useState"
+          ]
+        },
+        {
+          "source": "react",
+          "specifiers": [
+            "CSSProperties"
+          ]
+        }
+      ],
+      "exports": [
+        "Mascot"
+      ],
+      "totalLines": 232,
+      "hasStructuralAnalysis": true
+    },
+    ".agents/skills/page-mascot/reference/characters.md": {
+      "filePath": ".agents/skills/page-mascot/reference/characters.md",
+      "contentHash": "65aec4f87faa5dfaf628eb59975cf025e719558f089d93417f4bd734dded4752",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 26,
+      "hasStructuralAnalysis": false
+    },
+    ".agents/skills/page-mascot/reference/design-rules.md": {
+      "filePath": ".agents/skills/page-mascot/reference/design-rules.md",
+      "contentHash": "5728ca7ebfd2d5799c2c4bc3cde0927d382c7663f5235f79b01f25141e15edb4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 268,
+      "hasStructuralAnalysis": false
+    },
+    ".agents/skills/page-mascot/reference/prompts.md": {
+      "filePath": ".agents/skills/page-mascot/reference/prompts.md",
+      "contentHash": "8c6c07c513cbab32d0928585f5005a42409f6370787594a05948d352ab31ac4c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 314,
+      "hasStructuralAnalysis": false
+    },
+    ".agents/skills/page-mascot/scripts/build.py": {
+      "filePath": ".agents/skills/page-mascot/scripts/build.py",
+      "contentHash": "8c3c09a19f9a89c43f6c2bbac11db94cf54c42271c6135c4f4ccd87e640bd1c8",
+      "functions": [
+        {
+          "name": "drop_bleed",
+          "params": [
+            "tile"
+          ],
+          "exported": true,
+          "lineCount": 27
+        },
+        {
+          "name": "tiles",
+          "params": [
+            "path"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "body_mask",
+          "params": [
+            "opaque"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "anchor_box",
+          "params": [
+            "tile",
+            "mode"
+          ],
+          "exported": true,
+          "lineCount": 45
+        },
+        {
+          "name": "blur_premultiplied",
+          "params": [
+            "image",
+            "radius"
+          ],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "align",
+          "params": [
+            "tile"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "blob_bounds",
+          "params": [
+            "frame"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "head_width",
+          "params": [
+            "frame"
+          ],
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "silhouette",
+          "params": [
+            "group"
+          ],
+          "exported": true,
+          "lineCount": 21
+        },
+        {
+          "name": "overlap",
+          "params": [
+            "scale",
+            "dy"
+          ],
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "match",
+          "params": [
+            "frame"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "lower_band",
+          "params": [
+            "frame"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "settle",
+          "params": [
+            "frame",
+            "reference"
+          ],
+          "exported": true,
+          "lineCount": 24
+        },
+        {
+          "name": "bottom_fade",
+          "params": [
+            "cropped"
+          ],
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "dissolve",
+          "params": [
+            "frame"
+          ],
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "PIL",
+          "specifiers": [
+            "Image",
+            "ImageFilter"
+          ]
+        },
+        {
+          "source": "scipy",
+          "specifiers": [
+            "ndimage"
+          ]
+        },
+        {
+          "source": "tempfile",
+          "specifiers": [
+            "tempfile"
+          ]
+        }
+      ],
+      "exports": [
+        "drop_bleed",
+        "tiles",
+        "body_mask",
+        "anchor_box",
+        "blur_premultiplied",
+        "align",
+        "blob_bounds",
+        "head_width",
+        "silhouette",
+        "overlap",
+        "match",
+        "lower_band",
+        "settle",
+        "bottom_fade",
+        "dissolve"
+      ],
+      "totalLines": 400,
+      "hasStructuralAnalysis": true
+    },
+    ".agents/skills/page-mascot/scripts/generate.py": {
+      "filePath": ".agents/skills/page-mascot/scripts/generate.py",
+      "contentHash": "1c4a53a4a14a5f63fcb77fcf5f97a8ae644af7a57e7e9f8ae4c1a2fffd8225f4",
+      "functions": [
+        {
+          "name": "pick_key",
+          "params": [
+            "describe"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "rules",
+          "params": [
+            "key"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "tail",
+          "params": [
+            "key"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "directions_prompt",
+          "params": [
+            "describe",
+            "style",
+            "key"
+          ],
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "reactions_prompt",
+          "params": [
+            "describe",
+            "style",
+            "key"
+          ],
+          "exported": true,
+          "lineCount": 34
+        },
+        {
+          "name": "reference_prompt",
+          "params": [
+            "describe",
+            "style",
+            "key"
+          ],
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "draw",
+          "params": [
+            "api",
+            "model",
+            "prompt",
+            "reference",
+            "key"
+          ],
+          "exported": true,
+          "lineCount": 22
+        },
+        {
+          "name": "transparent",
+          "params": [
+            "data"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "sheet",
+          "params": [
+            "api",
+            "model",
+            "path",
+            "describe",
+            "prompt_for",
+            "reference",
+            "key"
+          ],
+          "exported": true,
+          "lineCount": 27
+        },
+        {
+          "name": "client",
+          "params": [],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "main",
+          "params": [],
+          "exported": true,
+          "lineCount": 47
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "base64",
+          "specifiers": [
+            "base64"
+          ]
+        },
+        {
+          "source": "io",
+          "specifiers": [
+            "io"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "re",
+          "specifiers": [
+            "re"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "PIL",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "key",
+          "specifiers": [
+            "key_file"
+          ]
+        }
+      ],
+      "exports": [
+        "pick_key",
+        "rules",
+        "tail",
+        "directions_prompt",
+        "reactions_prompt",
+        "reference_prompt",
+        "draw",
+        "transparent",
+        "sheet",
+        "client",
+        "main"
+      ],
+      "totalLines": 338,
+      "hasStructuralAnalysis": true
+    },
+    ".agents/skills/page-mascot/scripts/key.py": {
+      "filePath": ".agents/skills/page-mascot/scripts/key.py",
+      "contentHash": "40c29188ea0bb629bcc0bb55c4c09f483dc657d0fb4659822752298505ccc699",
+      "functions": [
+        {
+          "name": "_corr",
+          "params": [
+            "a",
+            "b"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "_period_score",
+          "params": [
+            "hp",
+            "p"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "_region_score",
+          "params": [
+            "patch"
+          ],
+          "exported": true,
+          "lineCount": 20
+        },
+        {
+          "name": "checkerboard",
+          "params": [
+            "rgba"
+          ],
+          "exported": true,
+          "lineCount": 21
+        },
+        {
+          "name": "_linear",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "_f",
+          "params": [
+            "t"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "lab",
+          "params": [
+            "rgb"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "keyable",
+          "params": [
+            "colour"
+          ],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "background",
+          "params": [
+            "rgba"
+          ],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "key_out",
+          "params": [
+            "rgba",
+            "colour"
+          ],
+          "exported": true,
+          "lineCount": 33
+        },
+        {
+          "name": "key_file",
+          "params": [
+            "path",
+            "in_place"
+          ],
+          "exported": true,
+          "lineCount": 34
+        },
+        {
+          "name": "main",
+          "params": [],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "PIL",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "scipy",
+          "specifiers": [
+            "ndimage"
+          ]
+        }
+      ],
+      "exports": [
+        "_corr",
+        "_period_score",
+        "_region_score",
+        "checkerboard",
+        "_linear",
+        "_f",
+        "lab",
+        "keyable",
+        "background",
+        "key_out",
+        "key_file",
+        "main"
+      ],
+      "totalLines": 219,
+      "hasStructuralAnalysis": true
+    },
+    ".agents/skills/page-mascot/scripts/mascot.py": {
+      "filePath": ".agents/skills/page-mascot/scripts/mascot.py",
+      "contentHash": "1f0a9681a652b81528d0128593da849064c4e7db5671ca28b449a651710f6f38",
+      "functions": [
+        {
+          "name": "run",
+          "params": [
+            "script",
+            "*args"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "screen",
+          "params": [
+            "name",
+            "sheet",
+            "keyed"
+          ],
+          "exported": true,
+          "lineCount": 29
+        },
+        {
+          "name": "measure",
+          "params": [
+            "name"
+          ],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "main",
+          "params": [],
+          "exported": true,
+          "lineCount": 80
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "argparse",
+          "specifiers": [
+            "argparse"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "re",
+          "specifiers": [
+            "re"
+          ]
+        },
+        {
+          "source": "subprocess",
+          "specifiers": [
+            "subprocess"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        }
+      ],
+      "exports": [
+        "run",
+        "screen",
+        "measure",
+        "main"
+      ],
+      "totalLines": 173,
+      "hasStructuralAnalysis": true
+    },
+    ".agents/skills/page-mascot/scripts/requirements.txt": {
+      "filePath": ".agents/skills/page-mascot/scripts/requirements.txt",
+      "contentHash": "73e11f33d74d98ec3d191e0c41d3830688b3790613f788fca39334c01459e63d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    ".agents/skills/page-mascot/scripts/screen.py": {
+      "filePath": ".agents/skills/page-mascot/scripts/screen.py",
+      "contentHash": "f5094306bbbda943203a3fbbb3c6763a2351679fccf031f565dbdc8ba1dc97e8",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "PIL",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "scipy",
+          "specifiers": [
+            "ndimage"
+          ]
+        },
+        {
+          "source": "key",
+          "specifiers": [
+            "background",
+            "checkerboard",
+            "keyable"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 75,
+      "hasStructuralAnalysis": true
+    },
+    ".agents/skills/page-mascot/scripts/verify.py": {
+      "filePath": ".agents/skills/page-mascot/scripts/verify.py",
+      "contentHash": "4e8283dfe100346734f2428f7e9d60edcade69ddff1445d31e53a5516633191c",
+      "functions": [
+        {
+          "name": "cells",
+          "params": [
+            "path"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "body",
+          "params": [
+            "cell"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "lower_band",
+          "params": [
+            "mask"
+          ],
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "best_shift",
+          "params": [
+            "ref",
+            "other"
+          ],
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "palette",
+          "params": [
+            "cells_list"
+          ],
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "shoulder_width",
+          "params": [
+            "cells_list"
+          ],
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "numpy",
+          "specifiers": [
+            "np"
+          ]
+        },
+        {
+          "source": "PIL",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "scipy",
+          "specifiers": [
+            "ndimage"
+          ]
+        }
+      ],
+      "exports": [
+        "cells",
+        "body",
+        "lower_band",
+        "best_shift",
+        "palette",
+        "shoulder_width"
+      ],
+      "totalLines": 136,
+      "hasStructuralAnalysis": true
+    },
+    ".ua/config.json": {
+      "filePath": ".ua/config.json",
+      "contentHash": "ef9f4ede4e42578350c16139b5ac78c2e3582a1c9a9ab1c89731bb3c088dca23",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": false
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "f9bcd78f9848434b370469734c40c0d6a3b7c08d860a6dade620d08c6f6d8632",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 37,
+      "hasStructuralAnalysis": false
+    },
+    "app/actions/admin.ts": {
+      "filePath": "app/actions/admin.ts",
+      "contentHash": "a9fc6147092b54dce82f9c505825460c2b43b89f8fff907113fa25ea6e74110e",
+      "functions": [
+        {
+          "name": "getAllComments",
+          "params": [
+            "passcode"
+          ],
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "updateCommentStatus",
+          "params": [
+            "commentId",
+            "newStatus",
+            "passcode"
+          ],
+          "exported": true,
+          "lineCount": 20
+        },
+        {
+          "name": "deleteComment",
+          "params": [
+            "commentId",
+            "passcode"
+          ],
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "../../lib/supabase/admin",
+          "specifiers": [
+            "supabaseAdmin"
+          ]
+        },
+        {
+          "source": "next/cache",
+          "specifiers": [
+            "revalidatePath"
+          ]
+        }
+      ],
+      "exports": [
+        "getAllComments",
+        "updateCommentStatus",
+        "deleteComment"
+      ],
+      "totalLines": 66,
+      "hasStructuralAnalysis": true
+    },
+    "app/actions/comments.ts": {
+      "filePath": "app/actions/comments.ts",
+      "contentHash": "8da97deeb5c59a7ed69bd965ebe5873782c0e9094bd9ea7bc917b5fa5f4de50a",
+      "functions": [
+        {
+          "name": "hashIp",
+          "params": [
+            "ip"
+          ],
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "submitComment",
+          "params": [
+            "prevState",
+            "formData"
+          ],
+          "exported": true,
+          "lineCount": 94
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/headers",
+          "specifiers": [
+            "headers"
+          ]
+        },
+        {
+          "source": "crypto",
+          "specifiers": [
+            "crypto"
+          ]
+        },
+        {
+          "source": "../../lib/supabase/admin",
+          "specifiers": [
+            "supabaseAdmin"
+          ]
+        },
+        {
+          "source": "../../lib/utils/moderation",
+          "specifiers": [
+            "CommentSchema",
+            "moderateComment"
+          ]
+        }
+      ],
+      "exports": [
+        "submitComment"
+      ],
+      "totalLines": 107,
+      "hasStructuralAnalysis": true
+    },
+    "app/admin/comments/page.tsx": {
+      "filePath": "app/admin/comments/page.tsx",
+      "contentHash": "4d20aaa17b81b0849f8fc41b8af045d771e9e03c9908f76e93a8e604d3525867",
+      "functions": [
+        {
+          "name": "AdminCommentsPage",
+          "params": [],
+          "exported": true,
+          "lineCount": 24
+        },
+        {
+          "name": "AdminDashboard",
+          "params": [],
+          "exported": false,
+          "lineCount": 130
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useState",
+            "useEffect"
+          ]
+        },
+        {
+          "source": "../../../lib/supabase/client",
+          "specifiers": [
+            "supabase"
+          ]
+        },
+        {
+          "source": "../../actions/admin",
+          "specifiers": [
+            "updateCommentStatus",
+            "deleteComment",
+            "getAllComments"
+          ]
+        }
+      ],
+      "exports": [
+        "AdminCommentsPage"
+      ],
+      "totalLines": 173,
+      "hasStructuralAnalysis": true
+    },
+    "app/blog/[slug]/page.tsx": {
+      "filePath": "app/blog/[slug]/page.tsx",
+      "contentHash": "2d0926e81dc1afbc69bdf33fec3f6c53d6ee487aaef16b1733bf101044a393ff",
+      "functions": [
+        {
+          "name": "BlogPostPage",
+          "params": [],
+          "exported": true,
+          "lineCount": 142
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/link",
+          "specifiers": [
+            "Link"
+          ]
+        },
+        {
+          "source": "next/image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "next/navigation",
+          "specifiers": [
+            "useParams"
+          ]
+        },
+        {
+          "source": "../../components/Navbar",
+          "specifiers": [
+            "Navbar"
+          ]
+        },
+        {
+          "source": "../../components/ReactionBar",
+          "specifiers": [
+            "ReactionBar"
+          ]
+        },
+        {
+          "source": "../../components/ShareMenu",
+          "specifiers": [
+            "ShareMenu"
+          ]
+        },
+        {
+          "source": "../../components/ArticleMetrics",
+          "specifiers": [
+            "ArticleMetrics"
+          ]
+        },
+        {
+          "source": "../../components/CommentSection",
+          "specifiers": [
+            "CommentSection"
+          ]
+        },
+        {
+          "source": "../../data/blogData",
+          "specifiers": [
+            "getBlogPost",
+            "formatDate"
+          ]
+        }
+      ],
+      "exports": [
+        "BlogPostPage"
+      ],
+      "totalLines": 163,
+      "hasStructuralAnalysis": true
+    },
+    "app/blog/page.tsx": {
+      "filePath": "app/blog/page.tsx",
+      "contentHash": "1fb56defd83d22a8ba1e19ed259fe3d072f5c7709b3633eea62e883d93064ca5",
+      "functions": [
+        {
+          "name": "BlogContent",
+          "params": [],
+          "exported": false,
+          "lineCount": 208
+        },
+        {
+          "name": "BlogListPage",
+          "params": [],
+          "exported": true,
+          "lineCount": 22
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useState",
+            "useEffect",
+            "useRef",
+            "useMemo",
+            "useCallback",
+            "Suspense"
+          ]
+        },
+        {
+          "source": "gsap",
+          "specifiers": [
+            "gsap"
+          ]
+        },
+        {
+          "source": "gsap/ScrollTrigger",
+          "specifiers": [
+            "ScrollTrigger"
+          ]
+        },
+        {
+          "source": "../components/Navbar",
+          "specifiers": [
+            "Navbar"
+          ]
+        },
+        {
+          "source": "../components/blog/BlogHeader",
+          "specifiers": [
+            "BlogHeader"
+          ]
+        },
+        {
+          "source": "../components/blog/FeaturedPost",
+          "specifiers": [
+            "FeaturedPost"
+          ]
+        },
+        {
+          "source": "../components/blog/PostCard",
+          "specifiers": [
+            "PostCard"
+          ]
+        },
+        {
+          "source": "../components/blog/CategoryFilter",
+          "specifiers": [
+            "CategoryFilter"
+          ]
+        },
+        {
+          "source": "../components/blog/BlogEmptyState",
+          "specifiers": [
+            "BlogEmptyState"
+          ]
+        },
+        {
+          "source": "../components/blog/PostCardSkeleton",
+          "specifiers": [
+            "FeaturedSkeleton",
+            "PostCardSkeleton"
+          ]
+        },
+        {
+          "source": "../data/blogData",
+          "specifiers": [
+            "blogPosts"
+          ]
+        }
+      ],
+      "exports": [
+        "BlogListPage"
+      ],
+      "totalLines": 252,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/About.jsx": {
+      "filePath": "app/components/About.jsx",
+      "contentHash": "3a4ad3311d2189409dcf90b354135c64831fce5e501144faca34912cecda35c8",
+      "functions": [
+        {
+          "name": "About",
+          "params": [],
+          "exported": true,
+          "lineCount": 71
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "./ScrollReveal",
+          "specifiers": [
+            "ScrollReveal",
+            "StaggerReveal"
+          ]
+        },
+        {
+          "source": "./ScrambleText",
+          "specifiers": [
+            "ScrambleText"
+          ]
+        }
+      ],
+      "exports": [
+        "About"
+      ],
+      "totalLines": 94,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/AnimatedBackground.jsx": {
+      "filePath": "app/components/AnimatedBackground.jsx",
+      "contentHash": "b99a02ae70a9e92b3ded4b42f40397d2ce826379bdfbae4e4042a70f785ef74d",
+      "functions": [
+        {
+          "name": "AnimatedBackground",
+          "params": [],
+          "exported": true,
+          "lineCount": 130
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef"
+          ]
+        }
+      ],
+      "exports": [
+        "AnimatedBackground"
+      ],
+      "totalLines": 134,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/ArticleMetrics.tsx": {
+      "filePath": "app/components/ArticleMetrics.tsx",
+      "contentHash": "eb9357bc8e713ddbbf22a2a37dbe23c71d3b74b8c0f29dd7d877c60e145158a7",
+      "functions": [
+        {
+          "name": "ArticleMetrics",
+          "params": [
+            "{ slug, readTime }"
+          ],
+          "exported": true,
+          "lineCount": 132
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useState",
+            "useRef"
+          ]
+        },
+        {
+          "source": "../../lib/supabase/client",
+          "specifiers": [
+            "supabase"
+          ]
+        },
+        {
+          "source": "../../lib/utils/session",
+          "specifiers": [
+            "getSessionId"
+          ]
+        }
+      ],
+      "exports": [
+        "ArticleMetrics"
+      ],
+      "totalLines": 144,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/Blog.jsx": {
+      "filePath": "app/components/Blog.jsx",
+      "contentHash": "95eb8d474ede08c49a94f55c8ff8fae86ed2f8f3b78ec8a1c4915f5e570a1e60",
+      "functions": [
+        {
+          "name": "DesktopBlogCard",
+          "params": [],
+          "exported": false,
+          "lineCount": 75
+        },
+        {
+          "name": "MobileFeaturedCard",
+          "params": [],
+          "exported": false,
+          "lineCount": 74
+        },
+        {
+          "name": "MobileCompactListRow",
+          "params": [],
+          "exported": false,
+          "lineCount": 53
+        },
+        {
+          "name": "Blog",
+          "params": [],
+          "exported": true,
+          "lineCount": 94
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/navigation",
+          "specifiers": [
+            "useRouter"
+          ]
+        },
+        {
+          "source": "next/link",
+          "specifiers": [
+            "Link"
+          ]
+        },
+        {
+          "source": "next/image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "./ScrollReveal",
+          "specifiers": [
+            "ScrollReveal"
+          ]
+        },
+        {
+          "source": "./MagneticButton",
+          "specifiers": [
+            "MagneticButton"
+          ]
+        },
+        {
+          "source": "./ReactionBar",
+          "specifiers": [
+            "ReactionBar"
+          ]
+        },
+        {
+          "source": "./ShareMenu",
+          "specifiers": [
+            "ShareMenu"
+          ]
+        },
+        {
+          "source": "./ScrambleText",
+          "specifiers": [
+            "ScrambleText"
+          ]
+        },
+        {
+          "source": "../data/blogData",
+          "specifiers": [
+            "blogPosts",
+            "formatDate"
+          ]
+        }
+      ],
+      "exports": [
+        "Blog"
+      ],
+      "totalLines": 331,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/CommentItem.tsx": {
+      "filePath": "app/components/CommentItem.tsx",
+      "contentHash": "18d8ae15af398c7101710d0461a10c62de582abe34793ad6ca553554992e9b6e",
+      "functions": [
+        {
+          "name": "CommentItem",
+          "params": [
+            "{ comment }"
+          ],
+          "exported": true,
+          "lineCount": 63
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useMemo"
+          ]
+        }
+      ],
+      "exports": [
+        "CommentItem"
+      ],
+      "totalLines": 73,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/CommentSection.tsx": {
+      "filePath": "app/components/CommentSection.tsx",
+      "contentHash": "ccd4ed05d47a5d12252f7a21a3ab44444d483c8ee0a40fefbae7fa380eb4217b",
+      "functions": [
+        {
+          "name": "CommentSection",
+          "params": [
+            "{ slug }"
+          ],
+          "exported": true,
+          "lineCount": 183
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useState",
+            "useEffect",
+            "useRef",
+            "useActionState"
+          ]
+        },
+        {
+          "source": "gsap",
+          "specifiers": [
+            "gsap"
+          ]
+        },
+        {
+          "source": "../../lib/supabase/client",
+          "specifiers": [
+            "supabase"
+          ]
+        },
+        {
+          "source": "./CommentItem",
+          "specifiers": [
+            "CommentItem",
+            "CommentType"
+          ]
+        },
+        {
+          "source": "../actions/comments",
+          "specifiers": [
+            "submitComment"
+          ]
+        }
+      ],
+      "exports": [
+        "CommentSection"
+      ],
+      "totalLines": 192,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/Contact.jsx": {
+      "filePath": "app/components/Contact.jsx",
+      "contentHash": "6807800b7e9df06bce1c49a3f3579da7846f9b499d3d178d585d0309cc8cfb33",
+      "functions": [
+        {
+          "name": "Contact",
+          "params": [],
+          "exported": true,
+          "lineCount": 116
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useState"
+          ]
+        },
+        {
+          "source": "./MagneticButton",
+          "specifiers": [
+            "MagneticButton"
+          ]
+        },
+        {
+          "source": "./ScrollReveal",
+          "specifiers": [
+            "ScrollReveal",
+            "StaggerReveal"
+          ]
+        },
+        {
+          "source": "./ScrambleText",
+          "specifiers": [
+            "ScrambleText"
+          ]
+        },
+        {
+          "source": "react-icons/fa",
+          "specifiers": [
+            "FaGithub",
+            "FaLinkedin",
+            "FaEnvelope",
+            "FaInstagram"
+          ]
+        }
+      ],
+      "exports": [
+        "Contact"
+      ],
+      "totalLines": 131,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/CustomCursor.jsx": {
+      "filePath": "app/components/CustomCursor.jsx",
+      "contentHash": "5705c855a76491a3479ba0474feeff0aa70117530fcdfc61e8d033e59fd46d2b",
+      "functions": [
+        {
+          "name": "CustomCursor",
+          "params": [],
+          "exported": true,
+          "lineCount": 204
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef",
+            "useState",
+            "useCallback"
+          ]
+        }
+      ],
+      "exports": [
+        "CustomCursor"
+      ],
+      "totalLines": 208,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/Experience.jsx": {
+      "filePath": "app/components/Experience.jsx",
+      "contentHash": "6ac4dbe28a892abb22581a97218d9cbb38061695340b09171668bdef6d48efc7",
+      "functions": [
+        {
+          "name": "TimelineItem",
+          "params": [],
+          "exported": false,
+          "lineCount": 51
+        },
+        {
+          "name": "Experience",
+          "params": [],
+          "exported": true,
+          "lineCount": 28
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "./ScrollReveal",
+          "specifiers": [
+            "ScrollReveal"
+          ]
+        },
+        {
+          "source": "./ScrambleText",
+          "specifiers": [
+            "ScrambleText"
+          ]
+        }
+      ],
+      "exports": [
+        "Experience"
+      ],
+      "totalLines": 120,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/GradientMesh.jsx": {
+      "filePath": "app/components/GradientMesh.jsx",
+      "contentHash": "a6f43719b4c71dd6a752abcd43576e16826609bca280902f0145cb91e560e7bd",
+      "functions": [
+        {
+          "name": "BlueprintGrid",
+          "params": [],
+          "exported": true,
+          "lineCount": 49
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        }
+      ],
+      "exports": [
+        "BlueprintGrid"
+      ],
+      "totalLines": 53,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/Hero.jsx": {
+      "filePath": "app/components/Hero.jsx",
+      "contentHash": "e47771bc97a736127615fd9612991f1bedb676294c51d8f5d86b1d8d7c88969c",
+      "functions": [
+        {
+          "name": "Hero",
+          "params": [],
+          "exported": true,
+          "lineCount": 254
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef",
+            "useState"
+          ]
+        },
+        {
+          "source": "gsap",
+          "specifiers": [
+            "gsap"
+          ]
+        },
+        {
+          "source": "gsap/ScrollTrigger",
+          "specifiers": [
+            "ScrollTrigger"
+          ]
+        },
+        {
+          "source": "./GradientMesh",
+          "specifiers": [
+            "BlueprintGrid"
+          ]
+        },
+        {
+          "source": "./MagneticButton",
+          "specifiers": [
+            "MagneticButton"
+          ]
+        },
+        {
+          "source": "./ScrollReveal",
+          "specifiers": [
+            "ScrollReveal"
+          ]
+        },
+        {
+          "source": "./ScrambleText",
+          "specifiers": [
+            "ScrambleText"
+          ]
+        },
+        {
+          "source": "page-mascot",
+          "specifiers": [
+            "Mascot"
+          ]
+        }
+      ],
+      "exports": [
+        "Hero"
+      ],
+      "totalLines": 269,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/LearningJourney.jsx": {
+      "filePath": "app/components/LearningJourney.jsx",
+      "contentHash": "bc0306f84b39c92cd53cc6881d4a56b7f9e622f5a4513e5b6d6b19d2f1d29029",
+      "functions": [
+        {
+          "name": "LearningJourney",
+          "params": [],
+          "exported": true,
+          "lineCount": 86
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "./ScrollReveal",
+          "specifiers": [
+            "ScrollReveal",
+            "StaggerReveal",
+            "CountUp",
+            "LineGrow"
+          ]
+        }
+      ],
+      "exports": [
+        "LearningJourney"
+      ],
+      "totalLines": 126,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/MagneticButton.jsx": {
+      "filePath": "app/components/MagneticButton.jsx",
+      "contentHash": "9619a97d06db93bf18174b2fcbb89fc2076783626c16378f089576830be7688c",
+      "functions": [
+        {
+          "name": "MagneticButton",
+          "params": [],
+          "exported": true,
+          "lineCount": 30
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useRef",
+            "useState"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion"
+          ]
+        }
+      ],
+      "exports": [
+        "MagneticButton"
+      ],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/Navbar.jsx": {
+      "filePath": "app/components/Navbar.jsx",
+      "contentHash": "086533e00bf77583b7c8e28aec58a4251e639f51805c2e023fc7b4c4d50f78cf",
+      "functions": [
+        {
+          "name": "ThemeToggle",
+          "params": [],
+          "exported": false,
+          "lineCount": 53
+        },
+        {
+          "name": "Navbar",
+          "params": [],
+          "exported": true,
+          "lineCount": 175
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useState",
+            "useRef"
+          ]
+        },
+        {
+          "source": "next/navigation",
+          "specifiers": [
+            "usePathname"
+          ]
+        },
+        {
+          "source": "gsap",
+          "specifiers": [
+            "gsap"
+          ]
+        },
+        {
+          "source": "gsap/ScrollTrigger",
+          "specifiers": [
+            "ScrollTrigger"
+          ]
+        },
+        {
+          "source": "framer-motion",
+          "specifiers": [
+            "motion",
+            "AnimatePresence"
+          ]
+        },
+        {
+          "source": "./ThemeProvider",
+          "specifiers": [
+            "useTheme"
+          ]
+        }
+      ],
+      "exports": [
+        "Navbar"
+      ],
+      "totalLines": 251,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/Projects.jsx": {
+      "filePath": "app/components/Projects.jsx",
+      "contentHash": "75fb7f6a0351a0bd63390ce7f7dce1c28bee5343c6145d5bb19b2a021dd23f50",
+      "functions": [
+        {
+          "name": "ProjectCard",
+          "params": [],
+          "exported": false,
+          "lineCount": 68
+        },
+        {
+          "name": "ProjectModal",
+          "params": [],
+          "exported": false,
+          "lineCount": 106
+        },
+        {
+          "name": "Projects",
+          "params": [],
+          "exported": true,
+          "lineCount": 37
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef",
+            "useState",
+            "useCallback"
+          ]
+        },
+        {
+          "source": "gsap",
+          "specifiers": [
+            "gsap"
+          ]
+        },
+        {
+          "source": "next/image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "./ScrollReveal",
+          "specifiers": [
+            "ScrollReveal"
+          ]
+        },
+        {
+          "source": "./ScrambleText",
+          "specifiers": [
+            "ScrambleText"
+          ]
+        }
+      ],
+      "exports": [
+        "Projects"
+      ],
+      "totalLines": 248,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/ReactionBar.tsx": {
+      "filePath": "app/components/ReactionBar.tsx",
+      "contentHash": "4314d76755d7049fe4b8bac85527ac19f396d093b8073ae602ff76bd47ab0888",
+      "functions": [
+        {
+          "name": "ReactionBar",
+          "params": [
+            "{ slug, initialReactions, size = 'sm' }"
+          ],
+          "exported": true,
+          "lineCount": 207
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useState",
+            "useEffect",
+            "useRef",
+            "useCallback"
+          ]
+        },
+        {
+          "source": "../../lib/supabase/client",
+          "specifiers": [
+            "supabase"
+          ]
+        },
+        {
+          "source": "../../lib/utils/session",
+          "specifiers": [
+            "getSessionId"
+          ]
+        },
+        {
+          "source": "gsap",
+          "specifiers": [
+            "gsap"
+          ]
+        }
+      ],
+      "exports": [
+        "ReactionBar"
+      ],
+      "totalLines": 236,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/ScrambleText.jsx": {
+      "filePath": "app/components/ScrambleText.jsx",
+      "contentHash": "99bcf2fa3897211e71b93acef0887a940cf087851984f38fca498217bb707fd8",
+      "functions": [
+        {
+          "name": "ScrambleText",
+          "params": [],
+          "exported": true,
+          "lineCount": 68
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useState",
+            "useEffect",
+            "useCallback",
+            "useRef"
+          ]
+        }
+      ],
+      "exports": [
+        "ScrambleText"
+      ],
+      "totalLines": 74,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/ScrollReveal.jsx": {
+      "filePath": "app/components/ScrollReveal.jsx",
+      "contentHash": "cd747d4c288fa78e375ac570e9de2dfdd9316f21ccbf309772627ec9e3161ed8",
+      "functions": [
+        {
+          "name": "ScrollReveal",
+          "params": [],
+          "exported": true,
+          "lineCount": 60
+        },
+        {
+          "name": "StaggerReveal",
+          "params": [],
+          "exported": true,
+          "lineCount": 61
+        },
+        {
+          "name": "CountUp",
+          "params": [],
+          "exported": true,
+          "lineCount": 33
+        },
+        {
+          "name": "BarFill",
+          "params": [],
+          "exported": true,
+          "lineCount": 27
+        },
+        {
+          "name": "LineGrow",
+          "params": [],
+          "exported": true,
+          "lineCount": 28
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef"
+          ]
+        }
+      ],
+      "exports": [
+        "ScrollReveal",
+        "StaggerReveal",
+        "CountUp",
+        "BarFill",
+        "LineGrow"
+      ],
+      "totalLines": 233,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/ShareMenu.jsx": {
+      "filePath": "app/components/ShareMenu.jsx",
+      "contentHash": "c246d70a373c75e954162c4b8c92d708ac2f132d2dcb9ed22f9192fece3776b7",
+      "functions": [
+        {
+          "name": "ShareMenu",
+          "params": [],
+          "exported": true,
+          "lineCount": 175
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useState",
+            "useRef",
+            "useEffect"
+          ]
+        }
+      ],
+      "exports": [
+        "ShareMenu"
+      ],
+      "totalLines": 179,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/TechStack.jsx": {
+      "filePath": "app/components/TechStack.jsx",
+      "contentHash": "59935c2c49c895c0186a11e657eae9a06dff6ead8b5e12e69d925e5d38422939",
+      "functions": [
+        {
+          "name": "TechStack",
+          "params": [],
+          "exported": true,
+          "lineCount": 64
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "./ScrollReveal",
+          "specifiers": [
+            "ScrollReveal",
+            "StaggerReveal"
+          ]
+        },
+        {
+          "source": "./ScrambleText",
+          "specifiers": [
+            "ScrambleText"
+          ]
+        },
+        {
+          "source": "react-icons/si",
+          "specifiers": [
+            "SiJavascript",
+            "SiTypescript",
+            "SiPython",
+            "SiPhp",
+            "SiReact",
+            "SiNextdotjs",
+            "SiNodedotjs",
+            "SiLaravel",
+            "SiCodeigniter",
+            "SiTailwindcss",
+            "SiMysql",
+            "SiPostgresql",
+            "SiMongodb",
+            "SiFigma",
+            "SiNpm",
+            "SiGit",
+            "SiPostman",
+            "SiNginx"
+          ]
+        }
+      ],
+      "exports": [
+        "TechStack"
+      ],
+      "totalLines": 97,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/TextReveal.jsx": {
+      "filePath": "app/components/TextReveal.jsx",
+      "contentHash": "8357a7886b3f89809fc451551d8f5e73df825fd88b54814f6f2ca0eedd5651d3",
+      "functions": [
+        {
+          "name": "TextReveal",
+          "params": [],
+          "exported": true,
+          "lineCount": 30
+        },
+        {
+          "name": "LineReveal",
+          "params": [],
+          "exported": true,
+          "lineCount": 31
+        },
+        {
+          "name": "FadeIn",
+          "params": [],
+          "exported": true,
+          "lineCount": 37
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef"
+          ]
+        },
+        {
+          "source": "gsap",
+          "specifiers": [
+            "gsap"
+          ]
+        },
+        {
+          "source": "gsap/ScrollTrigger",
+          "specifiers": [
+            "ScrollTrigger"
+          ]
+        }
+      ],
+      "exports": [
+        "TextReveal",
+        "LineReveal",
+        "FadeIn"
+      ],
+      "totalLines": 111,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/ThemeProvider.jsx": {
+      "filePath": "app/components/ThemeProvider.jsx",
+      "contentHash": "88165bc77bd8b6758a654e07e6ac5b116e271317823708b9b9e259658b195ebb",
+      "functions": [
+        {
+          "name": "useTheme",
+          "params": [],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "ThemeProvider",
+          "params": [],
+          "exported": true,
+          "lineCount": 36
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "createContext",
+            "useContext",
+            "useEffect",
+            "useState"
+          ]
+        }
+      ],
+      "exports": [
+        "useTheme",
+        "ThemeProvider"
+      ],
+      "totalLines": 46,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/blog/BlogEmptyState.tsx": {
+      "filePath": "app/components/blog/BlogEmptyState.tsx",
+      "contentHash": "3de20580dd47b75571e4bdb5f29a78da1e5b927da0244aec9034e4754faacde8",
+      "functions": [
+        {
+          "name": "BlogEmptyState",
+          "params": [
+            "{ query, category, onReset }"
+          ],
+          "exported": true,
+          "lineCount": 32
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "FileSearch",
+            "RotateCcw"
+          ]
+        }
+      ],
+      "exports": [
+        "BlogEmptyState"
+      ],
+      "totalLines": 41,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/blog/BlogHeader.tsx": {
+      "filePath": "app/components/blog/BlogHeader.tsx",
+      "contentHash": "dbdedef70dd1d3a8a1c506f915223b37683359b45ac11b500174f5cd494c8546",
+      "functions": [
+        {
+          "name": "BlogHeader",
+          "params": [],
+          "exported": true,
+          "lineCount": 33
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/link",
+          "specifiers": [
+            "Link"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "ArrowLeft"
+          ]
+        }
+      ],
+      "exports": [
+        "BlogHeader"
+      ],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/blog/CategoryFilter.tsx": {
+      "filePath": "app/components/blog/CategoryFilter.tsx",
+      "contentHash": "941de4b18a24d9e6ccd6902288c657e59eabe80a1a9530aa8a4df54a692e6942",
+      "functions": [
+        {
+          "name": "CategoryFilter",
+          "params": [
+            "{\r\n    categories,\r\n    activeCategory,\r\n    searchQuery,\r\n    categoryCounts,\r\n    totalFilteredCount,\r\n    onCategoryChange,\r\n    onSearchChange,\r\n}"
+          ],
+          "exported": true,
+          "lineCount": 166
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useCallback",
+            "useState",
+            "useEffect",
+            "useRef"
+          ]
+        },
+        {
+          "source": "next/navigation",
+          "specifiers": [
+            "useRouter",
+            "useSearchParams"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "Search",
+            "X"
+          ]
+        }
+      ],
+      "exports": [
+        "CategoryFilter"
+      ],
+      "totalLines": 192,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/blog/FeaturedPost.tsx": {
+      "filePath": "app/components/blog/FeaturedPost.tsx",
+      "contentHash": "7e60547da5b779822144598835102e588e484bb730863ff4e66494b87f57383c",
+      "functions": [
+        {
+          "name": "formatDateID",
+          "params": [
+            "dateString"
+          ],
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "FeaturedPost",
+          "params": [
+            "{ post }"
+          ],
+          "exported": true,
+          "lineCount": 99
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/link",
+          "specifiers": [
+            "Link"
+          ]
+        },
+        {
+          "source": "next/image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "ArrowRight",
+            "Crown",
+            "Trophy",
+            "Palette",
+            "Wrench",
+            "Briefcase",
+            "Clock",
+            "Calendar"
+          ]
+        },
+        {
+          "source": "./ShareButton",
+          "specifiers": [
+            "ShareButton"
+          ]
+        }
+      ],
+      "exports": [
+        "FeaturedPost"
+      ],
+      "totalLines": 138,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/blog/PostCard.tsx": {
+      "filePath": "app/components/blog/PostCard.tsx",
+      "contentHash": "656de76b12ff32284182444831d392a371dbed79fe04b513627dfcf0ad812b14",
+      "functions": [
+        {
+          "name": "formatDateID",
+          "params": [
+            "dateString"
+          ],
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "PostCard",
+          "params": [
+            "{ post }"
+          ],
+          "exported": true,
+          "lineCount": 75
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/link",
+          "specifiers": [
+            "Link"
+          ]
+        },
+        {
+          "source": "next/image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "ArrowRight",
+            "Crown",
+            "Trophy",
+            "Palette",
+            "Wrench",
+            "Briefcase",
+            "Clock",
+            "Calendar"
+          ]
+        }
+      ],
+      "exports": [
+        "PostCard"
+      ],
+      "totalLines": 113,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/blog/PostCardSkeleton.tsx": {
+      "filePath": "app/components/blog/PostCardSkeleton.tsx",
+      "contentHash": "d7a6cf56745fa4319f1e4268a00f8ba1d2414e868d17b227327b2af6a8386bcb",
+      "functions": [
+        {
+          "name": "FeaturedSkeleton",
+          "params": [],
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "PostCardSkeleton",
+          "params": [],
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "FeaturedSkeleton",
+        "PostCardSkeleton"
+      ],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "app/components/blog/ShareButton.tsx": {
+      "filePath": "app/components/blog/ShareButton.tsx",
+      "contentHash": "cea69c9588917734daff97fabe55fde9e85786f200dda6c08aae551e436dc928",
+      "functions": [
+        {
+          "name": "ShareButton",
+          "params": [
+            "{ slug, title, variant = 'default' }"
+          ],
+          "exported": true,
+          "lineCount": 81
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useState",
+            "useCallback"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "Share2",
+            "Link2",
+            "Check"
+          ]
+        }
+      ],
+      "exports": [
+        "ShareButton"
+      ],
+      "totalLines": 93,
+      "hasStructuralAnalysis": true
+    },
+    "app/data/blogData.js": {
+      "filePath": "app/data/blogData.js",
+      "contentHash": "2531a9c59ca3eae3514116b72729b9058869a50792b181bf9ee8ad56183a7777",
+      "functions": [
+        {
+          "name": "getBlogPost",
+          "params": [
+            "slug"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getAllSlugs",
+          "params": [],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "formatDate",
+          "params": [
+            "dateString"
+          ],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "blogPosts",
+        "getBlogPost",
+        "getAllSlugs",
+        "formatDate"
+      ],
+      "totalLines": 259,
+      "hasStructuralAnalysis": true
+    },
+    "app/globals.css": {
+      "filePath": "app/globals.css",
+      "contentHash": "4037a17e1115eee9b87fcf8cb66f8f4d01a809d253798cbdf0bbbe08e2394319",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 534,
+      "hasStructuralAnalysis": false
+    },
+    "app/layout.js": {
+      "filePath": "app/layout.js",
+      "contentHash": "723fab8c17badf9d547429623a32782ceefcee9f593e2f315371228c3c4a81ad",
+      "functions": [
+        {
+          "name": "RootLayout",
+          "params": [],
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/font/google",
+          "specifiers": [
+            "Space_Grotesk",
+            "Plus_Jakarta_Sans",
+            "Inter",
+            "JetBrains_Mono"
+          ]
+        },
+        {
+          "source": "./globals.css",
+          "specifiers": []
+        },
+        {
+          "source": "./components/ThemeProvider",
+          "specifiers": [
+            "ThemeProvider"
+          ]
+        },
+        {
+          "source": "./components/CustomCursor",
+          "specifiers": [
+            "CustomCursor"
+          ]
+        },
+        {
+          "source": "./components/AnimatedBackground",
+          "specifiers": [
+            "AnimatedBackground"
+          ]
+        }
+      ],
+      "exports": [
+        "metadata",
+        "RootLayout"
+      ],
+      "totalLines": 67,
+      "hasStructuralAnalysis": true
+    },
+    "app/page.js": {
+      "filePath": "app/page.js",
+      "contentHash": "70937bae63729b90e9f68c6811879776feaded9bfd27bec85e6463ba3227e95b",
+      "functions": [
+        {
+          "name": "Home",
+          "params": [],
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "./components/Navbar",
+          "specifiers": [
+            "Navbar"
+          ]
+        },
+        {
+          "source": "./components/Hero",
+          "specifiers": [
+            "Hero"
+          ]
+        },
+        {
+          "source": "./components/About",
+          "specifiers": [
+            "About"
+          ]
+        },
+        {
+          "source": "./components/TechStack",
+          "specifiers": [
+            "TechStack"
+          ]
+        },
+        {
+          "source": "./components/Projects",
+          "specifiers": [
+            "Projects"
+          ]
+        },
+        {
+          "source": "./components/Blog",
+          "specifiers": [
+            "Blog"
+          ]
+        },
+        {
+          "source": "./components/Experience",
+          "specifiers": [
+            "Experience"
+          ]
+        },
+        {
+          "source": "./components/Contact",
+          "specifiers": [
+            "Contact"
+          ]
+        }
+      ],
+      "exports": [
+        "Home"
+      ],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "assets/assets.js": {
+      "filePath": "assets/assets.js",
+      "contentHash": "a3ab5cea158025ef4beac042d305fc6e16eadaa6dbfff138ea9af0adf6a76381",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "./user-image.png",
+          "specifiers": [
+            "user_image"
+          ]
+        },
+        {
+          "source": "./code-icon.png",
+          "specifiers": [
+            "code_icon"
+          ]
+        },
+        {
+          "source": "./code-icon-dark.png",
+          "specifiers": [
+            "code_icon_dark"
+          ]
+        },
+        {
+          "source": "./edu-icon.png",
+          "specifiers": [
+            "edu_icon"
+          ]
+        },
+        {
+          "source": "./edu-icon-dark.png",
+          "specifiers": [
+            "edu_icon_dark"
+          ]
+        },
+        {
+          "source": "./project-icon.png",
+          "specifiers": [
+            "project_icon"
+          ]
+        },
+        {
+          "source": "./project-icon-dark.png",
+          "specifiers": [
+            "project_icon_dark"
+          ]
+        },
+        {
+          "source": "./vscode.png",
+          "specifiers": [
+            "vscode"
+          ]
+        },
+        {
+          "source": "./firebase.png",
+          "specifiers": [
+            "firebase"
+          ]
+        },
+        {
+          "source": "./figma.png",
+          "specifiers": [
+            "figma"
+          ]
+        },
+        {
+          "source": "./git.png",
+          "specifiers": [
+            "git"
+          ]
+        },
+        {
+          "source": "./mongodb.png",
+          "specifiers": [
+            "mongodb"
+          ]
+        },
+        {
+          "source": "./right-arrow-white.png",
+          "specifiers": [
+            "right_arrow_white"
+          ]
+        },
+        {
+          "source": "./logo.png",
+          "specifiers": [
+            "logo"
+          ]
+        },
+        {
+          "source": "./logo_dark.png",
+          "specifiers": [
+            "logo_dark"
+          ]
+        },
+        {
+          "source": "./mail_icon.png",
+          "specifiers": [
+            "mail_icon"
+          ]
+        },
+        {
+          "source": "./mail_icon_dark.png",
+          "specifiers": [
+            "mail_icon_dark"
+          ]
+        },
+        {
+          "source": "./profile-img.png",
+          "specifiers": [
+            "profile_img"
+          ]
+        },
+        {
+          "source": "./download-icon.png",
+          "specifiers": [
+            "download_icon"
+          ]
+        },
+        {
+          "source": "./hand-icon.png",
+          "specifiers": [
+            "hand_icon"
+          ]
+        },
+        {
+          "source": "./header-bg-color.png",
+          "specifiers": [
+            "header_bg_color"
+          ]
+        },
+        {
+          "source": "./moon_icon.png",
+          "specifiers": [
+            "moon_icon"
+          ]
+        },
+        {
+          "source": "./sun_icon.png",
+          "specifiers": [
+            "sun_icon"
+          ]
+        },
+        {
+          "source": "./arrow-icon.png",
+          "specifiers": [
+            "arrow_icon"
+          ]
+        },
+        {
+          "source": "./arrow-icon-dark.png",
+          "specifiers": [
+            "arrow_icon_dark"
+          ]
+        },
+        {
+          "source": "./menu-black.png",
+          "specifiers": [
+            "menu_black"
+          ]
+        },
+        {
+          "source": "./menu-white.png",
+          "specifiers": [
+            "menu_white"
+          ]
+        },
+        {
+          "source": "./close-black.png",
+          "specifiers": [
+            "close_black"
+          ]
+        },
+        {
+          "source": "./close-white.png",
+          "specifiers": [
+            "close_white"
+          ]
+        },
+        {
+          "source": "./web-icon.png",
+          "specifiers": [
+            "web_icon"
+          ]
+        },
+        {
+          "source": "./mobile-icon.png",
+          "specifiers": [
+            "mobile_icon"
+          ]
+        },
+        {
+          "source": "./ui-icon.png",
+          "specifiers": [
+            "ui_icon"
+          ]
+        },
+        {
+          "source": "./graphics-icon.png",
+          "specifiers": [
+            "graphics_icon"
+          ]
+        },
+        {
+          "source": "./right-arrow.png",
+          "specifiers": [
+            "right_arrow"
+          ]
+        },
+        {
+          "source": "./send-icon.png",
+          "specifiers": [
+            "send_icon"
+          ]
+        },
+        {
+          "source": "./right-arrow-bold.png",
+          "specifiers": [
+            "right_arrow_bold"
+          ]
+        },
+        {
+          "source": "./right-arrow-bold-dark.png",
+          "specifiers": [
+            "right_arrow_bold_dark"
+          ]
+        }
+      ],
+      "exports": [
+        "assets",
+        "workData",
+        "serviceData",
+        "infoList",
+        "toolsData"
+      ],
+      "totalLines": 117,
+      "hasStructuralAnalysis": true
+    },
+    "eslint.config.mjs": {
+      "filePath": "eslint.config.mjs",
+      "contentHash": "89e8ca9f313a8007a5a60aedb58e4037f995664468887bbf43bdc52bfaa9c747",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "path",
+          "specifiers": [
+            "dirname"
+          ]
+        },
+        {
+          "source": "url",
+          "specifiers": [
+            "fileURLToPath"
+          ]
+        },
+        {
+          "source": "@eslint/eslintrc",
+          "specifiers": [
+            "FlatCompat"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    },
+    "lib/supabase/admin.ts": {
+      "filePath": "lib/supabase/admin.ts",
+      "contentHash": "d4f65699bb0939b96996e1038a283bd9b57506da137034971a757cb0d71d198a",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@supabase/supabase-js",
+          "specifiers": [
+            "createClient"
+          ]
+        }
+      ],
+      "exports": [
+        "supabaseAdmin"
+      ],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "lib/supabase/client.ts": {
+      "filePath": "lib/supabase/client.ts",
+      "contentHash": "907e51284dfde11c378eb4f58626ba0e0f4abe9daba23fc3622eae34083d651b",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@supabase/supabase-js",
+          "specifiers": [
+            "createClient"
+          ]
+        }
+      ],
+      "exports": [
+        "supabase"
+      ],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "lib/utils/moderation.ts": {
+      "filePath": "lib/utils/moderation.ts",
+      "contentHash": "d2ce892b76faddd2895dcbb132f06644d0a27c2c4cc8589caf9313d3a65c4452",
+      "functions": [
+        {
+          "name": "containsToxicWords",
+          "params": [
+            "text"
+          ],
+          "returnType": "boolean",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "moderateComment",
+          "params": [
+            "content",
+            "authorName"
+          ],
+          "returnType": "ModerationResult",
+          "exported": true,
+          "lineCount": 38
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "zod",
+          "specifiers": [
+            "z"
+          ]
+        }
+      ],
+      "exports": [
+        "CommentSchema",
+        "TOXIC_WORDS",
+        "containsToxicWords",
+        "moderateComment"
+      ],
+      "totalLines": 134,
+      "hasStructuralAnalysis": true
+    },
+    "lib/utils/session.ts": {
+      "filePath": "lib/utils/session.ts",
+      "contentHash": "364723103d9f1752de58cd1e9829fdbd2fc447cfb9d330086b2f523a443706b3",
+      "functions": [
+        {
+          "name": "getSessionId",
+          "params": [],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 16
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "uuid",
+          "specifiers": [
+            "uuidv4"
+          ]
+        }
+      ],
+      "exports": [
+        "getSessionId"
+      ],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "next.config.mjs": {
+      "filePath": "next.config.mjs",
+      "contentHash": "7b20780a0a386557e59a5d49abeb979f589b61c2f3a2aaefaafbd7247249acac",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": true
+    },
+    "package.json": {
+      "filePath": "package.json",
+      "contentHash": "6bfd806e5bcb6b7d29fbd745b81e8da852b505a06eabb1bddb85b3b103a85e69",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 36,
+      "hasStructuralAnalysis": false
+    },
+    "postcss.config.mjs": {
+      "filePath": "postcss.config.mjs",
+      "contentHash": "da1e5e8147fb42cbc582a60607fea0df35171ae60bd5617846c841568bbe2272",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "public/mascots/ikbal-directions.webp": {
+      "filePath": "public/mascots/ikbal-directions.webp",
+      "contentHash": "f2c0571af51f4a5e7d592238966b5f8acd1faf335bb6f53438039ed980d022a2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 648,
+      "hasStructuralAnalysis": false
+    },
+    "public/mascots/ikbal-reactions.webp": {
+      "filePath": "public/mascots/ikbal-reactions.webp",
+      "contentHash": "c46ada505cdbf4bc5976cbb90046f1ec2fe9deaa1c203fa3ea5162cb3a3fd674",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 604,
+      "hasStructuralAnalysis": false
+    },
+    "skills-lock.json": {
+      "filePath": "skills-lock.json",
+      "contentHash": "0b8313abf2c01f0c1e6a8773a97b56e27e9d3f9cef2f3b0c03261a8f84f64418",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": false
+    },
+    "tailwind.config.mjs": {
+      "filePath": "tailwind.config.mjs",
+      "contentHash": "4198af536bc948cd1d0ee7aff9fb862580c891fc82260aa5903297828165b06e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 72,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.json": {
+      "filePath": "tsconfig.json",
+      "contentHash": "155ba9f8cf8c5cecd91720c2f92a4ce2223a6864c62470c361981a40eee3f7c4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 42,
+      "hasStructuralAnalysis": false
+    }
+  }
+}

@@ -1,0 +1,1281 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 10,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 10,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 10,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "app/blog/[slug]/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 162,
+      "nonEmptyLines": 145,
+      "functions": [
+        {
+          "name": "BlogPostPage",
+          "startLine": 21,
+          "endLine": 162,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BlogPostPage",
+          "line": 21,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "BlogPostPage",
+          "callee": "useParams",
+          "lineNumber": 22
+        },
+        {
+          "caller": "BlogPostPage",
+          "callee": "Array.isArray",
+          "lineNumber": 23
+        },
+        {
+          "caller": "BlogPostPage",
+          "callee": "getBlogPost",
+          "lineNumber": 24
+        },
+        {
+          "caller": "BlogPostPage",
+          "callee": "formatDate",
+          "lineNumber": 76
+        },
+        {
+          "caller": "BlogPostPage",
+          "callee": "post.tags.map",
+          "lineNumber": 79
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/components/ArticleMetrics.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 143,
+      "nonEmptyLines": 126,
+      "functions": [
+        {
+          "name": "ArticleMetrics",
+          "startLine": 12,
+          "endLine": 143,
+          "params": [
+            "{ slug, readTime }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ArticleMetrics",
+          "line": 12,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ArticleMetrics",
+          "callee": "useState",
+          "lineNumber": 13
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "useState",
+          "lineNumber": 14
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "useState",
+          "lineNumber": 15
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "useRef",
+          "lineNumber": 16
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "useEffect",
+          "lineNumber": 18
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "setMounted",
+          "lineNumber": 19
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "getSessionId",
+          "lineNumber": 23
+        },
+        {
+          "caller": "recordView",
+          "callee": "supabase.rpc",
+          "lineNumber": 28
+        },
+        {
+          "caller": "recordView",
+          "callee": "console.warn",
+          "lineNumber": 34
+        },
+        {
+          "caller": "fetchViews",
+          "callee": "supabase\r\n                    .from('posts_metrics')\r\n                    .select('views_count')\r\n                    .eq('slug', slug)\r\n                    .single",
+          "lineNumber": 44
+        },
+        {
+          "caller": "fetchViews",
+          "callee": "supabase\r\n                    .from('posts_metrics')\r\n                    .select('views_count')\r\n                    .eq",
+          "lineNumber": 44
+        },
+        {
+          "caller": "fetchViews",
+          "callee": "supabase\r\n                    .from('posts_metrics')\r\n                    .select",
+          "lineNumber": 44
+        },
+        {
+          "caller": "fetchViews",
+          "callee": "supabase\r\n                    .from",
+          "lineNumber": 44
+        },
+        {
+          "caller": "fetchViews",
+          "callee": "setViews",
+          "lineNumber": 51
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "recordView().then",
+          "lineNumber": 58
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "recordView",
+          "lineNumber": 58
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "fetchViews",
+          "lineNumber": 58
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "supabase.channel",
+          "lineNumber": 61
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "room\r\n            .on('presence', { event: 'sync' }, () => {\r\n                const newState = room.presenceState()\r\n                // Count unique users in the room\r\n                const users = Object.keys(newState).length\r\n                setActiveReaders(users > 0 ? users : 1)\r\n            })\r\n            .subscribe",
+          "lineNumber": 63
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "room\r\n            .on",
+          "lineNumber": 63
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "room.presenceState",
+          "lineNumber": 65
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "Object.keys",
+          "lineNumber": 67
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "setActiveReaders",
+          "lineNumber": 68
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "room.track",
+          "lineNumber": 72
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "supabase\r\n            .channel(`public:posts_metrics:slug=eq.${slug}`)\r\n            .on(\r\n                'postgres_changes',\r\n                {\r\n                    event: 'UPDATE',\r\n                    schema: 'public',\r\n                    table: 'posts_metrics',\r\n                    filter: `slug=eq.${slug}`\r\n                },\r\n                (payload) => {\r\n                    const newRecord = payload.new as { views_count: number }\r\n                    if (newRecord && newRecord.views_count) {\r\n                        setViews(newRecord.views_count)\r\n                    }\r\n                }\r\n            )\r\n            .subscribe",
+          "lineNumber": 77
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "supabase\r\n            .channel(`public:posts_metrics:slug=eq.${slug}`)\r\n            .on",
+          "lineNumber": 77
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "supabase\r\n            .channel",
+          "lineNumber": 77
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "setViews",
+          "lineNumber": 90
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "room.untrack",
+          "lineNumber": 97
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "supabase.removeChannel",
+          "lineNumber": 98
+        },
+        {
+          "caller": "ArticleMetrics",
+          "callee": "supabase.removeChannel",
+          "lineNumber": 99
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/components/Blog.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 330,
+      "nonEmptyLines": 299,
+      "functions": [
+        {
+          "name": "DesktopBlogCard",
+          "startLine": 23,
+          "endLine": 97,
+          "params": []
+        },
+        {
+          "name": "MobileFeaturedCard",
+          "startLine": 102,
+          "endLine": 175,
+          "params": []
+        },
+        {
+          "name": "MobileCompactListRow",
+          "startLine": 180,
+          "endLine": 232,
+          "params": []
+        },
+        {
+          "name": "Blog",
+          "startLine": 237,
+          "endLine": 330,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Blog",
+          "line": 237,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "DesktopBlogCard",
+          "callee": "useRouter",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handleCardClick",
+          "callee": "router.push",
+          "lineNumber": 28
+        },
+        {
+          "caller": "DesktopBlogCard",
+          "callee": "handleCardClick",
+          "lineNumber": 38
+        },
+        {
+          "caller": "DesktopBlogCard",
+          "callee": "formatDate",
+          "lineNumber": 53
+        },
+        {
+          "caller": "DesktopBlogCard",
+          "callee": "post.tags.map",
+          "lineNumber": 71
+        },
+        {
+          "caller": "DesktopBlogCard",
+          "callee": "e.stopPropagation",
+          "lineNumber": 80
+        },
+        {
+          "caller": "MobileFeaturedCard",
+          "callee": "Boolean",
+          "lineNumber": 103
+        },
+        {
+          "caller": "MobileFeaturedCard",
+          "callee": "formatDate",
+          "lineNumber": 149
+        },
+        {
+          "caller": "MobileCompactListRow",
+          "callee": "Boolean",
+          "lineNumber": 181
+        },
+        {
+          "caller": "MobileCompactListRow",
+          "callee": "post.category.substring",
+          "lineNumber": 203
+        },
+        {
+          "caller": "MobileCompactListRow",
+          "callee": "formatDate",
+          "lineNumber": 223
+        },
+        {
+          "caller": "Blog",
+          "callee": "blogPosts.slice",
+          "lineNumber": 238
+        },
+        {
+          "caller": "Blog",
+          "callee": "latestPosts.slice",
+          "lineNumber": 240
+        },
+        {
+          "caller": "Blog",
+          "callee": "otherPosts.map",
+          "lineNumber": 278
+        },
+        {
+          "caller": "Blog",
+          "callee": "latestPosts.map",
+          "lineNumber": 306
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 1,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/components/CommentItem.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 63,
+      "functions": [
+        {
+          "name": "CommentItem",
+          "startLine": 10,
+          "endLine": 72,
+          "params": [
+            "{ comment }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CommentItem",
+          "line": 10,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "CommentItem",
+          "callee": "useMemo",
+          "lineNumber": 12
+        },
+        {
+          "caller": "CommentItem",
+          "callee": "comment.author_name.charCodeAt",
+          "lineNumber": 22
+        },
+        {
+          "caller": "CommentItem",
+          "callee": "Math.abs",
+          "lineNumber": 24
+        },
+        {
+          "caller": "CommentItem",
+          "callee": "comment.author_name.charAt(0).toUpperCase",
+          "lineNumber": 27
+        },
+        {
+          "caller": "CommentItem",
+          "callee": "comment.author_name.charAt",
+          "lineNumber": 27
+        },
+        {
+          "caller": "CommentItem",
+          "callee": "useMemo",
+          "lineNumber": 30
+        },
+        {
+          "caller": "CommentItem",
+          "callee": "Math.floor",
+          "lineNumber": 33
+        },
+        {
+          "caller": "CommentItem",
+          "callee": "now.getTime",
+          "lineNumber": 33
+        },
+        {
+          "caller": "CommentItem",
+          "callee": "date.getTime",
+          "lineNumber": 33
+        },
+        {
+          "caller": "CommentItem",
+          "callee": "Math.floor",
+          "lineNumber": 36
+        },
+        {
+          "caller": "CommentItem",
+          "callee": "Math.floor",
+          "lineNumber": 37
+        },
+        {
+          "caller": "CommentItem",
+          "callee": "Math.floor",
+          "lineNumber": 38
+        },
+        {
+          "caller": "CommentItem",
+          "callee": "date.toLocaleDateString",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/components/CommentSection.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 191,
+      "nonEmptyLines": 172,
+      "functions": [
+        {
+          "name": "CommentSection",
+          "startLine": 9,
+          "endLine": 191,
+          "params": [
+            "{ slug }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CommentSection",
+          "line": 9,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "CommentSection",
+          "callee": "useState",
+          "lineNumber": 10
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "useState",
+          "lineNumber": 11
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "useRef",
+          "lineNumber": 12
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "useRef",
+          "lineNumber": 13
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "useActionState",
+          "lineNumber": 16
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "useEffect",
+          "lineNumber": 18
+        },
+        {
+          "caller": "fetchComments",
+          "callee": "supabase\r\n                .from('comments')\r\n                .select('id, author_name, content, created_at')\r\n                .eq('article_slug', slug)\r\n                .eq('status', 'approved')\r\n                .order",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fetchComments",
+          "callee": "supabase\r\n                .from('comments')\r\n                .select('id, author_name, content, created_at')\r\n                .eq('article_slug', slug)\r\n                .eq",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fetchComments",
+          "callee": "supabase\r\n                .from('comments')\r\n                .select('id, author_name, content, created_at')\r\n                .eq",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fetchComments",
+          "callee": "supabase\r\n                .from('comments')\r\n                .select",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fetchComments",
+          "callee": "supabase\r\n                .from",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fetchComments",
+          "callee": "setComments",
+          "lineNumber": 29
+        },
+        {
+          "caller": "fetchComments",
+          "callee": "setLoading",
+          "lineNumber": 31
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "fetchComments",
+          "lineNumber": 34
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "supabase\r\n            .channel(`public:comments:slug=${slug}`)\r\n            .on(\r\n                'postgres_changes',\r\n                {\r\n                    event: 'INSERT',\r\n                    schema: 'public',\r\n                    table: 'comments',\r\n                    filter: `article_slug=eq.${slug}`,\r\n                },\r\n                (payload) => {\r\n                    // Only show if it's approved\r\n                    if (payload.new.status === 'approved') {\r\n                        setComments((prev) => {\r\n                            // Cek duplikasi jika user itu sendiri yang submit dan sudah dirender via state lokal\r\n                            if (prev.some(c => c.id === payload.new.id)) return prev;\r\n                            return [payload.new as CommentType, ...prev]\r\n                        })\r\n                    }\r\n                }\r\n            )\r\n            .subscribe",
+          "lineNumber": 37
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "supabase\r\n            .channel(`public:comments:slug=${slug}`)\r\n            .on",
+          "lineNumber": 37
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "supabase\r\n            .channel",
+          "lineNumber": 37
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "setComments",
+          "lineNumber": 50
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "prev.some",
+          "lineNumber": 52
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "supabase.removeChannel",
+          "lineNumber": 61
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "useEffect",
+          "lineNumber": 66
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "gsap.fromTo",
+          "lineNumber": 70
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "useEffect",
+          "lineNumber": 80
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "formRef.current?.reset",
+          "lineNumber": 82
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "Array.from({ length: 2 }).map",
+          "lineNumber": 166
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "Array.from",
+          "lineNumber": 166
+        },
+        {
+          "caller": "CommentSection",
+          "callee": "comments.map",
+          "lineNumber": 177
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/components/ReactionBar.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 235,
+      "nonEmptyLines": 209,
+      "functions": [
+        {
+          "name": "ReactionBar",
+          "startLine": 29,
+          "endLine": 235,
+          "params": [
+            "{ slug, initialReactions, size = 'sm' }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ReactionBar",
+          "line": 29,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ReactionBar",
+          "callee": "useState",
+          "lineNumber": 30
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "useState",
+          "lineNumber": 31
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "useState",
+          "lineNumber": 32
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "useRef",
+          "lineNumber": 33
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "useEffect",
+          "lineNumber": 37
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "setMounted",
+          "lineNumber": 38
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "getSessionId",
+          "lineNumber": 39
+        },
+        {
+          "caller": "fetchUserReactions",
+          "callee": "supabase\r\n                    .from('user_interactions')\r\n                    .select('interaction_type')\r\n                    .eq('session_id', sessionId)\r\n                    .eq",
+          "lineNumber": 44
+        },
+        {
+          "caller": "fetchUserReactions",
+          "callee": "supabase\r\n                    .from('user_interactions')\r\n                    .select('interaction_type')\r\n                    .eq",
+          "lineNumber": 44
+        },
+        {
+          "caller": "fetchUserReactions",
+          "callee": "supabase\r\n                    .from('user_interactions')\r\n                    .select",
+          "lineNumber": 44
+        },
+        {
+          "caller": "fetchUserReactions",
+          "callee": "supabase\r\n                    .from",
+          "lineNumber": 44
+        },
+        {
+          "caller": "fetchUserReactions",
+          "callee": "Object.keys",
+          "lineNumber": 50
+        },
+        {
+          "caller": "fetchUserReactions",
+          "callee": "console.warn",
+          "lineNumber": 51
+        },
+        {
+          "caller": "fetchUserReactions",
+          "callee": "data.forEach",
+          "lineNumber": 54
+        },
+        {
+          "caller": "fetchUserReactions",
+          "callee": "Object.keys(reactionTypeMap).find",
+          "lineNumber": 55
+        },
+        {
+          "caller": "fetchUserReactions",
+          "callee": "Object.keys",
+          "lineNumber": 55
+        },
+        {
+          "caller": "fetchUserReactions",
+          "callee": "setUserReacted",
+          "lineNumber": 58
+        },
+        {
+          "caller": "fetchUserReactions",
+          "callee": "console.warn",
+          "lineNumber": 61
+        },
+        {
+          "caller": "fetchMetrics",
+          "callee": "supabase\r\n                    .from('posts_metrics')\r\n                    .select('fire_count, insightful_count, rocket_count, applause_count')\r\n                    .eq('slug', slug)\r\n                    .maybeSingle",
+          "lineNumber": 68
+        },
+        {
+          "caller": "fetchMetrics",
+          "callee": "supabase\r\n                    .from('posts_metrics')\r\n                    .select('fire_count, insightful_count, rocket_count, applause_count')\r\n                    .eq",
+          "lineNumber": 68
+        },
+        {
+          "caller": "fetchMetrics",
+          "callee": "supabase\r\n                    .from('posts_metrics')\r\n                    .select",
+          "lineNumber": 68
+        },
+        {
+          "caller": "fetchMetrics",
+          "callee": "supabase\r\n                    .from",
+          "lineNumber": 68
+        },
+        {
+          "caller": "fetchMetrics",
+          "callee": "Object.keys",
+          "lineNumber": 74
+        },
+        {
+          "caller": "fetchMetrics",
+          "callee": "console.warn",
+          "lineNumber": 75
+        },
+        {
+          "caller": "fetchMetrics",
+          "callee": "setReactions",
+          "lineNumber": 78
+        },
+        {
+          "caller": "fetchMetrics",
+          "callee": "console.warn",
+          "lineNumber": 86
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "fetchUserReactions",
+          "lineNumber": 90
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "fetchMetrics",
+          "lineNumber": 91
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "supabase\r\n                .channel(`public:posts_metrics:reactions:slug=eq.${slug}`)\r\n                .on(\r\n                    'postgres_changes',\r\n                    {\r\n                        event: 'UPDATE',\r\n                        schema: 'public',\r\n                        table: 'posts_metrics',\r\n                        filter: `slug=eq.${slug}`\r\n                    },\r\n                    (payload) => {\r\n                        const newRecord = payload.new as {\r\n                            fire_count: number\r\n                            insightful_count: number\r\n                            rocket_count: number\r\n                            applause_count: number\r\n                        }\r\n                        if (newRecord) {\r\n                            setReactions({\r\n                                '🔥': newRecord.fire_count,\r\n                                '💡': newRecord.insightful_count,\r\n                                '🚀': newRecord.rocket_count,\r\n                                '👏': newRecord.applause_count\r\n                            })\r\n                        }\r\n                    }\r\n                )\r\n                .subscribe",
+          "lineNumber": 96
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "supabase\r\n                .channel(`public:posts_metrics:reactions:slug=eq.${slug}`)\r\n                .on",
+          "lineNumber": 96
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "supabase\r\n                .channel",
+          "lineNumber": 96
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "setReactions",
+          "lineNumber": 114
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "supabase.removeChannel",
+          "lineNumber": 130
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "useCallback",
+          "lineNumber": 135
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "e.preventDefault",
+          "lineNumber": 137
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "e.stopPropagation",
+          "lineNumber": 138
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "getSessionId",
+          "lineNumber": 141
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "gsap.fromTo",
+          "lineNumber": 148
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "Math.max",
+          "lineNumber": 157
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "setReactions",
+          "lineNumber": 161
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "setUserReacted",
+          "lineNumber": 162
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "supabase.rpc",
+          "lineNumber": 166
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "console.warn",
+          "lineNumber": 173
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "console.warn",
+          "lineNumber": 176
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "Object.values(reactions).reduce",
+          "lineNumber": 181
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "Object.values",
+          "lineNumber": 181
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "Object.keys(initialReactions).map",
+          "lineNumber": 188
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "Object.keys",
+          "lineNumber": 188
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "Object.entries(reactions).map",
+          "lineNumber": 210
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "Object.entries",
+          "lineNumber": 210
+        },
+        {
+          "caller": "ReactionBar",
+          "callee": "handleReaction",
+          "lineNumber": 214
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/components/ShareMenu.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 178,
+      "nonEmptyLines": 166,
+      "functions": [
+        {
+          "name": "ShareMenu",
+          "startLine": 4,
+          "endLine": 178,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ShareMenu",
+          "line": 4,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ShareMenu",
+          "callee": "useState",
+          "lineNumber": 5
+        },
+        {
+          "caller": "ShareMenu",
+          "callee": "useState",
+          "lineNumber": 6
+        },
+        {
+          "caller": "ShareMenu",
+          "callee": "useRef",
+          "lineNumber": 7
+        },
+        {
+          "caller": "ShareMenu",
+          "callee": "encodeURIComponent",
+          "lineNumber": 11
+        },
+        {
+          "caller": "ShareMenu",
+          "callee": "encodeURIComponent",
+          "lineNumber": 12
+        },
+        {
+          "caller": "ShareMenu",
+          "callee": "useEffect",
+          "lineNumber": 15
+        },
+        {
+          "caller": "handleClickOutside",
+          "callee": "menuRef.current.contains",
+          "lineNumber": 17
+        },
+        {
+          "caller": "handleClickOutside",
+          "callee": "setIsOpen",
+          "lineNumber": 18
+        },
+        {
+          "caller": "ShareMenu",
+          "callee": "document.addEventListener",
+          "lineNumber": 22
+        },
+        {
+          "caller": "ShareMenu",
+          "callee": "document.removeEventListener",
+          "lineNumber": 24
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "e.preventDefault",
+          "lineNumber": 28
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "e.stopPropagation",
+          "lineNumber": 29
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "navigator.clipboard.writeText",
+          "lineNumber": 31
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "setCopied",
+          "lineNumber": 32
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "setTimeout",
+          "lineNumber": 33
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "setCopied",
+          "lineNumber": 34
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "setIsOpen",
+          "lineNumber": 35
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "document.createElement",
+          "lineNumber": 39
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "document.body.appendChild",
+          "lineNumber": 41
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "input.select",
+          "lineNumber": 42
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "document.execCommand",
+          "lineNumber": 43
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "document.body.removeChild",
+          "lineNumber": 44
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "setCopied",
+          "lineNumber": 45
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "setTimeout",
+          "lineNumber": 46
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "setCopied",
+          "lineNumber": 47
+        },
+        {
+          "caller": "handleCopyLink",
+          "callee": "setIsOpen",
+          "lineNumber": 48
+        },
+        {
+          "caller": "handleNativeShare",
+          "callee": "e.preventDefault",
+          "lineNumber": 54
+        },
+        {
+          "caller": "handleNativeShare",
+          "callee": "e.stopPropagation",
+          "lineNumber": 55
+        },
+        {
+          "caller": "handleNativeShare",
+          "callee": "navigator.share",
+          "lineNumber": 58
+        },
+        {
+          "caller": "handleNativeShare",
+          "callee": "setIsOpen",
+          "lineNumber": 59
+        },
+        {
+          "caller": "toggleMenu",
+          "callee": "e.preventDefault",
+          "lineNumber": 95
+        },
+        {
+          "caller": "toggleMenu",
+          "callee": "e.stopPropagation",
+          "lineNumber": 96
+        },
+        {
+          "caller": "toggleMenu",
+          "callee": "setIsOpen",
+          "lineNumber": 97
+        },
+        {
+          "caller": "ShareMenu",
+          "callee": "shareLinks.map",
+          "lineNumber": 144
+        },
+        {
+          "caller": "ShareMenu",
+          "callee": "e.stopPropagation",
+          "lineNumber": 150
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/data/blogData.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 258,
+      "nonEmptyLines": 220,
+      "functions": [
+        {
+          "name": "getBlogPost",
+          "startLine": 244,
+          "endLine": 246,
+          "params": [
+            "slug"
+          ]
+        },
+        {
+          "name": "getAllSlugs",
+          "startLine": 248,
+          "endLine": 250,
+          "params": []
+        },
+        {
+          "name": "formatDate",
+          "startLine": 252,
+          "endLine": 258,
+          "params": [
+            "dateString"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "blogPosts",
+          "line": 1,
+          "isDefault": false
+        },
+        {
+          "name": "getBlogPost",
+          "line": 244,
+          "isDefault": false
+        },
+        {
+          "name": "getAllSlugs",
+          "line": 248,
+          "isDefault": false
+        },
+        {
+          "name": "formatDate",
+          "line": 252,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getBlogPost",
+          "callee": "blogPosts.find",
+          "lineNumber": 245
+        },
+        {
+          "caller": "getAllSlugs",
+          "callee": "blogPosts.map",
+          "lineNumber": 249
+        },
+        {
+          "caller": "formatDate",
+          "callee": "new Date(dateString).toLocaleDateString",
+          "lineNumber": 253
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lib/supabase/client.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 8,
+      "nonEmptyLines": 6,
+      "exports": [
+        {
+          "name": "supabase",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lib/utils/session.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "getSessionId",
+          "startLine": 5,
+          "endLine": 20,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getSessionId",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getSessionId",
+          "callee": "localStorage.getItem",
+          "lineNumber": 12
+        },
+        {
+          "caller": "getSessionId",
+          "callee": "uuidv4",
+          "lineNumber": 15
+        },
+        {
+          "caller": "getSessionId",
+          "callee": "localStorage.setItem",
+          "lineNumber": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

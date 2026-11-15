@@ -1,52 +1,33 @@
-'use client'
-import { motion } from 'framer-motion'
+import React from 'react'
 
 export default function BlueprintGrid() {
     return (
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-            {/* Blueprint grid */}
-            <div className="absolute inset-0 blueprint-grid opacity-30 md:opacity-100" />
-
-            {/* Accent glow orbs — very subtle */}
-            <motion.div
-                className="absolute w-[500px] h-[500px] rounded-full"
+            {/* Ambient subtle glow gradients */}
+            <div
+                className="absolute top-1/4 -left-48 w-96 h-96 rounded-full opacity-20 blur-3xl"
                 style={{
-                    background: 'radial-gradient(circle, var(--grid-color-bright) 0%, transparent 70%)',
-                    filter: 'blur(80px)',
-                    top: '-10%',
-                    left: '-5%',
+                    background: 'radial-gradient(circle, var(--accent) 0%, transparent 70%)',
                 }}
-                animate={{
-                    x: [0, 30, -20, 0],
-                    y: [0, -20, 15, 0],
-                }}
-                transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
             />
-            <motion.div
-                className="absolute w-[400px] h-[400px] rounded-full"
+            <div
+                className="absolute bottom-1/4 -right-48 w-96 h-96 rounded-full opacity-10 blur-3xl"
                 style={{
-                    background: 'radial-gradient(circle, var(--grid-color) 0%, transparent 70%)',
-                    filter: 'blur(100px)',
-                    bottom: '5%',
-                    right: '-5%',
+                    background: 'radial-gradient(circle, var(--accent) 0%, transparent 70%)',
                 }}
-                animate={{
-                    x: [0, -20, 15, 0],
-                    y: [0, 15, -20, 0],
-                }}
-                transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
             />
 
-            {/* Coordinate markers */}
-            <div className="absolute top-4 left-4 coord-label hidden md:block">
-                [0, 0]
-            </div>
-            <div className="absolute top-4 right-4 coord-label hidden md:block">
-                [1920, 0]
-            </div>
-            <div className="absolute bottom-4 left-4 coord-label hidden md:block">
-                [0, 1080]
-            </div>
+            {/* Subtle Blueprint grid texture */}
+            <div
+                className="blueprint-grid absolute inset-0 opacity-[0.035]"
+                style={{
+                    backgroundImage: `
+                        linear-gradient(to right, var(--text) 1px, transparent 1px),
+                        linear-gradient(to bottom, var(--text) 1px, transparent 1px)
+                    `,
+                    backgroundSize: '48px 48px',
+                }}
+            />
         </div>
     )
 }

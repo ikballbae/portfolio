@@ -4,37 +4,42 @@ import { gsap } from 'gsap'
 import Image from 'next/image'
 import ScrollReveal from './ScrollReveal'
 import ScrambleText from './ScrambleText'
-
+import { useTheme } from './ThemeProvider'
 const projects = [
     {
         title: 'Ideo Coffee',
-        description: 'Sistem e-commerce kopi premium dengan manajemen inventaris real-time. Mengintegrasikan alur pemesanan yang mulus dan sistem pembayaran digital untuk operasional cafe yang modern.',
+        description: 'Sistem e-commerce kopi dengan sinkronisasi inventaris real-time. Mengintegrasikan katalog menu, gateway pembayaran Midtrans, dan rekap transaksi kasir otomatis.',
         image: '/work-1.png',
+        imageLight: '/work-1-light.png',
         tags: ['Laravel', 'MySQL', 'Midtrans', 'Tailwind'],
     },
     {
         title: 'Jinmoo Indonesia',
         description: 'Digital presence untuk brand manufaktur. Fokus pada performa core web vitals dan SEO engine, menghasilkan interface yang responsif dengan load time di bawah 1 detik.',
         image: '/work-2.png',
+        imageLight: '/work-2-light.png',
         tags: ['Laravel', 'MySQL', 'Tailwind'],
     },
     {
         title: 'Kupas.Co',
         description: 'Sistem manajemen suplai buah berbasis web. Dilengkapi dengan dashboard analitik Chart.js untuk memantau tren penjualan dan efisiensi stok secara periodik.',
         image: '/work-3.png',
+        imageLight: '/work-3-light.png',
         tags: ['CodeIgniter', 'MySQL', 'Bootstrap', 'Chart.js'],
     },
     {
         title: 'BrandKu',
         description: 'Eksperimen Headless CMS kustom untuk fleksibilitas konten. Riset mendalam pada teknik markdown parsing dan optimasi static site generation untuk kecepatan maksimal.',
         image: '/work-4.png',
+        imageLight: '/work-4-light.png',
         tags: ['Next.JS', 'Gemini API', 'Tailwind'],
     },
 ]
 
 function ProjectCard({ project, onSelect }) {
+    const { theme } = useTheme()
+    const isLight = theme === 'light'
     const ref = useRef(null)
-
     useEffect(() => {
         const el = ref.current
         if (!el) return
@@ -76,9 +81,22 @@ function ProjectCard({ project, onSelect }) {
                 className="block lab-card rounded-lg sm:rounded-xl overflow-hidden group cursor-pointer h-full"
                 style={{ transformStyle: 'preserve-3d' }}
             >
-                <div className="relative overflow-hidden h-36 sm:h-44 md:h-52">
-                    <Image src={project.image} alt={project.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, var(--surface), transparent)' }} />
+                <div className="relative overflow-hidden h-36 sm:h-44 md:h-52 bg-transparent">
+                    <Image
+                        src={isLight ? (project.imageLight || project.image) : project.image}
+                        alt={project.title}
+                        fill
+                        className={`transition-transform duration-700 group-hover:scale-105 ${
+                            isLight ? 'object-contain p-2 sm:p-3' : 'object-cover'
+                        }`}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    {!isLight && (
+                        <div
+                            className="absolute inset-0 pointer-events-none"
+                            style={{ background: 'linear-gradient(to top, var(--surface), transparent 60%)' }}
+                        />
+                    )}
                 </div>
 
                 <div className="p-4 sm:p-5 md:p-6">
@@ -102,6 +120,8 @@ function ProjectCard({ project, onSelect }) {
 }
 
 function ProjectModal({ project, onClose }) {
+    const { theme } = useTheme()
+    const isLight = theme === 'light'
     const backdropRef = useRef(null)
     const contentRef = useRef(null)
 
@@ -168,15 +188,20 @@ function ProjectModal({ project, onClose }) {
                 </button>
 
                 {/* Image */}
-                <div className="relative w-full h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-xl">
+                <div className="relative w-full h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-xl bg-transparent">
                     <Image
-                        src={project.image}
+                        src={isLight ? (project.imageLight || project.image) : project.image}
                         alt={project.title}
                         fill
-                        className="object-cover"
+                        className={isLight ? 'object-contain p-3' : 'object-cover'}
                         sizes="(max-width: 640px) 95vw, (max-width: 1024px) 80vw, 600px"
                     />
-                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, var(--surface), transparent 60%)' }} />
+                    {!isLight && (
+                        <div
+                            className="absolute inset-0 pointer-events-none"
+                            style={{ background: 'linear-gradient(to top, var(--surface), transparent 60%)' }}
+                        />
+                    )}
                 </div>
 
                 {/* Content */}

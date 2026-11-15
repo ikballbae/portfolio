@@ -6,8 +6,8 @@ const defaultChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012345
 export default function ScrambleText({
     text,
     delay = 0,
-    duration = 1.5,
-    revealSpeed = 50, // ms between character reveals
+    duration = 0.6,
+    revealSpeed = 30, // ms between character reveals for ultra smooth decoding
     characters = defaultChars,
     trigger = true // if true, starts immediately (after delay)
 }) {

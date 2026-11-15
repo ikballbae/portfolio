@@ -1,0 +1,775 @@
+{
+  "nodes": [
+    {
+      "id": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "type": "file",
+      "name": "generate.py",
+      "filePath": ".agents/skills/page-mascot/scripts/generate.py",
+      "summary": "Skrip generator gambar AI untuk memproduksi variasi ekspresi dan sprite sheet maskot interaktif.",
+      "tags": [
+        "script",
+        "mascot",
+        "image-generation",
+        "python"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/generate.py:pick_key",
+      "type": "function",
+      "name": "pick_key",
+      "filePath": ".agents/skills/page-mascot/scripts/generate.py",
+      "lineRange": [
+        93,
+        97
+      ],
+      "summary": "Fungsi pick_key di dalam generate.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/generate.py:rules",
+      "type": "function",
+      "name": "rules",
+      "filePath": ".agents/skills/page-mascot/scripts/generate.py",
+      "lineRange": [
+        100,
+        104
+      ],
+      "summary": "Fungsi rules di dalam generate.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/generate.py:tail",
+      "type": "function",
+      "name": "tail",
+      "filePath": ".agents/skills/page-mascot/scripts/generate.py",
+      "lineRange": [
+        107,
+        113
+      ],
+      "summary": "Fungsi tail di dalam generate.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/generate.py:directions_prompt",
+      "type": "function",
+      "name": "directions_prompt",
+      "filePath": ".agents/skills/page-mascot/scripts/generate.py",
+      "lineRange": [
+        136,
+        150
+      ],
+      "summary": "Fungsi directions_prompt di dalam generate.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/generate.py:reactions_prompt",
+      "type": "function",
+      "name": "reactions_prompt",
+      "filePath": ".agents/skills/page-mascot/scripts/generate.py",
+      "lineRange": [
+        153,
+        186
+      ],
+      "summary": "Fungsi reactions_prompt di dalam generate.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/generate.py:reference_prompt",
+      "type": "function",
+      "name": "reference_prompt",
+      "filePath": ".agents/skills/page-mascot/scripts/generate.py",
+      "lineRange": [
+        189,
+        216
+      ],
+      "summary": "Fungsi reference_prompt di dalam generate.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/generate.py:draw",
+      "type": "function",
+      "name": "draw",
+      "filePath": ".agents/skills/page-mascot/scripts/generate.py",
+      "lineRange": [
+        219,
+        240
+      ],
+      "summary": "Fungsi draw di dalam generate.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/generate.py:transparent",
+      "type": "function",
+      "name": "transparent",
+      "filePath": ".agents/skills/page-mascot/scripts/generate.py",
+      "lineRange": [
+        243,
+        245
+      ],
+      "summary": "Fungsi transparent di dalam generate.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/generate.py:sheet",
+      "type": "function",
+      "name": "sheet",
+      "filePath": ".agents/skills/page-mascot/scripts/generate.py",
+      "lineRange": [
+        248,
+        274
+      ],
+      "summary": "Fungsi sheet di dalam generate.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/generate.py:client",
+      "type": "function",
+      "name": "client",
+      "filePath": ".agents/skills/page-mascot/scripts/generate.py",
+      "lineRange": [
+        277,
+        284
+      ],
+      "summary": "Fungsi client di dalam generate.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/generate.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": ".agents/skills/page-mascot/scripts/generate.py",
+      "lineRange": [
+        287,
+        333
+      ],
+      "summary": "Fungsi main di dalam generate.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:.agents/skills/page-mascot/scripts/key.py",
+      "type": "file",
+      "name": "key.py",
+      "filePath": ".agents/skills/page-mascot/scripts/key.py",
+      "summary": "Skrip pengolahan gambar untuk menghapus latar belakang (chroma keying) sprite maskot secara otomatis.",
+      "tags": [
+        "script",
+        "image-processing",
+        "chroma-key",
+        "python"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/key.py:_corr",
+      "type": "function",
+      "name": "_corr",
+      "filePath": ".agents/skills/page-mascot/scripts/key.py",
+      "lineRange": [
+        37,
+        42
+      ],
+      "summary": "Fungsi _corr di dalam key.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/key.py:_period_score",
+      "type": "function",
+      "name": "_period_score",
+      "filePath": ".agents/skills/page-mascot/scripts/key.py",
+      "lineRange": [
+        45,
+        52
+      ],
+      "summary": "Fungsi _period_score di dalam key.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/key.py:_region_score",
+      "type": "function",
+      "name": "_region_score",
+      "filePath": ".agents/skills/page-mascot/scripts/key.py",
+      "lineRange": [
+        55,
+        74
+      ],
+      "summary": "Fungsi _region_score di dalam key.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/key.py:checkerboard",
+      "type": "function",
+      "name": "checkerboard",
+      "filePath": ".agents/skills/page-mascot/scripts/key.py",
+      "lineRange": [
+        77,
+        97
+      ],
+      "summary": "Fungsi checkerboard di dalam key.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/key.py:_linear",
+      "type": "function",
+      "name": "_linear",
+      "filePath": ".agents/skills/page-mascot/scripts/key.py",
+      "lineRange": [
+        100,
+        102
+      ],
+      "summary": "Fungsi _linear di dalam key.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/key.py:_f",
+      "type": "function",
+      "name": "_f",
+      "filePath": ".agents/skills/page-mascot/scripts/key.py",
+      "lineRange": [
+        105,
+        107
+      ],
+      "summary": "Fungsi _f di dalam key.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/key.py:lab",
+      "type": "function",
+      "name": "lab",
+      "filePath": ".agents/skills/page-mascot/scripts/key.py",
+      "lineRange": [
+        110,
+        115
+      ],
+      "summary": "Fungsi lab di dalam key.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/key.py:keyable",
+      "type": "function",
+      "name": "keyable",
+      "filePath": ".agents/skills/page-mascot/scripts/key.py",
+      "lineRange": [
+        118,
+        119
+      ],
+      "summary": "Fungsi keyable di dalam key.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/key.py:background",
+      "type": "function",
+      "name": "background",
+      "filePath": ".agents/skills/page-mascot/scripts/key.py",
+      "lineRange": [
+        122,
+        130
+      ],
+      "summary": "Fungsi background di dalam key.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/key.py:key_out",
+      "type": "function",
+      "name": "key_out",
+      "filePath": ".agents/skills/page-mascot/scripts/key.py",
+      "lineRange": [
+        133,
+        165
+      ],
+      "summary": "Fungsi key_out di dalam key.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/key.py:key_file",
+      "type": "function",
+      "name": "key_file",
+      "filePath": ".agents/skills/page-mascot/scripts/key.py",
+      "lineRange": [
+        168,
+        201
+      ],
+      "summary": "Fungsi key_file di dalam key.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.agents/skills/page-mascot/scripts/key.py:main",
+      "type": "function",
+      "name": "main",
+      "filePath": ".agents/skills/page-mascot/scripts/key.py",
+      "lineRange": [
+        204,
+        214
+      ],
+      "summary": "Fungsi main di dalam key.py untuk memproses logika terkait.",
+      "tags": [
+        "function",
+        "logic",
+        "exported"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.agents/skills/page-mascot/scripts/screen.py",
+      "type": "file",
+      "name": "screen.py",
+      "filePath": ".agents/skills/page-mascot/scripts/screen.py",
+      "summary": "Skrip utilitas penangkap layar dan verifikasi visual untuk memastikan kualitas rendering sprite.",
+      "tags": [
+        "script",
+        "testing",
+        "screenshot",
+        "python"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:pick_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:pick_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:rules",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:rules",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:tail",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:tail",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:directions_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:directions_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:reactions_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:reactions_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:reference_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:reference_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:draw",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:draw",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:transparent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:transparent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:sheet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:sheet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:client",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:client",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "function:.agents/skills/page-mascot/scripts/generate.py:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/generate.py",
+      "target": "file:.agents/skills/page-mascot/scripts/key.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:_corr",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:_corr",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:_period_score",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:_period_score",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:_region_score",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:_region_score",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:checkerboard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:checkerboard",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:_linear",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:_linear",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:_f",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:_f",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:lab",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:lab",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:keyable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:keyable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:background",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:background",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:key_out",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:key_out",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:key_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:key_file",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/key.py",
+      "target": "function:.agents/skills/page-mascot/scripts/key.py:main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:.agents/skills/page-mascot/scripts/screen.py",
+      "target": "file:.agents/skills/page-mascot/scripts/key.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,406 @@
+{
+  "targets": [
+    {
+      "target": "iPhone-14",
+      "viewport": "390x664",
+      "initialCheck": {
+        "vh": 664,
+        "vw": 390,
+        "sixElements": [
+          {
+            "name": "Navbar",
+            "inViewport": true,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 386,
+              "height": 60,
+              "top": 0,
+              "right": 386,
+              "bottom": 60,
+              "left": 0
+            }
+          },
+          {
+            "name": "Badge",
+            "inViewport": true,
+            "rect": {
+              "x": 20,
+              "y": 80,
+              "width": 173.671875,
+              "height": 28,
+              "top": 80,
+              "right": 193.671875,
+              "bottom": 108,
+              "left": 20
+            }
+          },
+          {
+            "name": "Headline (3 Pernyataan)",
+            "inViewport": true,
+            "rect": {
+              "x": 20,
+              "y": 128,
+              "width": 246.515625,
+              "height": 273.9375,
+              "top": 128,
+              "right": 266.515625,
+              "bottom": 401.9375,
+              "left": 20
+            }
+          },
+          {
+            "name": "Avatar",
+            "inViewport": true,
+            "rect": {
+              "x": 268.609375,
+              "y": 122,
+              "width": 101.390625,
+              "height": 101.390625,
+              "top": 122,
+              "right": 370,
+              "bottom": 223.390625,
+              "left": 268.609375
+            }
+          },
+          {
+            "name": "Baris Role",
+            "inViewport": true,
+            "rect": {
+              "x": 20,
+              "y": 429.9375,
+              "width": 187.40625,
+              "height": 19.5,
+              "top": 429.9375,
+              "right": 207.40625,
+              "bottom": 449.4375,
+              "left": 20
+            }
+          },
+          {
+            "name": "Tombol Utama (View My Work)",
+            "inViewport": true,
+            "rect": {
+              "x": 20,
+              "y": 477.4375,
+              "width": 350,
+              "height": 52,
+              "top": 477.4375,
+              "right": 370,
+              "bottom": 529.4375,
+              "left": 20
+            }
+          }
+        ],
+        "block2InViewport": {
+          "subtextInViewport": false,
+          "cta2InViewport": false,
+          "sub2Top": 728,
+          "cta2Top": 848
+        },
+        "gaps": {
+          "navToBadge": 20,
+          "badgeToHl": 20,
+          "l1ToL2": 22,
+          "l2ToL3": 22,
+          "hlToRole": 28,
+          "roleToCta1": 28
+        },
+        "hlCenterPct": 39.9,
+        "cta1FullyVisible": true,
+        "cta1Rect": {
+          "top": 477,
+          "bottom": 529,
+          "height": 52
+        },
+        "badgeHeight": 28,
+        "avCollision": 0,
+        "overflowX": false
+      },
+      "block2Check": {
+        "subVisible": false,
+        "cta2Visible": true,
+        "subOp": 0,
+        "cta2Op": 1
+      },
+      "consoleErrors": []
+    },
+    {
+      "target": "iPhone-SE",
+      "viewport": "375x548",
+      "initialCheck": {
+        "vh": 548,
+        "vw": 375,
+        "sixElements": [
+          {
+            "name": "Navbar",
+            "inViewport": true,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 371,
+              "height": 60,
+              "top": 0,
+              "right": 371,
+              "bottom": 60,
+              "left": 0
+            }
+          },
+          {
+            "name": "Badge",
+            "inViewport": true,
+            "rect": {
+              "x": 20,
+              "y": 80,
+              "width": 173.671875,
+              "height": 28,
+              "top": 80,
+              "right": 193.671875,
+              "bottom": 108,
+              "left": 20
+            }
+          },
+          {
+            "name": "Headline (3 Pernyataan)",
+            "inViewport": true,
+            "rect": {
+              "x": 20,
+              "y": 128,
+              "width": 237.03125,
+              "height": 263.5,
+              "top": 128,
+              "right": 257.03125,
+              "bottom": 391.5,
+              "left": 20
+            }
+          },
+          {
+            "name": "Avatar",
+            "inViewport": true,
+            "rect": {
+              "x": 257.5,
+              "y": 122,
+              "width": 97.5,
+              "height": 97.5,
+              "top": 122,
+              "right": 355,
+              "bottom": 219.5,
+              "left": 257.5
+            }
+          },
+          {
+            "name": "Baris Role",
+            "inViewport": true,
+            "rect": {
+              "x": 20,
+              "y": 419.5,
+              "width": 187.40625,
+              "height": 19.5,
+              "top": 419.5,
+              "right": 207.40625,
+              "bottom": 439,
+              "left": 20
+            }
+          },
+          {
+            "name": "Tombol Utama (View My Work)",
+            "inViewport": true,
+            "rect": {
+              "x": 20,
+              "y": 467,
+              "width": 335,
+              "height": 52,
+              "top": 467,
+              "right": 355,
+              "bottom": 519,
+              "left": 20
+            }
+          }
+        ],
+        "block2InViewport": {
+          "subtextInViewport": false,
+          "cta2InViewport": false,
+          "sub2Top": 679,
+          "cta2Top": 799
+        },
+        "gaps": {
+          "navToBadge": 20,
+          "badgeToHl": 20,
+          "l1ToL2": 22,
+          "l2ToL3": 22,
+          "hlToRole": 28,
+          "roleToCta1": 28
+        },
+        "hlCenterPct": 47.4,
+        "cta1FullyVisible": true,
+        "cta1Rect": {
+          "top": 467,
+          "bottom": 519,
+          "height": 52
+        },
+        "badgeHeight": 28,
+        "avCollision": 0,
+        "overflowX": false
+      },
+      "block2Check": {
+        "subVisible": true,
+        "cta2Visible": true,
+        "subOp": 0.9891,
+        "cta2Op": 1
+      },
+      "consoleErrors": []
+    },
+    {
+      "target": "iPhone-15-Pro-Max",
+      "viewport": "430x740",
+      "initialCheck": {
+        "vh": 740,
+        "vw": 430,
+        "sixElements": [
+          {
+            "name": "Navbar",
+            "inViewport": true,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 426,
+              "height": 60,
+              "top": 0,
+              "right": 426,
+              "bottom": 60,
+              "left": 0
+            }
+          },
+          {
+            "name": "Badge",
+            "inViewport": true,
+            "rect": {
+              "x": 20,
+              "y": 80,
+              "width": 173.671875,
+              "height": 28,
+              "top": 80,
+              "right": 193.671875,
+              "bottom": 108,
+              "left": 20
+            }
+          },
+          {
+            "name": "Headline (3 Pernyataan)",
+            "inViewport": true,
+            "rect": {
+              "x": 20,
+              "y": 128,
+              "width": 271.796875,
+              "height": 302,
+              "top": 128,
+              "right": 291.796875,
+              "bottom": 430,
+              "left": 20
+            }
+          },
+          {
+            "name": "Avatar",
+            "inViewport": true,
+            "rect": {
+              "x": 298.203125,
+              "y": 122,
+              "width": 111.796875,
+              "height": 111.796875,
+              "top": 122,
+              "right": 410,
+              "bottom": 233.796875,
+              "left": 298.203125
+            }
+          },
+          {
+            "name": "Baris Role",
+            "inViewport": true,
+            "rect": {
+              "x": 20,
+              "y": 458,
+              "width": 187.40625,
+              "height": 19.5,
+              "top": 458,
+              "right": 207.40625,
+              "bottom": 477.5,
+              "left": 20
+            }
+          },
+          {
+            "name": "Tombol Utama (View My Work)",
+            "inViewport": true,
+            "rect": {
+              "x": 20,
+              "y": 505.5,
+              "width": 390,
+              "height": 52,
+              "top": 505.5,
+              "right": 410,
+              "bottom": 557.5,
+              "left": 20
+            }
+          }
+        ],
+        "block2InViewport": {
+          "subtextInViewport": false,
+          "cta2InViewport": false,
+          "sub2Top": 804,
+          "cta2Top": 900
+        },
+        "gaps": {
+          "navToBadge": 20,
+          "badgeToHl": 20,
+          "l1ToL2": 25,
+          "l2ToL3": 25,
+          "hlToRole": 28,
+          "roleToCta1": 28
+        },
+        "hlCenterPct": 37.7,
+        "cta1FullyVisible": true,
+        "cta1Rect": {
+          "top": 506,
+          "bottom": 558,
+          "height": 52
+        },
+        "badgeHeight": 28,
+        "avCollision": 0,
+        "overflowX": false
+      },
+      "block2Check": {
+        "subVisible": true,
+        "cta2Visible": true,
+        "subOp": 0.9319,
+        "cta2Op": 1
+      },
+      "consoleErrors": []
+    }
+  ],
+  "roleCycles": [
+    {
+      "cycle": 1,
+      "role": "Full-Stack Dev",
+      "heldPreviousSec": 0
+    },
+    {
+      "cycle": 2,
+      "role": "UI/UX Designer",
+      "heldPreviousSec": 5.37
+    },
+    {
+      "cycle": 3,
+      "role": "Tech Leader",
+      "heldPreviousSec": 3.86
+    },
+    {
+      "cycle": 4,
+      "role": "Full-Stack Dev",
+      "heldPreviousSec": 3.73
+    },
+    {
+      "cycle": 5,
+      "role": "UI/UX Designer",
+      "heldPreviousSec": 3.69
+    }
+  ]
+}

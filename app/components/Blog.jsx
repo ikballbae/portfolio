@@ -246,7 +246,7 @@ export default function Blog() {
                 {/* Header */}
                 <ScrollReveal>
                     <div className="text-xs font-mono text-text-muted/60 tracking-wider uppercase mb-2">
-                        04 — BLOG
+                        04 / BLOG
                     </div>
                 </ScrollReveal>
 
@@ -297,7 +297,7 @@ export default function Blog() {
                         My <span className="text-accent"><ScrambleText text="Journey" delay={0.2} /></span>
                     </h2>
                     <p className="text-text-muted text-xs sm:text-sm max-w-lg mb-8 sm:mb-12">
-                        Stories, lessons, and reflections from my path in tech — from competitions to leadership, from code to design.
+                        Stories, lessons, and reflections from my path in tech: from competitions to leadership, code to design.
                     </p>
                 </ScrollReveal>
 

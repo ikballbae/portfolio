@@ -29,8 +29,7 @@ export default function BlogHeader() {
                     My <span className="text-accent">Journey</span>
                 </h1>
                 <p className="text-text-muted/90 text-sm sm:text-base max-w-[560px] leading-relaxed line-clamp-3 sm:line-clamp-none">
-                    Dari ruang lomba LKS tanpa internet, panggung PKFest, hingga meja kerja content planner
-                    — jurnal tentang teknologi, kreativitas, dan kepemimpinan.
+                    Catatan teknis dan refleksi personal dari kompetisi LKS, kepemimpinan PKFest, hingga riset sistem web: seputar rekayasa kode, desain antarmuka, dan manajemen tim.
                 </p>
             </div>
         </header>

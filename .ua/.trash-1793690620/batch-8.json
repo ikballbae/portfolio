@@ -1,0 +1,82 @@
+{
+  "nodes": [
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Dokumentasi utama proyek portofolio yang menjelaskan panduan instalasi, teknologi, dan konfigurasi lokal.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "readme",
+        "getting-started"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "Manifest paket Node.js yang mendefinisikan dependensi, skrip build, pustaka animasi, dan konfigurasi proyek.",
+      "tags": [
+        "configuration",
+        "dependencies",
+        "package",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:skills-lock.json",
+      "type": "config",
+      "name": "skills-lock.json",
+      "filePath": "skills-lock.json",
+      "summary": "File penguncian versi skill agen otomatis untuk melacak modul yang terpasang di workspace.",
+      "tags": [
+        "configuration",
+        "skills",
+        "lockfile"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "Konfigurasi kompilasi TypeScript Next.js dengan strict mode, path alias modul, dan modul resolusi modern.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "compiler",
+        "paths"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:README.md",
+      "target": "file:app/page.js",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:package.json",
+      "target": "file:app/page.js",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:app/blog/page.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

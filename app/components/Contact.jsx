@@ -120,7 +120,7 @@ export default function Contact() {
                 {/* Footer */}
                 <ScrollReveal delay={0.5}>
                     <div className="mt-14 sm:mt-20 pt-6 border-t border-accent/5 flex flex-col sm:flex-row items-center justify-between gap-3">
-                        <span className="text-[9px] sm:text-[10px] font-mono text-text-muted/40">© {new Date().getFullYear()} akhmad.ikbal — built with passion</span>
+                        <span className="text-[9px] sm:text-[10px] font-mono text-text-muted/40">© {new Date().getFullYear()} akhmad.ikbal · built with passion</span>
                         <span className="text-[9px] sm:text-[10px] font-mono text-text-muted/25">next.js + gsap + tailwind</span>
                     </div>
                 </ScrollReveal>

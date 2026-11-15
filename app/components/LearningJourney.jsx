@@ -5,9 +5,9 @@ const learningItems = [
     {
         year: '2024',
         items: [
-            { type: 'LEADERSHIP', title: 'PKFest — Tech Festival', source: 'UKM PengKom', insight: 'Spearheading a flagship tech summit focused on AI, Cyber Security, and Modern Programming.' },
+            { type: 'LEADERSHIP', title: 'PKFest: Tech Festival', source: 'UKM PengKom', insight: 'Spearheading a flagship tech summit focused on AI, Cyber Security, and Modern Programming.' },
             { type: 'INITIATIVE', title: 'Tech Goes to School', source: 'Outreach Program', insight: 'Teaching UI/UX, Web Programming, and Game Dev to vocational and high school students.' },
-            { type: 'AWARD', title: '1st Place — LKS Web Technology', source: 'City Level Pekalongan', insight: 'Competed and won at city level, then advanced as Finalist at Provincial Level (Central Java).' },
+            { type: 'AWARD', title: '1st Place: LKS Web Technology', source: 'City Level Pekalongan', insight: 'Won city-level competition and advanced to the Provincial finals in Central Java.' },
         ]
     },
     {

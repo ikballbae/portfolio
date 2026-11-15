@@ -27,10 +27,11 @@ export default function AnimatedBackground() {
             return [196, 255, 0]
         }
 
-        // Create floating particles
+        // Create floating particles (capped for performance)
         const createParticles = () => {
             particles = []
-            const count = Math.floor((canvas.width * canvas.height) / 25000)
+            const maxParticles = window.innerWidth < 768 ? 16 : 32
+            const count = Math.min(Math.floor((canvas.width * canvas.height) / 50000), maxParticles)
             for (let i = 0; i < count; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
@@ -92,15 +93,17 @@ export default function AnimatedBackground() {
                 ctx.fill()
             })
 
-            // Draw connecting lines between nearby particles
+            // Draw connecting lines (squared distance check avoids costly Math.sqrt)
+            const maxDist = 90
+            const maxDistSq = maxDist * maxDist
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x
                     const dy = particles[i].y - particles[j].y
-                    const dist = Math.sqrt(dx * dx + dy * dy)
+                    const distSq = dx * dx + dy * dy
 
-                    if (dist < 100) {
-                        const alpha = (1 - dist / 100) * 0.06
+                    if (distSq < maxDistSq) {
+                        const alpha = (1 - Math.sqrt(distSq) / maxDist) * 0.05
                         ctx.beginPath()
                         ctx.moveTo(particles[i].x, particles[i].y)
                         ctx.lineTo(particles[j].x, particles[j].y)

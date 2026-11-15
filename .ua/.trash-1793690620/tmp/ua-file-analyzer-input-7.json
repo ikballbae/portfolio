@@ -1,0 +1,28 @@
+{
+  "projectRoot": "c:/project/portfolio",
+  "batchFiles": [
+    {
+      "path": ".agents/skills/page-mascot/reference/characters.md",
+      "language": "markdown",
+      "sizeLines": 25,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/page-mascot/reference/design-rules.md",
+      "language": "markdown",
+      "sizeLines": 267,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/page-mascot/reference/prompts.md",
+      "language": "markdown",
+      "sizeLines": 313,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    ".agents/skills/page-mascot/reference/characters.md": [],
+    ".agents/skills/page-mascot/reference/design-rules.md": [],
+    ".agents/skills/page-mascot/reference/prompts.md": []
+  }
+}

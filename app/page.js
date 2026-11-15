@@ -1,27 +1,33 @@
+'use client'
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import QuoteSection from "./components/QuoteSection";
 import About from "./components/About";
-import TechStack from "./components/TechStack";
 import Projects from "./components/Projects";
 import Blog from "./components/Blog";
-import Experience from "./components/Experience";
 import Contact from "./components/Contact";
+import { useLoading } from "./context/LoadingContext";
 
 export default function Home() {
+  const { isLoaded } = useLoading();
+
   return (
-    <main className="relative overflow-x-hidden w-full">
+    <main
+      className="relative overflow-x-clip w-full"
+      style={{
+        visibility: isLoaded ? "visible" : "hidden",
+        opacity: isLoaded ? 1 : 0,
+      }}
+    >
       <Navbar />
       <Hero />
-      <div className="section-divider" />
+      <QuoteSection />
       <About />
-      <div className="section-divider" />
-      <TechStack />
       <div className="section-divider" />
       <Projects />
       <div className="section-divider" />
       <Blog />
-      <div className="section-divider" />
-      <Experience />
       <div className="section-divider" />
       <Contact />
     </main>

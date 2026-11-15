@@ -1,0 +1,203 @@
+{
+  "timestamp": "2026-11-08T18:01:31.297Z",
+  "devices": {
+    "iphone-14": {
+      "viewport": "390x664",
+      "avatarInDOM": false,
+      "scrollCueInDOM": false,
+      "downloadedImagesCount": 0,
+      "downloadedImages": [],
+      "charMetricsAt8s": {
+        "totalChars": 52,
+        "nonSolidCount": 0,
+        "sampleSolid": {
+          "text": "I",
+          "color": "rgb(245, 245, 240)",
+          "opacity": "1",
+          "transform": "matrix(1, 0, 0, 1, 0, 0)",
+          "webkitTextStroke": "0px rgb(74, 102, 0)",
+          "varT": "0"
+        },
+        "sampleKw": {
+          "text": "S",
+          "color": "rgb(74, 102, 0)",
+          "opacity": "1",
+          "transform": "matrix(1, 0, 0, 1, 0, 0)",
+          "webkitTextStroke": "0px rgb(74, 102, 0)",
+          "varT": "0"
+        }
+      },
+      "touchBlueprint": {
+        "outlineActivated": true,
+        "resetSolidAfter1s": true
+      },
+      "scrollResults": {
+        "scroll_0": {
+          "overflowX": false,
+          "scrollWidth": 390,
+          "clientWidth": 390,
+          "navBottom": 0,
+          "headlineTop": 128
+        },
+        "scroll_80": {
+          "overflowX": false,
+          "scrollWidth": 390,
+          "clientWidth": 390,
+          "navBottom": 0,
+          "headlineTop": 48
+        },
+        "scroll_160": {
+          "overflowX": false,
+          "scrollWidth": 390,
+          "clientWidth": 390,
+          "navBottom": 0,
+          "headlineTop": -32
+        },
+        "scroll_320": {
+          "overflowX": false,
+          "scrollWidth": 390,
+          "clientWidth": 390,
+          "navBottom": 0,
+          "headlineTop": -192
+        }
+      },
+      "roleCyclesCaptured": [
+        "Full-Stack Dev",
+        "UI/UX Designer",
+        "Tech Leader"
+      ]
+    },
+    "iphone-se": {
+      "viewport": "375x548",
+      "avatarInDOM": false,
+      "scrollCueInDOM": false,
+      "downloadedImagesCount": 0,
+      "downloadedImages": [],
+      "charMetricsAt8s": {
+        "totalChars": 52,
+        "nonSolidCount": 0,
+        "sampleSolid": {
+          "text": "I",
+          "color": "rgb(245, 245, 240)",
+          "opacity": "1",
+          "transform": "matrix(1, 0, 0, 1, 0, 0)",
+          "webkitTextStroke": "0px rgb(74, 102, 0)",
+          "varT": "0"
+        },
+        "sampleKw": {
+          "text": "S",
+          "color": "rgb(74, 102, 0)",
+          "opacity": "1",
+          "transform": "matrix(1, 0, 0, 1, 0, 0)",
+          "webkitTextStroke": "0px rgb(74, 102, 0)",
+          "varT": "0"
+        }
+      },
+      "touchBlueprint": {
+        "outlineActivated": true,
+        "resetSolidAfter1s": true
+      },
+      "scrollResults": {
+        "scroll_0": {
+          "overflowX": false,
+          "scrollWidth": 375,
+          "clientWidth": 375,
+          "navBottom": 0,
+          "headlineTop": 128
+        },
+        "scroll_80": {
+          "overflowX": false,
+          "scrollWidth": 375,
+          "clientWidth": 375,
+          "navBottom": 0,
+          "headlineTop": 48
+        },
+        "scroll_160": {
+          "overflowX": false,
+          "scrollWidth": 375,
+          "clientWidth": 375,
+          "navBottom": 0,
+          "headlineTop": -32
+        },
+        "scroll_320": {
+          "overflowX": false,
+          "scrollWidth": 375,
+          "clientWidth": 375,
+          "navBottom": 0,
+          "headlineTop": -192
+        }
+      },
+      "roleCyclesCaptured": [
+        "Full-Stack Dev",
+        "UI/UX Designer",
+        "Tech Leader"
+      ]
+    },
+    "iphone-15-promax": {
+      "viewport": "430x740",
+      "avatarInDOM": false,
+      "scrollCueInDOM": false,
+      "downloadedImagesCount": 0,
+      "downloadedImages": [],
+      "charMetricsAt8s": {
+        "totalChars": 52,
+        "nonSolidCount": 0,
+        "sampleSolid": {
+          "text": "I",
+          "color": "rgb(245, 245, 240)",
+          "opacity": "1",
+          "transform": "matrix(1, 0, 0, 1, 0, 0)",
+          "webkitTextStroke": "0px rgb(74, 102, 0)",
+          "varT": "0"
+        },
+        "sampleKw": {
+          "text": "S",
+          "color": "rgb(74, 102, 0)",
+          "opacity": "1",
+          "transform": "matrix(1, 0, 0, 1, 0, 0)",
+          "webkitTextStroke": "0px rgb(74, 102, 0)",
+          "varT": "0"
+        }
+      },
+      "touchBlueprint": {
+        "outlineActivated": true,
+        "resetSolidAfter1s": true
+      },
+      "scrollResults": {
+        "scroll_0": {
+          "overflowX": false,
+          "scrollWidth": 430,
+          "clientWidth": 430,
+          "navBottom": 0,
+          "headlineTop": 128
+        },
+        "scroll_80": {
+          "overflowX": false,
+          "scrollWidth": 430,
+          "clientWidth": 430,
+          "navBottom": 0,
+          "headlineTop": 48
+        },
+        "scroll_160": {
+          "overflowX": false,
+          "scrollWidth": 430,
+          "clientWidth": 430,
+          "navBottom": 0,
+          "headlineTop": -32
+        },
+        "scroll_320": {
+          "overflowX": false,
+          "scrollWidth": 430,
+          "clientWidth": 430,
+          "navBottom": 0,
+          "headlineTop": -192
+        }
+      },
+      "roleCyclesCaptured": [
+        "Full-Stack Dev",
+        "UI/UX Designer",
+        "Tech Leader"
+      ]
+    }
+  }
+}

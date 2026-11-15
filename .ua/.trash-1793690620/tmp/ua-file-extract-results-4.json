@@ -1,0 +1,653 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 5,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 5,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "app/actions/admin.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "getAllComments",
+          "startLine": 9,
+          "endLine": 24,
+          "params": [
+            "passcode"
+          ]
+        },
+        {
+          "name": "updateCommentStatus",
+          "startLine": 26,
+          "endLine": 45,
+          "params": [
+            "commentId",
+            "newStatus",
+            "passcode"
+          ]
+        },
+        {
+          "name": "deleteComment",
+          "startLine": 47,
+          "endLine": 65,
+          "params": [
+            "commentId",
+            "passcode"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getAllComments",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "updateCommentStatus",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "deleteComment",
+          "line": 47,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getAllComments",
+          "callee": "supabaseAdmin\r\n        .from('comments')\r\n        .select('*')\r\n        .order",
+          "lineNumber": 14
+        },
+        {
+          "caller": "getAllComments",
+          "callee": "supabaseAdmin\r\n        .from('comments')\r\n        .select",
+          "lineNumber": 14
+        },
+        {
+          "caller": "getAllComments",
+          "callee": "supabaseAdmin\r\n        .from",
+          "lineNumber": 14
+        },
+        {
+          "caller": "updateCommentStatus",
+          "callee": "supabaseAdmin\r\n        .from('comments')\r\n        .update({ status: newStatus })\r\n        .eq",
+          "lineNumber": 31
+        },
+        {
+          "caller": "updateCommentStatus",
+          "callee": "supabaseAdmin\r\n        .from('comments')\r\n        .update",
+          "lineNumber": 31
+        },
+        {
+          "caller": "updateCommentStatus",
+          "callee": "supabaseAdmin\r\n        .from",
+          "lineNumber": 31
+        },
+        {
+          "caller": "updateCommentStatus",
+          "callee": "console.error",
+          "lineNumber": 37
+        },
+        {
+          "caller": "updateCommentStatus",
+          "callee": "revalidatePath",
+          "lineNumber": 42
+        },
+        {
+          "caller": "deleteComment",
+          "callee": "supabaseAdmin\r\n        .from('comments')\r\n        .delete()\r\n        .eq",
+          "lineNumber": 52
+        },
+        {
+          "caller": "deleteComment",
+          "callee": "supabaseAdmin\r\n        .from('comments')\r\n        .delete",
+          "lineNumber": 52
+        },
+        {
+          "caller": "deleteComment",
+          "callee": "supabaseAdmin\r\n        .from",
+          "lineNumber": 52
+        },
+        {
+          "caller": "deleteComment",
+          "callee": "console.error",
+          "lineNumber": 58
+        },
+        {
+          "caller": "deleteComment",
+          "callee": "revalidatePath",
+          "lineNumber": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/actions/comments.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 106,
+      "nonEmptyLines": 91,
+      "functions": [
+        {
+          "name": "hashIp",
+          "startLine": 9,
+          "endLine": 11,
+          "params": [
+            "ip"
+          ]
+        },
+        {
+          "name": "submitComment",
+          "startLine": 13,
+          "endLine": 106,
+          "params": [
+            "prevState",
+            "formData"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "submitComment",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "hashIp",
+          "callee": "crypto.createHash('md5').update(ip).digest",
+          "lineNumber": 10
+        },
+        {
+          "caller": "hashIp",
+          "callee": "crypto.createHash('md5').update",
+          "lineNumber": 10
+        },
+        {
+          "caller": "hashIp",
+          "callee": "crypto.createHash",
+          "lineNumber": 10
+        },
+        {
+          "caller": "submitComment",
+          "callee": "formData.get",
+          "lineNumber": 16
+        },
+        {
+          "caller": "submitComment",
+          "callee": "formData.get",
+          "lineNumber": 17
+        },
+        {
+          "caller": "submitComment",
+          "callee": "formData.get",
+          "lineNumber": 18
+        },
+        {
+          "caller": "submitComment",
+          "callee": "CommentSchema.safeParse",
+          "lineNumber": 22
+        },
+        {
+          "caller": "submitComment",
+          "callee": "headers",
+          "lineNumber": 33
+        },
+        {
+          "caller": "submitComment",
+          "callee": "headersList.get",
+          "lineNumber": 34
+        },
+        {
+          "caller": "submitComment",
+          "callee": "headersList.get",
+          "lineNumber": 35
+        },
+        {
+          "caller": "submitComment",
+          "callee": "forwardedFor?.split",
+          "lineNumber": 36
+        },
+        {
+          "caller": "submitComment",
+          "callee": "hashIp",
+          "lineNumber": 37
+        },
+        {
+          "caller": "submitComment",
+          "callee": "supabaseAdmin\r\n            .from('comments')\r\n            .select('created_at')\r\n            .eq('ip_hash', ipHash)\r\n            .order('created_at', { ascending: false })\r\n            .limit",
+          "lineNumber": 40
+        },
+        {
+          "caller": "submitComment",
+          "callee": "supabaseAdmin\r\n            .from('comments')\r\n            .select('created_at')\r\n            .eq('ip_hash', ipHash)\r\n            .order",
+          "lineNumber": 40
+        },
+        {
+          "caller": "submitComment",
+          "callee": "supabaseAdmin\r\n            .from('comments')\r\n            .select('created_at')\r\n            .eq",
+          "lineNumber": 40
+        },
+        {
+          "caller": "submitComment",
+          "callee": "supabaseAdmin\r\n            .from('comments')\r\n            .select",
+          "lineNumber": 40
+        },
+        {
+          "caller": "submitComment",
+          "callee": "supabaseAdmin\r\n            .from",
+          "lineNumber": 40
+        },
+        {
+          "caller": "submitComment",
+          "callee": "new Date(recentComments[0].created_at).getTime",
+          "lineNumber": 48
+        },
+        {
+          "caller": "submitComment",
+          "callee": "new Date().getTime",
+          "lineNumber": 49
+        },
+        {
+          "caller": "submitComment",
+          "callee": "Math.ceil",
+          "lineNumber": 54
+        },
+        {
+          "caller": "submitComment",
+          "callee": "moderateComment",
+          "lineNumber": 61
+        },
+        {
+          "caller": "submitComment",
+          "callee": "supabaseAdmin\r\n            .from('comments')\r\n            .insert",
+          "lineNumber": 72
+        },
+        {
+          "caller": "submitComment",
+          "callee": "supabaseAdmin\r\n            .from",
+          "lineNumber": 72
+        },
+        {
+          "caller": "submitComment",
+          "callee": "author_name.trim",
+          "lineNumber": 76
+        },
+        {
+          "caller": "submitComment",
+          "callee": "content.trim",
+          "lineNumber": 77
+        },
+        {
+          "caller": "submitComment",
+          "callee": "console.error",
+          "lineNumber": 84
+        },
+        {
+          "caller": "submitComment",
+          "callee": "console.error",
+          "lineNumber": 100
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "app/admin/comments/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 172,
+      "nonEmptyLines": 155,
+      "functions": [
+        {
+          "name": "AdminCommentsPage",
+          "startLine": 17,
+          "endLine": 40,
+          "params": []
+        },
+        {
+          "name": "AdminDashboard",
+          "startLine": 43,
+          "endLine": 172,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AdminCommentsPage",
+          "line": 17,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "AdminCommentsPage",
+          "callee": "useState",
+          "lineNumber": 18
+        },
+        {
+          "caller": "AdminCommentsPage",
+          "callee": "useState",
+          "lineNumber": 19
+        },
+        {
+          "caller": "AdminCommentsPage",
+          "callee": "useState",
+          "lineNumber": 20
+        },
+        {
+          "caller": "AdminCommentsPage",
+          "callee": "useState",
+          "lineNumber": 21
+        },
+        {
+          "caller": "fetchAllComments",
+          "callee": "setLoading",
+          "lineNumber": 24
+        },
+        {
+          "caller": "fetchAllComments",
+          "callee": "supabase\r\n            .from('comments')\r\n            .select('*')\r\n            .order",
+          "lineNumber": 25
+        },
+        {
+          "caller": "fetchAllComments",
+          "callee": "supabase\r\n            .from('comments')\r\n            .select",
+          "lineNumber": 25
+        },
+        {
+          "caller": "fetchAllComments",
+          "callee": "supabase\r\n            .from",
+          "lineNumber": 25
+        },
+        {
+          "caller": "fetchAllComments",
+          "callee": "setComments",
+          "lineNumber": 31
+        },
+        {
+          "caller": "fetchAllComments",
+          "callee": "setLoading",
+          "lineNumber": 33
+        },
+        {
+          "caller": "AdminDashboard",
+          "callee": "useState",
+          "lineNumber": 44
+        },
+        {
+          "caller": "AdminDashboard",
+          "callee": "useState",
+          "lineNumber": 45
+        },
+        {
+          "caller": "AdminDashboard",
+          "callee": "useState",
+          "lineNumber": 46
+        },
+        {
+          "caller": "AdminDashboard",
+          "callee": "useState",
+          "lineNumber": 47
+        },
+        {
+          "caller": "loadComments",
+          "callee": "e.preventDefault",
+          "lineNumber": 50
+        },
+        {
+          "caller": "loadComments",
+          "callee": "setLoading",
+          "lineNumber": 51
+        },
+        {
+          "caller": "loadComments",
+          "callee": "setAuthError",
+          "lineNumber": 52
+        },
+        {
+          "caller": "loadComments",
+          "callee": "getAllComments",
+          "lineNumber": 55
+        },
+        {
+          "caller": "loadComments",
+          "callee": "setComments",
+          "lineNumber": 58
+        },
+        {
+          "caller": "loadComments",
+          "callee": "setAuthError",
+          "lineNumber": 60
+        },
+        {
+          "caller": "loadComments",
+          "callee": "setAuthError",
+          "lineNumber": 63
+        },
+        {
+          "caller": "loadComments",
+          "callee": "setLoading",
+          "lineNumber": 65
+        },
+        {
+          "caller": "handleAction",
+          "callee": "setLoading",
+          "lineNumber": 69
+        },
+        {
+          "caller": "handleAction",
+          "callee": "deleteComment",
+          "lineNumber": 73
+        },
+        {
+          "caller": "handleAction",
+          "callee": "updateCommentStatus",
+          "lineNumber": 75
+        },
+        {
+          "caller": "handleAction",
+          "callee": "loadComments",
+          "lineNumber": 79
+        },
+        {
+          "caller": "handleAction",
+          "callee": "alert",
+          "lineNumber": 81
+        },
+        {
+          "caller": "handleAction",
+          "callee": "alert",
+          "lineNumber": 84
+        },
+        {
+          "caller": "handleAction",
+          "callee": "setLoading",
+          "lineNumber": 86
+        },
+        {
+          "caller": "AdminDashboard",
+          "callee": "setPasscode",
+          "lineNumber": 98
+        },
+        {
+          "caller": "AdminDashboard",
+          "callee": "loadComments",
+          "lineNumber": 115
+        },
+        {
+          "caller": "AdminDashboard",
+          "callee": "comments.map",
+          "lineNumber": 123
+        },
+        {
+          "caller": "AdminDashboard",
+          "callee": "new Date(c.created_at).toLocaleString",
+          "lineNumber": 144
+        },
+        {
+          "caller": "AdminDashboard",
+          "callee": "handleAction",
+          "lineNumber": 150
+        },
+        {
+          "caller": "AdminDashboard",
+          "callee": "handleAction",
+          "lineNumber": 155
+        },
+        {
+          "caller": "AdminDashboard",
+          "callee": "confirm",
+          "lineNumber": 159
+        },
+        {
+          "caller": "AdminDashboard",
+          "callee": "handleAction",
+          "lineNumber": 159
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lib/supabase/admin.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 8,
+      "nonEmptyLines": 6,
+      "exports": [
+        {
+          "name": "supabaseAdmin",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lib/utils/moderation.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 133,
+      "nonEmptyLines": 109,
+      "functions": [
+        {
+          "name": "containsToxicWords",
+          "startLine": 73,
+          "endLine": 86,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "moderateComment",
+          "startLine": 96,
+          "endLine": 133,
+          "params": [
+            "content",
+            "authorName"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CommentSchema",
+          "line": 4,
+          "isDefault": false
+        },
+        {
+          "name": "TOXIC_WORDS",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "containsToxicWords",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "moderateComment",
+          "line": 96,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "containsToxicWords",
+          "callee": "text.toLowerCase",
+          "lineNumber": 77
+        },
+        {
+          "caller": "containsToxicWords",
+          "callee": "TOXIC_WORDS.some",
+          "lineNumber": 80
+        },
+        {
+          "caller": "containsToxicWords",
+          "callee": "regex.test",
+          "lineNumber": 84
+        },
+        {
+          "caller": "moderateComment",
+          "callee": "`${authorName} ${content}`.toLowerCase",
+          "lineNumber": 97
+        },
+        {
+          "caller": "moderateComment",
+          "callee": "pattern.test",
+          "lineNumber": 101
+        },
+        {
+          "caller": "moderateComment",
+          "callee": "textToCheck.includes",
+          "lineNumber": 111
+        },
+        {
+          "caller": "moderateComment",
+          "callee": "spamCharRegex.test",
+          "lineNumber": 121
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    }
+  ]
+}

@@ -36,7 +36,8 @@ export default function ScrollReveal({
         // Start hidden
         el.style.opacity = '0'
         el.style.transform = hiddenTransform
-        el.style.transition = `opacity ${duration}s ease, transform ${duration}s ease`
+        el.style.willChange = 'opacity, transform'
+        el.style.transition = `opacity ${duration}s cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}s cubic-bezier(0.16, 1, 0.3, 1)`
         el.style.transitionDelay = `${delay}s`
 
         const observer = new IntersectionObserver(

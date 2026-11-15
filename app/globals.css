@@ -4,11 +4,16 @@
 
 /* ===== CSS Custom Properties — Dark (default) ===== */
 :root {
+  /* Navbar height: 60px on mobile/tablet (<1024px), 72px on desktop */
+  --nav-h: 60px;
+  --hud-h: 18px;
+  --app-svh: 1svh;
   --bg: #0a0a0a;
   --surface: #111111;
   --surface-light: #1a1a1a;
   --text: #e8e6e1;
-  --text-muted: #6b6b6b;
+  --text-rgb: 232, 230, 225;
+  --text-muted: #8c8c86;
   --accent: #c4ff00;
   --accent-dark: #9ecc00;
   --accent-rgb: 196, 255, 0;
@@ -18,7 +23,7 @@
   --glass-border: rgba(196, 255, 0, 0.06);
   --glass-light-bg: rgba(26, 26, 26, 0.5);
   --glass-light-border: rgba(196, 255, 0, 0.05);
-  --card-border: rgba(196, 255, 0, 0.06);
+  --card-border: rgba(196, 255, 0, 0.12);
   --card-line-glow: var(--accent);
   --notebook-line: rgba(196, 255, 0, 0.04);
   --divider: rgba(196, 255, 0, 0.08);
@@ -27,6 +32,16 @@
   --coord-color: rgba(196, 255, 0, 0.25);
   --gradient-overlay: rgba(17, 17, 17, 1);
   --gradient-strength: 0.025;
+  --font-syne: var(--font-sans);
+  --font-grotesk: var(--font-sans);
+  --font-inter: var(--font-sans);
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --nav-h: 72px;
+    --hud-h: 28px;
+  }
 }
 
 /* ===== CSS Custom Properties — Light ===== */
@@ -35,23 +50,24 @@
   --surface: #ffffff;
   --surface-light: #eeece7;
   --text: #1a1a1a;
-  --text-muted: #6b6b6b;
-  --accent: #5a7a00;
-  --accent-dark: #4a6600;
-  --accent-rgb: 90, 122, 0;
-  --grid-color: rgba(90, 122, 0, 0.06);
-  --grid-color-bright: rgba(90, 122, 0, 0.1);
-  --glass-bg: rgba(255, 255, 255, 0.75);
-  --glass-border: rgba(90, 122, 0, 0.1);
+  --text-rgb: 26, 26, 26;
+  --text-muted: #52524e;
+  --accent: #4a6600;
+  --accent-dark: #3b5200;
+  --accent-rgb: 74, 102, 0;
+  --grid-color: rgba(74, 102, 0, 0.06);
+  --grid-color-bright: rgba(74, 102, 0, 0.1);
+  --glass-bg: rgba(245, 243, 238, 0.95);
+  --glass-border: rgba(0, 0, 0, 0.08);
   --glass-light-bg: rgba(245, 243, 238, 0.6);
-  --glass-light-border: rgba(90, 122, 0, 0.08);
-  --card-border: rgba(90, 122, 0, 0.1);
+  --glass-light-border: rgba(74, 102, 0, 0.08);
+  --card-border: rgba(74, 102, 0, 0.16);
   --card-line-glow: var(--accent);
-  --notebook-line: rgba(90, 122, 0, 0.06);
-  --divider: rgba(90, 122, 0, 0.12);
-  --skill-bar-bg: rgba(90, 122, 0, 0.1);
+  --notebook-line: rgba(74, 102, 0, 0.06);
+  --divider: rgba(74, 102, 0, 0.12);
+  --skill-bar-bg: rgba(74, 102, 0, 0.1);
   --noise-opacity: 0.015;
-  --coord-color: rgba(90, 122, 0, 0.3);
+  --coord-color: rgba(74, 102, 0, 0.3);
   --gradient-overlay: rgba(255, 255, 255, 1);
   --gradient-strength: 0.06;
 }
@@ -67,14 +83,31 @@ html,
 body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
   background: var(--bg);
   color: var(--text);
   transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 body {
@@ -273,14 +306,14 @@ body {
 
 /* ===== Blog Prose Typography ===== */
 .prose-blog {
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-sans), sans-serif;
   color: var(--text-muted);
   font-size: 0.9375rem;
   line-height: 1.8;
 }
 
 .prose-blog h2 {
-  font-family: var(--font-syne), sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-weight: 700;
   font-size: 1.375rem;
   color: var(--text);
@@ -290,7 +323,7 @@ body {
 }
 
 .prose-blog h3 {
-  font-family: var(--font-grotesk), sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-weight: 600;
   font-size: 1.125rem;
   color: var(--text);
@@ -407,6 +440,19 @@ body {
 }
 
 /* ===== Blog Animations ===== */
+@keyframes stepBlink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-step-blink {
+  animation: stepBlink 1s steps(1) infinite;
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -521,8 +567,582 @@ body {
   overflow: hidden;
 }
 
+/* ===== Hero Responsive Layout & Safe Area ===== */
+.hero-safe-px {
+  padding-left: calc(20px + env(safe-area-inset-left, 0px));
+  padding-right: calc(20px + env(safe-area-inset-right, 0px));
+}
+
+@media (min-width: 1024px) {
+  .hero-safe-px {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+.hero-section-root {
+  min-height: 100dvh;
+  min-height: 100svh;
+  min-height: calc(var(--app-svh, 1svh) * 100);
+  height: auto;
+  overflow-x: clip;
+}
+
+.hero-stage-root {
+  min-height: 100dvh;
+  min-height: 100svh;
+  min-height: calc(var(--app-svh, 1svh) * 100);
+  height: auto;
+  padding-top: 62px;
+}
+
+.hero-grid-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.15rem;
+  width: 100%;
+}
+
+.hero-avatar-col {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding-right: 4%;
+  margin-bottom: 4px;
+}
+
+.hero-text-col {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  min-width: 0;
+}
+
+.hero-avatar-box {
+  width: clamp(98px, calc(var(--app-svh, 1svh) * 14.5), min(calc(var(--app-svh, 1svh) * 24), 210px));
+  height: clamp(98px, calc(var(--app-svh, 1svh) * 14.5), min(calc(var(--app-svh, 1svh) * 24), 210px));
+}
+
+.hero-headline-el {
+  font-size: clamp(2rem, min(9.4vw, calc(var(--app-svh, 1svh) * 4.4)), 3.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  touch-action: pan-y;
+}
+
+.hl-line-mask {
+  overflow: clip;
+  padding-top: 0.22em;
+  margin-top: -0.22em;
+  padding-bottom: 0.22em;
+  margin-bottom: -0.22em;
+  display: block;
+}
+
+/* Mobile & Tablet Portrait: tiap pernyataan dipecah 2 baris (verb di atas, kata hijau di bawah) */
+.hl-line {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  white-space: normal;
+  margin-bottom: 0.05em;
+  overflow: clip;
+  padding-bottom: 0.22em;
+  margin-bottom: -0.22em;
+}
+
+.hl-line > .hl-solid,
+.hl-line > .hl-kw {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Orientasi Landscape Mobile (mis. 844x390): 2 kolom (teks kiri, avatar kanan), min-height auto */
+@media (max-width: 1023px) and (orientation: landscape) {
+  .hero-section-root {
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  .hero-stage-root {
+    min-height: auto !important;
+    height: auto !important;
+    padding-top: 64px;
+    padding-bottom: 0.5rem;
+  }
+
+  [data-testid="hud-mobile-status"] {
+    left: auto !important;
+    right: 3rem !important;
+  }
+
+  .hero-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: center;
+    column-gap: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-text-col {
+    order: 1;
+    grid-column: span 8 / span 8;
+  }
+
+  .hero-avatar-col {
+    order: 2;
+    grid-column: span 4 / span 4;
+    align-items: flex-end;
+    padding-right: 0;
+    margin-bottom: 0;
+  }
+
+  .hero-avatar-box {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-headline-el {
+    font-size: clamp(1.75rem, 3.6vw, 2.35rem);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+  }
+
+  .hl-line {
+    display: block;
+    white-space: nowrap;
+    margin-bottom: 0.04em;
+  }
+
+  .hl-line > .hl-solid,
+  .hl-line > .hl-kw {
+    display: inline;
+    white-space: nowrap;
+  }
+
+  .hero-cta-group-el {
+    flex-direction: row !important;
+    gap: 0.75rem !important;
+  }
+
+  .hero-cta-group-el a {
+    height: 44px !important;
+  }
+}
+
+/* Desktop & Tablet (>= 768px): Layout 2 kolom penuh 100svh */
+@media (min-width: 768px) {
+  .hero-section-root {
+    height: 100svh;
+    min-height: 100svh;
+    overflow: hidden;
+  }
+
+  .hero-stage-root {
+    height: 100%;
+    min-height: 100svh;
+    padding-top: calc(var(--nav-h, 72px) + var(--hud-h, 28px) + 0.5rem);
+  }
+
+  .hero-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: center;
+    column-gap: 1.5rem;
+  }
+
+  .hero-text-col {
+    order: 1;
+    grid-column: span 7 / span 7;
+  }
+
+  .hero-avatar-col {
+    order: 2;
+    grid-column: span 5 / span 5;
+    align-items: flex-end;
+    padding-right: 0;
+    margin-bottom: 0;
+  }
+
+  .hero-avatar-box {
+    width: min(60svh, 36vw);
+    height: 62svh;
+  }
+
+  .hero-headline-el {
+    font-size: clamp(2.4rem, min(5.4vw, 11svh), 5.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    position: relative;
+    z-index: 20;
+  }
+
+  .hl-line {
+    display: block;
+    white-space: nowrap;
+    margin-bottom: 0.06em;
+  }
+
+  .hl-line > .hl-solid,
+  .hl-line > .hl-kw {
+    display: inline;
+    white-space: nowrap;
+  }
+}
+
+/* ============================================================================
+   NAVBAR MOBILE SCROLLED STATE (< 1024px)
+   Setelah scroll > 8px: latar rgba(10,10,10,0.82), blur(14px), border-bottom 1px
+   ============================================================================ */
+/* Navbar Scrolled Glass State (Desktop & Mobile) */
+nav[data-testid="navbar"].is-scrolled {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid var(--glass-border) !important;
+}
+
+/* ============================================================================
+   HERO MOBILE (< 768px, DIUJI DI IOS SAFARI)
+   Prinsip: Satu alur berurutan, konten mengalir dari atas tanpa celah kosong.
+   Desktop (>= 1024px), tablet (768–1023px), dan landscape TIDAK terpengaruh.
+   ============================================================================ */
+@media (max-width: 767px) and (orientation: portrait) {
+  #hero {
+    /* 1. Variabel Tipografi & Avatar yang Mudah Diubah */
+    --hl-size: clamp(1.95rem, 9.4vw, 2.75rem);
+    --av-w: clamp(72px, 20vw, 92px);
+
+    /* 2. Ritme Vertikal (Exact specs) */
+    --g-badge: 16px;       /* badge -> headline: 16px */
+    --g-stmt: 0.5em;       /* jarak antar pernyataan headline: 0.5em */
+    --g-role: 12px;        /* role label di atas headline: 12px */
+    --g-role-sub: 28px;    /* headline -> subteks: 28px */
+    --g-sub-cta: 28px;     /* subteks -> CTA: 28px */
+    --g-cta-cta: 18px;     /* antar CTA: 18px */
+
+    background-color: var(--bg) !important;
+  }
+
+  .hero-section-root {
+    min-height: 100svh;
+    min-height: 100dvh;
+    background-color: var(--bg);
+  }
+
+  .hero-stage-root {
+    min-height: 100svh;
+    min-height: 100dvh;
+    padding-top: calc(60px + env(safe-area-inset-top, 0px) + 16px) !important;
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 36px) !important;
+    overflow-x: clip;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Area konten mengalir dari atas (tanpa min-height terpisah / pembagian blok) */
+  .hero-content-area {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Mobile Navbar Scroll Glass */
+  nav.is-scrolled {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border-bottom: 1px solid var(--glass-border) !important;
+  }
+
+  /* Mobile Headline Box (Reservasi 2 baris agar 0 layout shift, z-index 20) */
+  .mobile-headline-box {
+    position: relative;
+    width: 100%;
+    z-index: 20;
+  }
+
+  .mobile-stmt-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .mobile-stmt-line {
+    overflow: clip;
+    padding-top: 0.22em;
+    margin-top: -0.22em;
+    padding-bottom: 0.22em;
+    margin-bottom: -0.22em;
+    display: block;
+  }
+
+  .mobile-stmt-verb {
+    font-size: var(--hl-size, clamp(1.95rem, 9.4vw, 2.75rem));
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+    color: var(--text);
+    -webkit-text-fill-color: var(--text);
+    white-space: nowrap;
+  }
+
+  .mobile-stmt-kw {
+    font-size: var(--hl-size, clamp(1.95rem, 9.4vw, 2.75rem));
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+    color: var(--accent);
+    -webkit-text-fill-color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .m-hl-word {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .m-hl-char {
+    display: inline-block;
+    vertical-align: top;
+    will-change: transform, opacity;
+  }
+
+  /* Sembunyikan layout desktop di mobile */
+  .hero-grid-layout {
+    display: none !important;
+  }
+
+  /* Headline: clamp(1.65rem, 8.2vw, 2.25rem), line-height 1.05, antar pernyataan 0.5em, dalam pernyataan 0 */
+  .hero-headline-el {
+    font-size: var(--hl-size);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    touch-action: pan-y;
+  }
+
+  .hl-line {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: var(--g-stmt);
+    gap: 0;
+    overflow: clip;
+    padding-bottom: 3px;
+  }
+
+  .hl-line:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Baris verb ("I Build") opacity 0.92 dan weight 600; kata lime weight 800 */
+  .hl-line > .hl-solid {
+    font-weight: 600;
+    opacity: 0.92;
+    line-height: 1.05;
+    color: #f5f5f0;
+    -webkit-text-fill-color: #f5f5f0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hl-line > .hl-kw {
+    font-weight: 800;
+    opacity: 1;
+    line-height: 1.05;
+    color: var(--accent);
+    -webkit-text-fill-color: var(--accent);
+    margin: 0;
+    padding: 0;
+  }
+
+  .hl-line .hl-word {
+    vertical-align: top;
+    line-height: 1.05;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  /* Mobile Blueprint Karakter: saat --t = 0 warna solid 100%, saat --t > 0 outline lime */
+  .hl-char {
+    --t: 0;
+    display: inline-block;
+    will-change: auto;
+  }
+
+  .hl-line > .hl-solid .hl-char,
+  .mobile-stmt-verb .hl-char {
+    font-weight: 600;
+    color: rgba(var(--text-rgb), calc(1 - var(--t, 0)));
+    -webkit-text-fill-color: rgba(var(--text-rgb), calc(1 - var(--t, 0)));
+    -webkit-text-stroke: calc(var(--t, 0) * var(--bp-stroke, 1.5px)) var(--accent);
+    transform: translateY(calc(var(--t, 0) * var(--bp-lift, -3px)));
+  }
+
+  .hl-line > .hl-kw .hl-char,
+  .mobile-stmt-kw .hl-char {
+    font-weight: 800;
+    color: rgba(var(--accent-rgb), calc(1 - var(--t, 0)));
+    -webkit-text-fill-color: rgba(var(--accent-rgb), calc(1 - var(--t, 0)));
+    -webkit-text-stroke: calc(var(--t, 0) * var(--bp-stroke, 1.5px)) var(--accent);
+    transform: translateY(calc(var(--t, 0) * var(--bp-lift, -3px)));
+  }
+
+  /* Role Switcher & Subteks & CTA */
+  #hero [data-testid="hero-meta-scroll"] {
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Role: 12px, margin-top: 20px, margin-bottom: 10px */
+  #hero [data-testid="hero-role"] {
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    margin-top: var(--g-role);
+    margin-bottom: var(--g-role-sub);
+  }
+
+  #hero [data-testid="hero-role"] span {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  /* Subteks: 14.5px/1.55, max-width: 34ch, margin-bottom: 20px */
+  .hero-subtext-el {
+    font-size: 14.5px !important;
+    line-height: 1.55 !important;
+    max-width: 34ch !important;
+    margin-top: 0 !important;
+    margin-bottom: var(--g-sub-cta) !important;
+    display: block !important;
+    color: #dcdcd6 !important;
+  }
+
+  /* Tombol CTA: SATU ALUR */
+  #hero .hero-cta-group-el {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--g-cta-cta);
+    width: 100%;
+    margin: 0;
+  }
+
+  #hero .hero-cta-group-el > div {
+    display: flex;
+    width: 100%;
+  }
+
+  /* CTA utama: 52px, lebar penuh, radius 12px */
+  #hero .hero-cta-group-el [data-testid="cta-primary"] {
+    height: 52px;
+    width: 100%;
+    border-radius: 12px;
+    font-size: 15px;
+  }
+
+  /* CTA sekunder: gaya ghost (outline tipis), 44px, lebar penuh, radius 12px */
+  #hero .hero-cta-group-el [data-testid="cta-secondary"] {
+    display: inline-flex !important;
+    height: 44px;
+    width: 100%;
+    border-radius: 12px;
+    font-size: 15px;
+    background: transparent !important;
+    border: 1px solid var(--card-border) !important;
+    color: var(--text) !important;
+  }
+
+  /* Matikan indikator desktop di mobile */
+  #hero [data-testid="hud-mobile-status"],
+  #hero [data-testid="scroll-indicator-wrapper"] {
+    display: none !important;
+  }
+}
+
+@keyframes heroScrollPulse {
+  from {
+    transform: scaleY(0.4);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* ===== Blueprint Cursor Headline Character Styles ===== */
+.hl-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hl-char {
+  --t: 0;
+  display: inline-block;
+  color: rgba(var(--text-rgb), calc(1 - var(--t, 0)));
+  -webkit-text-fill-color: rgba(var(--text-rgb), calc(1 - var(--t, 0)));
+  -webkit-text-stroke: calc(var(--t, 0) * var(--bp-stroke, 1.5px)) var(--accent);
+  transform: translateY(calc(var(--t, 0) * var(--bp-lift, -4px)));
+}
+
+.hl-kw .hl-char {
+  color: rgba(var(--accent-rgb), calc(1 - var(--t, 0)));
+  -webkit-text-fill-color: rgba(var(--accent-rgb), calc(1 - var(--t, 0)));
+  -webkit-text-stroke: calc(var(--t, 0) * var(--bp-stroke, 1.5px)) var(--accent);
+}
+/* ===== Studio Ticker Marquee ===== */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  animation: marquee 26s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* ===== Reduced Motion ===== */
 @media (prefers-reduced-motion: reduce) {
+  .hl-char {
+    color: var(--text) !important;
+    -webkit-text-fill-color: var(--text) !important;
+    -webkit-text-stroke: 0px transparent !important;
+    transform: none !important;
+  }
+
+  .hl-kw .hl-char {
+    color: var(--accent) !important;
+    -webkit-text-fill-color: var(--accent) !important;
+    -webkit-text-stroke: 0px transparent !important;
+    transform: none !important;
+  }
+
   *,
   *::before,
   *::after {

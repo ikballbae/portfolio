@@ -1,0 +1,2586 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 12,
+  "filesSkipped": [
+    ".agents/skills/page-mascot/scripts/requirements.txt",
+    "app/globals.css",
+    "public/mascots/ikbal-directions.webp",
+    "public/mascots/ikbal-reactions.webp"
+  ],
+  "filesUnreadable": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 12,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 10,
+      "failed": 0,
+      "skipped": 2
+    }
+  },
+  "results": [
+    {
+      "path": ".agents/skills/page-mascot/SKILL.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 261,
+      "nonEmptyLines": 192,
+      "sections": [
+        {
+          "heading": "Mascot",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "Which route",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Use one that is drawn",
+          "level": 2,
+          "line": 24
+        },
+        {
+          "heading": "Put it on the page",
+          "level": 2,
+          "line": 41
+        },
+        {
+          "heading": "Draw a new one",
+          "level": 2,
+          "line": 68
+        },
+        {
+          "heading": "First, work out how you will draw",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "Drawing through the API",
+          "level": 3,
+          "line": 106
+        },
+        {
+          "heading": "Drawing it yourself",
+          "level": 3,
+          "line": 121
+        },
+        {
+          "heading": "Check the head turns point the right way",
+          "level": 3,
+          "line": 145
+        },
+        {
+          "heading": "Transparency is the thing that most often goes wrong",
+          "level": 3,
+          "line": 157
+        },
+        {
+          "heading": "Writing the description",
+          "level": 3,
+          "line": 204
+        },
+        {
+          "heading": "Drawing in another style",
+          "level": 3,
+          "line": 222
+        },
+        {
+          "heading": "From a user's own image",
+          "level": 3,
+          "line": 239
+        },
+        {
+          "heading": "Afterwards",
+          "level": 3,
+          "line": 245
+        },
+        {
+          "heading": "Making several",
+          "level": 3,
+          "line": 253
+        },
+        {
+          "heading": "Going deeper",
+          "level": 2,
+          "line": 257
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 16
+      }
+    },
+    {
+      "path": ".agents/skills/page-mascot/mascot.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 231,
+      "nonEmptyLines": 201,
+      "functions": [
+        {
+          "name": "cell",
+          "startLine": 63,
+          "endLine": 65,
+          "params": [
+            "index"
+          ]
+        },
+        {
+          "name": "wrap",
+          "startLine": 67,
+          "endLine": 69,
+          "params": [
+            "angle"
+          ]
+        },
+        {
+          "name": "Mascot",
+          "startLine": 89,
+          "endLine": 231,
+          "params": [
+            "props"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Mascot",
+          "line": 89,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "cell",
+          "callee": "Math.floor",
+          "lineNumber": 64
+        },
+        {
+          "caller": "wrap",
+          "callee": "Math.atan2",
+          "lineNumber": 68
+        },
+        {
+          "caller": "wrap",
+          "callee": "Math.sin",
+          "lineNumber": 68
+        },
+        {
+          "caller": "wrap",
+          "callee": "Math.cos",
+          "lineNumber": 68
+        },
+        {
+          "caller": "Mascot",
+          "callee": "useRef",
+          "lineNumber": 92
+        },
+        {
+          "caller": "Mascot",
+          "callee": "useRef",
+          "lineNumber": 93
+        },
+        {
+          "caller": "Mascot",
+          "callee": "useRef",
+          "lineNumber": 94
+        },
+        {
+          "caller": "Mascot",
+          "callee": "useRef",
+          "lineNumber": 95
+        },
+        {
+          "caller": "Mascot",
+          "callee": "useState",
+          "lineNumber": 96
+        },
+        {
+          "caller": "Mascot",
+          "callee": "useState",
+          "lineNumber": 97
+        },
+        {
+          "caller": "Mascot",
+          "callee": "useEffect",
+          "lineNumber": 99
+        },
+        {
+          "caller": "Mascot",
+          "callee": "window.matchMedia",
+          "lineNumber": 100
+        },
+        {
+          "caller": "aim",
+          "callee": "button.getBoundingClientRect",
+          "lineNumber": 113
+        },
+        {
+          "caller": "aim",
+          "callee": "Math.hypot",
+          "lineNumber": 117
+        },
+        {
+          "caller": "aim",
+          "callee": "setDirection",
+          "lineNumber": 119
+        },
+        {
+          "caller": "aim",
+          "callee": "Math.atan2",
+          "lineNumber": 124
+        },
+        {
+          "caller": "aim",
+          "callee": "Math.abs",
+          "lineNumber": 125
+        },
+        {
+          "caller": "aim",
+          "callee": "wrap",
+          "lineNumber": 125
+        },
+        {
+          "caller": "aim",
+          "callee": "Math.round",
+          "lineNumber": 129
+        },
+        {
+          "caller": "aim",
+          "callee": "setDirection",
+          "lineNumber": 130
+        },
+        {
+          "caller": "onPointerMove",
+          "callee": "aim",
+          "lineNumber": 135
+        },
+        {
+          "caller": "Mascot",
+          "callee": "window.addEventListener",
+          "lineNumber": 138
+        },
+        {
+          "caller": "Mascot",
+          "callee": "window.addEventListener",
+          "lineNumber": 139
+        },
+        {
+          "caller": "Mascot",
+          "callee": "window.removeEventListener",
+          "lineNumber": 142
+        },
+        {
+          "caller": "Mascot",
+          "callee": "window.removeEventListener",
+          "lineNumber": 143
+        },
+        {
+          "caller": "Mascot",
+          "callee": "useEffect",
+          "lineNumber": 147
+        },
+        {
+          "caller": "Mascot",
+          "callee": "timersRef.current.forEach",
+          "lineNumber": 149
+        },
+        {
+          "caller": "boop",
+          "callee": "timersRef.current.forEach",
+          "lineNumber": 154
+        },
+        {
+          "caller": "later",
+          "callee": "timersRef.current.push",
+          "lineNumber": 158
+        },
+        {
+          "caller": "later",
+          "callee": "window.setTimeout",
+          "lineNumber": 158
+        },
+        {
+          "caller": "later",
+          "callee": "setReaction",
+          "lineNumber": 158
+        },
+        {
+          "caller": "boop",
+          "callee": "Date.now",
+          "lineNumber": 161
+        },
+        {
+          "caller": "boop",
+          "callee": "setReaction",
+          "lineNumber": 168
+        },
+        {
+          "caller": "boop",
+          "callee": "later",
+          "lineNumber": 169
+        },
+        {
+          "caller": "boop",
+          "callee": "setReaction",
+          "lineNumber": 171
+        },
+        {
+          "caller": "boop",
+          "callee": "later",
+          "lineNumber": 172
+        },
+        {
+          "caller": "boop",
+          "callee": "later",
+          "lineNumber": 173
+        },
+        {
+          "caller": "boop",
+          "callee": "window.matchMedia",
+          "lineNumber": 176
+        },
+        {
+          "caller": "boop",
+          "callee": "squashRef.current?.animate",
+          "lineNumber": 182
+        },
+        {
+          "caller": "Mascot",
+          "callee": "cell",
+          "lineNumber": 215
+        },
+        {
+          "caller": "Mascot",
+          "callee": "DIRECTIONS.indexOf",
+          "lineNumber": 215
+        },
+        {
+          "caller": "Mascot",
+          "callee": "cell",
+          "lineNumber": 224
+        },
+        {
+          "caller": "Mascot",
+          "callee": "REACTIONS.indexOf",
+          "lineNumber": 224
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": ".agents/skills/page-mascot/scripts/build.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 399,
+      "nonEmptyLines": 333,
+      "functions": [
+        {
+          "name": "drop_bleed",
+          "startLine": 40,
+          "endLine": 66,
+          "params": [
+            "tile"
+          ]
+        },
+        {
+          "name": "tiles",
+          "startLine": 69,
+          "endLine": 73,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "body_mask",
+          "startLine": 76,
+          "endLine": 82,
+          "params": [
+            "opaque"
+          ]
+        },
+        {
+          "name": "anchor_box",
+          "startLine": 85,
+          "endLine": 129,
+          "params": [
+            "tile",
+            "mode"
+          ]
+        },
+        {
+          "name": "blur_premultiplied",
+          "startLine": 132,
+          "endLine": 141,
+          "params": [
+            "image",
+            "radius"
+          ]
+        },
+        {
+          "name": "align",
+          "startLine": 174,
+          "endLine": 181,
+          "params": [
+            "tile"
+          ]
+        },
+        {
+          "name": "blob_bounds",
+          "startLine": 184,
+          "endLine": 188,
+          "params": [
+            "frame"
+          ]
+        },
+        {
+          "name": "head_width",
+          "startLine": 191,
+          "endLine": 203,
+          "params": [
+            "frame"
+          ]
+        },
+        {
+          "name": "silhouette",
+          "startLine": 214,
+          "endLine": 234,
+          "params": [
+            "group"
+          ]
+        },
+        {
+          "name": "overlap",
+          "startLine": 247,
+          "endLine": 259,
+          "params": [
+            "scale",
+            "dy"
+          ]
+        },
+        {
+          "name": "match",
+          "startLine": 270,
+          "endLine": 276,
+          "params": [
+            "frame"
+          ]
+        },
+        {
+          "name": "lower_band",
+          "startLine": 279,
+          "endLine": 286,
+          "params": [
+            "frame"
+          ]
+        },
+        {
+          "name": "settle",
+          "startLine": 289,
+          "endLine": 312,
+          "params": [
+            "frame",
+            "reference"
+          ]
+        },
+        {
+          "name": "bottom_fade",
+          "startLine": 347,
+          "endLine": 364,
+          "params": [
+            "cropped"
+          ]
+        },
+        {
+          "name": "dissolve",
+          "startLine": 367,
+          "endLine": 378,
+          "params": [
+            "frame"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "drop_bleed",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "tiles",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "body_mask",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "anchor_box",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "blur_premultiplied",
+          "line": 132,
+          "isDefault": false
+        },
+        {
+          "name": "align",
+          "line": 174,
+          "isDefault": false
+        },
+        {
+          "name": "blob_bounds",
+          "line": 184,
+          "isDefault": false
+        },
+        {
+          "name": "head_width",
+          "line": 191,
+          "isDefault": false
+        },
+        {
+          "name": "silhouette",
+          "line": 214,
+          "isDefault": false
+        },
+        {
+          "name": "overlap",
+          "line": 247,
+          "isDefault": false
+        },
+        {
+          "name": "match",
+          "line": 270,
+          "isDefault": false
+        },
+        {
+          "name": "lower_band",
+          "line": 279,
+          "isDefault": false
+        },
+        {
+          "name": "settle",
+          "line": 289,
+          "isDefault": false
+        },
+        {
+          "name": "bottom_fade",
+          "line": 347,
+          "isDefault": false
+        },
+        {
+          "name": "dissolve",
+          "line": 367,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "drop_bleed",
+          "callee": "np.array",
+          "lineNumber": 49
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "np.concatenate",
+          "lineNumber": 51
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "opaque[:2, :].ravel",
+          "lineNumber": 51
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "opaque[-2:, :].ravel",
+          "lineNumber": 51
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "opaque[:, :2].ravel",
+          "lineNumber": 52
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "opaque[:, -2:].ravel",
+          "lineNumber": 52
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "edges.any",
+          "lineNumber": 53
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "ndimage.label",
+          "lineNumber": 55
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "int",
+          "lineNumber": 58
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "np.argmax",
+          "lineNumber": 58
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "ndimage.sum",
+          "lineNumber": 58
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "range",
+          "lineNumber": 58
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "set",
+          "lineNumber": 59
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "np.unique",
+          "lineNumber": 59
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "np.concatenate",
+          "lineNumber": 59
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "labels[:2, :].ravel",
+          "lineNumber": 60
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "labels[-2:, :].ravel",
+          "lineNumber": 60
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "labels[:, :2].ravel",
+          "lineNumber": 61
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "labels[:, -2:].ravel",
+          "lineNumber": 61
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "np.isin",
+          "lineNumber": 65
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "list",
+          "lineNumber": 65
+        },
+        {
+          "caller": "drop_bleed",
+          "callee": "Image.fromarray",
+          "lineNumber": 66
+        },
+        {
+          "caller": "tiles",
+          "callee": "Image.open(path).convert",
+          "lineNumber": 70
+        },
+        {
+          "caller": "tiles",
+          "callee": "Image.open",
+          "lineNumber": 70
+        },
+        {
+          "caller": "tiles",
+          "callee": "drop_bleed",
+          "lineNumber": 72
+        },
+        {
+          "caller": "tiles",
+          "callee": "sheet.crop",
+          "lineNumber": 72
+        },
+        {
+          "caller": "tiles",
+          "callee": "range",
+          "lineNumber": 73
+        },
+        {
+          "caller": "tiles",
+          "callee": "range",
+          "lineNumber": 73
+        },
+        {
+          "caller": "body_mask",
+          "callee": "ndimage.label",
+          "lineNumber": 78
+        },
+        {
+          "caller": "body_mask",
+          "callee": "ndimage.sum",
+          "lineNumber": 81
+        },
+        {
+          "caller": "body_mask",
+          "callee": "range",
+          "lineNumber": 81
+        },
+        {
+          "caller": "body_mask",
+          "callee": "int",
+          "lineNumber": 82
+        },
+        {
+          "caller": "body_mask",
+          "callee": "np.argmax",
+          "lineNumber": 82
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "np.array",
+          "lineNumber": 86
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "a[..., :3].astype",
+          "lineNumber": 87
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "body_mask",
+          "lineNumber": 89
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "np.where",
+          "lineNumber": 90
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "xs.min",
+          "lineNumber": 93
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "ys.min",
+          "lineNumber": 93
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "xs.max",
+          "lineNumber": 93
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "ys.max",
+          "lineNumber": 93
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "ys.max",
+          "lineNumber": 100
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "max",
+          "lineNumber": 101
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "int",
+          "lineNumber": 101
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "np.where",
+          "lineNumber": 102
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "xx.min",
+          "lineNumber": 103
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "yy.min",
+          "lineNumber": 103
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "xx.max",
+          "lineNumber": 103
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "yy.max",
+          "lineNumber": 103
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "ys.max",
+          "lineNumber": 109
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "int",
+          "lineNumber": 110
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "ys.max",
+          "lineNumber": 110
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "ys.min",
+          "lineNumber": 110
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "np.where",
+          "lineNumber": 111
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "xx.min",
+          "lineNumber": 112
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "yy.min",
+          "lineNumber": 112
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "xx.max",
+          "lineNumber": 112
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "yy.max",
+          "lineNumber": 112
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "ys.min",
+          "lineNumber": 114
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "int",
+          "lineNumber": 114
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "ys.max",
+          "lineNumber": 114
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "ys.min",
+          "lineNumber": 114
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "np.where",
+          "lineNumber": 116
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "xx.min",
+          "lineNumber": 117
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "yy.min",
+          "lineNumber": 117
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "xx.max",
+          "lineNumber": 117
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "yy.max",
+          "lineNumber": 117
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "np.zeros_like",
+          "lineNumber": 119
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "ys.min",
+          "lineNumber": 120
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "np.unique",
+          "lineNumber": 123
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "rgb[body & head & (keys == values[np.argmax(counts)])].mean",
+          "lineNumber": 124
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "np.argmax",
+          "lineNumber": 124
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "(np.abs(rgb - fill) < FACE_TOLERANCE).all",
+          "lineNumber": 125
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "np.abs",
+          "lineNumber": 125
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "ndimage.label",
+          "lineNumber": 126
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "ndimage.sum",
+          "lineNumber": 127
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "range",
+          "lineNumber": 127
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "np.where",
+          "lineNumber": 128
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "int",
+          "lineNumber": 128
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "np.argmax",
+          "lineNumber": 128
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "xs.min",
+          "lineNumber": 129
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "ys.min",
+          "lineNumber": 129
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "xs.max",
+          "lineNumber": 129
+        },
+        {
+          "caller": "anchor_box",
+          "callee": "ys.max",
+          "lineNumber": 129
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "np.array(image).astype",
+          "lineNumber": 133
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "np.array",
+          "lineNumber": 133
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "Image.fromarray",
+          "lineNumber": 135
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "np.clip(a[..., :3] * alpha, 0, 255).astype",
+          "lineNumber": 135
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "np.clip",
+          "lineNumber": 135
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "colour.filter",
+          "lineNumber": 136
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "ImageFilter.GaussianBlur",
+          "lineNumber": 136
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "Image.fromarray(a[..., 3].astype(np.uint8), 'L').filter",
+          "lineNumber": 137
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "Image.fromarray",
+          "lineNumber": 137
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "a[..., 3].astype",
+          "lineNumber": 137
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "ImageFilter.GaussianBlur",
+          "lineNumber": 137
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "np.array(colour).astype",
+          "lineNumber": 138
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "np.array",
+          "lineNumber": 138
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "np.array(faded).astype",
+          "lineNumber": 139
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "np.array",
+          "lineNumber": 139
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "np.where",
+          "lineNumber": 140
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "np.maximum",
+          "lineNumber": 140
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "Image.fromarray",
+          "lineNumber": 141
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "np.dstack([np.clip(rgb, 0, 255), weight[..., 0] * 255]).astype",
+          "lineNumber": 141
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "np.dstack",
+          "lineNumber": 141
+        },
+        {
+          "caller": "blur_premultiplied",
+          "callee": "np.clip",
+          "lineNumber": 141
+        },
+        {
+          "caller": "align",
+          "callee": "anchor_box",
+          "lineNumber": 175
+        },
+        {
+          "caller": "align",
+          "callee": "min",
+          "lineNumber": 176
+        },
+        {
+          "caller": "align",
+          "callee": "max",
+          "lineNumber": 176
+        },
+        {
+          "caller": "align",
+          "callee": "tile.resize",
+          "lineNumber": 177
+        },
+        {
+          "caller": "align",
+          "callee": "round",
+          "lineNumber": 177
+        },
+        {
+          "caller": "align",
+          "callee": "round",
+          "lineNumber": 177
+        },
+        {
+          "caller": "align",
+          "callee": "Image.new",
+          "lineNumber": 179
+        },
+        {
+          "caller": "align",
+          "callee": "canvas.alpha_composite",
+          "lineNumber": 180
+        },
+        {
+          "caller": "align",
+          "callee": "round",
+          "lineNumber": 180
+        },
+        {
+          "caller": "align",
+          "callee": "round",
+          "lineNumber": 180
+        },
+        {
+          "caller": "blob_bounds",
+          "callee": "body_mask",
+          "lineNumber": 186
+        },
+        {
+          "caller": "blob_bounds",
+          "callee": "np.array",
+          "lineNumber": 186
+        },
+        {
+          "caller": "blob_bounds",
+          "callee": "np.where",
+          "lineNumber": 187
+        },
+        {
+          "caller": "blob_bounds",
+          "callee": "body.any",
+          "lineNumber": 187
+        },
+        {
+          "caller": "blob_bounds",
+          "callee": "rows.min",
+          "lineNumber": 188
+        },
+        {
+          "caller": "blob_bounds",
+          "callee": "rows.max",
+          "lineNumber": 188
+        },
+        {
+          "caller": "head_width",
+          "callee": "body_mask",
+          "lineNumber": 200
+        },
+        {
+          "caller": "head_width",
+          "callee": "np.array",
+          "lineNumber": 200
+        },
+        {
+          "caller": "head_width",
+          "callee": "np.where",
+          "lineNumber": 201
+        },
+        {
+          "caller": "head_width",
+          "callee": "body.any",
+          "lineNumber": 201
+        },
+        {
+          "caller": "head_width",
+          "callee": "rows.min",
+          "lineNumber": 202
+        },
+        {
+          "caller": "head_width",
+          "callee": "rows.min",
+          "lineNumber": 202
+        },
+        {
+          "caller": "head_width",
+          "callee": "int",
+          "lineNumber": 202
+        },
+        {
+          "caller": "head_width",
+          "callee": "rows.max",
+          "lineNumber": 202
+        },
+        {
+          "caller": "head_width",
+          "callee": "rows.min",
+          "lineNumber": 202
+        },
+        {
+          "caller": "head_width",
+          "callee": "upper.sum(axis=1).max",
+          "lineNumber": 203
+        },
+        {
+          "caller": "head_width",
+          "callee": "upper.sum",
+          "lineNumber": 203
+        },
+        {
+          "caller": "silhouette",
+          "callee": "body_mask",
+          "lineNumber": 228
+        },
+        {
+          "caller": "silhouette",
+          "callee": "np.array",
+          "lineNumber": 228
+        },
+        {
+          "caller": "silhouette",
+          "callee": "np.where",
+          "lineNumber": 229
+        },
+        {
+          "caller": "silhouette",
+          "callee": "mask.any",
+          "lineNumber": 229
+        },
+        {
+          "caller": "silhouette",
+          "callee": "rows.min",
+          "lineNumber": 230
+        },
+        {
+          "caller": "silhouette",
+          "callee": "int",
+          "lineNumber": 230
+        },
+        {
+          "caller": "silhouette",
+          "callee": "rows.max",
+          "lineNumber": 230
+        },
+        {
+          "caller": "silhouette",
+          "callee": "rows.min",
+          "lineNumber": 230
+        },
+        {
+          "caller": "silhouette",
+          "callee": "np.zeros_like",
+          "lineNumber": 231
+        },
+        {
+          "caller": "silhouette",
+          "callee": "rows.max",
+          "lineNumber": 232
+        },
+        {
+          "caller": "silhouette",
+          "callee": "rows.max",
+          "lineNumber": 232
+        },
+        {
+          "caller": "silhouette",
+          "callee": "frames.append",
+          "lineNumber": 233
+        },
+        {
+          "caller": "silhouette",
+          "callee": "body.astype",
+          "lineNumber": 233
+        },
+        {
+          "caller": "silhouette",
+          "callee": "np.mean",
+          "lineNumber": 234
+        },
+        {
+          "caller": "overlap",
+          "callee": "ndimage.zoom",
+          "lineNumber": 248
+        },
+        {
+          "caller": "overlap",
+          "callee": "np.zeros_like",
+          "lineNumber": 249
+        },
+        {
+          "caller": "overlap",
+          "callee": "round",
+          "lineNumber": 250
+        },
+        {
+          "caller": "overlap",
+          "callee": "round",
+          "lineNumber": 251
+        },
+        {
+          "caller": "overlap",
+          "callee": "max",
+          "lineNumber": 252
+        },
+        {
+          "caller": "overlap",
+          "callee": "max",
+          "lineNumber": 252
+        },
+        {
+          "caller": "overlap",
+          "callee": "min",
+          "lineNumber": 253
+        },
+        {
+          "caller": "overlap",
+          "callee": "min",
+          "lineNumber": 254
+        },
+        {
+          "caller": "overlap",
+          "callee": "np.maximum(canvas, direction_mask).sum",
+          "lineNumber": 258
+        },
+        {
+          "caller": "overlap",
+          "callee": "np.maximum",
+          "lineNumber": 258
+        },
+        {
+          "caller": "overlap",
+          "callee": "float",
+          "lineNumber": 259
+        },
+        {
+          "caller": "overlap",
+          "callee": "np.minimum(canvas, direction_mask).sum",
+          "lineNumber": 259
+        },
+        {
+          "caller": "overlap",
+          "callee": "np.minimum",
+          "lineNumber": 259
+        },
+        {
+          "caller": "overlap",
+          "callee": "max",
+          "lineNumber": 259
+        },
+        {
+          "caller": "match",
+          "callee": "frame.resize",
+          "lineNumber": 272
+        },
+        {
+          "caller": "match",
+          "callee": "round",
+          "lineNumber": 272
+        },
+        {
+          "caller": "match",
+          "callee": "round",
+          "lineNumber": 272
+        },
+        {
+          "caller": "match",
+          "callee": "Image.new",
+          "lineNumber": 273
+        },
+        {
+          "caller": "match",
+          "callee": "canvas.alpha_composite",
+          "lineNumber": 274
+        },
+        {
+          "caller": "match",
+          "callee": "round",
+          "lineNumber": 274
+        },
+        {
+          "caller": "match",
+          "callee": "round",
+          "lineNumber": 275
+        },
+        {
+          "caller": "lower_band",
+          "callee": "body_mask",
+          "lineNumber": 281
+        },
+        {
+          "caller": "lower_band",
+          "callee": "np.array",
+          "lineNumber": 281
+        },
+        {
+          "caller": "lower_band",
+          "callee": "np.where",
+          "lineNumber": 282
+        },
+        {
+          "caller": "lower_band",
+          "callee": "mask.any",
+          "lineNumber": 282
+        },
+        {
+          "caller": "lower_band",
+          "callee": "np.zeros_like",
+          "lineNumber": 283
+        },
+        {
+          "caller": "lower_band",
+          "callee": "rows.min",
+          "lineNumber": 284
+        },
+        {
+          "caller": "lower_band",
+          "callee": "int",
+          "lineNumber": 284
+        },
+        {
+          "caller": "lower_band",
+          "callee": "rows.max",
+          "lineNumber": 284
+        },
+        {
+          "caller": "lower_band",
+          "callee": "rows.min",
+          "lineNumber": 284
+        },
+        {
+          "caller": "lower_band",
+          "callee": "rows.max",
+          "lineNumber": 285
+        },
+        {
+          "caller": "lower_band",
+          "callee": "rows.max",
+          "lineNumber": 285
+        },
+        {
+          "caller": "settle",
+          "callee": "lower_band",
+          "lineNumber": 297
+        },
+        {
+          "caller": "settle",
+          "callee": "range",
+          "lineNumber": 299
+        },
+        {
+          "caller": "settle",
+          "callee": "np.roll",
+          "lineNumber": 300
+        },
+        {
+          "caller": "settle",
+          "callee": "(shifted | reference).sum",
+          "lineNumber": 305
+        },
+        {
+          "caller": "settle",
+          "callee": "max",
+          "lineNumber": 306
+        },
+        {
+          "caller": "settle",
+          "callee": "(shifted & reference).sum",
+          "lineNumber": 306
+        },
+        {
+          "caller": "settle",
+          "callee": "max",
+          "lineNumber": 306
+        },
+        {
+          "caller": "settle",
+          "callee": "Image.new",
+          "lineNumber": 310
+        },
+        {
+          "caller": "settle",
+          "callee": "canvas.alpha_composite",
+          "lineNumber": 311
+        },
+        {
+          "caller": "bottom_fade",
+          "callee": "np.zeros",
+          "lineNumber": 357
+        },
+        {
+          "caller": "bottom_fade",
+          "callee": "np.where",
+          "lineNumber": 361
+        },
+        {
+          "caller": "bottom_fade",
+          "callee": "(np.array(cropped)[..., 3] > 40).any",
+          "lineNumber": 361
+        },
+        {
+          "caller": "bottom_fade",
+          "callee": "np.array",
+          "lineNumber": 361
+        },
+        {
+          "caller": "bottom_fade",
+          "callee": "rows.max",
+          "lineNumber": 362
+        },
+        {
+          "caller": "bottom_fade",
+          "callee": "len",
+          "lineNumber": 362
+        },
+        {
+          "caller": "bottom_fade",
+          "callee": "np.clip",
+          "lineNumber": 363
+        },
+        {
+          "caller": "dissolve",
+          "callee": "frame.crop",
+          "lineNumber": 368
+        },
+        {
+          "caller": "dissolve",
+          "callee": "stacked.resize",
+          "lineNumber": 370
+        },
+        {
+          "caller": "dissolve",
+          "callee": "bottom_fade",
+          "lineNumber": 371
+        },
+        {
+          "caller": "dissolve",
+          "callee": "enumerate",
+          "lineNumber": 372
+        },
+        {
+          "caller": "dissolve",
+          "callee": "np.clip",
+          "lineNumber": 373
+        },
+        {
+          "caller": "dissolve",
+          "callee": "len",
+          "lineNumber": 373
+        },
+        {
+          "caller": "dissolve",
+          "callee": "len",
+          "lineNumber": 373
+        },
+        {
+          "caller": "dissolve",
+          "callee": "Image.fromarray",
+          "lineNumber": 374
+        },
+        {
+          "caller": "dissolve",
+          "callee": "(band * 255).astype",
+          "lineNumber": 374
+        },
+        {
+          "caller": "dissolve",
+          "callee": "Image.composite",
+          "lineNumber": 375
+        },
+        {
+          "caller": "dissolve",
+          "callee": "blur_premultiplied",
+          "lineNumber": 375
+        },
+        {
+          "caller": "dissolve",
+          "callee": "np.array(stacked).astype",
+          "lineNumber": 376
+        },
+        {
+          "caller": "dissolve",
+          "callee": "np.array",
+          "lineNumber": 376
+        },
+        {
+          "caller": "dissolve",
+          "callee": "Image.fromarray(a.astype(np.uint8), 'RGBA').resize",
+          "lineNumber": 378
+        },
+        {
+          "caller": "dissolve",
+          "callee": "Image.fromarray",
+          "lineNumber": 378
+        },
+        {
+          "caller": "dissolve",
+          "callee": "a.astype",
+          "lineNumber": 378
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 15,
+        "functionCount": 15,
+        "classCount": 0
+      }
+    },
+    {
+      "path": ".agents/skills/page-mascot/scripts/mascot.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 172,
+      "nonEmptyLines": 148,
+      "functions": [
+        {
+          "name": "run",
+          "startLine": 37,
+          "endLine": 43,
+          "params": [
+            "script",
+            "*args"
+          ]
+        },
+        {
+          "name": "screen",
+          "startLine": 46,
+          "endLine": 74,
+          "params": [
+            "name",
+            "sheet",
+            "keyed"
+          ]
+        },
+        {
+          "name": "measure",
+          "startLine": 77,
+          "endLine": 86,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 89,
+          "endLine": 168,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "run",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "screen",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "measure",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "main",
+          "line": 89,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "subprocess.run",
+          "lineNumber": 38
+        },
+        {
+          "caller": "run",
+          "callee": "os.path.join",
+          "lineNumber": 38
+        },
+        {
+          "caller": "run",
+          "callee": "print",
+          "lineNumber": 41
+        },
+        {
+          "caller": "run",
+          "callee": "sys.exit",
+          "lineNumber": 42
+        },
+        {
+          "caller": "screen",
+          "callee": "os.path.join",
+          "lineNumber": 48
+        },
+        {
+          "caller": "screen",
+          "callee": "run",
+          "lineNumber": 49
+        },
+        {
+          "caller": "screen",
+          "callee": "print",
+          "lineNumber": 50
+        },
+        {
+          "caller": "screen",
+          "callee": "out.rstrip",
+          "lineNumber": 50
+        },
+        {
+          "caller": "screen",
+          "callee": "print",
+          "lineNumber": 54
+        },
+        {
+          "caller": "screen",
+          "callee": "run('key.py', path, '--in-place').rstrip",
+          "lineNumber": 54
+        },
+        {
+          "caller": "screen",
+          "callee": "run",
+          "lineNumber": 54
+        },
+        {
+          "caller": "screen",
+          "callee": "screen",
+          "lineNumber": 55
+        },
+        {
+          "caller": "screen",
+          "callee": "print",
+          "lineNumber": 60
+        },
+        {
+          "caller": "screen",
+          "callee": "print",
+          "lineNumber": 67
+        },
+        {
+          "caller": "screen",
+          "callee": "re.search",
+          "lineNumber": 69
+        },
+        {
+          "caller": "screen",
+          "callee": "bool",
+          "lineNumber": 74
+        },
+        {
+          "caller": "screen",
+          "callee": "float",
+          "lineNumber": 74
+        },
+        {
+          "caller": "screen",
+          "callee": "spread.group",
+          "lineNumber": 74
+        },
+        {
+          "caller": "measure",
+          "callee": "run",
+          "lineNumber": 79
+        },
+        {
+          "caller": "measure",
+          "callee": "print",
+          "lineNumber": 80
+        },
+        {
+          "caller": "measure",
+          "callee": "out.rstrip",
+          "lineNumber": 80
+        },
+        {
+          "caller": "measure",
+          "callee": "re.search",
+          "lineNumber": 81
+        },
+        {
+          "caller": "measure",
+          "callee": "re.search",
+          "lineNumber": 82
+        },
+        {
+          "caller": "measure",
+          "callee": "re.search",
+          "lineNumber": 83
+        },
+        {
+          "caller": "measure",
+          "callee": "float",
+          "lineNumber": 84
+        },
+        {
+          "caller": "measure",
+          "callee": "moved.group",
+          "lineNumber": 84
+        },
+        {
+          "caller": "measure",
+          "callee": "float",
+          "lineNumber": 85
+        },
+        {
+          "caller": "measure",
+          "callee": "match.group",
+          "lineNumber": 85
+        },
+        {
+          "caller": "measure",
+          "callee": "float",
+          "lineNumber": 86
+        },
+        {
+          "caller": "measure",
+          "callee": "width.group",
+          "lineNumber": 86
+        },
+        {
+          "caller": "main",
+          "callee": "argparse.ArgumentParser",
+          "lineNumber": 90
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 91
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 92
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 93
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 94
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 97
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 99
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 102
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 104
+        },
+        {
+          "caller": "main",
+          "callee": "os.environ.get",
+          "lineNumber": 104
+        },
+        {
+          "caller": "main",
+          "callee": "os.path.join",
+          "lineNumber": 104
+        },
+        {
+          "caller": "main",
+          "callee": "parser.add_argument",
+          "lineNumber": 106
+        },
+        {
+          "caller": "main",
+          "callee": "parser.parse_args",
+          "lineNumber": 107
+        },
+        {
+          "caller": "main",
+          "callee": "range",
+          "lineNumber": 119
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 121
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 122
+        },
+        {
+          "caller": "main",
+          "callee": "run(*base, *(['--only', only] if only else [])).rstrip",
+          "lineNumber": 122
+        },
+        {
+          "caller": "main",
+          "callee": "run",
+          "lineNumber": 122
+        },
+        {
+          "caller": "main",
+          "callee": "screen",
+          "lineNumber": 124
+        },
+        {
+          "caller": "main",
+          "callee": "sys.exit",
+          "lineNumber": 125
+        },
+        {
+          "caller": "main",
+          "callee": "screen",
+          "lineNumber": 128
+        },
+        {
+          "caller": "main",
+          "callee": "sys.exit",
+          "lineNumber": 130
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 136
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 140
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 141
+        },
+        {
+          "caller": "main",
+          "callee": "run('build.py', args.name, '--anchor', 'shoulders').rstrip",
+          "lineNumber": 141
+        },
+        {
+          "caller": "main",
+          "callee": "run",
+          "lineNumber": 141
+        },
+        {
+          "caller": "main",
+          "callee": "measure",
+          "lineNumber": 143
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 145
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 146
+        },
+        {
+          "caller": "main",
+          "callee": "os.path.join",
+          "lineNumber": 146
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 147
+        },
+        {
+          "caller": "main",
+          "callee": "os.path.join",
+          "lineNumber": 147
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 148
+        },
+        {
+          "caller": "main",
+          "callee": "sys.exit",
+          "lineNumber": 163
+        },
+        {
+          "caller": "main",
+          "callee": "print",
+          "lineNumber": 167
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": ".agents/skills/page-mascot/scripts/verify.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 135,
+      "nonEmptyLines": 111,
+      "functions": [
+        {
+          "name": "cells",
+          "startLine": 24,
+          "endLine": 28,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "body",
+          "startLine": 31,
+          "endLine": 36,
+          "params": [
+            "cell"
+          ]
+        },
+        {
+          "name": "lower_band",
+          "startLine": 42,
+          "endLine": 55,
+          "params": [
+            "mask"
+          ]
+        },
+        {
+          "name": "best_shift",
+          "startLine": 58,
+          "endLine": 68,
+          "params": [
+            "ref",
+            "other"
+          ]
+        },
+        {
+          "name": "palette",
+          "startLine": 71,
+          "endLine": 88,
+          "params": [
+            "cells_list"
+          ]
+        },
+        {
+          "name": "shoulder_width",
+          "startLine": 91,
+          "endLine": 109,
+          "params": [
+            "cells_list"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "cells",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "body",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "lower_band",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "best_shift",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "palette",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "shoulder_width",
+          "line": 91,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "cells",
+          "callee": "Image.open(path).convert",
+          "lineNumber": 25
+        },
+        {
+          "caller": "cells",
+          "callee": "Image.open",
+          "lineNumber": 25
+        },
+        {
+          "caller": "cells",
+          "callee": "np.array",
+          "lineNumber": 27
+        },
+        {
+          "caller": "cells",
+          "callee": "im.crop",
+          "lineNumber": 27
+        },
+        {
+          "caller": "cells",
+          "callee": "range",
+          "lineNumber": 28
+        },
+        {
+          "caller": "body",
+          "callee": "ndimage.label",
+          "lineNumber": 33
+        },
+        {
+          "caller": "body",
+          "callee": "int",
+          "lineNumber": 36
+        },
+        {
+          "caller": "body",
+          "callee": "np.argmax",
+          "lineNumber": 36
+        },
+        {
+          "caller": "body",
+          "callee": "ndimage.sum",
+          "lineNumber": 36
+        },
+        {
+          "caller": "body",
+          "callee": "range",
+          "lineNumber": 36
+        },
+        {
+          "caller": "lower_band",
+          "callee": "np.zeros_like",
+          "lineNumber": 51
+        },
+        {
+          "caller": "lower_band",
+          "callee": "int",
+          "lineNumber": 52
+        },
+        {
+          "caller": "lower_band",
+          "callee": "int",
+          "lineNumber": 53
+        },
+        {
+          "caller": "best_shift",
+          "callee": "range",
+          "lineNumber": 60
+        },
+        {
+          "caller": "best_shift",
+          "callee": "np.roll",
+          "lineNumber": 61
+        },
+        {
+          "caller": "best_shift",
+          "callee": "(shifted | ref).sum",
+          "lineNumber": 66
+        },
+        {
+          "caller": "best_shift",
+          "callee": "scores.append",
+          "lineNumber": 67
+        },
+        {
+          "caller": "best_shift",
+          "callee": "(shifted & ref).sum",
+          "lineNumber": 67
+        },
+        {
+          "caller": "best_shift",
+          "callee": "max",
+          "lineNumber": 67
+        },
+        {
+          "caller": "best_shift",
+          "callee": "max",
+          "lineNumber": 68
+        },
+        {
+          "caller": "palette",
+          "callee": "np.zeros",
+          "lineNumber": 79
+        },
+        {
+          "caller": "palette",
+          "callee": "body",
+          "lineNumber": 81
+        },
+        {
+          "caller": "palette",
+          "callee": "mask.any",
+          "lineNumber": 82
+        },
+        {
+          "caller": "palette",
+          "callee": "(cell[mask][:, :3] // 16).astype",
+          "lineNumber": 84
+        },
+        {
+          "caller": "palette",
+          "callee": "np.bincount(rgb[:, 0] * 256 + rgb[:, 1] * 16 + rgb[:, 2],\r\n                              minlength=4096).astype",
+          "lineNumber": 85
+        },
+        {
+          "caller": "palette",
+          "callee": "np.bincount",
+          "lineNumber": 85
+        },
+        {
+          "caller": "palette",
+          "callee": "counts.sum",
+          "lineNumber": 87
+        },
+        {
+          "caller": "shoulder_width",
+          "callee": "body",
+          "lineNumber": 102
+        },
+        {
+          "caller": "shoulder_width",
+          "callee": "np.where",
+          "lineNumber": 103
+        },
+        {
+          "caller": "shoulder_width",
+          "callee": "mask.any",
+          "lineNumber": 103
+        },
+        {
+          "caller": "shoulder_width",
+          "callee": "len",
+          "lineNumber": 104
+        },
+        {
+          "caller": "shoulder_width",
+          "callee": "rows.min",
+          "lineNumber": 106
+        },
+        {
+          "caller": "shoulder_width",
+          "callee": "int",
+          "lineNumber": 106
+        },
+        {
+          "caller": "shoulder_width",
+          "callee": "rows.max",
+          "lineNumber": 106
+        },
+        {
+          "caller": "shoulder_width",
+          "callee": "rows.min",
+          "lineNumber": 106
+        },
+        {
+          "caller": "shoulder_width",
+          "callee": "rows.max",
+          "lineNumber": 106
+        },
+        {
+          "caller": "shoulder_width",
+          "callee": "band.any",
+          "lineNumber": 107
+        },
+        {
+          "caller": "shoulder_width",
+          "callee": "widths.append",
+          "lineNumber": 108
+        },
+        {
+          "caller": "shoulder_width",
+          "callee": "band.sum(axis=1).max",
+          "lineNumber": 108
+        },
+        {
+          "caller": "shoulder_width",
+          "callee": "band.sum",
+          "lineNumber": 108
+        },
+        {
+          "caller": "shoulder_width",
+          "callee": "float",
+          "lineNumber": 109
+        },
+        {
+          "caller": "shoulder_width",
+          "callee": "np.mean",
+          "lineNumber": 109
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": ".ua/config.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "sections": [
+        {
+          "heading": "outputLanguage",
+          "level": 1,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "app/components/TextReveal.jsx",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 110,
+      "nonEmptyLines": 93,
+      "functions": [
+        {
+          "name": "TextReveal",
+          "startLine": 11,
+          "endLine": 40,
+          "params": []
+        },
+        {
+          "name": "LineReveal",
+          "startLine": 42,
+          "endLine": 72,
+          "params": []
+        },
+        {
+          "name": "FadeIn",
+          "startLine": 74,
+          "endLine": 110,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TextReveal",
+          "line": 11,
+          "isDefault": true
+        },
+        {
+          "name": "LineReveal",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "FadeIn",
+          "line": 74,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "TextReveal",
+          "callee": "useRef",
+          "lineNumber": 12
+        },
+        {
+          "caller": "TextReveal",
+          "callee": "useEffect",
+          "lineNumber": 14
+        },
+        {
+          "caller": "TextReveal",
+          "callee": "gsap.set",
+          "lineNumber": 18
+        },
+        {
+          "caller": "TextReveal",
+          "callee": "gsap.to",
+          "lineNumber": 20
+        },
+        {
+          "caller": "LineReveal",
+          "callee": "useRef",
+          "lineNumber": 43
+        },
+        {
+          "caller": "LineReveal",
+          "callee": "useEffect",
+          "lineNumber": 45
+        },
+        {
+          "caller": "LineReveal",
+          "callee": "gsap.set",
+          "lineNumber": 49
+        },
+        {
+          "caller": "LineReveal",
+          "callee": "gsap.to",
+          "lineNumber": 51
+        },
+        {
+          "caller": "FadeIn",
+          "callee": "useRef",
+          "lineNumber": 75
+        },
+        {
+          "caller": "FadeIn",
+          "callee": "useEffect",
+          "lineNumber": 77
+        },
+        {
+          "caller": "FadeIn",
+          "callee": "gsap.set",
+          "lineNumber": 87
+        },
+        {
+          "caller": "FadeIn",
+          "callee": "gsap.to",
+          "lineNumber": 89
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "assets/assets.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 117,
+      "nonEmptyLines": 112,
+      "exports": [
+        {
+          "name": "assets",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "workData",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "serviceData",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "infoList",
+          "line": 109,
+          "isDefault": false
+        },
+        {
+          "name": "toolsData",
+          "line": 115,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 37,
+        "exportCount": 5,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "eslint.config.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 10,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "next.config.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 3,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "postcss.config.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 8,
+      "nonEmptyLines": 7,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tailwind.config.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 71,
+      "nonEmptyLines": 71,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

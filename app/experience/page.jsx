@@ -35,7 +35,7 @@ export default function ExperiencePage() {
           </ScrollReveal>
         </div>
 
-        <Experience />
+        <Experience hideHeader />
 
         <div className="section-divider mt-16 sm:mt-24" />
         <Contact />

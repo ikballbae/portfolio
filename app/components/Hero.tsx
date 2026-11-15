@@ -575,7 +575,7 @@ function HeroComponent() {
                                     <div ref={ctaPrimaryRef} className="w-full md:w-auto">
                                         <MagneticWrapper strength={0.3} className="w-full md:w-auto">
                                             <a
-                                                href="#projects"
+                                                href="/projects"
                                                 data-testid="cta-primary"
                                                 className="w-full md:w-auto h-[52px] md:h-11 inline-flex items-center justify-center gap-2 px-6 bg-accent text-bg font-grotesk font-bold text-[15px] md:text-sm rounded-[12px] md:rounded-md active:scale-[0.97] transition-all duration-200 group whitespace-nowrap"
                                             >
@@ -690,7 +690,7 @@ function HeroComponent() {
                         {/* 5. CTA Utama: Lebar penuh, tinggi 52px, radius 12px, jarak 28px dari subteks */}
                         <div ref={mobileCtaPrimaryRef} className="w-full" style={{ marginTop: '28px' }}>
                             <a
-                                href="#projects"
+                                href="/projects"
                                 data-testid="mobile-cta-primary"
                                 className="w-full h-[52px] inline-flex items-center justify-center gap-2 px-6 bg-accent text-bg font-grotesk font-bold text-[15px] rounded-[12px] active:scale-[0.97] transition-transform select-none"
                             >

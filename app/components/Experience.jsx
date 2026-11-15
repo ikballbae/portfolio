@@ -89,24 +89,28 @@ function TimelineItem({ experience, index, isLast }) {
     )
 }
 
-export default function Experience() {
+export default function Experience({ hideHeader = false }) {
     return (
-        <section id="experience" className="section-padding relative">
+        <section id="experience" className={`${hideHeader ? 'py-4 sm:py-6' : 'section-padding'} relative`}>
             <div className="max-w-4xl mx-auto">
-                <ScrollReveal>
-                    <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                        <span className="text-[10px] sm:text-xs font-mono text-accent tracking-wider">05</span>
-                        <span className="w-8 sm:w-16 h-[1px] bg-accent/20" />
-                        <span className="text-[10px] sm:text-xs font-mono text-text-muted tracking-wider uppercase">Experience / changelog</span>
-                    </div>
-                </ScrollReveal>
+                {!hideHeader && (
+                    <>
+                        <ScrollReveal>
+                            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                                <span className="text-[10px] sm:text-xs font-mono text-accent tracking-wider">05</span>
+                                <span className="w-8 sm:w-16 h-[1px] bg-accent/20" />
+                                <span className="text-[10px] sm:text-xs font-mono text-text-muted tracking-wider uppercase">Experience / changelog</span>
+                            </div>
+                        </ScrollReveal>
 
-                <ScrollReveal delay={0.1}>
-                    <h2 className="font-syne font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-8 sm:mb-12">
-                        <ScrambleText text="Leadership & " delay={0.2} />
-                        <span className="text-accent"><ScrambleText text="Achievements" delay={0.2} /></span>
-                    </h2>
-                </ScrollReveal>
+                        <ScrollReveal delay={0.1}>
+                            <h2 className="font-syne font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-8 sm:mb-12">
+                                <ScrambleText text="Leadership & " delay={0.2} />
+                                <span className="text-accent"><ScrambleText text="Achievements" delay={0.2} /></span>
+                            </h2>
+                        </ScrollReveal>
+                    </>
+                )}
 
                 <div className="relative">
                     {experiences.map((exp, i) => (

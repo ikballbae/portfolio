@@ -38,7 +38,7 @@ export default function CategoryFilter({
     const inputRef = useRef<HTMLInputElement>(null)
     const debounceRef = useRef<NodeJS.Timeout | null>(null)
 
-    // Sync URL → state on mount
+    // Sync URL → state on mount & when searchParams change
     useEffect(() => {
         const cat = searchParams.get('kategori') || 'Semua'
         const q = searchParams.get('cari') || ''
@@ -47,8 +47,7 @@ export default function CategoryFilter({
             setLocalSearch(q)
             onSearchChange(q)
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [searchParams])
 
     // Keyboard shortcut '/' to focus search
     useEffect(() => {

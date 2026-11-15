@@ -287,114 +287,79 @@ export default function ReactionBar({ slug, initialReactions = {}, size = 'sm' }
     }
 
     return (
-        <div className="flex flex-col gap-2">
-            {isLarge && (
-                <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-text-muted/60">
-                        Ekspresikan Reaksi
-                    </span>
-                    {totalReactions > 0 && (
-                        <span className="text-[11px] font-mono text-text-muted/40">
-                            · {totalReactions}
-                        </span>
-                    )}
-                </div>
-            )}
+        <div className="flex flex-wrap items-center gap-2">
+            {REACTION_ITEMS.map((item) => {
+                const count = reactions[item.id] || 0
+                const isReacted = !!userReacted[item.id]
+                const currentPopups = popUps[item.id] || []
 
-            <div className="flex flex-wrap items-center gap-2">
-                {REACTION_ITEMS.map((item) => {
-                    const count = reactions[item.id] || 0
-                    const isReacted = !!userReacted[item.id]
-                    const isHovered = hoveredId === item.id
-                    const currentPopups = popUps[item.id] || []
+                return (
+                    <div key={item.id} className="relative flex items-center justify-center">
+                        {/* Floating "+1" / "-1" Animation */}
+                        <AnimatePresence>
+                            {currentPopups.map(pop => (
+                                <motion.span
+                                    key={pop.id}
+                                    initial={{ opacity: 0, y: 0, scale: 0.6 }}
+                                    animate={{ opacity: 1, y: -26, scale: 1.1 }}
+                                    exit={{ opacity: 0, y: -38, scale: 0.8 }}
+                                    transition={{ duration: 0.6, ease: 'easeOut' }}
+                                    className={`absolute -top-3 pointer-events-none z-30 text-[11px] font-mono font-bold select-none px-1.5 py-0.5 rounded-md shadow-md ${
+                                        pop.text === '+1'
+                                            ? 'bg-accent text-bg'
+                                            : 'bg-text-muted/80 text-bg'
+                                    }`}
+                                >
+                                    {pop.text}
+                                </motion.span>
+                            ))}
+                        </AnimatePresence>
 
-                    return (
-                        <div key={item.id} className="relative flex items-center justify-center">
-                            {/* Floating "+1" / "-1" Animation */}
-                            <AnimatePresence>
-                                {currentPopups.map(pop => (
-                                    <motion.span
-                                        key={pop.id}
-                                        initial={{ opacity: 0, y: 0, scale: 0.6 }}
-                                        animate={{ opacity: 1, y: -26, scale: 1.1 }}
-                                        exit={{ opacity: 0, y: -38, scale: 0.8 }}
-                                        transition={{ duration: 0.6, ease: 'easeOut' }}
-                                        className={`absolute -top-3 pointer-events-none z-30 text-[11px] font-mono font-bold select-none px-1.5 py-0.5 rounded-md shadow-md ${
-                                            pop.text === '+1'
-                                                ? 'bg-accent text-bg'
-                                                : 'bg-text-muted/80 text-bg'
-                                        }`}
-                                    >
-                                        {pop.text}
-                                    </motion.span>
-                                ))}
-                            </AnimatePresence>
+                        {/* Reaction Button — Clean, Monochromatic with 3D Emoji Hero */}
+                        <button
+                            ref={el => { buttonRefs.current[item.id] = el }}
+                            onClick={(e) => handleReaction(item, e)}
+                            type="button"
+                            aria-label={`${item.label} (${count})`}
+                            className={`group relative inline-flex items-center rounded-full font-mono transition-colors duration-200 border cursor-pointer select-none active:scale-[0.94] ${
+                                isLarge ? 'px-3 py-1.5 text-sm gap-2' : 'px-2.5 py-1 text-xs gap-1.5'
+                            } ${
+                                isReacted
+                                    ? 'bg-surface-light border-text/40 text-text'
+                                    : 'bg-surface border-text/10 text-text-muted hover:border-text/25 hover:bg-surface-light hover:text-text'
+                            }`}
+                        >
+                            {/* 3D Fluent Emoji Icon */}
+                            <div className={`relative shrink-0 transition-transform duration-200 ease-out group-hover:scale-125 group-hover:-translate-y-0.5 group-hover:-rotate-6 ${
+                                isLarge ? 'w-6 h-6' : 'w-4 h-4'
+                            }`}>
+                                <Image
+                                    ref={el => { imgRefs.current[item.id] = el }}
+                                    src={item.icon}
+                                    alt={item.label}
+                                    width={isLarge ? 32 : 24}
+                                    height={isLarge ? 32 : 24}
+                                    className="w-full h-full object-contain pointer-events-none drop-shadow-sm select-none"
+                                    priority={isLarge}
+                                />
+                            </div>
 
-                            {/* Tooltip on Hover */}
-                            <AnimatePresence>
-                                {isHovered && isLarge && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 6, scale: 0.92 }}
-                                        animate={{ opacity: 1, y: -34, scale: 1 }}
-                                        exit={{ opacity: 0, y: 6, scale: 0.92 }}
-                                        transition={{ duration: 0.15, ease: 'easeOut' }}
-                                        className="absolute pointer-events-none z-30 whitespace-nowrap px-2.5 py-1 rounded-lg bg-surface border border-text/15 shadow-xl text-[11px] font-grotesk text-text font-medium"
-                                        style={{ transformOrigin: 'bottom center' }}
-                                    >
-                                        {item.tooltip}
-                                        <div className="absolute left-1/2 -bottom-1 -translate-x-1/2 w-2 h-2 rotate-45 bg-surface border-r border-b border-text/15" />
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-
-                            {/* Reaction Button — Clean, Monochromatic with 3D Emoji Hero */}
-                            <button
-                                ref={el => { buttonRefs.current[item.id] = el }}
-                                onClick={(e) => handleReaction(item, e)}
-                                onMouseEnter={() => setHoveredId(item.id)}
-                                onMouseLeave={() => setHoveredId(null)}
-                                type="button"
-                                aria-label={`${item.label} (${count})`}
-                                className={`group relative inline-flex items-center rounded-full font-mono transition-colors duration-200 border cursor-pointer select-none active:scale-[0.94] ${
-                                    isLarge ? 'px-3 py-1.5 text-sm gap-2' : 'px-2.5 py-1 text-xs gap-1.5'
-                                } ${
-                                    isReacted
-                                        ? 'bg-surface-light border-text/40 text-text'
-                                        : 'bg-surface border-text/10 text-text-muted hover:border-text/25 hover:bg-surface-light hover:text-text'
-                                }`}
-                            >
-                                {/* 3D Fluent Emoji Icon */}
-                                <div className={`relative shrink-0 transition-transform duration-200 ease-out group-hover:scale-125 group-hover:-translate-y-0.5 group-hover:-rotate-6 ${
-                                    isLarge ? 'w-6 h-6' : 'w-4 h-4'
-                                }`}>
-                                    <Image
-                                        ref={el => { imgRefs.current[item.id] = el }}
-                                        src={item.icon}
-                                        alt={item.label}
-                                        width={isLarge ? 32 : 24}
-                                        height={isLarge ? 32 : 24}
-                                        className="w-full h-full object-contain pointer-events-none drop-shadow-sm select-none"
-                                        priority={isLarge}
-                                    />
-                                </div>
-
-                                {/* Count Badge */}
-                                {count > 0 && (
-                                    <span
-                                        className={`font-mono tabular-nums transition-colors ${
-                                            isReacted ? 'text-text font-semibold' : 'text-text-muted/80'
-                                        } ${
-                                            isLarge ? 'text-xs' : 'text-[11px]'
-                                        }`}
-                                    >
-                                        {count}
-                                    </span>
-                                )}
-                            </button>
-                        </div>
-                    )
-                })}
-            </div>
+                            {/* Count Badge */}
+                            {count > 0 && (
+                                <span
+                                    className={`font-mono tabular-nums transition-colors ${
+                                        isReacted ? 'text-text font-semibold' : 'text-text-muted/80'
+                                    } ${
+                                        isLarge ? 'text-xs' : 'text-[11px]'
+                                    }`}
+                                >
+                                    {count}
+                                </span>
+                            )}
+                        </button>
+                    </div>
+                )
+            })}
         </div>
     )
 }

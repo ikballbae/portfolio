@@ -233,29 +233,33 @@ function ProjectModal({ project, onClose }) {
     )
 }
 
-export default function Projects() {
+export default function Projects({ hideHeader = false }) {
     const [selectedProject, setSelectedProject] = useState(null)
 
     return (
-        <section id="projects" className="section-padding relative">
+        <section id="projects" className={`${hideHeader ? 'py-4 sm:py-6' : 'section-padding'} relative`}>
             <div className="max-w-6xl mx-auto">
-                <ScrollReveal>
-                    <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                        <span className="text-[10px] sm:text-xs font-mono text-accent tracking-wider">03</span>
-                        <span className="w-8 sm:w-16 h-[1px] bg-accent/20" />
-                        <span className="text-[10px] sm:text-xs font-mono text-text-muted tracking-wider uppercase">Projects / lab_output</span>
-                    </div>
-                </ScrollReveal>
+                {!hideHeader && (
+                    <>
+                        <ScrollReveal>
+                            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                                <span className="text-[10px] sm:text-xs font-mono text-accent tracking-wider">03</span>
+                                <span className="w-8 sm:w-16 h-[1px] bg-accent/20" />
+                                <span className="text-[10px] sm:text-xs font-mono text-text-muted tracking-wider uppercase">Projects / lab_output</span>
+                            </div>
+                        </ScrollReveal>
 
-                <ScrollReveal delay={0.1}>
-                    <h2 className="font-syne font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-3 sm:mb-4">
-                        <ScrambleText text="Built & " delay={0.2} />
-                        <span className="text-accent"><ScrambleText text="Shipped" delay={0.2} /></span>
-                    </h2>
-                    <p className="text-text-muted text-xs sm:text-sm max-w-md mb-8 sm:mb-12">
-                        Systems that went from idea → research → prototype → production.
-                    </p>
-                </ScrollReveal>
+                        <ScrollReveal delay={0.1}>
+                            <h2 className="font-syne font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-3 sm:mb-4">
+                                <ScrambleText text="Built & " delay={0.2} />
+                                <span className="text-accent"><ScrambleText text="Shipped" delay={0.2} /></span>
+                            </h2>
+                            <p className="text-text-muted text-xs sm:text-sm max-w-md mb-8 sm:mb-12">
+                                Systems that went from idea → research → prototype → production.
+                            </p>
+                        </ScrollReveal>
+                    </>
+                )}
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                     {projects.map((project, i) => (

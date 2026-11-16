@@ -400,9 +400,6 @@ function IsometricBlueprintStack({ activeIndex, onSelectIndex, compact = false }
 }
 
 export default function About() {
-  const sectionRef = useRef(null)
-  const headlineRef = useRef(null)
-  const bioRef = useRef(null)
   const desktopListRef = useRef(null)
   const mobileCardRef = useRef(null)
   const [activeTab, setActiveTab] = useState(0)
@@ -482,56 +479,8 @@ export default function About() {
     }
   }, [activeTab])
 
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReducedMotion) return
-
-    const ctx = gsap.context(() => {
-      const words = headlineRef.current?.querySelectorAll('.about-word')
-      if (words && words.length > 0) {
-        gsap.fromTo(
-          words,
-          { opacity: 0.2, y: 8 },
-          {
-            opacity: 1,
-            y: 0,
-            stagger: 0.06,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: headlineRef.current,
-              start: 'top 85%',
-              end: 'bottom 50%',
-              scrub: 0.5,
-            },
-          }
-        )
-      }
-
-      if (bioRef.current) {
-        gsap.fromTo(
-          bioRef.current,
-          { opacity: 0, y: 16 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.65,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: bioRef.current,
-              start: 'top 88%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        )
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
-
   return (
-    <section id="about" ref={sectionRef} className="section-padding relative">
+    <section id="about" className="section-padding relative">
       <div className="max-w-6xl mx-auto">
         {/* Section Label */}
         <ScrollReveal>
@@ -548,219 +497,226 @@ export default function About() {
 
         {/* Editorial Manifesto */}
         <div className="mb-10 sm:mb-14 md:mb-18">
-          <h2
-            ref={headlineRef}
-            className="font-sans font-bold text-2xl sm:text-4xl md:text-5xl lg:text-[54px] leading-[1.25] tracking-tight max-w-5xl mb-6 sm:mb-8 flex flex-wrap gap-x-[0.26em] gap-y-1.5 sm:gap-y-2"
-          >
-            {manifestoTokens.map((token, idx) => (
-              <span
-                key={idx}
-                className={`about-word inline-block will-change-[opacity,transform] ${
-                  token.highlight ? 'text-accent' : 'text-text'
-                }`}
-              >
-                {token.text}
-              </span>
-            ))}
-          </h2>
+          <ScrollReveal delay={0.1}>
+            <h2
+              className="font-sans font-bold text-2xl sm:text-4xl md:text-5xl lg:text-[54px] leading-[1.25] tracking-tight max-w-5xl mb-6 sm:mb-8 flex flex-wrap gap-x-[0.26em] gap-y-1.5 sm:gap-y-2"
+            >
+              {manifestoTokens.map((token, idx) => (
+                <span
+                  key={idx}
+                  className={`inline-block ${
+                    token.highlight ? 'text-accent' : 'text-text'
+                  }`}
+                >
+                  {token.text}
+                </span>
+              ))}
+            </h2>
+          </ScrollReveal>
 
           {/* High-Contrast Bio */}
-          <div ref={bioRef} className="max-w-2xl">
-            <p className="text-text/85 text-sm sm:text-base md:text-lg leading-relaxed">
-              Information Systems student based in{' '}
-              <span className="text-text font-semibold">Pekalongan, Indonesia</span>. I bridge backend
-              architecture and expressive visual design so software feels both reliable under the
-              hood and effortless on screen.
-            </p>
-          </div>
+          <ScrollReveal delay={0.2}>
+            <div className="max-w-2xl">
+              <p className="text-text/85 text-sm sm:text-base md:text-lg leading-relaxed">
+                Information Systems student based in{' '}
+                <span className="text-text font-semibold">Pekalongan, Indonesia</span>. I bridge backend
+                architecture and expressive visual design so software feels both reliable under the
+                hood and effortless on screen.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
 
         {/* =========================================================================
             Interactive Feature Showcase with Synchronized 3D Blueprint Visual
            ========================================================================= */}
         <div className="pt-6 sm:pt-8 border-t border-text/10">
-          {/* DESKTOP LAYOUT (>= lg): Smooth In-Place Expanding Rows + 3D Stack */}
-          <div className="hidden lg:grid lg:grid-cols-12 gap-12 xl:gap-14 items-start">
-            {/* Left: Fluid Expanding Feature Rows */}
-            <div ref={desktopListRef} className="lg:col-span-7 space-y-3">
-              {pillars.map((item, idx) => {
-                const isActive = activeTab === idx
+          <ScrollReveal delay={0.15}>
+            {/* DESKTOP LAYOUT (>= lg): Smooth In-Place Expanding Rows + 3D Stack */}
+            <div className="hidden lg:grid lg:grid-cols-12 gap-12 xl:gap-14 items-start">
+              {/* Left: Fluid Expanding Feature Rows */}
+              <div ref={desktopListRef} className="lg:col-span-7 space-y-3">
+                {pillars.map((item, idx) => {
+                  const isActive = activeTab === idx
 
-                return (
-                  <div
-                    key={item.id}
-                    className={`desktop-card-${idx} overflow-hidden rounded-2xl p-5 sm:p-6 transition-[background-color,border-color,box-shadow] duration-300 ${
-                      isActive
-                        ? 'bg-surface border border-accent/25 shadow-lg shadow-black/20'
-                        : 'bg-transparent border border-transparent hover:bg-surface/30'
-                    }`}
-                  >
-                    {/* Header Row (Always clickable) */}
-                    <button
-                      type="button"
-                      onClick={() => setActiveTab(idx)}
-                      className="w-full text-left flex items-center justify-between cursor-pointer focus-visible:outline-none group select-none"
-                    >
-                      <div className="flex items-center gap-3.5">
-                        <span
-                          className={`font-mono text-xs font-semibold tracking-wider transition-colors duration-300 ${
-                            isActive ? 'text-accent' : 'text-text-muted group-hover:text-accent'
-                          }`}
-                        >
-                          /{item.index}
-                        </span>
-                        <h3
-                          className={`font-sans font-bold text-lg sm:text-xl transition-colors duration-300 ${
-                            isActive
-                              ? 'text-text'
-                              : 'text-text/85 group-hover:text-text'
-                          }`}
-                        >
-                          {item.title}
-                        </h3>
-                      </div>
-
-                      <div className="flex items-center gap-2">
-                        {isActive ? (
-                          <span className="card-gsap-item font-mono text-[10px] text-accent/90 bg-accent/10 px-2.5 py-0.5 rounded-full border border-accent/20">
-                            {item.tagline}
-                          </span>
-                        ) : (
-                          <span className="font-mono text-xs text-text-muted group-hover:text-accent group-hover:translate-x-1 transition-all duration-300">
-                            →
-                          </span>
-                        )}
-                      </div>
-                    </button>
-
-                    {/* Smooth Accordion Body (Fluid CSS Grid Animation with Zero Margin Snap) */}
+                  return (
                     <div
-                      className={`grid transition-[grid-template-rows,opacity] duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                      key={item.id}
+                      className={`desktop-card-${idx} overflow-hidden rounded-2xl p-5 sm:p-6 transition-[background-color,border-color,box-shadow] duration-300 ${
                         isActive
-                          ? 'grid-rows-[1fr] opacity-100'
-                          : 'grid-rows-[0fr] opacity-0 pointer-events-none'
+                          ? 'bg-surface border border-accent/25 shadow-lg shadow-black/20'
+                          : 'bg-transparent border border-transparent hover:bg-surface/30'
                       }`}
                     >
-                      <div className="overflow-hidden">
-                        <div className="pt-4">
-                          <p className="card-gsap-item text-text/90 text-sm sm:text-base leading-relaxed mb-4">
-                            {item.desc}
-                          </p>
+                      {/* Header Row (Always clickable) */}
+                      <button
+                        type="button"
+                        onClick={() => setActiveTab(idx)}
+                        className="w-full text-left flex items-center justify-between cursor-pointer focus-visible:outline-none group select-none"
+                      >
+                        <div className="flex items-center gap-3.5">
+                          <span
+                            className={`font-mono text-xs font-semibold tracking-wider transition-colors duration-300 ${
+                              isActive ? 'text-accent' : 'text-text-muted group-hover:text-accent'
+                            }`}
+                          >
+                            /{item.index}
+                          </span>
+                          <h3
+                            className={`font-sans font-bold text-lg sm:text-xl transition-colors duration-300 ${
+                              isActive
+                                ? 'text-text'
+                                : 'text-text/85 group-hover:text-text'
+                            }`}
+                          >
+                            {item.title}
+                          </h3>
+                        </div>
 
-                          <div className="card-gsap-item flex flex-wrap gap-2 pt-3 border-t border-text/10">
-                            {item.highlights.map((tag) => (
-                              <span
-                                key={tag}
-                                className="font-mono text-[11px] text-text/90 bg-bg px-2.5 py-1 rounded-md border border-text/5"
-                              >
-                                {tag}
-                              </span>
-                            ))}
+                        <div className="flex items-center gap-2">
+                          {isActive ? (
+                            <span className="card-gsap-item font-mono text-[10px] text-accent/90 bg-accent/10 px-2.5 py-0.5 rounded-full border border-accent/20">
+                              {item.tagline}
+                            </span>
+                          ) : (
+                            <span className="font-mono text-xs text-text-muted group-hover:text-accent group-hover:translate-x-1 transition-all duration-300">
+                              →
+                            </span>
+                          )}
+                        </div>
+                      </button>
+
+                      {/* Smooth Accordion Body (Fluid CSS Grid Animation with Zero Margin Snap) */}
+                      <div
+                        className={`grid transition-[grid-template-rows,opacity] duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                          isActive
+                            ? 'grid-rows-[1fr] opacity-100'
+                            : 'grid-rows-[0fr] opacity-0 pointer-events-none'
+                        }`}
+                      >
+                        <div className="overflow-hidden">
+                          <div className="pt-4">
+                            <p className="card-gsap-item text-text/90 text-sm sm:text-base leading-relaxed mb-4">
+                              {item.desc}
+                            </p>
+
+                            <div className="card-gsap-item flex flex-wrap gap-2 pt-3 border-t border-text/10">
+                              {item.highlights.map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="font-mono text-[11px] text-text/90 bg-bg px-2.5 py-1 rounded-md border border-text/5"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                )
-              })}
-            </div>
+                  )
+                })}
+              </div>
 
-            {/* Right: Large Synchronized 3D Blueprint Isometric Stack */}
-            <div className="lg:col-span-5 flex flex-col items-center justify-center pt-2">
-              <IsometricBlueprintStack
-                activeIndex={activeTab}
-                onSelectIndex={(idx) => setActiveTab(idx)}
-              />
-              <span className="font-mono text-[10px] text-text-muted/80 tracking-wider mt-3">
-                Click tabs or layers to inspect system slice
-              </span>
-            </div>
-          </div>
-
-          {/* MOBILE & TABLET LAYOUT (< lg) */}
-          <div className="lg:hidden space-y-4">
-            {/* Touch-Friendly Segmented Tabs */}
-            <div className="grid grid-cols-3 gap-1.5 p-1.5 rounded-2xl bg-surface border border-text/10">
-              {pillars.map((item, idx) => {
-                const isActive = activeTab === idx
-                return (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => setActiveTab(idx)}
-                    className={`min-h-[46px] py-2 px-1.5 rounded-xl text-center font-sans font-semibold text-xs transition-all duration-300 cursor-pointer flex flex-col items-center justify-center gap-0.5 active:scale-[0.98] ${
-                      isActive
-                        ? 'bg-accent/15 text-accent border border-accent/35 shadow-sm'
-                        : 'text-text-muted hover:text-text'
-                    }`}
-                  >
-                    <span className="font-mono text-[9px] opacity-70">/{item.index}</span>
-                    <span className="truncate w-full font-medium leading-tight">
-                      {item.mobileShortTitle}
-                    </span>
-                  </button>
-                )
-              })}
-            </div>
-
-            {/* Active Content Card with Integrated 3D Visual */}
-            <div
-              ref={mobileCardRef}
-              className="rounded-2xl p-5 bg-surface border border-accent/25 shadow-lg"
-            >
-              <div className="py-2 border-b border-text/10">
+              {/* Right: Large Synchronized 3D Blueprint Isometric Stack */}
+              <div className="lg:col-span-5 flex flex-col items-center justify-center pt-2">
                 <IsometricBlueprintStack
                   activeIndex={activeTab}
                   onSelectIndex={(idx) => setActiveTab(idx)}
-                  compact
                 />
+                <span className="font-mono text-[10px] text-text-muted/80 tracking-wider mt-3">
+                  Click tabs or layers to inspect system slice
+                </span>
+              </div>
+            </div>
+
+            {/* MOBILE & TABLET LAYOUT (< lg) */}
+            <div className="lg:hidden space-y-4">
+              {/* Touch-Friendly Segmented Tabs */}
+              <div className="grid grid-cols-3 gap-1.5 p-1.5 rounded-2xl bg-surface border border-text/10">
+                {pillars.map((item, idx) => {
+                  const isActive = activeTab === idx
+                  return (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => setActiveTab(idx)}
+                      className={`min-h-[46px] py-2 px-1.5 rounded-xl text-center font-sans font-semibold text-xs transition-all duration-300 cursor-pointer flex flex-col items-center justify-center gap-0.5 active:scale-[0.98] ${
+                        isActive
+                          ? 'bg-accent/15 text-accent border border-accent/35 shadow-sm'
+                          : 'text-text-muted hover:text-text'
+                      }`}
+                    >
+                      <span className="font-mono text-[9px] opacity-70">/{item.index}</span>
+                      <span className="truncate w-full font-medium leading-tight">
+                        {item.mobileShortTitle}
+                      </span>
+                    </button>
+                  )
+                })}
               </div>
 
-              <div className="pt-4">
-                <div className="mobile-gsap-item flex items-center justify-between mb-2">
-                  <span className="font-mono text-[11px] text-accent font-semibold tracking-wider">
-                    /{pillars[activeTab].index}
-                  </span>
-                  <span className="font-mono text-[10px] text-accent/80 bg-accent/10 px-2.5 py-0.5 rounded-full border border-accent/20">
-                    {pillars[activeTab].tagline}
-                  </span>
+              {/* Active Content Card with Integrated 3D Visual */}
+              <div
+                ref={mobileCardRef}
+                className="rounded-2xl p-5 bg-surface border border-accent/25 shadow-lg"
+              >
+                <div className="py-2 border-b border-text/10">
+                  <IsometricBlueprintStack
+                    activeIndex={activeTab}
+                    onSelectIndex={(idx) => setActiveTab(idx)}
+                    compact
+                  />
                 </div>
 
-                <h3 className="mobile-gsap-item font-sans font-bold text-lg sm:text-xl text-text tracking-tight mb-2">
-                  {pillars[activeTab].title}
-                </h3>
-
-                <p className="mobile-gsap-item text-text/85 text-xs sm:text-sm leading-relaxed mb-4">
-                  {pillars[activeTab].desc}
-                </p>
-
-                <div className="mobile-gsap-item flex flex-wrap gap-1.5 pt-3 border-t border-text/10">
-                  {pillars[activeTab].highlights.map((tag) => (
-                    <span
-                      key={tag}
-                      className="font-mono text-[10px] text-text/90 bg-bg px-2.5 py-1 rounded-md border border-text/5"
-                    >
-                      {tag}
+                <div className="pt-4">
+                  <div className="mobile-gsap-item flex items-center justify-between mb-2">
+                    <span className="font-mono text-[11px] text-accent font-semibold tracking-wider">
+                      /{pillars[activeTab].index}
                     </span>
-                  ))}
+                    <span className="font-mono text-[10px] text-accent/80 bg-accent/10 px-2.5 py-0.5 rounded-full border border-accent/20">
+                      {pillars[activeTab].tagline}
+                    </span>
+                  </div>
+
+                  <h3 className="mobile-gsap-item font-sans font-bold text-lg sm:text-xl text-text tracking-tight mb-2">
+                    {pillars[activeTab].title}
+                  </h3>
+
+                  <p className="mobile-gsap-item text-text/85 text-xs sm:text-sm leading-relaxed mb-4">
+                    {pillars[activeTab].desc}
+                  </p>
+
+                  <div className="mobile-gsap-item flex flex-wrap gap-1.5 pt-3 border-t border-text/10">
+                    {pillars[activeTab].highlights.map((tag) => (
+                      <span
+                        key={tag}
+                        className="font-mono text-[10px] text-text/90 bg-bg px-2.5 py-1 rounded-md border border-text/5"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Factual link to Awards page */}
-          <div className="mt-8 pt-4 border-t border-text/10 flex items-center justify-between flex-wrap gap-3">
-            <span className="text-xs font-mono text-text-muted">
-              Prestasi kompetisi & apresiasi akademik
-            </span>
-            <Link
-              href="/awards"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline select-none"
-            >
-              <span>Lihat halaman penghargaan</span>
-              <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+          <ScrollReveal delay={0.1}>
+            <div className="mt-8 pt-4 border-t border-text/10 flex items-center justify-between flex-wrap gap-3">
+              <span className="text-xs font-mono text-text-muted">
+                Prestasi kompetisi & apresiasi akademik
+              </span>
+              <Link
+                href="/awards"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline select-none"
+              >
+                <span>Lihat halaman penghargaan</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

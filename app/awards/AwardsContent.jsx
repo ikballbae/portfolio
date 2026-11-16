@@ -96,10 +96,14 @@ export default function AwardsContent() {
                 transformOrigin: 'top center',
                 scrollTrigger: {
                   trigger: el,
-                  start: 'top 55%',
+                  start: () =>
+                    index === 0
+                      ? `top top+=${Math.round(el.getBoundingClientRect().top + window.scrollY)}`
+                      : 'top 55%',
                   endTrigger: nextEl,
                   end: 'top 55%',
                   scrub: true,
+                  invalidateOnRefresh: true,
                 },
               }
             )
@@ -109,7 +113,7 @@ export default function AwardsContent() {
     }, listRef)
 
     return () => ctx.revert()
-  }, [prefersReduced])
+  }, [prefersReduced, isLoaded])
 
   // Open & Close Lightbox
   const handleOpenLightbox = (award, event) => {

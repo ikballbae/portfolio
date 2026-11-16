@@ -52,8 +52,8 @@ const pillars = [
     mobileShortTitle: 'Leadership',
     title: 'Community Leadership',
     tagline: 'Mentorship, Events & Community Growth',
-    desc: 'Chairperson of UKM Pengembangan Komputer in Pekalongan. Directing PKFest, initiating Tech Goes to School outreach, and mentoring peers in weekly engineering study clubs.',
-    highlights: ['Chairperson UKM PK', 'PKFest Organizer', 'Tech Goes to School', 'Tech Mentorship'],
+    desc: 'Ketua Umum UKM Pengembangan Komputer (UKM PK), STMIK Widya Pratama periode 2025/2026. Mengarahkan program kerja seperti PKFest, inisiatif Goes to School, serta memfasilitasi kelompok belajar teknologi.',
+    highlights: ['Ketua Umum UKM PK', 'Periode 2025/2026', 'PKFest Organizer', 'Goes to School'],
   },
 ]
 

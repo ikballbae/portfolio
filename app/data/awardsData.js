@@ -20,8 +20,6 @@ export const awardsData = [
       { label: "Penyelenggara", value: "UKM Pengembangan Komputer" },
       { label: "Institusi", value: "STMIK Widya Pratama" },
     ],
-    story:
-      "Tema posternya cyber security. Saya pakai [ISI: tools]. Yang saya pertahankan dari desain itu: [ISI: hal yang dipertahankan].",
     verifyUrl: null, // [ISI: url verifikasi, jika ada]
   },
   {
@@ -40,8 +38,6 @@ export const awardsData = [
       { label: "Tanggal piagam", value: "11 Mei 2024" },
       { label: "Sekolah", value: "SMK Muhammadiyah Pencongan" },
     ],
-    story:
-      "Dipilih dari [ISI: jumlah siswa jurusan]. Proyek sekolah yang saya kerjakan: [ISI: proyek sekolah].",
     verifyUrl: null, // [ISI: url verifikasi, jika ada]
   },
   {
@@ -60,8 +56,6 @@ export const awardsData = [
       { label: "Tanggal lomba", value: "2 Maret 2024" },
       { label: "Tingkat", value: "Kabupaten Pekalongan" },
     ],
-    story:
-      "Soal yang harus dikerjakan: [ISI: studi kasus/soal lomba]. Waktu pengerjaan [ISI: durasi], tanpa internet, jadi semua [ISI: apa yang harus dihafal/dikerjakan sendiri]. Bagian tersulit: [ISI: bagian tersulit]. Peserta [ISI: jumlah, kalau ada di sertifikat atau saya tahu].",
     verifyUrl: null, // [ISI: url verifikasi, jika ada]
     provincialProof: null, // [ISI: bukti finalis provinsi, atau hapus baris ini]
   },

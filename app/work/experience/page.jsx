@@ -1,5 +1,11 @@
-'use client'
+import ExperienceContent from '../../experience/ExperienceContent'
 
-import ExperiencePage from '../../experience/page'
+export const metadata = {
+  title: 'Pengalaman · Akhmad Ikbal, Web Developer',
+  description:
+    'Daftar pengalaman kepengurusan organisasi, kepanitiaan, pemateri, dan keterlibatan proyek teknologi oleh Akhmad Ikbal.',
+}
 
-export default ExperiencePage
+export default function WorkExperiencePage() {
+  return <ExperienceContent />
+}

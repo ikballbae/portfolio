@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ScrollReveal from './ScrollReveal'
@@ -32,10 +33,9 @@ const pillars = [
     index: '01',
     mobileShortTitle: 'Full-Stack',
     title: 'Full-Stack Engineering',
-    tagline: 'Database Schemas to Fluid Web Apps',
-    desc: 'Architecting scalable web applications from robust relational data models to interactive frontend experiences with Next.js, React, Laravel, and Tailwind CSS.',
-    highlights: ['Next.js & React', 'Laravel & MySQL', 'REST & GraphQL', 'Clean Architecture'],
-    layerCode: 'LAYER_01 // CORE_LOGIC',
+    tagline: 'Skema Database & Dashboard Web',
+    desc: 'Merancang skema database relasional MySQL serta membangun halaman admin dan alur transaksi menggunakan Laravel, Next.js, dan Tailwind CSS.',
+    highlights: ['Next.js & React', 'Laravel & MySQL', 'Midtrans Gateway', 'Tailwind CSS'],
   },
   {
     id: 'design',
@@ -43,9 +43,8 @@ const pillars = [
     mobileShortTitle: 'Visual Craft',
     title: 'Visual & Brand Craft',
     tagline: 'Expressive UI Systems & Typography',
-    desc: '1st Place winner of the 2024 Graphic Design Competition at Institut Widya Pratama and City-Level Winner in LKS Web Technology. Crafting high-contrast layouts and tactile micro-interactions.',
+    desc: 'Meraih Juara 1 Desain Poster di STMIK Widya Pratama dan Juara 1 LKS Web Technology Tingkat Kabupaten Pekalongan. Memadukan struktur antarmuka yang presisi dengan visual yang fungsional.',
     highlights: ['Design Systems', 'Typography & Contrast', 'Motion & GSAP', 'Brand Identity'],
-    layerCode: 'LAYER_02 // VIS_SURFACE',
   },
   {
     id: 'leadership',
@@ -55,7 +54,6 @@ const pillars = [
     tagline: 'Mentorship, Events & Community Growth',
     desc: 'Chairperson of UKM Pengembangan Komputer in Pekalongan. Directing PKFest, initiating Tech Goes to School outreach, and mentoring peers in weekly engineering study clubs.',
     highlights: ['Chairperson UKM PK', 'PKFest Organizer', 'Tech Goes to School', 'Tech Mentorship'],
-    layerCode: 'LAYER_03 // ECOSYSTEM',
   },
 ]
 
@@ -127,13 +125,13 @@ function IsometricBlueprintStack({ activeIndex, onSelectIndex, compact = false }
         compact ? 'max-w-[200px] sm:max-w-[240px]' : 'max-w-[340px] sm:max-w-[380px]'
       }`}
     >
-      {/* HUD Active Layer Code Pill */}
-      <div className="flex items-center justify-between mb-2 sm:mb-3 px-1 sm:px-2 gap-2 text-[9px] sm:text-[10px]">
-        <span className="font-mono text-accent/80 tracking-widest uppercase shrink-0">
-          [MODEL]
+      {/* Active Focus Pill */}
+      <div className="flex items-center justify-between mb-2 sm:mb-3 px-1 sm:px-2 gap-2 text-[10px] sm:text-xs">
+        <span className="font-sans text-text-muted/80 font-medium">
+          Focus
         </span>
-        <span className="font-mono text-accent font-semibold tracking-wider truncate text-right">
-          {pillars[activeIndex]?.layerCode}
+        <span className="font-sans text-accent font-semibold tracking-wide truncate text-right">
+          {pillars[activeIndex]?.title}
         </span>
       </div>
 
@@ -568,14 +566,11 @@ export default function About() {
 
           {/* High-Contrast Bio */}
           <div ref={bioRef} className="max-w-2xl">
-            <p className="text-text/85 text-sm sm:text-base md:text-lg leading-relaxed mb-4">
+            <p className="text-text/85 text-sm sm:text-base md:text-lg leading-relaxed">
               Information Systems student based in{' '}
               <span className="text-text font-semibold">Pekalongan, Indonesia</span>. I bridge backend
               architecture and expressive visual design so software feels both reliable under the
               hood and effortless on screen.
-            </p>
-            <p className="font-mono text-xs sm:text-sm text-accent font-medium tracking-wide">
-              design() → develop() → lead() → impact()
             </p>
           </div>
         </div>
@@ -609,7 +604,7 @@ export default function About() {
                       <div className="flex items-center gap-3.5">
                         <span
                           className={`font-mono text-xs font-semibold tracking-wider transition-colors duration-300 ${
-                            isActive ? 'text-accent' : 'text-text-muted/60 group-hover:text-accent'
+                            isActive ? 'text-accent' : 'text-text-muted group-hover:text-accent'
                           }`}
                         >
                           /{item.index}
@@ -618,7 +613,7 @@ export default function About() {
                           className={`font-sans font-bold text-lg sm:text-xl transition-colors duration-300 ${
                             isActive
                               ? 'text-text'
-                              : 'text-text/75 group-hover:text-text'
+                              : 'text-text/85 group-hover:text-text'
                           }`}
                         >
                           {item.title}
@@ -627,11 +622,11 @@ export default function About() {
 
                       <div className="flex items-center gap-2">
                         {isActive ? (
-                          <span className="card-gsap-item font-mono text-[10px] text-accent/80 bg-accent/10 px-2.5 py-0.5 rounded-full border border-accent/20">
+                          <span className="card-gsap-item font-mono text-[10px] text-accent/90 bg-accent/10 px-2.5 py-0.5 rounded-full border border-accent/20">
                             {item.tagline}
                           </span>
                         ) : (
-                          <span className="font-mono text-xs text-text-muted/40 group-hover:text-accent group-hover:translate-x-1 transition-all duration-300">
+                          <span className="font-mono text-xs text-text-muted group-hover:text-accent group-hover:translate-x-1 transition-all duration-300">
                             →
                           </span>
                         )}
@@ -648,7 +643,7 @@ export default function About() {
                     >
                       <div className="overflow-hidden">
                         <div className="pt-4">
-                          <p className="card-gsap-item text-text/80 text-sm sm:text-base leading-relaxed mb-4">
+                          <p className="card-gsap-item text-text/90 text-sm sm:text-base leading-relaxed mb-4">
                             {item.desc}
                           </p>
 
@@ -676,7 +671,7 @@ export default function About() {
                 activeIndex={activeTab}
                 onSelectIndex={(idx) => setActiveTab(idx)}
               />
-              <span className="font-mono text-[10px] text-text-muted/50 tracking-wider mt-3">
+              <span className="font-mono text-[10px] text-text-muted/80 tracking-wider mt-3">
                 Click tabs or layers to inspect system slice
               </span>
             </div>
@@ -751,6 +746,20 @@ export default function About() {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Factual link to Awards page */}
+          <div className="mt-8 pt-4 border-t border-text/10 flex items-center justify-between flex-wrap gap-3">
+            <span className="text-xs font-mono text-text-muted">
+              Prestasi kompetisi & apresiasi akademik
+            </span>
+            <Link
+              href="/awards"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline select-none"
+            >
+              <span>Lihat halaman penghargaan</span>
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </div>

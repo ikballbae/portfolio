@@ -21,8 +21,8 @@ export const HERO_STATEMENTS = [
 ] as const
 
 export const HERO_COPY = {
-    badgeMobile: 'Open for Internship',
-    badgeDesktop: 'Open for Internship & Collaboration',
+    badgeMobile: 'Available for work',
+    badgeDesktop: 'Available for work · Junior Web Developer & Internship',
     roleLabel: 'FULL-STACK DEVELOPER',
     headline: HERO_STATEMENTS[0],
     subtext: {
@@ -32,8 +32,9 @@ export const HERO_COPY = {
         bold2: 'creative design',
         suffix: '.',
     },
-    ctaPrimary: 'View My Work',
-    ctaSecondary: 'Leadership & Achievements',
+    ctaPrimary: 'Lihat Proyek',
+    ctaSecondary: 'Download CV',
+    ctaContact: 'Kontak',
 } as const
 
 // ============================================================================
@@ -47,8 +48,8 @@ export const HERO_CONFIG = {
     MOBILE_VERB_WEIGHT: 600,
     MOBILE_KW_WEIGHT: 800,
     MOBILE_AVATAR_WIDTH: 'clamp(72px, 20vw, 92px)',
-    MOBILE_BADGE_HEIGHT_PX: 26,
-    MOBILE_BADGE_FONT_PX: 10,
+    MOBILE_BADGE_HEIGHT_PX: 28,
+    MOBILE_BADGE_FONT_PX: 11,
     MOBILE_ROLE_FONT_PX: 11,
     MOBILE_SUBTEXT_FONT_PX: 14.5,
     MOBILE_SUBTEXT_LINE_HEIGHT: 1.6,
@@ -171,30 +172,28 @@ function HeroComponent() {
 
         const updateClock = () => {
             if (hudClockRef.current) {
-                hudClockRef.current.textContent = new Date().toTimeString().split(' ')[0]
+                hudClockRef.current.textContent = new Date().toLocaleTimeString('id-ID', {
+                    timeZone: 'Asia/Jakarta',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                }) + ' WIB'
             }
         }
 
-        const updateViewportSize = () => {
+        const handleResize = () => {
             syncAppSvh(false)
-            const label = `${window.innerWidth}×${window.innerHeight}`
-            if (hudVpTopRef.current) {
-                hudVpTopRef.current.textContent = `[${label}]`
-            }
-            if (hudVpBottomRef.current) {
-                hudVpBottomRef.current.textContent = `VP // ${label}`
-            }
         }
 
         updateClock()
-        updateViewportSize()
+        handleResize()
 
         const clockTimer = window.setInterval(updateClock, 1000)
-        window.addEventListener('resize', updateViewportSize, { passive: true })
+        window.addEventListener('resize', handleResize, { passive: true })
 
         return () => {
             window.clearInterval(clockTimer)
-            window.removeEventListener('resize', updateViewportSize)
+            window.removeEventListener('resize', handleResize)
         }
     }, [])
 
@@ -385,43 +384,14 @@ function HeroComponent() {
                     aria-hidden="true"
                 >
                     <div
-                        ref={hudTopLeftRef}
-                        data-testid="hud-top-left"
-                        className="hidden md:flex absolute md:left-20 items-center gap-1.5 text-accent/80"
-                        style={{ top: 'calc(var(--nav-h, 72px) + 6px)' }}
-                    >
-                        <span
-                            ref={hudCoordsRef}
-                            data-testid="hud-coords-text"
-                            className="tracking-wider text-accent font-semibold"
-                        >
-                            [0, 0]
-                        </span>
-                        <span className="text-text-muted">· SYS.MONITOR</span>
-                    </div>
-
-                    <div
                         ref={hudTopRightRef}
                         data-testid="hud-top-right"
-                        className="hidden md:flex absolute md:right-20 items-center gap-2 text-accent/80"
+                        className="hidden md:flex absolute md:right-20 items-center gap-2 text-text/80"
                         style={{ top: 'calc(var(--nav-h, 72px) + 6px)' }}
                     >
                         <span className="text-text-muted">LOCAL_TIME:</span>
                         <span ref={hudClockRef} className="tracking-wider font-semibold text-text">
-                            12:00:00
-                        </span>
-                        <span ref={hudVpTopRef} className="tracking-wider text-accent">
-                            [1920×1080]
-                        </span>
-                    </div>
-
-                    <div
-                        ref={hudBottomLeftRef}
-                        data-testid="hud-bottom-left"
-                        className="hidden md:flex absolute md:left-20 bottom-3 items-center gap-1.5 text-text-muted"
-                    >
-                        <span ref={hudVpBottomRef} className="tracking-wider">
-                            VP // 1920×1080
+                            12:00:00 WIB
                         </span>
                     </div>
                 </div>
@@ -482,12 +452,15 @@ function HeroComponent() {
                                 <div
                                     ref={badgeRef}
                                     data-testid="hero-badge"
-                                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-card-border mb-1.5 md:mb-3"
+                                    className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-surface/90 border border-card-border shadow-sm mb-1.5 md:mb-3 select-none"
                                 >
-                                    <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
+                                    <span className="relative flex h-2 w-2 shrink-0">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
+                                    </span>
                                     <span
                                         aria-hidden="true"
-                                        className="text-[11px] font-mono text-accent tracking-wider uppercase whitespace-nowrap"
+                                        className="text-xs font-sans font-medium text-text/90 tracking-normal whitespace-nowrap"
                                     >
                                         {HERO_COPY.badgeDesktop}
                                     </span>
@@ -595,18 +568,6 @@ function HeroComponent() {
                                             </a>
                                         </MagneticWrapper>
                                     </div>
-
-                                    <div ref={ctaSecondaryRef} className="w-full md:w-auto">
-                                        <MagneticWrapper strength={0.2} className="w-full md:w-auto">
-                                            <a
-                                                href="/experience"
-                                                data-testid="cta-secondary"
-                                                className="w-full md:w-auto h-[44px] md:h-11 inline-flex items-center justify-center px-5 border border-card-border bg-transparent text-text font-grotesk font-semibold text-[15px] md:text-sm rounded-[12px] md:rounded-md active:scale-[0.97] md:hover:text-accent md:hover:border-accent/40 transition-all duration-200 whitespace-nowrap"
-                                            >
-                                                {HERO_COPY.ctaSecondary}
-                                            </a>
-                                        </MagneticWrapper>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -621,15 +582,18 @@ function HeroComponent() {
                         data-testid="mobile-hero-container"
                         className="md:hidden flex flex-col items-start justify-center text-left w-full max-w-[420px] mx-auto px-6 py-2 select-none"
                     >
-                        {/* 1. Badge "OPEN FOR INTERNSHIP" */}
+                        {/* 1. Badge "Available for work" */}
                         <div
                             ref={mobileBadgeRef}
                             data-testid="mobile-badge"
-                            className="inline-flex items-center gap-2 px-2.5 h-[26px] rounded-full bg-surface border border-accent/20 select-none shrink-0"
+                            className="inline-flex items-center gap-2 px-3 h-7 rounded-full bg-surface/90 border border-card-border shadow-sm select-none shrink-0 max-w-full"
                             style={{ marginTop: '24px' }}
                         >
-                            <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                            <span className="text-[10px] font-mono font-semibold text-accent tracking-[0.08em] uppercase whitespace-nowrap leading-none">
+                            <span className="relative flex h-2 w-2 shrink-0">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
+                            </span>
+                            <span className="text-[11px] font-sans font-medium text-text/90 tracking-normal whitespace-nowrap leading-none">
                                 {HERO_COPY.badgeMobile}
                             </span>
                         </div>
@@ -687,35 +651,17 @@ function HeroComponent() {
                             {HERO_COPY.subtext.suffix}
                         </p>
 
-                        {/* 5. CTA Utama: Lebar penuh, tinggi 52px, radius 12px, jarak 28px dari subteks */}
-                        <div ref={mobileCtaPrimaryRef} className="w-full" style={{ marginTop: '28px' }}>
+                        {/* 5. CTA Mobile: Lihat Proyek */}
+                        <div ref={mobileCtaPrimaryRef} className="w-full" style={{ marginTop: '18px' }}>
                             <a
                                 href="/projects"
                                 data-testid="mobile-cta-primary"
-                                className="w-full h-[52px] inline-flex items-center justify-center gap-2 px-6 bg-accent text-bg font-grotesk font-bold text-[15px] rounded-[12px] active:scale-[0.97] transition-transform select-none"
+                                className="w-full h-[46px] inline-flex items-center justify-center gap-2 px-4 bg-accent text-bg font-grotesk font-bold text-sm rounded-[10px] active:scale-[0.97] transition-transform select-none"
                             >
-                                {HERO_COPY.ctaPrimary}
-                                <svg
-                                    className="w-4 h-4"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth={2.5}
-                                    aria-hidden="true"
-                                >
+                                <span>{HERO_COPY.ctaPrimary}</span>
+                                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
-                            </a>
-                        </div>
-
-                        {/* 6. CTA Sekunder: Tautan teks 14px dengan garis bawah tipis, jarak 18px */}
-                        <div ref={mobileCtaSecondaryRef} style={{ marginTop: '18px' }}>
-                            <a
-                                href="/experience"
-                                data-testid="mobile-cta-secondary"
-                                className="min-h-[44px] inline-flex items-center text-[14px] text-text-muted hover:text-accent font-grotesk font-medium underline underline-offset-4 decoration-card-border hover:decoration-accent transition-colors select-none"
-                            >
-                                {HERO_COPY.ctaSecondary}
                             </a>
                         </div>
                     </div>

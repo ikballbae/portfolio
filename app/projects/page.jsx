@@ -18,7 +18,7 @@ export default function ProjectsPage() {
       }}
     >
       <Navbar />
-      <main className="relative pt-24 sm:pt-28 md:pt-32 pb-16 w-full">
+      <main id="main-content" className="relative pt-24 sm:pt-28 md:pt-32 pb-16 w-full">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 mb-6">
           <ScrollReveal>
             <span className="font-sans font-semibold text-accent text-sm sm:text-base tracking-wide block mb-2">

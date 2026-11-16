@@ -441,19 +441,19 @@ export function useHeroAnimation({
                             },
                         })
 
-                        // 1. Geser ke atas & pudar keluar dengan sedikit rotasi dinamis
+                        // 1. Geser ke atas & pudar keluar
                         statementRotationTl.to(
                             span1Targets,
-                            { yPercent: -110, rotateZ: -1.5, opacity: 0, duration: 0.45, ease: 'power2.in' },
+                            { yPercent: -110, rotateZ: 0, opacity: 0, duration: 0.45, ease: 'power2.in' },
                             0
                         )
                         statementRotationTl.to(
                             span2Targets,
-                            { yPercent: -110, rotateZ: 1.5, opacity: 0, duration: 0.45, ease: 'power2.in' },
+                            { yPercent: -110, rotateZ: 0, opacity: 0, duration: 0.45, ease: 'power2.in' },
                             0.08
                         )
 
-                        // 2. Di titik tengah (di balik mask): perbarui teks & siapkan di bawah dengan kemiringan awal
+                        // 2. Di titik tengah (di balik mask): perbarui teks & siapkan di bawah
                         statementRotationTl.add(() => {
                             span1Targets.forEach((el) => {
                                 el.textContent = nextStmt.line1
@@ -463,17 +463,17 @@ export function useHeroAnimation({
                             })
                             gsap.set(span1Targets, {
                                 yPercent: 115,
-                                rotateZ: -2.5,
+                                rotateZ: 0,
                                 opacity: 0,
                             })
                             gsap.set(span2Targets, {
                                 yPercent: 115,
-                                rotateZ: 2.5,
+                                rotateZ: 0,
                                 opacity: 0,
                             })
                         }, 0.54)
 
-                        // 3. Masuk dari bawah SMOOTH (tanpa bounce saat transisi)
+                        // 3. Masuk dari bawah SMOOTH (tanpa bounce, lurus ke atas)
                         statementRotationTl.to(
                             span1Targets,
                             { yPercent: 0, rotateZ: 0, opacity: 1, duration: 0.55, ease: 'power3.out' },
@@ -484,31 +484,6 @@ export function useHeroAnimation({
                             { yPercent: 0, rotateZ: 0, opacity: 1, duration: 0.55, ease: 'power3.out' },
                             0.64
                         )
-
-                        // 4. Bounce TERPISAH setelah text settle
-                        const bounceDelay = 0.64 + 0.55 + 0.12
-                        statementRotationTl.fromTo(
-                            span1Targets,
-                            { y: 0 },
-                            { y: -8, duration: 0.15, ease: 'power2.out', yoyo: true, repeat: 1 },
-                            bounceDelay
-                        )
-                        statementRotationTl.fromTo(
-                            span2Targets,
-                            { y: 0 },
-                            { y: -8, duration: 0.15, ease: 'power2.out', yoyo: true, repeat: 1 },
-                            bounceDelay + 0.06
-                        )
-
-                        // 5. Sinkronkan reaksi avatar
-                        if (avatarFloatRef?.current) {
-                            statementRotationTl.fromTo(
-                                avatarFloatRef.current,
-                                { scale: 0.97 },
-                                { scale: 1, duration: 0.4, ease: 'power2.out' },
-                                bounceDelay
-                            )
-                        }
                     }
 
                     const startStatementRotation = () => {
@@ -655,30 +630,15 @@ export function useHeroAnimation({
                             if (mobSpan1 && mobSpan2) {
                                 entranceTl.fromTo(
                                     mobSpan1,
-                                    { yPercent: 115, rotateZ: -2, opacity: 0 },
+                                    { yPercent: 115, rotateZ: 0, opacity: 0 },
                                     { yPercent: 0, rotateZ: 0, opacity: 1, duration: 0.55, ease: 'power3.out' },
                                     0.2
                                 )
                                 entranceTl.fromTo(
                                     mobSpan2,
-                                    { yPercent: 115, rotateZ: 2, opacity: 0 },
+                                    { yPercent: 115, rotateZ: 0, opacity: 0 },
                                     { yPercent: 0, rotateZ: 0, opacity: 1, duration: 0.55, ease: 'power3.out' },
                                     0.28
-                                )
-
-                                // Bounce TERPISAH setelah text settle
-                                const mobBounceDelay = 0.28 + 0.55 + 0.15
-                                entranceTl.fromTo(
-                                    mobSpan1,
-                                    { y: 0 },
-                                    { y: -7, duration: 0.15, ease: 'power2.out', yoyo: true, repeat: 1 },
-                                    mobBounceDelay
-                                )
-                                entranceTl.fromTo(
-                                    mobSpan2,
-                                    { y: 0 },
-                                    { y: -7, duration: 0.15, ease: 'power2.out', yoyo: true, repeat: 1 },
-                                    mobBounceDelay + 0.06
                                 )
                             }
 
@@ -847,30 +807,15 @@ export function useHeroAnimation({
                             if (deskSpan1 && deskSpan2) {
                                 entranceTl.fromTo(
                                     deskSpan1,
-                                    { yPercent: 115, rotateZ: -2, opacity: 0 },
+                                    { yPercent: 115, rotateZ: 0, opacity: 0 },
                                     { yPercent: 0, rotateZ: 0, opacity: 1, duration: 0.55, ease: 'power3.out' },
                                     0.14
                                 )
                                 entranceTl.fromTo(
                                     deskSpan2,
-                                    { yPercent: 115, rotateZ: 2, opacity: 0 },
+                                    { yPercent: 115, rotateZ: 0, opacity: 0 },
                                     { yPercent: 0, rotateZ: 0, opacity: 1, duration: 0.55, ease: 'power3.out' },
                                     0.22
-                                )
-
-                                // Bounce TERPISAH setelah text settle
-                                const deskBounceDelay = 0.22 + 0.55 + 0.15
-                                entranceTl.fromTo(
-                                    deskSpan1,
-                                    { y: 0 },
-                                    { y: -9, duration: 0.15, ease: 'power2.out', yoyo: true, repeat: 1 },
-                                    deskBounceDelay
-                                )
-                                entranceTl.fromTo(
-                                    deskSpan2,
-                                    { y: 0 },
-                                    { y: -9, duration: 0.15, ease: 'power2.out', yoyo: true, repeat: 1 },
-                                    deskBounceDelay + 0.06
                                 )
                             }
 

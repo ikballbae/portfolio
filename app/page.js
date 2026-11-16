@@ -12,6 +12,7 @@ export default function Home() {
 
   return (
     <main
+      id="main-content"
       className="relative overflow-x-clip w-full"
       style={{
         visibility: isLoaded ? "visible" : "hidden",

@@ -35,6 +35,9 @@
   --font-syne: var(--font-sans);
   --font-grotesk: var(--font-sans);
   --font-inter: var(--font-sans);
+  --timeline-line: rgba(255, 255, 255, 0.28);
+  --timeline-tick: rgba(255, 255, 255, 0.35);
+  --timeline-node-border: rgba(255, 255, 255, 0.45);
 }
 
 @media (min-width: 1024px) {
@@ -70,6 +73,9 @@
   --coord-color: rgba(74, 102, 0, 0.3);
   --gradient-overlay: rgba(255, 255, 255, 1);
   --gradient-strength: 0.06;
+  --timeline-line: rgba(0, 0, 0, 0.18);
+  --timeline-tick: rgba(0, 0, 0, 0.25);
+  --timeline-node-border: rgba(0, 0, 0, 0.35);
 }
 
 /* ===== Base ===== */
@@ -1151,4 +1157,10 @@ nav[data-testid="navbar"].is-scrolled {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ===== Accessible Visible Focus Indicator ===== */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }

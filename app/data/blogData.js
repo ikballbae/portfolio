@@ -82,9 +82,9 @@ export const blogPosts = [
     slug: "attendance-devfest-2025-semarang-gdg",
     coverImage: "/blog-gdg.jpeg",
     coverCaption: "Menghadiri DevFest 2025 Semarang di BINUS University",
-    title: "Pengalaman belajar teknologi baru di DevFest Semarang",
+    title: "Catatan Teknis dari DevFest Semarang: Multi-Agent & Cloud",
     excerpt:
-      "Catatan teknis dari konferensi tahunan Google Developer Groups di Semarang: eksplorasi arsitektur multi-agent, Cloud, dan integrasi Firebase Studio.",
+      "Ringkasan materi seputar arsitektur multi-agent, alur kerja Firebase Studio, dan penerapannya pada aplikasi web.",
     date: "2025-11-22",
     readTime: "5 menit baca",
     tags: ["DevFest", "GDG Semarang", "Google Developers", "AI", "Networking"],
@@ -114,9 +114,9 @@ export const blogPosts = [
     coverImage: "/blog-3.jpeg",
     coverCaption:
       "Penerimaan penghargaan Lomba Desain Grafis Institut Widya Pratama 2024",
-    title: "Juara design di event PK Fest STMIK WP 2024",
+    title: "Meraih Juara 1 Desain Poster di PKFest STMIK Widya Pratama 2024",
     excerpt:
-      "Bagaimana disiplin rekayasa sistem informasi dan logika grid mengantarkan raihan Juara 1 pada kompetisi poster Institut Widya Pratama 2024.",
+      "Penerapan logika grid dan hierarki informasi dalam perancangan poster kompetisi di Institut Widya Pratama.",
     date: "2024-07-10",
     readTime: "4 menit baca",
     tags: ["Graphic Design", "Poster", "Creative", "Institut Widya Pratama"],
@@ -214,7 +214,7 @@ export const blogPosts = [
       "Meraih Juara 1 LKS Web Technology tingkat Kota Pekalongan dengan aplikasi POS berbasis Laravel",
     title: "Membangun aplikasi POS dengan Laravel di LKS Pekalongan",
     excerpt:
-      "Kisah keberhasilan kompetisi di Kota Pekalongan: membangun sistem Point of Sales andal dengan Laravel dalam kondisi tanpa akses internet.",
+      "Pengalaman membangun sistem Point of Sales berbasis Laravel dalam kompetisi luring tanpa akses internet di Pekalongan.",
     date: "2024-03-02",
     readTime: "5 menit baca",
     tags: ["LKS", "Laravel", "Point of Sales", "Offline Development"],

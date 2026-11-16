@@ -134,7 +134,7 @@ function BlogContent() {
         return (
             <>
                 <Navbar />
-                <main className="relative min-h-screen pt-20 sm:pt-24 md:pt-24 overflow-x-hidden w-full">
+                <main id="main-content" className="relative min-h-screen pt-20 sm:pt-24 md:pt-24 overflow-x-hidden w-full">
                     <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pb-16 sm:pb-20">
                         <BlogHeader />
                         <div className="mb-8">
@@ -232,7 +232,7 @@ export default function BlogListPage() {
         <Suspense fallback={
             <>
                 <Navbar />
-                <main className="relative min-h-screen pt-20 sm:pt-24 md:pt-24 overflow-x-hidden w-full">
+                <main id="main-content" className="relative min-h-screen pt-20 sm:pt-24 md:pt-24 overflow-x-hidden w-full">
                     <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pb-16 sm:pb-20">
                         <div className="mb-8">
                             <FeaturedSkeleton />

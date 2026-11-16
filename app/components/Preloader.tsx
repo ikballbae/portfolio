@@ -581,21 +581,14 @@ export default function Preloader() {
 
             {/* LAYER 1: POJOK & FOOTER (Tombol skip di tengah bawah dengan env(safe-area-inset-bottom)) */}
             <div
-                className="absolute inset-0 z-30 pointer-events-none flex flex-col justify-between p-5 sm:p-10"
+                className="absolute inset-0 z-30 pointer-events-none flex flex-col justify-end p-5 sm:p-10"
                 style={{
                     paddingBottom: 'calc(1.25rem + env(safe-area-inset-bottom, 0px))',
                 }}
             >
-                <div className="w-full flex items-center justify-between text-[11px] text-text-muted/50">
-                    <span className="tracking-wider">[0, 0]</span>
-                    <span className="tracking-wider">[1920, 0]</span>
-                </div>
-
-                <div className="w-full relative flex items-center justify-between text-[11px] min-h-[40px]">
-                    <span className="hidden sm:inline text-text-muted/50 tracking-wider">[0, 1080]</span>
-
+                <div className="w-full relative flex items-center justify-center text-[11px] min-h-[40px]">
                     {/* Tombol Skip persis di tengah horizontal (50% viewport) */}
-                    <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-auto">
+                    <div className="flex items-center justify-center pointer-events-auto">
                         <button
                             onClick={handleSkip}
                             type="button"

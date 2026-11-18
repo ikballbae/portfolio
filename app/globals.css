@@ -32,9 +32,9 @@
   --coord-color: rgba(196, 255, 0, 0.25);
   --gradient-overlay: rgba(17, 17, 17, 1);
   --gradient-strength: 0.025;
-  --font-syne: var(--font-sans);
-  --font-grotesk: var(--font-sans);
-  --font-inter: var(--font-sans);
+  --font-syne: var(--font-grotesk);
+  --font-grotesk: var(--font-grotesk);
+  --font-inter: var(--font-inter);
   --timeline-line: rgba(255, 255, 255, 0.28);
   --timeline-tick: rgba(255, 255, 255, 0.35);
   --timeline-node-border: rgba(255, 255, 255, 0.45);
@@ -312,33 +312,44 @@ body {
 
 /* ===== Blog Prose Typography ===== */
 .prose-blog {
-  font-family: var(--font-sans), sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: var(--text-muted);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  letter-spacing: -0.01em;
+}
+
+.prose-blog > p:first-of-type {
+  font-size: 1.1875rem;
   line-height: 1.8;
+  color: var(--text);
+  font-weight: 400;
+  letter-spacing: -0.015em;
 }
 
 .prose-blog h2 {
   font-family: var(--font-sans), sans-serif;
   font-weight: 700;
-  font-size: 1.375rem;
+  font-size: 1.5rem;
   color: var(--text);
-  margin-top: 2.5rem;
-  margin-bottom: 0.75rem;
+  margin-top: 2.75rem;
+  margin-bottom: 0.85rem;
   letter-spacing: -0.02em;
+  line-height: 1.35;
 }
 
 .prose-blog h3 {
   font-family: var(--font-sans), sans-serif;
   font-weight: 600;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   color: var(--text);
   margin-top: 2rem;
   margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
 }
 
 .prose-blog p {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .prose-blog strong {
@@ -364,21 +375,38 @@ body {
 
 .prose-blog ul,
 .prose-blog ol {
-  margin-bottom: 1.25rem;
-  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .prose-blog ul {
-  list-style-type: disc;
+  list-style: none;
+  padding-left: 0;
+}
+
+.prose-blog ul > li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.75;
+}
+
+.prose-blog ul > li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .prose-blog ol {
   list-style-type: decimal;
+  padding-left: 1.5rem;
 }
 
-.prose-blog li {
-  margin-bottom: 0.5rem;
+.prose-blog ol > li {
+  margin-bottom: 0.65rem;
   padding-left: 0.25rem;
+  line-height: 1.75;
 }
 
 .prose-blog li strong {
@@ -386,22 +414,26 @@ body {
 }
 
 .prose-blog blockquote {
-  border-left: 2px solid var(--accent);
-  padding: 0.75rem 1rem 0.75rem 1.25rem;
-  margin: 1.5rem 0;
-  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  padding: 1.1rem 1.4rem;
+  margin: 2rem 0;
+  background: var(--surface-light);
   border-radius: 0 0.5rem 0.5rem 0;
   font-style: italic;
   color: var(--text);
-  font-size: 0.9375rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  border-top: 1px solid var(--card-border);
+  border-right: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
 }
 
 .prose-blog code {
   font-family: var(--font-mono), monospace;
-  font-size: 0.8125rem;
-  background: var(--surface);
+  font-size: 0.85em;
+  background: var(--surface-light);
   border: 1px solid var(--card-border);
-  padding: 0.15rem 0.4rem;
+  padding: 0.15rem 0.45rem;
   border-radius: 0.25rem;
   color: var(--accent);
 }
@@ -409,39 +441,46 @@ body {
 .prose-blog pre {
   background: var(--surface);
   border: 1px solid var(--card-border);
-  padding: 1rem 1.25rem;
+  padding: 1.15rem 1.35rem;
   border-radius: 0.5rem;
   overflow-x: auto;
-  margin: 1.5rem 0;
+  margin: 1.75rem 0;
 }
 
 .prose-blog pre code {
+  font-family: var(--font-mono), monospace;
   background: none;
   border: none;
   padding: 0;
-  font-size: 0.8125rem;
+  font-size: 0.85rem;
   color: var(--text);
+  line-height: 1.6;
 }
 
 .prose-blog img {
   border-radius: 0.75rem;
-  margin: 1.5rem 0;
+  margin: 2rem 0;
   max-width: 100%;
   height: auto;
 }
 
 @media (min-width: 640px) {
   .prose-blog {
-    font-size: 1rem;
+    font-size: 1.0625rem;
+    line-height: 1.9;
+  }
+
+  .prose-blog > p:first-of-type {
+    font-size: 1.25rem;
     line-height: 1.85;
   }
 
   .prose-blog h2 {
-    font-size: 1.5rem;
+    font-size: 1.65rem;
   }
 
   .prose-blog h3 {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
   }
 }
 

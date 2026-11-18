@@ -84,92 +84,85 @@ export default function CommentSection({ slug }: { slug: string }) {
     }, [state])
 
     return (
-        <section className="mt-16 sm:mt-24 border-t border-text/10 pt-10 sm:pt-16">
-            <div className="flex items-center gap-3 mb-8">
-                <span className="text-2xl">💬</span>
-                <h3 className="font-syne font-bold text-xl sm:text-2xl text-text">Discussion</h3>
-                <span className="bg-accent/10 text-accent font-mono text-xs px-2 py-0.5 rounded-full ml-2">
-                    {loading ? '...' : comments.length}
-                </span>
+        <section className="mt-14 sm:mt-18 pt-8 border-t border-[var(--divider)]">
+            <div className="flex items-center justify-between mb-6">
+                <h3 className="font-sans font-semibold text-base sm:text-lg text-text">
+                    Komentar <span className="text-text-muted text-sm font-normal">({loading ? '...' : comments.length})</span>
+                </h3>
             </div>
 
-            {/* Comment Form */}
-            <div className="lab-card rounded-2xl p-6 sm:p-8 mb-12 border border-text/5 relative overflow-hidden group">
-                {/* Subtle background glow effect on focus within form */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-focus-within:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                
-                <form ref={formRef} action={formAction} className="flex flex-col gap-5 relative z-10">
-                    <input type="hidden" name="article_slug" value={slug} />
-                    
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="author_name" className="text-xs sm:text-sm font-mono text-text-muted uppercase tracking-wider">Nama Anda <span className="text-accent">*</span></label>
-                        <input
-                            type="text"
-                            id="author_name"
-                            name="author_name"
-                            required
-                            minLength={2}
-                            maxLength={50}
-                            placeholder="John Doe"
-                            className="w-full bg-surface-light hover:bg-surface border border-text/10 rounded-xl px-4 py-3 text-sm sm:text-base text-text placeholder:text-text-muted/60 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all duration-300"
-                        />
+            {/* Comment Form — Bersih, Humanis, Tanpa Glow Card */}
+            <form ref={formRef} action={formAction} className="space-y-4 mb-10">
+                <input type="hidden" name="article_slug" value={slug} />
+
+                <div>
+                    <label htmlFor="author_name" className="block text-xs text-text-muted font-medium mb-1.5">
+                        Nama
+                    </label>
+                    <input
+                        type="text"
+                        id="author_name"
+                        name="author_name"
+                        required
+                        minLength={2}
+                        maxLength={50}
+                        placeholder="Nama Anda"
+                        className="w-full bg-surface border border-[var(--card-border)] rounded-lg px-3.5 py-2.5 text-sm text-text placeholder:text-text-muted/40 focus:outline-none focus:border-text/40 transition-colors"
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="content" className="block text-xs text-text-muted font-medium mb-1.5">
+                        Tanggapan
+                    </label>
+                    <textarea
+                        id="content"
+                        name="content"
+                        required
+                        minLength={5}
+                        maxLength={1000}
+                        rows={3}
+                        placeholder="Tulis tanggapan atau pertanyaan Anda..."
+                        className="w-full bg-surface border border-[var(--card-border)] rounded-lg px-3.5 py-2.5 text-sm text-text placeholder:text-text-muted/40 focus:outline-none focus:border-text/40 transition-colors resize-y"
+                    />
+                </div>
+
+                {state?.error && (
+                    <div className="text-red-400 bg-red-400/10 border border-red-400/20 px-3.5 py-2.5 rounded-lg text-xs font-mono">
+                        {state.error}
                     </div>
+                )}
 
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="content" className="text-xs sm:text-sm font-mono text-text-muted uppercase tracking-wider">Komentar <span className="text-accent">*</span></label>
-                        <textarea
-                            id="content"
-                            name="content"
-                            required
-                            minLength={5}
-                            maxLength={1000}
-                            rows={4}
-                            placeholder="Bagikan pendapat atau pertanyaan Anda..."
-                            className="w-full bg-surface-light hover:bg-surface border border-text/10 rounded-xl px-4 py-3 text-sm sm:text-base text-text placeholder:text-text-muted/60 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all duration-300 resize-y"
-                        />
+                {state?.success && (
+                    <div className={`px-3.5 py-2.5 rounded-lg text-xs font-mono border ${state.status === 'pending' ? 'text-amber-400 bg-amber-400/10 border-amber-400/20' : 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20'}`}>
+                        {state.message}
                     </div>
+                )}
 
-                    {state?.error && (
-                        <div className="text-red-400 bg-red-400/10 border border-red-400/20 px-4 py-3 rounded-lg text-sm font-mono">
-                            ⚠️ {state.error}
-                        </div>
-                    )}
-
-                    {state?.success && (
-                        <div className={`px-4 py-3 rounded-lg text-sm font-mono border ${state.status === 'pending' ? 'text-amber-400 bg-amber-400/10 border-amber-400/20' : 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20'}`}>
-                            {state.status === 'pending' ? '⏳ ' : '✅ '} {state.message}
-                        </div>
-                    )}
-
-                    <div className="flex justify-end mt-4">
-                        <button
-                            type="submit"
-                            disabled={isPending}
-                            className="px-8 py-3 bg-text text-bg hover:bg-accent hover:text-bg font-grotesk font-bold text-sm rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transform active:scale-95"
-                        >
-                            {isPending ? 'Mengirim...' : 'Kirim Komentar'}
-                        </button>
-                    </div>
-                    <p className="text-[10px] text-text-muted/40 mt-3 text-center font-mono flex items-center justify-center gap-1.5">
-                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                        </svg>
-                        Otomatis dimoderasi oleh sistem. Dilarang spam atau bahasa kasar.
-                    </p>
-                </form>
-            </div>
+                <div className="flex items-center justify-between pt-1">
+                    <span className="text-[11px] text-text-muted/50">
+                        Komentar akan dimoderasi sebelum dipublikasikan.
+                    </span>
+                    <button
+                        type="submit"
+                        disabled={isPending}
+                        className="px-4 py-2 bg-text text-bg hover:opacity-90 font-medium text-xs sm:text-sm rounded-lg transition-opacity cursor-pointer disabled:opacity-50"
+                    >
+                        {isPending ? 'Mengirim...' : 'Kirim Komentar'}
+                    </button>
+                </div>
+            </form>
 
             {/* Comments List */}
-            <div ref={listRef} className="flex flex-col gap-4">
+            <div ref={listRef} className="space-y-1">
                 {loading ? (
                     // Skeleton Loaders
                     Array.from({ length: 2 }).map((_, i) => (
-                        <div key={i} className="flex gap-4 p-5 lab-card rounded-xl border border-text/5 animate-pulse">
-                            <div className="w-12 h-12 bg-text/5 rounded-full shrink-0" />
-                            <div className="flex-1 space-y-3">
-                                <div className="h-4 bg-text/5 rounded w-1/4" />
-                                <div className="h-3 bg-text/5 rounded w-full" />
-                                <div className="h-3 bg-text/5 rounded w-5/6" />
+                        <div key={i} className="py-4 border-b border-[var(--divider)] first:border-t flex items-start gap-3.5 animate-pulse">
+                            <div className="w-8 h-8 rounded-full bg-surface-light border border-[var(--card-border)] shrink-0" />
+                            <div className="flex-1 space-y-2 pt-1">
+                                <div className="h-3.5 bg-surface-light rounded w-28" />
+                                <div className="h-3 bg-surface-light rounded w-full" />
                             </div>
                         </div>
                     ))
@@ -179,10 +172,8 @@ export default function CommentSection({ slug }: { slug: string }) {
                     ))
                 ) : (
                     // Empty State
-                    <div className="text-center py-12 px-4 border border-dashed border-text/10 rounded-xl">
-                        <div className="text-4xl mb-3 opacity-50">✨</div>
-                        <h4 className="font-syne font-semibold text-text mb-2">Belum ada komentar</h4>
-                        <p className="text-text-muted text-sm">Jadilah orang pertama yang memberikan komentar.</p>
+                    <div className="py-8 text-center text-xs text-text-muted/60 border-t border-[var(--divider)]">
+                        Belum ada komentar. Jadilah yang pertama memberikan tanggapan.
                     </div>
                 )}
             </div>

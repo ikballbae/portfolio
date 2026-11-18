@@ -4,40 +4,40 @@ export const blogPosts = [
     coverImage: "/blog-1.jpeg",
     coverCaption:
       "Pengurus UKM Pengembangan Komputer Institut Widya Pratama periode 2025/2026",
-    title: "Dari Anggota menjadi Ketua Umum UKM PK",
+    title: "Dari Divisi Dokumentasi hingga Ketua Umum UKM PK",
     excerpt:
-      "Perjalanan dari anggota hingga memimpin komunitas teknologi: inisiatif edukasi ke sekolah, dan membina regenerasi anggota.",
+      "Perjalanan saya di UKM Pengembangan Komputer: mulai dari divisi Dokumentasi, ikut mengajar di sekolah lewat PK Goes to School, sampai mengurus sekitar 100 anggota.",
     date: "2025-09-20",
-    readTime: "6 menit baca",
+    readTime: "2 menit baca",
     tags: ["Leadership", "Community", "Tech Education", "Widya Pratama"],
     category: "LEADERSHIP",
     reactions: { "🔥": 0, "💡": 0, "🚀": 0, "👏": 0 },
     content: `
-        <p>Saat pertama kali bergabung dengan UKM Pengembangan Komputer (UKM PK), saya memulainya dari rasa penasaran teknis dan bergabung dengan divisi Dokumentasi. Pada periode 2025/2026, saya menerima amanah sebagai <strong>Ketua Umum</strong> untuk memimpin arah gerak organisasi dan kurikulum belajar mahasiswa.</p>
+        <p>UKM Pengembangan Komputer di Institut Widya Pratama bergerak di bidang pengembangan teknologi, dengan visi menjadi pusat pengembangan Teknologi dan Informasi yang berwawasan global dan mendukung budaya lokal bagi mahasiswa. Awalnya saya bergabung karena penasaran dan ditempatkan di divisi Dokumentasi. Pada periode 2025/2026, saya dipercaya menjadi <strong>Ketua Umum</strong> dengan tanggung jawab menyusun arah program kerja sekaligus materi belajar anggota.</p>
 
-        <h2>Awal Perjalanan</h2>
-        <p>Semuanya dimulai di semester pertama saat saya mengikuti study club pemrograman web. Budaya kolaborasi di komunitas ini sangat kuat: anggota saling berbagi ilmu, menelaah kode bersama, dan mendorong pertumbuhan kemampuan teknis satu sama lain.</p>
+        <h2>Berawal dari study club</h2>
+        <p>Di semester pertama, saya ikut study club yang mencakup pemrograman web, UI/UX design, Database Management System, hingga game development. Materi disampaikan dari dasar dengan suasana yang santai.</p>
 
-        <p>Dari sana, kontribusi saya berkembang: mendampingi adik tingkat, mengelola lokakarya teknis, hingga dipercaya memimpin organisasi.</p>
+        <p>Kebiasaan saling berbagi materi dan membedah kode bersama membuat proses belajar jauh lebih ringan. Dari pengalaman itulah saya mulai aktif di organisasi, sebelum akhirnya saya memimpin organisasi ini.</p>
 
-       <h2>Tech Goes to School</h2>
-        <p>Program pengabdian yang kami jalankan adalah <strong>Tech Goes to School</strong>. Kami mengunjungi SMK dan SMA untuk membagikan materi desain UI/UX, dasar pemrograman web, hingga pengenalan game development. Antusiasme para siswa saat memahami dasar pemrograman menjadi tolok ukur keberhasilan program ini.</p>
+        <h2>PK Goes to School</h2>
+        <p>Lewat program pengabdian <strong>PK Goes to School</strong>, kami mendatangi berbagai SMK dan SMA di Kota Pekalongan dan sekitarnya untuk mengenalkan dasar desain UI/UX, pemrograman web, dan pengembangan game. Melihat siswa antusias saat kode pertama mereka jalan sudah cukup membuat program ini terasa berarti.</p>
 
-        <h2>Membangun Tim yang Solid</h2>
-        <p>Mengelola sekitar 100 anggota aktif menuntut pembinaan yang terstruktur. Melalui program <strong>Diklat (Pendidikan dan Pelatihan)</strong>, kami menyusun modul orientasi teknis dan sistem pendampingan anggota baru pada bulan-bulan awal kepengurusan.</p>
+        <h2>Mengurus sekitar 100 anggota</h2>
+        <p>Dengan jumlah anggota aktif sekitar 100 orang, pembinaan perlu diatur agar tidak berantakan. Lewat <strong>Diklat (Pendidikan dan Pelatihan)</strong>, kami menyiapkan modul orientasi teknis dan sistem pendampingan untuk anggota baru selama bulan-bulan awal kepengurusan.</p>
 
-        <p>Komunitas juga rutin mengadakan study club mingguan yang mencakup Manajemen Basis Data, Desain Antarmuka, Full-Stack Web, dan Game Development.</p>
+        <p>Di luar itu, study club rutin jalan tiap minggu dengan topik Manajemen Basis Data, Desain Antarmuka, Full-Stack Web, dan Game Development.</p>
 
-        <h2>Prinsip Kerja Organisasi</h2>
-        <p>Pengalaman memimpin UKM PK menegaskan beberapa prinsip mendasar dalam tata kelola tim:</p>
+        <h2>Catatan selama menjabat</h2>
+        <p>Beberapa hal yang paling terasa selama memegang tanggung jawab ini:</p>
         <ul>
-            <li>Delegasi terukur: kepemimpinan berjalan ketika tanggung jawab didistribusikan secara jelas, bukan dikerjakan sendiri.</li>
-            <li>Komunikasi empatik: keselarasan tim bergantung pada instruksi yang lugas dan ruang dengar yang adil.</li>
-            <li>Fokus pada tujuan: anggota tergerak oleh dampak nyata yang disepakati bersama, bukan sekadar daftar tugas administratif.</li>
-            <li>Ketahanan operasional: kendala di lapangan diselesaikan melalui evaluasi sistem, bukan menyalahkan individu.</li>
-        </ul>
+          <li>Delegasi tugas perlu ditetapkan sejak awal agar beban kerja merata dan jalannya organisasi tidak terhambat pada satu titik.</li>
+          <li>Komunikasi arahan harus berjalan dua arah: disampaikan secara lugas, namun tetap terbuka terhadap masukan dari setiap anggota.</li>
+          <li>Inisiatif anggota tumbuh lebih baik saat mereka memahami urgensi dan tujuan kegiatan, alih-alih sekadar menjalankan daftar instruksi.</li>
+          <li>Saat terjadi hambatan dalam pelaksanaan program, perbaikan difokuskan pada evaluasi sistem dan alur kerja sebelum menilai kinerja individu.</li>
+      </ul>
 
-        <p>Pengalaman memimpin UKM PK membuktikan bahwa kemajuan organisasi ditentukan oleh sistem belajar yang berkelanjutan dan kejelasan arah kerja tim. Fokus kami ke depan adalah memperluas dampak Tech Goes to School serta menyiapkan riset proyek anggota untuk kompetisi mendatang.</p>
+        <p>Dari pengalaman ini saya melihat bahwa organisasi bisa terus jalan kalau proses belajarnya dirawat. Harapannya, PK Goes to School dan riset proyek anggota untuk lomba bisa terus berlanjut di kepengurusan berikutnya.</p>
     `,
   },
   {
@@ -45,11 +45,11 @@ export const blogPosts = [
     coverImage: "/blog-2.png",
     coverCaption:
       "Ruang kerja Content Planning: penyusunan narasi dan distribusi konten Jinmoo Indonesia",
-    title: "Cara saya merancang konten B2B di Jinmoo Indonesia",
+    title: "Pengalaman Menjadi Content Planner di Jinmoo Indonesia",
     excerpt:
-      "Perancangan narasi brand manufaktur dan tata kelola ekosistem media sosial Jinmoo Indonesia sebagai Content Planner.",
+      "Pengalaman bekerja sebagai Content Planner di Jinmoo Indonesia: merumuskan pesan brand, mengatur jadwal tayang, dan mengelola media sosial serta marketplace.",
     date: "2024-11-15",
-    readTime: "4 menit baca",
+    readTime: "2 menit baca",
     tags: [
       "Content Planning",
       "Social Media",
@@ -59,92 +59,96 @@ export const blogPosts = [
     category: "EXPERIENCE",
     reactions: { "🔥": 0, "💡": 0, "🚀": 0, "👏": 0 },
     content: `
-        <p>Bagi industri manufaktur B2B, media sosial berfungsi sebagai media komunikasi strategis. Sebagai <strong>Content Planner</strong> di Jinmoo Indonesia, fokus utama saya adalah memastikan setiap materi publikasi memiliki kejelasan nilai, konsistensi pesan, dan relevansi bagi mitra bisnis.</p>
+        <p>Pada 2024, saya bekerja sebagai <strong>Content Planner</strong> di Jinmoo Indonesia. Fokus utama saya adalah memastikan setiap konten yang naik membawa pesan yang jelas dan relevan untuk audiens brand.</p>
 
-        <h2>Penyusunan Strategi Komunikasi</h2>
-        <p>Pengelolaan konten tidak sekadar menyusun jadwal rilis, melainkan membangun reputasi digital yang terpercaya. Pendekatan editorial yang saya terapkan mencakup tiga pilar:</p>
+        <h2>Apa saja yang dikerjakan</h2>
+        <p>Kerjaannya lebih dari sekadar menyusun jadwal posting. Saya mengelola konten Instagram dan TikTok, akun Shopee dan TikTok Shop, sekaligus menjaga konsistensi branding Jinmoo. Sehari-hari prosesnya mencakup:</p>
         <ul>
-            <li>Riset kebutuhan audiens: mengamati topik industri manufaktur terkini agar setiap publikasi menjawab persoalan calon klien.</li>
-            <li>Struktur pilar konten: memetakan materi ke dalam kategori edukasi teknis, studi kasus produk, dan pembaruan perusahaan.</li>
-            <li>Penyelarasan visual: berkolaborasi dengan desainer grafis agar pesan teknis tersampaikan secara visual dan mudah dipahami.</li>
+            <li>Riset audiens dengan memantau topik yang ramai di industri manufaktur, supaya konten menjawab pertanyaan yang memang dicari calon pembeli.</li>
+            <li>Membagi pilar konten ke dalam edukasi teknis, studi kasus produk, dan kabar perusahaan.</li>
+            <li>Koordinasi dengan desainer grafis agar penjelasan teknis tetap enak dilihat dan gampang dipahami.</li>
         </ul>
 
-        <h2>Tata Kelola Interaksi Digital</h2>
-        <p>Menjaga kehadiran brand menuntut konsistensi nada komunikasi, mulai dari penanganan tanggapan di ruang komentar hingga evaluasi berkala metrik performa mingguan untuk menyempurnakan format materi berikutnya.</p>
+        <h2>Menjaga akun tetap hidup</h2>
+        <p>Tugas saya berlanjut setelah konten terbit. Saya membalas komentar menyesuaikan gaya bahasa konten, lalu mengecek metrik performa tiap minggu untuk menentukan format apa yang perlu dipertahankan atau diganti.</p>
 
-        <blockquote>Strategi konten yang efektif bertumpu pada relevansi pesan bagi audiens dan ketepatan kanal distribusi, bukan sekadar mengejar angka impresi sesaat.</blockquote>
+        <p>Angka impresi yang tinggi sering kali percuma kalau pesannya meleset dari target audiens.</p>
 
-        <h2>Refleksi Peran</h2>
-        <p>Pengalaman di Jinmoo Indonesia memperkuat kemampuan saya dalam menghubungkan kebutuhan bisnis dengan penyampaian pesan yang terstruktur. Baik dalam menulis kode aplikasi maupun merancang narasi publikasi, tujuannya tetap sama: menghadirkan pengalaman pengguna yang bermakna dan fungsional.</p>
+        <h2>Yang terbawa sampai sekarang</h2>
+        <p>Pengalaman ini melatih saya menerjemahkan kebutuhan bisnis menjadi tulisan yang rapi. Mau itu menulis kode atau menyusun konten, patokannya tetap sama: hasilnya harus kepakai oleh orang yang membaca atau menggunakannya.</p>
     `,
   },
   {
     slug: "attendance-devfest-2025-semarang-gdg",
     coverImage: "/blog-gdg.jpeg",
     coverCaption: "Menghadiri DevFest 2025 Semarang di BINUS University",
-    title: "Catatan Teknis dari DevFest Semarang: Multi-Agent & Cloud",
+    title: "Catatan dari DevFest 2025 Semarang",
     excerpt:
-      "Ringkasan materi seputar arsitektur multi-agent, alur kerja Firebase Studio, dan penerapannya pada aplikasi web.",
+      "Ringkasan sesi teknis dari DevFest 2025 Semarang mengenai keamanan GenAI, Firebase Studio, fitur CSS modern, dan pemanfaatan AI untuk komersial, serta penerapannya pada proyek UMKM Branding Engine.",
     date: "2025-11-22",
-    readTime: "5 menit baca",
-    tags: ["DevFest", "GDG Semarang", "Google Developers", "AI", "Networking"],
+    readTime: "2 menit baca",
+    tags: [
+      "DevFest",
+      "GDG Semarang",
+      "Firebase Studio",
+      "GenAI",
+      "Web Development",
+    ],
     category: "EXPERIENCE",
     reactions: { "🔥": 0, "💡": 0, "🚀": 0, "👏": 0 },
     content: `
-        <p>Konferensi <strong>DevFest 2025 Semarang</strong> yang dihelat oleh Google Developer Groups (GDG) di BINUS University menjadi ajang penting untuk menelaah perkembangan terkini dalam ekosistem perangkat lunak global, mulai dari arsitektur agen cerdas hingga automasi backend modern.</p>
+        <p>Saya berkesempatan menghadiri <strong>DevFest 2025 Semarang</strong> yang diselenggarakan oleh Google Developer Groups (GDG) dan Women Techmakers Semarang di BINUS University pada 22 November 2025. Mengusung tema besar <em>Building Safe, Secure, and Scalable Solutions with AI and Cloud</em>, acara ini membahas banyak praktik pengembangan perangkat lunak modern dari sisi AI, cloud, web, hingga aspek legalitas teknologi.</p>
 
-        <h2>Sesi Kajian Teknis</h2>
-        <p>Beberapa topik pembahasan yang relevan dengan riset pengembangan saya meliputi:</p>
+        <h2>Topik Sesi yang Paling Relevan</h2>
+        <p>Dari rangkaian sesi yang dibawakan para Google Developer Expert (GDE) dan praktisi industri, beberapa materi berikut paling bersinggungan dengan fokus pengembangan saya saat ini:</p>
         <ul>
-            <li>Keamanan dan keandalan sistem berbasis kecerdasan buatan dalam memproses data sensitif.</li>
-            <li>Arsitektur Multi-Agent Systems menggunakan framework ADK untuk koordinasi tugas otonom.</li>
-            <li>Alur kerja Firebase Studio untuk percepatan deployment dan sinkronisasi basis data aplikasi.</li>
-            <li>Automasi operasional berbasis AI dalam membantu pengambilan keputusan analitis UMKM.</li>
+            <li><strong>Kerangka Keamanan GenAI dan AI Safety:</strong> Pembahasan mengenai standar keamanan dalam membangun aplikasi berbasis Generative AI serta mitigasi risiko saat sistem memproses data sensitif di lingkungan produksi.</li>
+            <li><strong>Pengembangan dan Deployment dengan Firebase Studio:</strong> Alur kerja pemanfaatan Firebase Studio untuk mempercepat proses penulisan kode hingga tahap deployment aplikasi secara lebih terintegrasi.</li>
+            <li><strong>AI-Commerce Profit Engine:</strong> Penerapan AI untuk membantu proses pembuatan konten produk, analisis insight, dan pengambilan keputusan bisnis secara lebih cepat pada sektor komersial.</li>
+            <li><strong>Fitur CSS Modern:</strong> Eksplorasi kemampuan CSS terbaru yang mampu menangani tata letak dan interaksi antarmuka secara native, melampaui saran standar dari AI autocomplete.</li>
         </ul>
 
-        <h2>Pertukaran Perspektif Industri</h2>
-        <p>Konferensi ini memfasilitasi diskusi teknis langsung dengan para praktisi dan sesama perekayasa perangkat lunak seputar tantangan integrasi model bahasa besar pada infrastruktur produksi yang efisien.</p>
+        <h2>Diskusi dengan Praktisi dan Komunitas</h2>
+        <p>Selain mengikuti materi di panggung utama, waktu jeda antar-sesi menjadi kesempatan berdiskusi langsung dengan sesama developer dan praktisi. Topik yang paling banyak dibahas adalah efisiensi biaya operasional saat mengintegrasikan Large Language Model (LLM) ke dalam sistem produksi, serta batasan regulasi dalam pengembangan produk digital.</p>
 
-        <h2>Penerapan pada Proyek Nyata</h2>
-        <p>Wawasan seputar Firebase Studio dan pola orkestrasi multi-agent dari konferensi ini langsung saya jadikan acuan arsitektur pada pengembangan <strong>UMKM Branding Engine</strong> berbasis Gemini API, terutama dalam efisiensi token dan persistensi data aplikasi.</p>
+        <h2>Implementasi pada Proyek</h2>
+        <p>Materi mengenai keamanan GenAI dan efisiensi alur kerja Firebase Studio langsung saya jadikan acuan saat menyusun arsitektur <strong>UMKM Branding Engine</strong> yang menggunakan Gemini API. Pendekatan tersebut membantu saya menata struktur pemrosesan data agar lebih aman sekaligus menjaga penggunaan token tetap terkendali.</p>
     `,
   },
   {
-    slug: "juara-1-desain-grafis-poster-widya-pratama",
+    slug: "juara-1-desain-grafis-poster-stmik-widya-pratama",
     coverImage: "/blog-3.jpeg",
     coverCaption:
-      "Penerimaan penghargaan Lomba Desain Grafis Institut Widya Pratama 2024",
-    title: "Meraih Juara 1 Desain Poster di PKFest STMIK Widya Pratama 2024",
+      "Penerimaan penghargaan Lomba Desain Grafis STMIK Widya Pratama 2024",
+    title: "Juara 1 Lomba Desain Poster PK Fest 2024",
     excerpt:
-      "Penerapan logika grid dan hierarki informasi dalam perancangan poster kompetisi di Institut Widya Pratama.",
+      "Bagaimana prinsip grid dan hierarki informasi membantu saya merancang poster yang meraih Juara 1 lomba desain grafis.",
     date: "2024-07-10",
-    readTime: "4 menit baca",
-    tags: ["Graphic Design", "Poster", "Creative", "Institut Widya Pratama"],
+    readTime: "2 menit baca",
+    tags: ["Graphic Design", "Poster", "Creative", "STMIK Widya Pratama"],
     category: "CREATIVE",
     reactions: { "🔥": 0, "💡": 0, "🚀": 0, "👏": 0 },
     content: `
-        <p>Pemrograman dan desain visual sering dipandang sebagai bidang yang terpisah. Dalam praktik saya, keduanya saling menguatkan. Pendekatan terukur ini mengantarkan karya saya meraih <strong>Juara 1 Lomba Desain Grafis</strong> di <strong>Institut Widya Pratama 2024</strong>.</p>
+        <p>Orang sering menganggap ngoding dan desain berada di jalur yang berseberangan, padahal keduanya saling bantu. Kebiasaan berpikir terstruktur saat menulis kode justru banyak membantu saya sampai meraih <strong>Juara 1 Lomba Desain Grafis</strong> di PK Fest 2024, STMIK Widya Pratama.</p>
 
-        <h2>Penerapan Logika Rekayasa pada Desain</h2>
-        <p>Penyusunan poster pemenang mengadopsi prinsip yang biasa saya gunakan dalam perancangan perangkat lunak:</p>
+        <h2>Memakai pola pikir engineer</h2>
+        <p>Waktu menyusun poster, saya memakai prinsip yang mirip dengan saat membangun tampilan aplikasi:</p>
         <ul>
-            <li>Penerapan sistem grid proporsional untuk menjamin keseimbangan visual dan konsistensi tata letak.</li>
-            <li>Penyusunan hierarki informasi agar pesan utama terbaca secara jelas dalam hitungan detik.</li>
-            <li>Ketelitian tata letak dan spasi piksel yang presisi, diadaptasi dari disiplin rekayasa front-end.</li>
+            <li>Sistem grid yang proporsional supaya tata letak rapi dan tidak berat sebelah.</li>
+            <li>Hierarki informasi yang jelas agar pesan utama langsung tertangkap dalam beberapa detik.</li>
+            <li>Jarak dan posisi elemen yang presisi sampai hitungan piksel, kebiasaan yang terbawa dari pengerjaan front-end.</li>
         </ul>
 
-        <h2>Alur Kerja Solutif</h2>
-        <p>Desain poster diperlakukan sebagai solusi atas tantangan komunikasi massa yang efektif:</p>
+        <h2>Proses pengerjaan</h2>
+        <p>Bagi saya, poster yang baik harus bisa menyampaikan inti informasi kepada orang yang cuma melirik sekilas. Tahapannya waktu itu:</p>
         <ol>
-            <li>Analisis objektif pesan untuk menentukan fokus komunikasi sebelum merancang visual.</li>
-            <li>Pemilihan tipografi dan rasio kontras warna yang menjamin keterbacaan optimal media cetak.</li>
-            <li>Penyempurnaan visual terukur melalui iterasi sketsa hingga draf final.</li>
+            <li>Menentukan satu pesan utama yang mau ditonjolkan sebelum menyentuh kanvas desain.</li>
+            <li>Memilih jenis huruf dan kontras warna yang aman saat dicetak di kertas.</li>
+            <li>Membuat sketsa kasar lalu merevisinya berkali-kali sampai komposisinya pas.</li>
         </ol>
 
-        <blockquote>"Desain bukan hanya soal tampilan visual, melainkan bagaimana sebuah sistem bekerja dan menyelesaikan masalah." (Steve Jobs)</blockquote>
-
-        <h2>Korelasi Desain dan Rekayasa Antarmuka</h2>
-        <p>Penguasaan prinsip visual memberikan nilai tambah konkret saat merancang produk digital: antarmuka tidak hanya dibangun di atas logika kode yang kokoh, tetapi juga menyajikan kejelasan interaksi bagi pengguna akhir.</p>
+        <h2>Efeknya saat membuat aplikasi</h2>
+        <p>Terbiasa mengatur komposisi visual sangat terasa manfaatnya waktu membangun produk digital. Antarmuka yang dibuat jadi lebih enak dilihat dan tidak membingungkan pengguna.</p>
     `,
   },
   {
@@ -152,11 +156,11 @@ export const blogPosts = [
     coverImage: "/blog-4.png",
     coverCaption:
       "Momen kompetisi LKS Web Technology tingkat Provinsi Jawa Tengah",
-    title: "Menyelesaikan 3 modul LKS Jawa Tengah tanpa internet",
+    title: "Tiga Modul LKS Jawa Tengah, Dikerjakan Tanpa Internet",
     excerpt:
-      "Bedah teknis penyelesaian 3 modul intensif (Speedtest, Client, dan Server) tingkat Provinsi menggunakan Laravel 11 dan React 18 secara offline total.",
+      "Catatan dari LKS Web Technology tingkat Provinsi Jawa Tengah: menyelesaikan 10 sub-tugas Speedtest, game BlindMaze tanpa ES6, serta aplikasi LMS Web Tech Studio memakai Laravel 11 dan React 18 tanpa internet.",
     date: "2024-05-20",
-    readTime: "12 menit baca",
+    readTime: "3 menit baca",
     tags: [
       "LKS Provinsi",
       "Laravel 11",
@@ -167,44 +171,44 @@ export const blogPosts = [
     category: "ACHIEVEMENT",
     reactions: { "🔥": 0, "💡": 0, "🚀": 0, "👏": 0 },
     content: `
-        <p>Kompetisi LKS Web Technology tingkat Provinsi Jawa Tengah menguji ketangguhan teknis peserta melalui batasan <strong>zero internet access</strong>. Seluruh solusi perangkat lunak harus dibangun murni dari penguasaan fundamental sintaks, dokumentasi lokal, dan perancangan logika mandiri.</p>
+        <p>Aturan paling menantang di LKS Web Technology tingkat Provinsi Jawa Tengah adalah seluruh modul dikerjakan <strong>tanpa akses internet sama sekali</strong>. Setiap solusi harus ditulis mengandalkan pemahaman sintaks, dokumentasi lokal, dan logika sendiri dalam batas waktu yang ketat.</p>
 
-        <h2>1. Modul Speedtest: Presisi dan Efisiensi Sintaks</h2>
-        <p>Modul ini menguji kecepatan eksekusi fitur dengan batasan pustaka yang ketat:</p>
+        <h2>1. Speedtest Module</h2>
+        <p>Modul ini menguji kecepatan menyelesaikan 10 sub-tugas lintas bidang dalam waktu singkat:</p>
         <ul>
-            <li>Merancang tata letak dashboard admin interaktif meliputi navigasi, panel metrik, dan grafik statistik.</li>
-            <li>Membangun logika antarmuka murni CSS untuk penghitungan angka dinamis dan status daftar tugas tanpa runtime JavaScript.</li>
-            <li>Membuat animasi kanvas bertema partikel dinamis dan visualisasi status pemuatan halaman.</li>
-            <li>Menyelesaikan algoritma konversi angka Romawi dan mekanisme permainan logika berbasis pemrosesan sisi server PHP.</li>
+            <li><strong>UI Design:</strong> Merancang antarmuka dashboard admin lengkap dengan navigasi, pencarian, sidebar, ringkasan statistik, dan grafik.</li>
+            <li><strong>HTML & CSS Murni:</strong> Membuat penghitung angka interaktif (CSS Counter), TODO list dengan efek coret dan transisi mulus tanpa JavaScript, serta animasi Wave Loader.</li>
+            <li><strong>HTML5 Canvas:</strong> Membangun animasi pergerakan tiga kotak pada kanvas 400x400 (XYZ Move), efek hujan dengan teks transparan (Rain Forest), dan grafik Live Data 500x300 yang diperbarui setiap detik.</li>
+            <li><strong>PHP Backend:</strong> Membuat konverter angka Romawi, papan pengumuman (Noticeboard) dengan operasi CRUD ke file <code>log.json</code> tanpa JavaScript, serta game Tic-Tac-Toe melawan bot yang menyimpan status permainan di sisi server.</li>
         </ul>
 
-        <h2>2. Modul Client: Rekayasa Permainan "Blind Maze"</h2>
-        <p>Tugas modul ini adalah membangun permainan interaktif labirin berukuran 1000x600 piksel dengan Vanilla JavaScript standar ES6:</p>
+        <h2>2. Client Module: Game "BlindMaze"</h2>
+        <p>Pada modul Client, saya membangun game labirin berbasis Single Page Application di atas layar berukuran 1000x600 piksel. Aturannya cukup spesifik: dilarang menggunakan ES6 maupun JavaScript Modules, dan aplikasi harus berjalan lancar saat file <code>index.html</code> dibuka langsung di Chrome.</p>
         <ul>
-            <li>Menyusun alur permainan berbasis waktu: fase observasi labirin 10 detik diikuti navigasi tanpa panduan visual selama 20 detik.</li>
-            <li>Merancang algoritma penempatan rintangan acak yang menjamin ketersediaan jalur valid dari titik awal hingga tujuan.</li>
-            <li>Mengelola state aplikasi satu halaman mencakup profil pemain, sisa kesempatan, tahapan level, dan papan peringkat tanpa memuat ulang peramban.</li>
+            <li><strong>Alur Memorizing & Move Time:</strong> Pemain diberi waktu 10 detik untuk menghafal posisi tembok pada grid 10x10, lalu 20 detik untuk menggerakkan karakter menuju titik finis di sisi kanan saat tembok disembunyikan.</li>
+            <li><strong>Generator Peta Acak:</strong> Tembok dihasilkan secara dinamis di setiap stage baru dengan memastikan tetap tersedia jalur valid dari titik awal ke tujuan.</li>
+            <li><strong>Fitur Pendukung Permainan:</strong> Dilengkapi sistem 5 nyawa (HP), tombol <em>Hint</em> satu kali pakai untuk mengintip tembok selama 1 detik saat waktu berjalan, serta modal papan peringkat (Leaderboard) untuk menyimpan skor tertinggi.</li>
         </ul>
 
-        <h2>3. Modul Server: Pembangunan Sistem Manajemen Pembelajaran (LMS)</h2>
-        <p>Modul paling kompleks melibatkan pembangunan platform edukasi utuh berbasis <strong>Laravel 11</strong> dan <strong>React 18</strong> secara luring.</p>
-        
-        <h3>Backend REST API:</h3>
+        <h2>3. Server Module: "Web Tech Studio"</h2>
+        <p>Modul terakhir adalah membangun platform pembelajaran daring bernama <strong>Web Tech Studio</strong> menggunakan <strong>Laravel 11</strong> untuk REST API dan <strong>React 18</strong> di sisi frontend.</p>
+
+        <h3>Backend (REST API)</h3>
         <ul>
-            <li>Menerapkan autentikasi token berbasis Laravel Sanctum untuk pembatasan hak akses per sesi perangkat.</li>
-            <li>Merancang relasi database relasional bertingkat antara kursus, modul materi, kuis, dan riwayat belajar pengguna.</li>
-            <li>Mengembangkan endpoint validasi jawaban kuis instan serta kalkulasi skor hasil belajar di sisi server.</li>
+            <li>Autentikasi berbasis token dengan Laravel Sanctum yang membatasi proses logout hanya pada sesi perangkat yang aktif.</li>
+            <li>Struktur data berjenjang mulai dari <em>Course</em>, <em>Set</em>, <em>Lesson</em>, hingga <em>Lesson Contents</em> yang terbagi menjadi tipe materi bacaan (<code>learn</code>) dan kuis (<code>quiz</code>).</li>
+            <li>Endpoint validasi jawaban kuis secara instan di sisi server beserta pencatatan progres penyelesaian tiap materi.</li>
         </ul>
 
-        <h3>Frontend React 18:</h3>
+        <h3>Frontend (React 18)</h3>
         <ul>
-            <li>Membangun indikator kemajuan belajar dinamis dengan penanda status akses tiap modul materi.</li>
-            <li>Menerapkan pembatasan alur belajar berjenjang yang mewajibkan penyelesaian materi prasyarat.</li>
-            <li>Menyusun generator sertifikat digital otomatis saat modul pembelajaran terselesaikan 100%.</li>
+            <li>Pemisahan halaman antara kursus yang sudah diambil dan katalog kursus tersedia, lengkap dengan manajemen hak akses rute.</li>
+            <li>Sistem progres berurutan dengan status materi (<code>completed</code>, <code>current</code>, dan <code>locked</code>), serta fitur <em>Jump Page</em> untuk menyelesaikan seluruh materi dalam satu set melalui rangkaian kuis.</li>
+            <li>Tampilan sertifikat kelulusan otomatis yang mencantumkan nama lengkap pengguna dan nama kursus setelah seluruh materi selesai.</li>
         </ul>
 
-        <h2>Refleksi Kompetisi</h2>
-        <p>Bekerja dalam isolasi jaringan membuktikan bahwa alat bantu dan pustaka dapat berganti, namun pemahaman mendalam terhadap arsitektur dasar dan dokumentasi resmi adalah aset paling berharga seorang perekayasa perangkat lunak.</p>
+        <h2>Catatan dari Kompetisi Ini</h2>
+        <p>Ketika koneksi internet diputus dan library pihak ketiga dibatasi, tidak ada dokumentasi daring yang bisa dijadikan sandaran saat menemui kendala. Framework dan perkakas bisa berganti kapan saja, tetapi penguasaan dasar bahasa pemrograman, struktur data, dan arsitektur aplikasi tetap menjadi pegangan utama.</p>
     `,
   },
   {
@@ -212,37 +216,35 @@ export const blogPosts = [
     coverImage: "/blog-5.jpeg",
     coverCaption:
       "Meraih Juara 1 LKS Web Technology tingkat Kota Pekalongan dengan aplikasi POS berbasis Laravel",
-    title: "Membangun aplikasi POS dengan Laravel di LKS Pekalongan",
+    title: "Juara 1 LKS Kota Pekalongan: Membangun Aplikasi POS Tanpa Internet",
     excerpt:
-      "Pengalaman membangun sistem Point of Sales berbasis Laravel dalam kompetisi luring tanpa akses internet di Pekalongan.",
+      "Cerita meraih Juara 1 LKS Web Technology Kota Pekalongan lewat aplikasi Point of Sales berbasis Laravel yang dikerjakan secara offline.",
     date: "2024-03-02",
-    readTime: "5 menit baca",
+    readTime: "2 menit baca",
     tags: ["LKS", "Laravel", "Point of Sales", "Offline Development"],
     category: "ACHIEVEMENT",
     reactions: { "🔥": 0, "💡": 0, "🚀": 0, "👏": 0 },
     content: `
-        <p>Meraih <strong>Juara 1 LKS Web Technology tingkat Kota Pekalongan</strong> menuntut pembuktian kompetensi teknis di bawah tekanan waktu dan aturan <strong>total offline</strong>.</p>
+        <p>Saya meraih <strong>Juara 1 LKS Web Technology tingkat Kota Pekalongan</strong> setelah menyelesaikan soal dalam waktu terbatas dengan aturan <strong>total offline</strong>.</p>
 
-        <h2>Kondisi Pengujian</h2>
-        <p>Selama kompetisi berlangsung, koneksi internet dinonaktifkan sepenuhnya:</p>
+        <h2>Situasi saat lomba</h2>
+        <p>Koneksi internet diputus penuh selama pengerjaan berlangsung, jadi kondisinya seperti ini:</p>
         <ul>
-            <li>Ketiadaan dokumentasi daring: seluruh sintaks routing, relasi model Eloquent, dan controller diimplementasikan dari pemahaman mendalam.</li>
-            <li>Keterbatasan pustaka: pengerjaan bertumpu pada dependensi bawaan panitia tanpa akses pengunduhan paket eksternal.</li>
-            <li>Penanganan galat mandiri: investigasi kendala kode diselesaikan murni melalui analisis log dan penelusuran alur data.</li>
+            <li>Tidak bisa buka dokumentasi online. Routing, relasi model Eloquent, dan controller harus ditulis dari pemahaman sendiri.</li>
+            <li>Tidak bisa mengunduh package tambahan, sehingga harus memanfaatkan dependency yang sudah disiapkan panitia.</li>
+            <li>Saat muncul error, pelacakan dilakukan manual lewat log dan pengecekan alur data.</li>
         </ul>
 
-        <h2>Pembangunan Sistem Kasir (Point of Sales)</h2>
-        <p>Aplikasi kasir dirancang dengan memprioritaskan integritas data transaksi:</p>
+        <h2>Aplikasi kasir (Point of Sales)</h2>
+        <p>Karena ini aplikasi kasir, fokus utama saya ada di akurasi perhitungan transaksi. Fitur utamanya meliputi:</p>
         <ol>
-            <li>Manajemen inventaris barang dengan validasi stok ketat.</li>
-            <li>Pemrosesan kalkulasi transaksi, potongan harga, dan nilai kembalian secara terverifikasi.</li>
-            <li>Penyusunan laporan rekapitulasi penjualan harian menggunakan kueri basis data teroptimasi.</li>
+            <li>Manajemen stok barang dengan validasi input yang ketat.</li>
+            <li>Perhitungan total belanja, diskon, dan uang kembalian.</li>
+            <li>Laporan penjualan harian dari query database yang sudah dirapikan.</li>
         </ol>
 
-        <blockquote>Dalam kondisi tanpa internet, keandalan aplikasi ditentukan oleh kedisiplinan perancangan skema data sebelum baris kode pertama ditulis.</blockquote>
-
-        <h2>Metodologi Eksekusi</h2>
-        <p>Saya menerapkan metodologi perencanaan ketat dengan memetakan normalisasi basis data di atas kertas sebelum menulis kode. Struktur yang terencana meminimalkan kesalahan integrasi antara antarmuka pengguna dan backend Laravel, menghasilkan aplikasi POS yang stabil hingga babak penjurian selesai.</p>
+        <h2>Cara kerja saya waktu itu</h2>
+        <p>Sebelum menyentuh editor kode, saya menggambar rancangan relasi tabel database di atas kertas. Karena skemanya sudah matang di awal, proses menyambungkan tampilan dengan backend Laravel berjalan lancar dan aplikasinya aman sampai sesi penjurian selesai.</p>
     `,
   },
 ];
@@ -261,4 +263,16 @@ export function formatDate(dateString) {
     month: "long",
     day: "numeric",
   });
+}
+
+export function getRelatedPosts(currentSlug, limit = 2) {
+  const current = getBlogPost(currentSlug);
+  if (!current) return blogPosts.slice(0, limit);
+  const sameCategory = blogPosts.filter(
+    (p) => p.slug !== currentSlug && p.category === current.category,
+  );
+  const otherPosts = blogPosts.filter(
+    (p) => p.slug !== currentSlug && p.category !== current.category,
+  );
+  return [...sameCategory, ...otherPosts].slice(0, limit);
 }

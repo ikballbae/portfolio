@@ -102,41 +102,23 @@ export default function ArticleMetrics({ slug, readTime }: ArticleMetricsProps) 
 
     if (!mounted) {
         return (
-            <div className="flex items-center gap-3 mb-5 sm:mb-6 animate-pulse">
-                <div className="h-4 w-16 bg-white/5 rounded"></div>
-                <div className="h-4 w-16 bg-white/5 rounded"></div>
+            <div className="flex items-center gap-3 animate-pulse text-xs font-mono text-text-muted/40">
+                <span className="h-3.5 w-12 bg-white/5 rounded"></span>
+                <span>·</span>
+                <span className="h-3.5 w-16 bg-white/5 rounded"></span>
             </div>
         )
     }
 
     return (
-        <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-5 sm:mb-6 text-[10px] sm:text-xs font-mono text-text-muted/60">
-            {/* Reading Time */}
-            <div className="flex items-center gap-1.5 bg-white/5 px-2.5 py-1 rounded-md border border-white/5">
-                <svg className="w-3.5 h-3.5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-                <span>{readTime}</span>
-            </div>
-
-            {/* Total Views */}
-            <div className="flex items-center gap-1.5 bg-white/5 px-2.5 py-1 rounded-md border border-white/5">
-                <svg className="w-3.5 h-3.5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                </svg>
-                <span className="tabular-nums">{views} views</span>
-            </div>
-
-            {/* Active Readers */}
+        <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs font-mono text-text-muted">
+            <span className="tabular-nums">{views} views</span>
+            <span className="text-text-muted/30 select-none">·</span>
             {activeReaders > 0 && (
-                <div className="flex items-center gap-1.5 bg-green-500/10 text-green-400/90 px-2.5 py-1 rounded-md border border-green-500/20">
-                    <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                    </span>
-                    <span className="tabular-nums">{activeReaders} reading now</span>
-                </div>
+                <span className="inline-flex items-center gap-1.5 text-text-muted">
+                    <span className="w-1.5 h-1.5 bg-accent animate-pulse" />
+                    <span className="tabular-nums">{activeReaders} reading</span>
+                </span>
             )}
         </div>
     )

@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Crown, Trophy, Palette, Wrench, Briefcase, Clock, Calendar } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 interface Post {
     slug: string
@@ -19,12 +19,12 @@ interface PostCardProps {
     post: Post
 }
 
-const categoryConfig: Record<string, { label: string; color: string; bg: string; border: string; icon: React.ElementType }> = {
-    LEADERSHIP: { label: 'Leadership', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20', icon: Crown },
-    ACHIEVEMENT: { label: 'Achievement', color: 'text-amber-400', bg: 'bg-amber-500/10', border: 'border-amber-500/20', icon: Trophy },
-    CREATIVE: { label: 'Creative', color: 'text-pink-400', bg: 'bg-pink-500/10', border: 'border-pink-500/20', icon: Palette },
-    TECHNICAL: { label: 'Technical', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20', icon: Wrench },
-    EXPERIENCE: { label: 'Experience', color: 'text-orange-400', bg: 'bg-orange-500/10', border: 'border-orange-500/20', icon: Briefcase },
+const categoryLabels: Record<string, string> = {
+    LEADERSHIP: 'Kepemimpinan',
+    ACHIEVEMENT: 'Penghargaan',
+    CREATIVE: 'Kreatif & Desain',
+    TECHNICAL: 'Teknis',
+    EXPERIENCE: 'Pengalaman',
 }
 
 function formatDateID(dateString: string) {
@@ -35,78 +35,96 @@ function formatDateID(dateString: string) {
     })
 }
 
+function getPortfolioCrossLink(slug: string, category: string) {
+    if (slug.includes('ukm-pengembangan-komputer') || category === 'LEADERSHIP') {
+        return { href: '/experience', label: 'Pengalaman UKM PK' }
+    }
+    if (slug.includes('jinmoo')) {
+        return { href: '/projects', label: 'Proyek Jinmoo' }
+    }
+    if (slug.includes('poster') || slug.includes('lks') || category === 'ACHIEVEMENT') {
+        return { href: '/awards', label: 'Sertifikat di Penghargaan' }
+    }
+    return null
+}
+
 export default function PostCard({ post }: PostCardProps) {
-    const config = categoryConfig[post.category] || categoryConfig.TECHNICAL
-    const IconComponent = config.icon
+    const router = useRouter()
+    const crossLink = getPortfolioCrossLink(post.slug, post.category)
+    const categoryName = categoryLabels[post.category] || post.category
+
+    const handleCardClick = () => {
+        router.push(`/blog/${post.slug}`)
+    }
 
     return (
-        <article className="group h-full">
-            <Link
-                href={`/blog/${post.slug}`}
-                className="
-                    flex flex-col h-full rounded-xl overflow-hidden bg-surface
-                    border border-[var(--card-border)]
-                    transition-all duration-300 hover:border-accent/30 hover:-translate-y-1
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent
-                    focus-visible:ring-offset-2 focus-visible:ring-offset-bg
-                "
-            >
-                {/* Thumbnail */}
-                {post.coverImage && (
-                    <div className="relative w-full aspect-[16/10] overflow-hidden">
-                        <Image
-                            src={post.coverImage}
-                            alt={post.title}
-                            fill
-                            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 380px"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent opacity-60" />
-                    </div>
-                )}
+        <article
+            onClick={handleCardClick}
+            className="group h-full flex flex-col rounded-xl overflow-hidden bg-[var(--surface)] border border-[var(--card-border)] hover:border-text/30 transition-all duration-300 cursor-pointer"
+        >
+            {/* Thumbnail */}
+            {post.coverImage && (
+                <div className="relative w-full aspect-[16/10] overflow-hidden bg-[var(--surface-light)]">
+                    <Image
+                        src={post.coverImage}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 420px"
+                    />
+                </div>
+            )}
 
-                <div className="flex flex-col flex-1 p-4 sm:p-5">
-                    {/* Category + meta */}
-                    <div className="flex items-center justify-between gap-2 mb-2.5">
-                        <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-medium border ${config.bg} ${config.color} ${config.border}`}>
-                            <IconComponent className="w-3 h-3" strokeWidth={1.5} />
-                            {config.label}
-                        </span>
-                        <div className="flex items-center gap-1.5 text-text-muted/50 text-[11px] font-mono">
-                            <Clock className="w-3 h-3" strokeWidth={1.5} />
-                            {post.readTime}
-                        </div>
+            {/* Content Details */}
+            <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                <div>
+                    {/* Meta: Tanggal · Kategori */}
+                    <div className="flex items-center gap-2 text-xs text-text-muted mb-2 font-normal">
+                        <span>{formatDateID(post.date)}</span>
+                        {post.readTime && (
+                            <>
+                                <span className="text-text-muted/40">·</span>
+                                <span>{post.readTime}</span>
+                            </>
+                        )}
+                        <span className="text-text-muted/40">·</span>
+                        <span className="text-text-muted/90">{categoryName}</span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-syne font-bold text-base text-text leading-snug mb-2 line-clamp-2 group-hover:text-accent transition-colors duration-200">
-                        {post.title}
+                    <h3 className="font-sans font-bold text-base sm:text-lg text-text tracking-tight mb-2.5 group-hover:text-accent transition-colors duration-200 line-clamp-2">
+                        <Link
+                            href={`/blog/${post.slug}`}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {post.title}
+                        </Link>
                     </h3>
 
-                    {/* Excerpt — clamped to 2 lines */}
-                    <p className="text-text-muted text-xs leading-relaxed mb-4 line-clamp-2 flex-1">
+                    {/* Excerpt */}
+                    <p className="text-xs sm:text-sm text-text-muted leading-relaxed line-clamp-2 mb-4">
                         {post.excerpt}
                     </p>
-
-                    {/* Footer */}
-                    <div className="flex items-center justify-between mt-auto pt-3 border-t border-[var(--card-border)]">
-                        <span className="flex items-center gap-1.5 text-[11px] font-mono text-text-muted/50">
-                            <Calendar className="w-3 h-3" strokeWidth={1.5} />
-                            <time dateTime={post.date}>{formatDateID(post.date)}</time>
-                        </span>
-
-                        {/* CTA */}
-                        <span className="
-                            inline-flex items-center gap-1.5 text-xs font-semibold
-                            text-accent group-hover:gap-2.5
-                            transition-all duration-200
-                        ">
-                            Baca
-                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" strokeWidth={2} />
-                        </span>
-                    </div>
                 </div>
-            </Link>
+
+                {/* Footer Actions */}
+                <div className="pt-3 border-t border-[var(--card-border)] flex items-center justify-between text-xs">
+                    <span className="font-medium text-text group-hover:text-accent transition-colors inline-flex items-center gap-1 underline underline-offset-4">
+                        <span>Baca selengkapnya</span>
+                        <span>→</span>
+                    </span>
+
+                    {crossLink && (
+                        <Link
+                            href={crossLink.href}
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-[11px] text-text-muted hover:text-accent transition-colors relative z-10"
+                        >
+                            {crossLink.label} ↗
+                        </Link>
+                    )}
+                </div>
+            </div>
         </article>
     )
 }

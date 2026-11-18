@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef, useMemo, useCallback, Suspense } from 'react'
+import Link from 'next/link'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Navbar from '../components/Navbar'
@@ -12,7 +13,9 @@ import BlogEmptyState from '../components/blog/BlogEmptyState'
 import { FeaturedSkeleton, PostCardSkeleton } from '../components/blog/PostCardSkeleton'
 import { blogPosts } from '../data/blogData'
 
-gsap.registerPlugin(ScrollTrigger)
+if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger)
+}
 
 const POSTS_PER_PAGE = 6
 const ALL_CATEGORIES = ['Semua', ...Array.from(new Set(blogPosts.map(p => p.category)))]
@@ -23,8 +26,7 @@ function BlogContent() {
     const [visibleCount, setVisibleCount] = useState(POSTS_PER_PAGE)
     const [mounted, setMounted] = useState(false)
 
-    const gridRef = useRef<HTMLDivElement>(null)
-    const gsapCtxRef = useRef<gsap.Context | null>(null)
+    const listRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         setMounted(true)
@@ -74,43 +76,37 @@ function BlogContent() {
 
     // GSAP scroll animations
     useEffect(() => {
-        if (!mounted || !gridRef.current) return
+        if (!mounted || !listRef.current) return
 
-        // Respect prefers-reduced-motion
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
         if (prefersReducedMotion) return
 
         const ctx = gsap.context(() => {
-            const cards = gridRef.current?.querySelectorAll('[data-blog-card]')
-            if (!cards || cards.length === 0) return
+            const items = listRef.current?.querySelectorAll('[data-blog-item]')
+            if (!items || items.length === 0) return
 
             gsap.fromTo(
-                cards,
-                {
-                    opacity: 0,
-                    y: 16,
-                },
+                items,
+                { opacity: 0, y: 16 },
                 {
                     opacity: 1,
                     y: 0,
-                    duration: 0.5,
+                    duration: 0.45,
                     stagger: 0.08,
                     ease: 'power2.out',
                     scrollTrigger: {
-                        trigger: gridRef.current,
-                        start: 'top 85%',
+                        trigger: listRef.current,
+                        start: 'top 88%',
                         once: true,
                     },
                 }
             )
-        }, gridRef)
-
-        gsapCtxRef.current = ctx
+        }, listRef)
 
         return () => {
             ctx.revert()
         }
-    }, [mounted, filteredPosts])
+    }, [mounted, filteredPosts, visiblePosts])
 
     const handleCategoryChange = useCallback((category: string) => {
         setActiveCategory(category)
@@ -129,19 +125,17 @@ function BlogContent() {
         setVisibleCount(prev => prev + POSTS_PER_PAGE)
     }
 
-    // Skeleton while mounting
     if (!mounted) {
         return (
             <>
                 <Navbar />
-                <main id="main-content" className="relative min-h-screen pt-20 sm:pt-24 md:pt-24 overflow-x-hidden w-full">
-                    <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pb-16 sm:pb-20">
+                <main id="main-content" className="relative min-h-screen pt-20 sm:pt-24 md:pt-28 overflow-x-hidden w-full">
+                    <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 pb-16 sm:pb-24">
                         <BlogHeader />
-                        <div className="mb-8">
+                        <div className="mb-10">
                             <FeaturedSkeleton />
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <PostCardSkeleton />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <PostCardSkeleton />
                             <PostCardSkeleton />
                         </div>
@@ -154,8 +148,8 @@ function BlogContent() {
     return (
         <>
             <Navbar />
-            <main className="relative min-h-screen pt-20 sm:pt-24 md:pt-24 overflow-x-hidden w-full">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pb-16 sm:pb-20">
+            <main id="main-content" className="relative min-h-screen pt-20 sm:pt-24 md:pt-28 overflow-x-hidden w-full">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 pb-16 sm:pb-24">
                     <BlogHeader />
 
                     <CategoryFilter
@@ -172,52 +166,87 @@ function BlogContent() {
                         <BlogEmptyState query={searchQuery} category={activeCategory} onReset={handleResetFilters} />
                     ) : (
                         <>
-                            {/* Featured post */}
+                            {/* Featured Post */}
                             {featuredPost && (
                                 <FeaturedPost post={featuredPost} />
                             )}
 
-                            {/* Post grid */}
+                            {/* Daftar Tulisan Lanjutan (2 Kolom Teratur) */}
                             {visiblePosts.length > 0 && (
-                                <>
-                                    <div className="flex items-center gap-3 mb-6">
-                                        <h2 className="text-xs font-mono font-semibold uppercase tracking-wider text-text-muted">
-                                            Artikel lainnya
+                                <div className="mt-12 sm:mt-16">
+                                    <div className="flex items-center justify-between mb-6 pb-2 border-b border-[var(--card-border)]">
+                                        <h2 className="text-base sm:text-lg font-bold text-text">
+                                            Catatan & Tulisan Lainnya
                                         </h2>
-                                        <div className="flex-1 h-px bg-[var(--card-border)]" />
+                                        <span className="text-xs text-text-muted">
+                                            {filteredPosts.length} total tulisan
+                                        </span>
                                     </div>
 
                                     <div
-                                        ref={gridRef}
-                                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                                        ref={listRef}
+                                        className="grid grid-cols-1 md:grid-cols-2 gap-6"
                                     >
                                         {visiblePosts.map((post) => (
-                                            <div key={post.slug} data-blog-card>
+                                            <div key={post.slug} data-blog-item className="h-full">
                                                 <PostCard post={post} />
                                             </div>
                                         ))}
                                     </div>
-                                </>
+                                </div>
                             )}
 
-                            {/* Load more */}
+                            {/* Muat Lebih Banyak */}
                             {hasMore && (
-                                <div className="flex justify-center mt-10">
+                                <div className="flex justify-center mt-12">
                                     <button
+                                        type="button"
                                         onClick={handleLoadMore}
                                         className="
-                                            px-6 py-3 rounded-lg text-xs sm:text-sm font-semibold
-                                            border border-[var(--card-border)] text-text-muted
-                                            hover:border-accent/40 hover:text-accent
-                                            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent
-                                            focus-visible:ring-offset-2 focus-visible:ring-offset-bg
-                                            transition-all duration-200 cursor-pointer
+                                            px-5 py-2.5 rounded-lg text-xs sm:text-sm font-medium
+                                            bg-[var(--surface)] border border-[var(--card-border)] text-text hover:border-accent hover:text-accent
+                                            transition-colors cursor-pointer
                                         "
                                     >
-                                        Muat lebih banyak
+                                        Muat tulisan lainnya
                                     </button>
                                 </div>
                             )}
+
+                            {/* Alur Eksplorasi Bersih Terbuka */}
+                            <div className="mt-16 sm:mt-24 p-6 sm:p-8 rounded-2xl bg-[var(--surface)] border border-[var(--card-border)] flex flex-col md:flex-row md:items-center justify-between gap-6">
+                                <div>
+                                    <h3 className="font-sans font-bold text-base sm:text-lg text-text mb-1">
+                                        Lanjutkan Menjelajahi Portfolio
+                                    </h3>
+                                    <p className="text-xs sm:text-sm text-text-muted max-w-md leading-relaxed">
+                                        Lihat implementasi sistem nyata, riwayat organisasi, dan sertifikat kompetisi.
+                                    </p>
+                                </div>
+                                <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+                                    <Link
+                                        href="/projects"
+                                        className="px-4 py-2 text-xs font-medium rounded-lg bg-[var(--surface-light)] border border-[var(--card-border)] text-text hover:text-accent hover:border-accent transition-colors inline-flex items-center gap-1"
+                                    >
+                                        <span>Proyek</span>
+                                        <span>↗</span>
+                                    </Link>
+                                    <Link
+                                        href="/experience"
+                                        className="px-4 py-2 text-xs font-medium rounded-lg bg-[var(--surface-light)] border border-[var(--card-border)] text-text hover:text-accent hover:border-accent transition-colors inline-flex items-center gap-1"
+                                    >
+                                        <span>Pengalaman</span>
+                                        <span>↗</span>
+                                    </Link>
+                                    <Link
+                                        href="/awards"
+                                        className="px-4 py-2 text-xs font-medium rounded-lg bg-[var(--surface-light)] border border-[var(--card-border)] text-text hover:text-accent hover:border-accent transition-colors inline-flex items-center gap-1"
+                                    >
+                                        <span>Penghargaan</span>
+                                        <span>↗</span>
+                                    </Link>
+                                </div>
+                            </div>
                         </>
                     )}
                 </div>
@@ -226,20 +255,16 @@ function BlogContent() {
     )
 }
 
-// Wrap in Suspense because useSearchParams is used in CategoryFilter
 export default function BlogListPage() {
     return (
         <Suspense fallback={
             <>
                 <Navbar />
-                <main id="main-content" className="relative min-h-screen pt-20 sm:pt-24 md:pt-24 overflow-x-hidden w-full">
-                    <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pb-16 sm:pb-20">
-                        <div className="mb-8">
+                <main id="main-content" className="relative min-h-screen pt-20 sm:pt-24 md:pt-28 overflow-x-hidden w-full">
+                    <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 pb-16 sm:pb-24">
+                        <BlogHeader />
+                        <div className="mb-10">
                             <FeaturedSkeleton />
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <PostCardSkeleton />
-                            <PostCardSkeleton />
                         </div>
                     </div>
                 </main>

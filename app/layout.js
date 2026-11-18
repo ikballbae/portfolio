@@ -1,4 +1,4 @@
-import { Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Space_Grotesk, Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "./components/ThemeProvider";
 import CustomCursor from "./components/CustomCursor";
@@ -7,13 +7,27 @@ import SmoothScroll from "./components/SmoothScroll";
 import Preloader from "./components/Preloader";
 import { LoadingProvider } from "./context/LoadingContext";
 
+const grotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-grotesk",
+  display: "swap",
+});
+
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const mono = IBM_Plex_Mono({
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-mono",
@@ -37,7 +51,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${jakarta.variable} ${mono.variable}`}
+      className={`${grotesk.variable} ${jakarta.variable} ${inter.variable} ${mono.variable}`}
     >
       <head>
         <script

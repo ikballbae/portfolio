@@ -279,7 +279,7 @@ export default function ReactionBar({ slug, initialReactions = {}, size = 'sm' }
             <div className="flex flex-col gap-2">
                 <div className="flex flex-wrap items-center gap-2 opacity-50">
                     {REACTION_ITEMS.map((item) => (
-                        <div key={item.id} className="h-9 w-14 rounded-full border border-text/10 bg-text/5 animate-pulse" />
+                        <div key={item.id} className="h-8 w-14 rounded-md border border-text/10 bg-text/5 animate-pulse" />
                     ))}
                 </div>
             </div>
@@ -315,18 +315,16 @@ export default function ReactionBar({ slug, initialReactions = {}, size = 'sm' }
                             ))}
                         </AnimatePresence>
 
-                        {/* Reaction Button — Clean, Monochromatic with 3D Emoji Hero */}
+                        {/* Reaction Button — Clean, Engineered Squircle with 3D Emoji Hero */}
                         <button
                             ref={el => { buttonRefs.current[item.id] = el }}
                             onClick={(e) => handleReaction(item, e)}
                             type="button"
                             aria-label={`${item.label} (${count})`}
-                            className={`group relative inline-flex items-center rounded-full font-mono transition-colors duration-200 border cursor-pointer select-none active:scale-[0.94] ${
-                                isLarge ? 'px-3 py-1.5 text-sm gap-2' : 'px-2.5 py-1 text-xs gap-1.5'
-                            } ${
+                            className={`group relative inline-flex items-center rounded-lg font-mono transition-colors duration-150 border cursor-pointer select-none active:scale-[0.96] px-2.5 py-1 text-xs gap-1.5 ${
                                 isReacted
-                                    ? 'bg-surface-light border-text/40 text-text'
-                                    : 'bg-surface border-text/10 text-text-muted hover:border-text/25 hover:bg-surface-light hover:text-text'
+                                    ? 'bg-surface-light border-text/40 text-text font-medium'
+                                    : 'bg-surface-light/40 border-[var(--card-border)] text-text-muted hover:border-text/30 hover:text-text'
                             }`}
                         >
                             {/* 3D Fluent Emoji Icon */}

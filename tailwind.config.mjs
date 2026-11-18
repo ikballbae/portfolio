@@ -24,9 +24,9 @@ export default {
       fontFamily: {
         sans: ['var(--font-sans)', 'sans-serif'],
         jakarta: ['var(--font-sans)', 'sans-serif'],
-        syne: ['var(--font-sans)', 'sans-serif'],
-        grotesk: ['var(--font-sans)', 'sans-serif'],
-        inter: ['var(--font-sans)', 'sans-serif'],
+        syne: ['var(--font-grotesk)', 'sans-serif'],
+        grotesk: ['var(--font-grotesk)', 'sans-serif'],
+        inter: ['var(--font-inter)', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
       },
       animation: {

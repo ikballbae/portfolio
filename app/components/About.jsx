@@ -400,10 +400,62 @@ function IsometricBlueprintStack({ activeIndex, onSelectIndex, compact = false }
 }
 
 export default function About() {
+  const sectionRef = useRef(null)
+  const headlineRef = useRef(null)
+  const bioRef = useRef(null)
   const desktopListRef = useRef(null)
   const mobileCardRef = useRef(null)
   const [activeTab, setActiveTab] = useState(0)
   const isInitialTab = useRef(true)
+
+  // ScrollTrigger text reveal animation (word by word)
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion) return
+
+    const ctx = gsap.context(() => {
+      const words = headlineRef.current?.querySelectorAll('.about-word')
+      if (words && words.length > 0) {
+        gsap.fromTo(
+          words,
+          { opacity: 0.2, y: 8 },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.06,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: headlineRef.current,
+              start: 'top 85%',
+              end: 'bottom 50%',
+              scrub: 0.5,
+            },
+          }
+        )
+      }
+
+      if (bioRef.current) {
+        gsap.fromTo(
+          bioRef.current,
+          { opacity: 0, y: 16 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: bioRef.current,
+              start: 'top 88%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        )
+      }
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
 
   // Fluid GSAP animations & micro-interactions on tab change
   useEffect(() => {
@@ -480,7 +532,7 @@ export default function About() {
   }, [activeTab])
 
   return (
-    <section id="about" className="section-padding relative">
+    <section id="about" ref={sectionRef} className="section-padding relative">
       <div className="max-w-6xl mx-auto">
         {/* Section Label */}
         <ScrollReveal>
@@ -497,34 +549,31 @@ export default function About() {
 
         {/* Editorial Manifesto */}
         <div className="mb-10 sm:mb-14 md:mb-18">
-          <ScrollReveal delay={0.1}>
-            <h2
-              className="font-sans font-bold text-2xl sm:text-4xl md:text-5xl lg:text-[54px] leading-[1.25] tracking-tight max-w-5xl mb-6 sm:mb-8 flex flex-wrap gap-x-[0.26em] gap-y-1.5 sm:gap-y-2"
-            >
-              {manifestoTokens.map((token, idx) => (
-                <span
-                  key={idx}
-                  className={`inline-block ${
-                    token.highlight ? 'text-accent' : 'text-text'
-                  }`}
-                >
-                  {token.text}
-                </span>
-              ))}
-            </h2>
-          </ScrollReveal>
+          <h2
+            ref={headlineRef}
+            className="font-sans font-bold text-2xl sm:text-4xl md:text-5xl lg:text-[54px] leading-[1.25] tracking-tight max-w-5xl mb-6 sm:mb-8 flex flex-wrap gap-x-[0.26em] gap-y-1.5 sm:gap-y-2"
+          >
+            {manifestoTokens.map((token, idx) => (
+              <span
+                key={idx}
+                className={`about-word inline-block will-change-[opacity,transform] ${
+                  token.highlight ? 'text-accent' : 'text-text'
+                }`}
+              >
+                {token.text}
+              </span>
+            ))}
+          </h2>
 
           {/* High-Contrast Bio */}
-          <ScrollReveal delay={0.2}>
-            <div className="max-w-2xl">
-              <p className="text-text/85 text-sm sm:text-base md:text-lg leading-relaxed">
-                Information Systems student based in{' '}
-                <span className="text-text font-semibold">Pekalongan, Indonesia</span>. I bridge backend
-                architecture and expressive visual design so software feels both reliable under the
-                hood and effortless on screen.
-              </p>
-            </div>
-          </ScrollReveal>
+          <div ref={bioRef} className="max-w-2xl">
+            <p className="text-text/85 text-sm sm:text-base md:text-lg leading-relaxed">
+              Information Systems student based in{' '}
+              <span className="text-text font-semibold">Pekalongan, Indonesia</span>. I bridge backend
+              architecture and expressive visual design so software feels both reliable under the
+              hood and effortless on screen.
+            </p>
+          </div>
         </div>
 
         {/* =========================================================================

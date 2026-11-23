@@ -599,10 +599,6 @@ export default function Preloader() {
                             [ skip · esc ]
                         </button>
                     </div>
-
-                    <span className="hidden sm:inline text-accent/80 tracking-wider">
-                        {'// system.init()'}
-                    </span>
                 </div>
             </div>
 

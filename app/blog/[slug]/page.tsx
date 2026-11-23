@@ -234,7 +234,7 @@ export default function BlogPostPage() {
                         <section className="mt-14 sm:mt-16 pt-8 border-t border-[var(--divider)]">
                             <div className="flex items-center justify-between mb-6">
                                 <h3 className="font-mono text-xs uppercase tracking-wider text-text-muted flex items-center gap-2">
-                                    <span className="text-accent">//</span> ARTIKEL TERKAIT
+                                    <span className="text-accent">{'//'}</span> ARTIKEL TERKAIT
                                 </h3>
                                 <Link href="/blog" className="font-mono text-xs text-text-muted hover:text-accent transition-colors">
                                     Index Blog →

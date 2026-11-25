@@ -44,38 +44,38 @@ export const blogPosts = [
     slug: "content-planner-social-media-jinmoo-indonesia",
     coverImage: "/blog-2.png",
     coverCaption:
-      "Ruang kerja Content Planning: penyusunan narasi dan distribusi konten Jinmoo Indonesia",
-    title: "Pengalaman Menjadi Content Planner di Jinmoo Indonesia",
+      "Pekerjaan sebagai Content Planner dan Graphic Designer di Jinmoo Indonesia",
+    title:
+      "Pengalaman Menjadi Content Planner dan Graphic Designer di Jinmoo Indonesia",
     excerpt:
-      "Pengalaman bekerja sebagai Content Planner di Jinmoo Indonesia: merumuskan pesan brand, mengatur jadwal tayang, dan mengelola media sosial serta marketplace.",
+      "Catatan pekerjaan saya di Jinmoo Indonesia pada 2024 sebagai Content Planner yang juga merangkap Graphic Designer: menyusun konten, membuat desainnya, dan mengelola akun media sosial serta marketplace.",
     date: "2024-11-15",
-    readTime: "2 menit baca",
+    readTime: "1 menit baca",
     tags: [
       "Content Planning",
+      "Graphic Design",
       "Social Media",
       "Jinmoo Indonesia",
-      "Digital Marketing",
     ],
     category: "EXPERIENCE",
     reactions: { "🔥": 0, "💡": 0, "🚀": 0, "👏": 0 },
     content: `
-        <p>Pada 2024, saya bekerja sebagai <strong>Content Planner</strong> di Jinmoo Indonesia. Fokus utama saya adalah memastikan setiap konten yang naik membawa pesan yang jelas dan relevan untuk audiens brand.</p>
+        <p>Pada 2024 saya bekerja di Jinmoo Indonesia sebagai <strong>Content Planner</strong>. Di posisi yang sama saya juga merangkap sebagai <strong>Graphic Designer</strong>, jadi saya yang menyusun rencana konten sekaligus membuat desain visualnya.</p>
 
-        <h2>Apa saja yang dikerjakan</h2>
-        <p>Kerjaannya lebih dari sekadar menyusun jadwal posting. Saya mengelola konten Instagram dan TikTok, akun Shopee dan TikTok Shop, sekaligus menjaga konsistensi branding Jinmoo. Sehari-hari prosesnya mencakup:</p>
+        <h2>Yang saya kerjakan</h2>
+        <p>Akun yang saya pegang adalah Instagram, TikTok, Shopee, dan TikTok Shop. Pekerjaannya meliputi:</p>
         <ul>
-            <li>Riset audiens dengan memantau topik yang ramai di industri manufaktur, supaya konten menjawab pertanyaan yang memang dicari calon pembeli.</li>
-            <li>Membagi pilar konten ke dalam edukasi teknis, studi kasus produk, dan kabar perusahaan.</li>
-            <li>Koordinasi dengan desainer grafis agar penjelasan teknis tetap enak dilihat dan gampang dipahami.</li>
+            <li>Menyusun rencana dan jadwal konten untuk Instagram dan TikTok.</li>
+            <li>Membagi konten ke tiga jenis: edukasi teknis, studi kasus produk, dan branding.</li>
+            <li>Memantau topik yang sedang dibicarakan di industri manufaktur sebagai bahan ide konten.</li>
+            <li>Mendesain materi visual konten, termasuk menyajikan penjelasan teknis dengan tampilan yang mudah dibaca.</li>
+            <li>Mengelola akun Shopee dan TikTok Shop, serta menjaga tampilan brand Jinmoo tetap seragam di semua akun.</li>
         </ul>
 
-        <h2>Menjaga akun tetap hidup</h2>
-        <p>Tugas saya berlanjut setelah konten terbit. Saya membalas komentar menyesuaikan gaya bahasa konten, lalu mengecek metrik performa tiap minggu untuk menentukan format apa yang perlu dipertahankan atau diganti.</p>
+        <h2>Setelah konten tayang</h2>
+        <p>Saya membalas komentar dengan gaya bahasa yang disesuaikan dengan kontennya. Setiap minggu saya melihat metrik performa untuk menentukan format mana yang dilanjutkan dan mana yang diganti.</p>
 
-        <p>Angka impresi yang tinggi sering kali percuma kalau pesannya meleset dari target audiens.</p>
-
-        <h2>Yang terbawa sampai sekarang</h2>
-        <p>Pengalaman ini melatih saya menerjemahkan kebutuhan bisnis menjadi tulisan yang rapi. Mau itu menulis kode atau menyusun konten, patokannya tetap sama: hasilnya harus kepakai oleh orang yang membaca atau menggunakannya.</p>
+        <p>Karena merangkap dua peran, saya menangani konten dari perencanaan sampai desain dan penayangan.</p>
     `,
   },
   {
@@ -171,7 +171,7 @@ export const blogPosts = [
     category: "ACHIEVEMENT",
     reactions: { "🔥": 0, "💡": 0, "🚀": 0, "👏": 0 },
     content: `
-        <p>Aturan paling menantang di LKS Web Technology tingkat Provinsi Jawa Tengah adalah seluruh modul dikerjakan <strong>tanpa akses internet sama sekali</strong>. Setiap solusi harus ditulis mengandalkan pemahaman sintaks, dokumentasi lokal, dan logika sendiri dalam batas waktu yang ketat.</p>
+        <p>Aturan paling menantang di LKS Web Technology tingkat Provinsi Jawa Tengah adalah seluruh modul dikerjakan <strong>tanpa akses internet sama sekali</strong>. Setiap solusi harus ditulis mengandalkan pemahaman syntax, local documentation, dan logika sendiri dalam batas waktu yang ketat.</p>
 
         <h2>1. Speedtest Module</h2>
         <p>Modul ini menguji kecepatan menyelesaikan 10 sub-tugas lintas bidang dalam waktu singkat:</p>

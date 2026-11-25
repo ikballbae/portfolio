@@ -29,34 +29,50 @@ export default function Contact() {
 
     // Setup Cloudflare Turnstile if site key is configured
     useEffect(() => {
-        if (!siteKey || !turnstileContainerRef.current) return
+        if (!siteKey) return
 
-        const renderTurnstile = () => {
-            if (window.turnstile && turnstileContainerRef.current) {
-                try {
-                    turnstileWidgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
-                        sitekey: siteKey,
-                        theme: 'dark',
-                        size: 'normal',
-                        callback: (token) => {
-                            setTurnstileToken(token)
-                        },
-                        'expired-callback': () => {
-                            setTurnstileToken('')
-                        },
-                        'error-callback': () => {
-                            setTurnstileToken('')
-                        },
-                    })
-                } catch {
-                    // Widget might already be rendered
+        let isMounted = true
+        let checkInterval = null
+
+        const renderWidget = () => {
+            if (!isMounted || !turnstileContainerRef.current) return
+            if (!window.turnstile || typeof window.turnstile.render !== 'function') return
+            if (turnstileWidgetIdRef.current) return
+
+            try {
+                const id = window.turnstile.render(turnstileContainerRef.current, {
+                    sitekey: siteKey,
+                    theme: 'dark',
+                    size: 'normal',
+                    callback: (token) => {
+                        if (isMounted) setTurnstileToken(token)
+                    },
+                    'expired-callback': () => {
+                        if (isMounted) setTurnstileToken('')
+                    },
+                    'error-callback': (errorCode) => {
+                        console.error('[Turnstile] Error callback triggered:', errorCode)
+                        if (isMounted) setTurnstileToken('')
+                    },
+                })
+                turnstileWidgetIdRef.current = id
+                if (checkInterval) {
+                    clearInterval(checkInterval)
+                    checkInterval = null
                 }
+            } catch (err) {
+                console.error('[Turnstile] Render error:', err)
             }
         }
 
-        if (typeof window !== 'undefined' && window.turnstile) {
-            renderTurnstile()
-        } else if (typeof window !== 'undefined') {
+        const ensureScriptAndRender = () => {
+            if (typeof window === 'undefined') return
+
+            if (window.turnstile && typeof window.turnstile.render === 'function') {
+                renderWidget()
+                return
+            }
+
             const scriptId = 'cf-turnstile-script'
             if (!document.getElementById(scriptId)) {
                 const script = document.createElement('script')
@@ -64,18 +80,47 @@ export default function Contact() {
                 script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
                 script.async = true
                 script.defer = true
-                script.onload = renderTurnstile
+                script.onload = () => {
+                    if (window.turnstile && typeof window.turnstile.render === 'function') {
+                        renderWidget()
+                    }
+                }
                 document.head.appendChild(script)
             }
         }
 
+        ensureScriptAndRender()
+
+        // Robust interval polling to handle React 18/19 StrictMode remounts & script loading delays
+        checkInterval = setInterval(() => {
+            if (!isMounted) {
+                clearInterval(checkInterval)
+                return
+            }
+            if (turnstileWidgetIdRef.current) {
+                clearInterval(checkInterval)
+                return
+            }
+            if (window.turnstile && typeof window.turnstile.render === 'function' && turnstileContainerRef.current) {
+                renderWidget()
+            }
+        }, 150)
+
+        const timeout = setTimeout(() => {
+            if (checkInterval) clearInterval(checkInterval)
+        }, 15000)
+
         return () => {
-            if (turnstileWidgetIdRef.current && window.turnstile) {
+            isMounted = false
+            if (checkInterval) clearInterval(checkInterval)
+            clearTimeout(timeout)
+            if (turnstileWidgetIdRef.current && window.turnstile?.remove) {
                 try {
                     window.turnstile.remove(turnstileWidgetIdRef.current)
                 } catch {
                     // Ignore removal error on unmount
                 }
+                turnstileWidgetIdRef.current = null
             }
         }
     }, [siteKey])
@@ -329,7 +374,7 @@ export default function Contact() {
                             {/* Cloudflare Turnstile widget container (rendered when NEXT_PUBLIC_TURNSTILE_SITE_KEY is provided) */}
                             {siteKey && (
                                 <div className="pt-1">
-                                    <div ref={turnstileContainerRef} className="my-1" />
+                                    <div ref={turnstileContainerRef} className="my-1 min-h-[65px]" />
                                 </div>
                             )}
 

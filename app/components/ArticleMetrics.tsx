@@ -12,15 +12,16 @@ interface ArticleMetricsProps {
 
 export default function ArticleMetrics({ slug, readTime }: ArticleMetricsProps) {
     const [views, setViews] = useState<number>(0)
-    const [activeReaders, setActiveReaders] = useState<number>(1) // at least self
+    const [activeReaders, setActiveReaders] = useState<number>(1) // at least self (min 1)
     const [mounted, setMounted] = useState(false)
     const hasRecorded = useRef(false)
+    const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
     useEffect(() => {
         setMounted(true)
         const sessionId = getSessionId()
 
-        // 1. Increment View (Call RPC) — Only recorded ONCE on mount, NEVER on realtime events
+        // 1. Increment View (Call RPC) — Only recorded ONCE on mount, NEVER on realtime/presence events
         const recordView = async () => {
             if (hasRecorded.current) return
             hasRecorded.current = true
@@ -32,7 +33,7 @@ export default function ArticleMetrics({ slug, readTime }: ArticleMetricsProps) 
                 })
                 // Ignore duplicate key errors (23505) quietly since it just means the user already viewed
                 if (error && error.code !== '23505') {
-                    console.warn('Error incrementing view:', error.message || error)
+                    console.warn('[ArticleMetrics] Error incrementing view:', error.message || error)
                 }
             } catch {
                 // Ignore network errors gracefully
@@ -58,12 +59,21 @@ export default function ArticleMetrics({ slug, readTime }: ArticleMetricsProps) 
 
         recordView().then(() => fetchViews())
 
-        // 3. Subscribe to Unified Realtime Channel (One channel per page)
+        // 3. Subscribe to Realtime Channel with Anonymous Presence Tracking
+        // - Tracks anonymous random tabId with { joined_at }
+        // - Automatically untracks on visibilitychange hidden, tracks on visible
+        // - Updates active readers debounced by 300ms
+        // - Display minimum 1
         const unsubscribe = subscribeToBlogChannel(slug, {
-            presenceUser: sessionId,
+            trackPresence: true,
             onPresenceSync: (presenceState) => {
-                const users = Object.keys(presenceState).length
-                setActiveReaders(users > 0 ? users : 1)
+                if (debounceTimer.current) {
+                    clearTimeout(debounceTimer.current)
+                }
+                debounceTimer.current = setTimeout(() => {
+                    const uniqueTabsCount = Object.keys(presenceState).length
+                    setActiveReaders(Math.max(1, uniqueTabsCount))
+                }, 300)
             },
             onMetricsChange: (payload) => {
                 const newRecord = payload.new as { views_count?: number }
@@ -74,6 +84,9 @@ export default function ArticleMetrics({ slug, readTime }: ArticleMetricsProps) 
         })
 
         return () => {
+            if (debounceTimer.current) {
+                clearTimeout(debounceTimer.current)
+            }
             unsubscribe()
         }
     }, [slug])

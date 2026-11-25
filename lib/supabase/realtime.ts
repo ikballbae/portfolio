@@ -10,11 +10,20 @@ interface ChannelEntry {
   commentListeners: Set<PostgresChangeCallback>
   metricsListeners: Set<PostgresChangeCallback>
   presenceListeners: Set<PresenceCallback>
+  presenceTrackersCount: number
   cleanupTimer: ReturnType<typeof setTimeout> | null
   isSubscribed: boolean
+  hasTracked: boolean
 }
 
-// Map per slug to ensure only one channel is created per page/slug
+// Generate anonymous, random unique ID for this browser tab instance
+// NEVER contains user identity, name, email, IP, or session IDs
+const TAB_ID =
+  typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
+    ? crypto.randomUUID()
+    : 'tab_' + Math.random().toString(36).slice(2) + Date.now().toString(36)
+
+// Map per slug to ensure only ONE channel is created per page/slug
 const channelRegistry = new Map<string, ChannelEntry>()
 
 // Set of visibility callbacks to trigger refetch when document becomes visible
@@ -22,7 +31,33 @@ const visibilityCallbacks = new Set<() => void>()
 
 if (typeof window !== 'undefined') {
   document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') {
+    const isVisible = document.visibilityState === 'visible'
+
+    channelRegistry.forEach((entry) => {
+      if (entry.presenceTrackersCount > 0 && entry.isSubscribed) {
+        if (isVisible) {
+          // Track tab presence when tab becomes active/visible
+          entry.channel
+            .track({ joined_at: Date.now() })
+            .then(() => {
+              entry.hasTracked = true
+            })
+            .catch(() => {})
+        } else {
+          // Untrack tab presence when tab is hidden/backgrounded
+          if (entry.hasTracked) {
+            entry.channel
+              .untrack()
+              .then(() => {
+                entry.hasTracked = false
+              })
+              .catch(() => {})
+          }
+        }
+      }
+    })
+
+    if (isVisible) {
       visibilityCallbacks.forEach((cb) => {
         try {
           cb()
@@ -41,20 +76,22 @@ export function registerVisibilityCallback(cb: () => void) {
   }
 }
 
-interface SubscribeOptions {
+export interface SubscribeOptions {
   onCommentChange?: PostgresChangeCallback
   onMetricsChange?: PostgresChangeCallback
   onPresenceSync?: PresenceCallback
-  presenceUser?: string
+  trackPresence?: boolean
 }
 
 /**
  * Subscribes a component to the unified blog channel for a given slug.
- * Ensures:
- * 1. Exactly one channel per slug (no duplicate WebSocket channels)
- * 2. Safe against React StrictMode unmount/remount churn
- * 3. Handles presence, comments changes, and metrics changes together
- * 4. Silent fallback on CHANNEL_ERROR, TIMED_OUT, CLOSED
+ * Guarantees:
+ * 1. Exactly ONE WebSocket channel per slug (no duplicate connections)
+ * 2. Supabase Realtime Presence with anonymous random tab key (crypto.randomUUID())
+ * 3. Minimal payload { joined_at: ... } without user identity, email, or IP
+ * 4. Automatic untrack when tab is hidden and re-track when visible
+ * 5. Safe against React StrictMode double-mount churn (debounced teardown)
+ * 6. Silent fallback on CHANNEL_ERROR, TIMED_OUT, CLOSED
  */
 export function subscribeToBlogChannel(slug: string, options: SubscribeOptions) {
   if (!slug || typeof window === 'undefined') {
@@ -65,7 +102,12 @@ export function subscribeToBlogChannel(slug: string, options: SubscribeOptions) 
 
   if (!entry) {
     const channelName = `blog-page-${slug}`
-    const channel = supabase.channel(channelName)
+    // Configure channel with random tab ID as presence key
+    const channel = supabase.channel(channelName, {
+      config: {
+        presence: { key: TAB_ID },
+      },
+    })
 
     entry = {
       channel,
@@ -73,12 +115,14 @@ export function subscribeToBlogChannel(slug: string, options: SubscribeOptions) 
       commentListeners: new Set(),
       metricsListeners: new Set(),
       presenceListeners: new Set(),
+      presenceTrackersCount: 0,
       cleanupTimer: null,
       isSubscribed: false,
+      hasTracked: false,
     }
     channelRegistry.set(slug, entry)
 
-    // Setup listeners before subscribing
+    // Setup postgres changes listeners before subscribe()
     channel
       .on(
         'postgres_changes',
@@ -139,9 +183,11 @@ export function subscribeToBlogChannel(slug: string, options: SubscribeOptions) 
     channel.subscribe(async (status, err) => {
       if (status === 'SUBSCRIBED') {
         entry!.isSubscribed = true
-        if (options.presenceUser) {
+        // If presence tracking is active and document is currently visible, track tab
+        if (entry!.presenceTrackersCount > 0 && document.visibilityState === 'visible') {
           try {
-            await channel.track({ user: options.presenceUser })
+            await channel.track({ joined_at: Date.now() })
+            entry!.hasTracked = true
           } catch {
             // Quiet fallback
           }
@@ -168,6 +214,18 @@ export function subscribeToBlogChannel(slug: string, options: SubscribeOptions) 
 
   entry.refCount++
 
+  if (options.trackPresence) {
+    entry.presenceTrackersCount++
+    if (entry.isSubscribed && document.visibilityState === 'visible' && !entry.hasTracked) {
+      entry.channel
+        .track({ joined_at: Date.now() })
+        .then(() => {
+          entry!.hasTracked = true
+        })
+        .catch(() => {})
+    }
+  }
+
   if (options.onCommentChange) {
     entry.commentListeners.add(options.onCommentChange)
   }
@@ -176,15 +234,10 @@ export function subscribeToBlogChannel(slug: string, options: SubscribeOptions) 
   }
   if (options.onPresenceSync) {
     entry.presenceListeners.add(options.onPresenceSync)
-    // If channel is already subscribed, trigger initial presence state
+    // If channel is already subscribed, pass current state immediately
     if (entry.isSubscribed) {
       options.onPresenceSync(entry.channel.presenceState())
     }
-  }
-
-  // If presence tracking requested and channel is already subscribed
-  if (options.presenceUser && entry.isSubscribed) {
-    entry.channel.track({ user: options.presenceUser }).catch(() => {})
   }
 
   // Return unsubscribe cleanup function
@@ -201,6 +254,17 @@ export function subscribeToBlogChannel(slug: string, options: SubscribeOptions) 
     if (options.onPresenceSync) {
       currentEntry.presenceListeners.delete(options.onPresenceSync)
     }
+    if (options.trackPresence) {
+      currentEntry.presenceTrackersCount = Math.max(0, currentEntry.presenceTrackersCount - 1)
+      if (currentEntry.presenceTrackersCount === 0 && currentEntry.hasTracked) {
+        currentEntry.channel
+          .untrack()
+          .then(() => {
+            currentEntry.hasTracked = false
+          })
+          .catch(() => {})
+      }
+    }
 
     currentEntry.refCount--
 
@@ -209,7 +273,11 @@ export function subscribeToBlogChannel(slug: string, options: SubscribeOptions) 
       currentEntry.cleanupTimer = setTimeout(() => {
         if (currentEntry.refCount <= 0) {
           try {
-            currentEntry.channel.untrack().catch(() => {})
+            if (currentEntry.hasTracked) {
+              currentEntry.channel.untrack().catch(() => {})
+              currentEntry.hasTracked = false
+            }
+            currentEntry.channel.unsubscribe()
             supabase.removeChannel(currentEntry.channel)
           } catch (e) {
             console.warn('[Realtime] Error removing channel:', e)

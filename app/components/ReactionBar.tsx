@@ -3,69 +3,17 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { supabase } from '../../lib/supabase/client'
 import { getSessionId } from '../../lib/utils/session'
 import gsap from 'gsap'
 import { useRealtimeReactions } from '../../hooks/useRealtimeReactions'
+import {
+  REACTION_ITEMS,
+  ReactionConfig,
+  ReactionType,
+} from '../../lib/constants/reactions'
 
-export interface ReactionItem {
-    id: string
-    dbType: string
-    dbField: string
-    label: string
-    tooltip: string
-    icon: string
-    legacyKeys: string[]
-}
-
-// 5 Pilihan Emoji Interaktif dari Microsoft Fluent UI Emoji 3D
-export const REACTION_ITEMS: ReactionItem[] = [
-    {
-        id: 'fire',
-        dbType: 'fire',
-        dbField: 'fire_count',
-        label: 'Keren',
-        tooltip: 'Keren banget!',
-        icon: '/emojis/fire.png',
-        legacyKeys: ['🔥', 'fire'],
-    },
-    {
-        id: 'mind_blown',
-        dbType: 'insightful',
-        dbField: 'insightful_count',
-        label: 'Takjub',
-        tooltip: 'Bikin takjub!',
-        icon: '/emojis/mind_blown.png',
-        legacyKeys: ['💡', 'insightful', 'mind_blown', '🤯'],
-    },
-    {
-        id: 'rocket',
-        dbType: 'rocket',
-        dbField: 'rocket_count',
-        label: 'Gas Pol',
-        tooltip: 'Terbang tinggi!',
-        icon: '/emojis/rocket.png',
-        legacyKeys: ['🚀', 'rocket'],
-    },
-    {
-        id: 'party',
-        dbType: 'applause',
-        dbField: 'applause_count',
-        label: 'Mantap',
-        tooltip: 'Mantap!',
-        icon: '/emojis/party.png',
-        legacyKeys: ['👏', 'applause', 'party', '🎉'],
-    },
-    {
-        id: 'love',
-        dbType: 'love',
-        dbField: 'love_count',
-        label: 'Suka',
-        tooltip: 'Suka tulisannya!',
-        icon: '/emojis/love.png',
-        legacyKeys: ['❤️', 'love', 'heart'],
-    },
-]
+export type ReactionItem = ReactionConfig
+export { REACTION_ITEMS }
 
 interface ReactionBarProps {
     slug: string
@@ -93,7 +41,7 @@ export default function ReactionBar({ slug, initialReactions = {}, size = 'sm' }
         setMounted(true)
     }, [])
 
-    const handleReaction = useCallback(async (item: ReactionItem, e?: React.MouseEvent) => {
+    const handleReaction = useCallback(async (item: ReactionConfig, e?: React.MouseEvent) => {
         if (e) {
             e.preventDefault()
             e.stopPropagation()
@@ -155,18 +103,23 @@ export default function ReactionBar({ slug, initialReactions = {}, size = 'sm' }
             [item.id]: !isRemoving,
         }))
 
-        // Call Supabase RPC
+        // Call Server API endpoint with strict allowlist validation
         try {
-            const { error } = await supabase.rpc('toggle_reaction', {
-                post_slug: slug,
-                user_session_id: sessionId,
-                reaction_type: item.dbType,
+            const res = await fetch('/api/reactions', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    slug,
+                    reaction: item.id,
+                    sessionId,
+                }),
             })
-            if (error) {
-                console.warn('Error toggling reaction:', error.message || error)
+            if (!res.ok) {
+                const errData = await res.json().catch(() => ({}))
+                console.warn('[ReactionBar] Error toggling reaction:', errData?.error || res.statusText)
             }
         } catch (err: any) {
-            console.warn('Error toggling reaction:', err?.message || err)
+            console.warn('[ReactionBar] Network error toggling reaction:', err?.message || err)
         }
     }, [userReacted, slug, recordLocalClick, setReactions, setUserReacted])
 

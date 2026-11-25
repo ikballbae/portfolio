@@ -15,8 +15,8 @@ export const HERO_STATEMENTS = [
         line2: 'Akhmad Ikbal.',
     },
     {
-        line1: 'Creative',
-        line2: 'Designer.',
+        line1: 'Full-Stack',
+        line2: 'Developer.',
     },
 ] as const
 
@@ -29,7 +29,7 @@ export const HERO_COPY = {
         prefix: "Information Systems student from Pekalongan, Indonesia. I don't just write code; I build solutions that merge ",
         bold1: 'engineering logic',
         middle: ' with ',
-        bold2: 'creative design',
+        bold2: 'full-stack architecture',
         suffix: '.',
     },
     ctaPrimary: 'Lihat Proyek',

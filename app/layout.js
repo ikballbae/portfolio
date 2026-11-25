@@ -35,13 +35,13 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Akhmad Ikbal · Full-Stack Web Developer & Creative Designer",
+  title: "Akhmad Ikbal · Full-Stack Web Developer",
   description:
-    "Portfolio of Akhmad Ikbal: Information Systems student, Full-Stack Developer, Creative Designer, and Chairperson of UKM Pengembangan Komputer.",
-  keywords: ["developer", "portfolio", "full-stack", "UI/UX", "creative design", "Next.js", "React", "Laravel", "Indonesia"],
+    "Portfolio of Akhmad Ikbal: Information Systems student, Full-Stack Developer, and Chairperson of UKM Pengembangan Komputer.",
+  keywords: ["developer", "portfolio", "full-stack", "Next.js", "React", "Laravel", "Indonesia"],
   openGraph: {
-    title: "Akhmad Ikbal · Full-Stack Web Developer & Creative Designer",
-    description: "I don't just write code; I build solutions that merge engineering logic with creative design.",
+    title: "Akhmad Ikbal · Full-Stack Web Developer",
+    description: "I don't just write code; I build solutions that merge engineering logic with full-stack architecture.",
     type: "website",
   },
 };

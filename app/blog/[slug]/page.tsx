@@ -209,7 +209,7 @@ export default function BlogPostPage() {
                     {/* Catatan Penutup Penulis — Alami, Tanpa Kotak Berat, Tanpa Badge AI */}
                     <div className="mt-10 pt-6 border-t border-[var(--divider)]">
                         <p className="text-sm text-text-muted leading-relaxed">
-                            Ditulis oleh <strong className="text-text font-medium">Akhmad Ikbal</strong> — Mahasiswa Teknik Informatika & Ketua Umum UKM Pengembangan Komputer (2025/2026). Catatan berkala seputar web engineering, arsitektur sistem, dan manajemen teknologi.
+                            Ditulis oleh <strong className="text-text font-medium">Akhmad Ikbal</strong> — mahasiswa Sistem Informasi yang antusias dengan dunia teknologi dan sesekali nulis catatan soal proses belajarnya.
                         </p>
                     </div>
 

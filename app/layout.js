@@ -35,14 +35,49 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Akhmad Ikbal · Full-Stack Web Developer",
+  // --- Primary ---
+  title: "Akhmad Ikbal · Full-Stack Web Developer & Creative Designer",
   description:
-    "Portfolio of Akhmad Ikbal: Information Systems student, Full-Stack Developer, and Chairperson of UKM Pengembangan Komputer.",
-  keywords: ["developer", "portfolio", "full-stack", "Next.js", "React", "Laravel", "Indonesia"],
+    "Akhmad Ikbal Khoir, Full-Stack Web Developer di Pekalongan. Juara 1 LKS Web Technology Kab. Pekalongan 2024. Mencari posisi Junior Web Developer/magang.",
+  keywords: [
+    "Akhmad Ikbal Khoir",
+    "Akhmad Ikbal",
+    "Full-Stack Web Developer",
+    "Junior Web Developer",
+    "Magang Web Developer",
+    "Juara 1 LKS Web Technology",
+    "Ketua Umum UKM Pengembangan Komputer",
+    "Web Developer Pekalongan",
+    "Laravel Next.js Developer",
+    "Mahasiswa Sistem Informasi",
+    "Pemateri Web Programming",
+    "UKM PK Institut Widya Pratama",
+  ],
+  authors: [{ name: "Akhmad Ikbal Khoir", url: "https://www.akhmadikbal.web.id" }],
+  metadataBase: new URL("https://www.akhmadikbal.web.id"),
+  alternates: {
+    canonical: "https://www.akhmadikbal.web.id",
+  },
   openGraph: {
-    title: "Akhmad Ikbal · Full-Stack Web Developer",
-    description: "I don't just write code; I build solutions that merge engineering logic with full-stack architecture.",
+    title: "Akhmad Ikbal · Full-Stack Web Developer & Creative Designer",
+    description:
+      "Portfolio of Akhmad Ikbal Khoir, Full-Stack Web Developer in Pekalongan. 1st Place LKS Web Technology (Pekalongan Regency, 2024). Seeking Junior Web Developer or internship.",
     type: "website",
+    url: "https://www.akhmadikbal.web.id",
+    locale: "id_ID",
+    alternateLocale: ["en_US"],
+    siteName: "Akhmad Ikbal · Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Akhmad Ikbal · Full-Stack Web Developer & Creative Designer",
+    description:
+      "Portfolio of Akhmad Ikbal Khoir, Full-Stack Web Developer in Pekalongan. 1st Place LKS Web Technology (Pekalongan Regency, 2024).",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
 };
 
@@ -54,6 +89,7 @@ export default function RootLayout({ children }) {
       className={`${grotesk.variable} ${jakarta.variable} ${inter.variable} ${mono.variable}`}
     >
       <head>
+        {/* Scroll restoration */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -62,6 +98,52 @@ export default function RootLayout({ children }) {
               }
               window.scrollTo(0, 0);
             `,
+          }}
+        />
+        {/* JSON-LD: Person schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Akhmad Ikbal Khoir",
+              alternateName: "Akhmad Ikbal",
+              url: "https://www.akhmadikbal.web.id",
+              jobTitle: "Full-Stack Web Developer",
+              description:
+                "Akhmad Ikbal Khoir adalah mahasiswa Sistem Informasi dan Full-Stack Web Developer asal Pekalongan dengan stack harian Laravel dan Next.js. Ia meraih Juara 1 LKS Web Technology Tingkat Kabupaten Pekalongan serta Juara 1 Lomba Desain Poster di STMIK Widya Pratama pada tahun 2024. Sebagai Ketua Umum UKM Pengembangan Komputer periode 2025/2026, ia mengoordinasikan program pembinaan teknologi seperti study club dan program Goes to School. Ia juga memiliki pengalaman sebagai pemateri pelatihan web programming dan dasar Python, serta saat ini mencari posisi Junior Web Developer atau magang.",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Pekalongan",
+                addressCountry: "ID",
+              },
+              affiliation: {
+                "@type": "EducationalOrganization",
+                name: "Institut Widya Pratama",
+              },
+              award: [
+                "Juara 1 LKS Web Technology Tingkat Kabupaten Pekalongan (2024)",
+                "Juara 1 Lomba Desain Poster, PK FEST - STMIK Widya Pratama (2024)",
+                "Siswa Terbaik RPL SMK Muhammadiyah Pencongan",
+              ],
+              knowsAbout: [
+                "Laravel",
+                "Next.js",
+                "React",
+                "MySQL",
+                "Tailwind CSS",
+                "Midtrans Gateway",
+                "GSAP",
+                "Python",
+                "Web Programming",
+              ],
+              sameAs: [
+                "https://github.com/ikballbae",
+                "https://linkedin.com/in/akhmad-ikbal-khoir",
+                "https://instagram.com/ahmdikball",
+              ],
+            }),
           }}
         />
         <link

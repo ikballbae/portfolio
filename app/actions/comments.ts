@@ -69,7 +69,7 @@ export async function submitComment(prevState: any, formData: FormData) {
         }
 
         // 5. Simpan ke Supabase (Bypass RLS dengan Service Role)
-        const { error: insertError } = await supabaseAdmin
+        const { data: newComment, error: insertError } = await supabaseAdmin
             .from('comments')
             .insert({
                 article_slug,
@@ -79,6 +79,8 @@ export async function submitComment(prevState: any, formData: FormData) {
                 moderation_reason: moderation.reason,
                 ip_hash: ipHash
             })
+            .select('id, author_name, content, created_at')
+            .single()
 
         if (insertError) {
             console.error('Error saving comment:', insertError)
@@ -93,7 +95,8 @@ export async function submitComment(prevState: any, formData: FormData) {
             message: moderation.status === 'pending'
                 ? 'Komentar Anda sedang menunggu moderasi.'
                 : 'Komentar berhasil dipublikasikan!',
-            status: moderation.status
+            status: moderation.status,
+            comment: newComment || null
         }
 
     } catch (e) {

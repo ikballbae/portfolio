@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { supabase } from '../../lib/supabase/client'
 import { getSessionId } from '../../lib/utils/session'
 import gsap from 'gsap'
+import { useRealtimeReactions } from '../../hooks/useRealtimeReactions'
 
 export interface ReactionItem {
     id: string
@@ -73,25 +74,14 @@ interface ReactionBarProps {
 }
 
 export default function ReactionBar({ slug, initialReactions = {}, size = 'sm' }: ReactionBarProps) {
-    // Normalisasi counts berdasarkan id REACTION_ITEMS
-    const normalizeInitialCounts = useCallback(() => {
-        const counts: Record<string, number> = {}
-        REACTION_ITEMS.forEach(item => {
-            let val = 0
-            for (const key of [item.id, item.dbType, ...item.legacyKeys]) {
-                if (initialReactions[key] !== undefined) {
-                    val = initialReactions[key]
-                    break
-                }
-            }
-            counts[item.id] = val
-        })
-        return counts
-    }, [initialReactions])
+    const {
+        reactions,
+        setReactions,
+        userReacted,
+        setUserReacted,
+        recordLocalClick,
+    } = useRealtimeReactions({ slug, initialReactions })
 
-    const [reactions, setReactions] = useState<Record<string, number>>(normalizeInitialCounts)
-    const [userReacted, setUserReacted] = useState<Record<string, boolean>>({})
-    const [hoveredId, setHoveredId] = useState<string | null>(null)
     const [mounted, setMounted] = useState(false)
     const [popUps, setPopUps] = useState<Record<string, { id: number; text: string }[]>>({})
 
@@ -101,104 +91,7 @@ export default function ReactionBar({ slug, initialReactions = {}, size = 'sm' }
 
     useEffect(() => {
         setMounted(true)
-        const sessionId = getSessionId()
-
-        // Fetch user reactions
-        const fetchUserReactions = async () => {
-            try {
-                const { data, error } = await supabase
-                    .from('user_interactions')
-                    .select('interaction_type')
-                    .eq('session_id', sessionId)
-                    .eq('slug', slug)
-
-                if (error && (error.message || Object.keys(error).length > 0)) {
-                    console.warn('Error fetching user reactions:', error.message || error)
-                } else if (data) {
-                    const reactedState: Record<string, boolean> = {}
-                    data.forEach((row) => {
-                        const matched = REACTION_ITEMS.find(
-                            item => item.dbType === row.interaction_type || item.id === row.interaction_type || item.legacyKeys.includes(row.interaction_type)
-                        )
-                        if (matched) reactedState[matched.id] = true
-                    })
-                    setUserReacted(reactedState)
-                }
-            } catch (err: any) {
-                console.warn('Error fetching user reactions:', err?.message || err)
-            }
-        }
-
-        // Fetch current metrics
-        const fetchMetrics = async () => {
-            try {
-                const { data, error } = await supabase
-                    .from('posts_metrics')
-                    .select('fire_count, insightful_count, rocket_count, applause_count')
-                    .eq('slug', slug)
-                    .maybeSingle()
-
-                if (error && (error.message || Object.keys(error).length > 0)) {
-                    console.warn('Error fetching metrics:', error.message || error)
-                } else if (data) {
-                    setReactions(prev => ({
-                        ...prev,
-                        fire: data.fire_count || 0,
-                        mind_blown: data.insightful_count || 0,
-                        rocket: data.rocket_count || 0,
-                        party: data.applause_count || 0,
-                    }))
-                }
-            } catch (err: any) {
-                console.warn('Error fetching metrics:', err?.message || err)
-            }
-        }
-
-        fetchUserReactions()
-        fetchMetrics()
-
-        // Realtime listener
-        let subscription: any = null
-        try {
-            subscription = supabase
-                .channel(`public:posts_metrics:reactions:slug=eq.${slug}`)
-                .on(
-                    'postgres_changes',
-                    {
-                        event: 'UPDATE',
-                        schema: 'public',
-                        table: 'posts_metrics',
-                        filter: `slug=eq.${slug}`,
-                    },
-                    (payload) => {
-                        const newRecord = payload.new as {
-                            fire_count?: number
-                            insightful_count?: number
-                            rocket_count?: number
-                            applause_count?: number
-                        }
-                        if (newRecord) {
-                            setReactions(prev => ({
-                                ...prev,
-                                fire: newRecord.fire_count ?? prev.fire,
-                                mind_blown: newRecord.insightful_count ?? prev.mind_blown,
-                                rocket: newRecord.rocket_count ?? prev.rocket,
-                                party: newRecord.applause_count ?? prev.party,
-                            }))
-                        }
-                    }
-                )
-                .subscribe()
-        } catch {
-            // Realtime ignored on offline
-        }
-
-        return () => {
-            if (subscription) {
-                supabase.removeChannel(subscription)
-            }
-        }
-    }, [slug])
+    }, [])
 
     const handleReaction = useCallback(async (item: ReactionItem, e?: React.MouseEvent) => {
         if (e) {
@@ -209,11 +102,16 @@ export default function ReactionBar({ slug, initialReactions = {}, size = 'sm' }
         const sessionId = getSessionId()
         const isRemoving = !!userReacted[item.id]
 
+        // Record user click to avoid realtime overwrite flicker
+        recordLocalClick(item.id)
+
         // GSAP Elastic Animation on image
         const img = imgRefs.current[item.id]
         const btn = buttonRefs.current[item.id]
 
-        if (img) {
+        const prefersReduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+        if (img && !prefersReduced) {
             gsap.timeline()
                 .fromTo(img, 
                     { scale: 0.8, rotate: -12 }, 
@@ -227,7 +125,7 @@ export default function ReactionBar({ slug, initialReactions = {}, size = 'sm' }
                 })
         }
 
-        if (btn) {
+        if (btn && !prefersReduced) {
             gsap.fromTo(btn,
                 { scale: 0.94 },
                 { scale: 1, duration: 0.3, ease: 'back.out(2)' }
@@ -270,9 +168,7 @@ export default function ReactionBar({ slug, initialReactions = {}, size = 'sm' }
         } catch (err: any) {
             console.warn('Error toggling reaction:', err?.message || err)
         }
-    }, [userReacted, slug])
-
-    const totalReactions = Object.values(reactions).reduce((sum, v) => sum + (v || 0), 0)
+    }, [userReacted, slug, recordLocalClick, setReactions, setUserReacted])
 
     if (!mounted) {
         return (

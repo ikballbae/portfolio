@@ -1,93 +1,68 @@
 'use client'
 
-import { useState, useEffect, useRef, useActionState } from 'react'
+import { useEffect, useRef, useActionState } from 'react'
 import { gsap } from 'gsap'
-import { supabase } from '../../lib/supabase/client'
-import CommentItem, { CommentType } from './CommentItem'
+import CommentItem from './CommentItem'
 import { submitComment } from '../actions/comments'
+import { useRealtimeComments } from '../../hooks/useRealtimeComments'
 
 export default function CommentSection({ slug }: { slug: string }) {
-    const [comments, setComments] = useState<CommentType[]>([])
-    const [loading, setLoading] = useState(true)
+    const { comments, loading, commentCount, addOptimisticComment, latestNewCommentId } = useRealtimeComments(slug)
     const listRef = useRef<HTMLDivElement>(null)
     const formRef = useRef<HTMLFormElement>(null)
 
     // Setup action state using React 19 / Next 15 useActionState
     const [state, formAction, isPending] = useActionState(submitComment, null)
 
-    useEffect(() => {
-        // Fetch existing approved comments
-        const fetchComments = async () => {
-            const { data, error } = await supabase
-                .from('comments')
-                .select('id, author_name, content, created_at')
-                .eq('article_slug', slug)
-                .eq('status', 'approved')
-                .order('created_at', { ascending: false })
-
-            if (!error && data) {
-                setComments(data)
-            }
-            setLoading(false)
-        }
-
-        fetchComments()
-
-        // Listen for realtime updates from Supabase
-        const subscription = supabase
-            .channel(`public:comments:slug=${slug}`)
-            .on(
-                'postgres_changes',
-                {
-                    event: 'INSERT',
-                    schema: 'public',
-                    table: 'comments',
-                    filter: `article_slug=eq.${slug}`,
-                },
-                (payload) => {
-                    // Only show if it's approved
-                    if (payload.new.status === 'approved') {
-                        setComments((prev) => {
-                            // Cek duplikasi jika user itu sendiri yang submit dan sudah dirender via state lokal
-                            if (prev.some(c => c.id === payload.new.id)) return prev;
-                            return [payload.new as CommentType, ...prev]
-                        })
-                    }
-                }
-            )
-            .subscribe()
-
-        return () => {
-            supabase.removeChannel(subscription)
-        }
-    }, [slug])
-
-    // GSAP animation for new comments
+    // GSAP animation on initial load (respects prefers-reduced-motion)
     useEffect(() => {
         if (!loading && listRef.current) {
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            if (prefersReduced) return
+
             const elements = listRef.current.children
             if (elements.length > 0) {
                 gsap.fromTo(
                     elements,
                     { opacity: 0, y: 20 },
-                    { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out', clearProps: 'all' }
+                    { opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out', clearProps: 'all' }
                 )
             }
         }
-    }, [loading]) // Only animate once on load. Realtime insertions can just pop in or we can add specific logic later.
+    }, [loading])
 
-    // Clear form on success
+    // GSAP animation for new realtime comments entering the list (respects prefers-reduced-motion)
+    useEffect(() => {
+        if (latestNewCommentId && listRef.current) {
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            if (prefersReduced) return
+
+            const firstChild = listRef.current.firstElementChild as HTMLElement
+            if (firstChild) {
+                gsap.fromTo(
+                    firstChild,
+                    { opacity: 0, y: -16 },
+                    { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out', clearProps: 'all' }
+                )
+            }
+        }
+    }, [latestNewCommentId])
+
+    // Clear form and optimistically render comment if immediately approved
     useEffect(() => {
         if (state?.success) {
             formRef.current?.reset()
+            if (state.comment && state.status === 'approved') {
+                addOptimisticComment(state.comment)
+            }
         }
-    }, [state])
+    }, [state, addOptimisticComment])
 
     return (
         <section className="mt-14 sm:mt-18 pt-8 border-t border-[var(--divider)]">
             <div className="flex items-center justify-between mb-6">
                 <h3 className="font-sans font-semibold text-base sm:text-lg text-text">
-                    Komentar <span className="text-text-muted text-sm font-normal">({loading ? '...' : comments.length})</span>
+                    Komentar <span className="text-text-muted text-sm font-normal">({loading ? '...' : commentCount})</span>
                 </h3>
             </div>
 

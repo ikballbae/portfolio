@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { supabase } from '../../lib/supabase/client'
 import { getSessionId } from '../../lib/utils/session'
+import { subscribeToBlogChannel } from '../../lib/supabase/realtime'
 
 interface ArticleMetricsProps {
     slug: string
@@ -17,13 +18,13 @@ export default function ArticleMetrics({ slug, readTime }: ArticleMetricsProps) 
 
     useEffect(() => {
         setMounted(true)
-        if (hasRecorded.current) return
-        hasRecorded.current = true
-
         const sessionId = getSessionId()
 
-        // 1. Increment View (Call RPC)
+        // 1. Increment View (Call RPC) — Only recorded ONCE on mount, NEVER on realtime events
         const recordView = async () => {
+            if (hasRecorded.current) return
+            hasRecorded.current = true
+
             try {
                 const { error } = await supabase.rpc('increment_view', {
                     post_slug: slug,
@@ -33,7 +34,7 @@ export default function ArticleMetrics({ slug, readTime }: ArticleMetricsProps) 
                 if (error && error.code !== '23505') {
                     console.warn('Error incrementing view:', error.message || error)
                 }
-            } catch (err: any) {
+            } catch {
                 // Ignore network errors gracefully
             }
         }
@@ -45,58 +46,35 @@ export default function ArticleMetrics({ slug, readTime }: ArticleMetricsProps) 
                     .from('posts_metrics')
                     .select('views_count')
                     .eq('slug', slug)
-                    .single()
+                    .maybeSingle()
 
-                if (!error && data) {
+                if (!error && data && data.views_count !== undefined) {
                     setViews(data.views_count)
                 }
-            } catch (err: any) {
+            } catch {
                 // Ignore network errors gracefully
             }
         }
 
         recordView().then(() => fetchViews())
 
-        // 3. Subscribe to Realtime Presence for Active Readers
-        const room = supabase.channel(`room_article_${slug}`)
-        
-        room
-            .on('presence', { event: 'sync' }, () => {
-                const newState = room.presenceState()
-                // Count unique users in the room
-                const users = Object.keys(newState).length
+        // 3. Subscribe to Unified Realtime Channel (One channel per page)
+        const unsubscribe = subscribeToBlogChannel(slug, {
+            presenceUser: sessionId,
+            onPresenceSync: (presenceState) => {
+                const users = Object.keys(presenceState).length
                 setActiveReaders(users > 0 ? users : 1)
-            })
-            .subscribe(async (status) => {
-                if (status === 'SUBSCRIBED') {
-                    await room.track({ user: sessionId })
+            },
+            onMetricsChange: (payload) => {
+                const newRecord = payload.new as { views_count?: number }
+                if (newRecord && newRecord.views_count !== undefined) {
+                    setViews(newRecord.views_count)
                 }
-            })
-
-        // 4. Subscribe to Realtime Postgres Changes for Total Views
-        const viewSubscription = supabase
-            .channel(`public:posts_metrics:slug=eq.${slug}`)
-            .on(
-                'postgres_changes',
-                {
-                    event: 'UPDATE',
-                    schema: 'public',
-                    table: 'posts_metrics',
-                    filter: `slug=eq.${slug}`
-                },
-                (payload) => {
-                    const newRecord = payload.new as { views_count: number }
-                    if (newRecord && newRecord.views_count) {
-                        setViews(newRecord.views_count)
-                    }
-                }
-            )
-            .subscribe()
+            }
+        })
 
         return () => {
-            room.untrack()
-            supabase.removeChannel(room)
-            supabase.removeChannel(viewSubscription)
+            unsubscribe()
         }
     }, [slug])
 
